@@ -8,6 +8,7 @@ function AllRoutes() {
         path="/register"
         element={<MainLayout component={<Register />} />}
       />
+      <Route path="/login" element={<MainLayout component={<Register />} />} />
     </Routes>
   );
 }
