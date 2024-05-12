@@ -1,4 +1,5 @@
 import "./index.css";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <div>
@@ -12,9 +13,17 @@ function Header() {
           <div class="header-name">KPInsight</div>
         </div>
         <div class="header-tab">
-          <button class="header-register">Đăng ký</button>
+          <button class="header-register">
+            <Link className="header-link" to="/register">
+              Đăng ký
+            </Link>
+          </button>
 
-          <button class="header-login">Đăng nhập</button>
+          <button class="header-login">
+            <Link className="header-link" to="/login">
+              Đăng nhập
+            </Link>
+          </button>
         </div>
       </div>
     </div>

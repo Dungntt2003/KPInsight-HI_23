@@ -68,7 +68,6 @@ body {
 .header-login {
   font-size: 16px;
   font-family: Inter, sans-serif;
-  font-weight: 700;
   background: none;
   border: none;
   padding: 0;
@@ -79,4 +78,9 @@ body {
 .header-register:hover,
 .header-login:hover {
   opacity: 0.8;
+}
+
+.header-link {
+  text-decoration: none;
+  color: white;
 }
