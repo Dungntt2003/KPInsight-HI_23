@@ -25,7 +25,7 @@
 }
 
 .flex-item {
-  padding: 5px;
+  padding: 10px;
 }
 
 .calendar-container {
@@ -38,12 +38,13 @@
 
 .chart-container {
   margin-top: 20px;
-  transform: translateX(-25%);
+  transform: translateX(-35%);
   overflow: hidden; /* Tránh tràn nội dung */
+  width: 30%%;
 }
 
 .chart {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .add-button {

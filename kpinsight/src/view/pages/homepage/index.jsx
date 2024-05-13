@@ -57,7 +57,7 @@ function Homepage() {
                   },
                   innerRadius: 30,
                   outerRadius: 100,
-                  paddingAngle: 5,
+                  paddingAngle: 3,
                   cornerRadius: 5,
                   startAngle: -90,
                   endAngle: 180,
