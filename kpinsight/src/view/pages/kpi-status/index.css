@@ -1,0 +1,26 @@
+/* chart.css */
+
+/* Tùy chỉnh màu nền của biểu đồ */
+#chart-container {
+  width: 200px;
+  height: 300px;
+}
+.chart-container canvas {
+  background-color: white;
+}
+
+/* Tùy chỉnh màu và độ dày của đường viền */
+.chart-container canvas.chartjs-render-monitor {
+  border: 2px solid #ddd;
+}
+
+/* Tùy chỉnh màu của tiêu đề biểu đồ */
+.chart-container .chart-title {
+  color: #333;
+  font-size: 20px;
+}
+
+/* Tùy chỉnh màu của các nhãn trên trục y */
+.chart-container .chart-y-axis {
+  color: #555;
+}

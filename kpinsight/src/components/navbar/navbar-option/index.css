@@ -1,0 +1,37 @@
+/* CSS cho khung menu */
+.navbar-option-container {
+  width: 200px;
+  height: 620px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  text-align: left;
+}
+.navbar-frame {
+  background-color: rgba(7, 74, 121, 0.267);
+}
+
+/* CSS cho các item trong menu */
+.navbar-item {
+  color: white;
+  background-color: #074979;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* CSS cho item được chọn */
+.navbar-item.selected {
+  background-color: white;
+  color: #074979;
+  font-weight: bolder;
+  border: 3px solid #074979;
+}
+
+.navbar-item .icon {
+  margin-right: 14px;
+  font-size: 24px;
+  transition: transform 0.01s;
+}
