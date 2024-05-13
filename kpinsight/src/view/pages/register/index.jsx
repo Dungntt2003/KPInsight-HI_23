@@ -1,7 +1,4 @@
 import "./index.css";
-<<<<<<< HEAD
-
-=======
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -16,7 +13,6 @@ import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { Form, Input, Select, Button, Checkbox } from "antd";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
->>>>>>> ab0475c8b2477ff7383fca7a15e7559911280e0f
 
 function Register() {
   const navigate = useNavigate();
@@ -36,10 +32,6 @@ function Register() {
     console.log("Received values of form: ", value);
   };
   return (
-<<<<<<< HEAD
-    <div>
-      <h1>Hello</h1>
-=======
     <div className="register-container">
       <div className="register-wrap">
         <h3 className="register-header">ĐĂNG KÝ TÀI KHOẢN</h3>
@@ -217,7 +209,6 @@ function Register() {
         </div>
       </div>
       <ToastContainer />
->>>>>>> ab0475c8b2477ff7383fca7a15e7559911280e0f
     </div>
   );
 }
