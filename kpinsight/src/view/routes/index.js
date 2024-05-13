@@ -3,6 +3,7 @@ import Register from "../pages/register";
 import MainLayout from "../../components/main-layout";
 import NavbarStatus from "../../components/navbar/navbar-status";
 import NavbarOption from "../../components/navbar/navbar-option";
+import SpeedChart from "../../components/donut-chart";
 import KpiStatus from "../../view/pages/kpi-status";
 import Login from "../pages/login";
 import ForgotPassword from "../pages/forgot-password";
@@ -21,6 +22,10 @@ function AllRoutes() {
       <Route
         path="/navbar-option"
         element={<MainLayout component={<NavbarOption />} />}
+      />
+      <Route
+        path="/donut-chart"
+        element={<MainLayout component={<SpeedChart />} />}
       />
       <Route
         path="/kpi-status"
