@@ -7,6 +7,12 @@ import KpiStatus from "../../view/pages/kpi-status";
 import Login from "../pages/login";
 import ForgotPassword from "../pages/forgot-password";
 import ResetPassword from "../pages/reset-passsword";
+import DefineGoal from "../pages/set-kpi/define-goal";
+import HeaderLayout from "../../components/layout-header";
+import SetKpiForm from "../pages/set-kpi/set-kpi-form";
+import ChooseOption from "../pages/set-kpi/choose-option";
+import ChooseMonth from "../pages/set-kpi/choose-month";
+import Done from "../pages/set-kpi/done";
 function AllRoutes() {
   return (
     <Routes>
@@ -34,6 +40,35 @@ function AllRoutes() {
       <Route
         path="/reset-password"
         element={<MainLayout component={<ResetPassword />} />}
+      />
+      <Route
+        path="/define-goal"
+        element={
+          <HeaderLayout component={<SetKpiForm component={<DefineGoal />} />} />
+        }
+      />
+      <Route
+        path="/choose-option"
+        element={
+          <HeaderLayout
+            component={<SetKpiForm component={<ChooseOption />} />}
+          />
+        }
+      />
+      <Route
+        path="/choose-month"
+        element={
+          <HeaderLayout
+            component={<SetKpiForm component={<ChooseMonth />} />}
+          />
+        }
+      />
+
+      <Route
+        path="/set-done"
+        element={
+          <HeaderLayout component={<SetKpiForm component={<Done />} />} />
+        }
       />
     </Routes>
   );

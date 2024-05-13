@@ -1,0 +1,11 @@
+.set-kpi-container {
+  margin-left: 220px;
+  padding: 20px 32px;
+  overflow: auto;
+  height: calc(100vh - 130px);
+}
+
+.set-kpi-icon {
+  color: #074979;
+  font-size: 30px;
+}
