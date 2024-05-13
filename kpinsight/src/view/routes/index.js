@@ -4,6 +4,9 @@ import MainLayout from "../../components/main-layout";
 import NavbarStatus from "../../components/navbar/navbar-status";
 import NavbarOption from "../../components/navbar/navbar-option";
 import KpiStatus from "../../view/pages/kpi-status";
+import Login from "../pages/login";
+import ForgotPassword from "../pages/forgot-password";
+import ResetPassword from "../pages/reset-passsword";
 function AllRoutes() {
   return (
     <Routes>
@@ -23,7 +26,15 @@ function AllRoutes() {
         path="/kpi-status"
         element={<MainLayout component={<KpiStatus />} />}
       />
-      <Route path="/login" element={<MainLayout component={<Register />} />} />
+      <Route path="/login" element={<MainLayout component={<Login />} />} />
+      <Route
+        path="/forgot-password"
+        element={<MainLayout component={<ForgotPassword />} />}
+      />
+      <Route
+        path="/reset-password"
+        element={<MainLayout component={<ResetPassword />} />}
+      />
     </Routes>
   );
 }
