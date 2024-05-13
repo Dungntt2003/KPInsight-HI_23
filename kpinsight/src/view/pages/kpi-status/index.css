@@ -1,22 +1,28 @@
 /* chart.css */
-
-/* Tùy chỉnh màu nền của biểu đồ */
-#chart-container {
-  width: 200px;
-  height: 300px;
+.body {
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.body .chart-container {
+  padding-top: 20px;
+  padding-left: 400px;
+  padding-bottom: 200px;
 }
 .chart-container canvas {
   background-color: white;
+  width: 1000px !important;
+  height: 400px !important;
 }
 
 /* Tùy chỉnh màu và độ dày của đường viền */
 .chart-container canvas.chartjs-render-monitor {
-  border: 2px solid #ddd;
+  border: 2px solid black;
 }
 
 /* Tùy chỉnh màu của tiêu đề biểu đồ */
 .chart-container .chart-title {
-  color: #333;
+  color: black;
   font-size: 20px;
 }
 

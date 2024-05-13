@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 import "./index.css"; // Import tệp CSS tùy chỉnh
+import NavbarStatus from "../../../components/navbar/navbar-status";
 
 const KpiStatus = () => {
   const chartRef = useRef(null);
@@ -10,28 +11,27 @@ const KpiStatus = () => {
       type: "bar",
       data: {
         labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
+          "Học thiết kế giao diện",
+          "Làm Project GR1",
+          "Học ReactJS",
+          "Làm BT ITSS",
+          "Code",
           "June",
           "July",
+          "August",
         ],
         datasets: [
           {
             label: "Sales 1",
-            data: [65, 59, 80, 81, 56, 55, 40],
-            backgroundColor: "rgba(75, 192, 192, 0.2)",
-            borderColor: "rgba(75, 192, 192, 1)",
+            data: [65, 129, 80, 81, 56, 55, 40],
+            backgroundColor: "#074979",
             borderWidth: 1,
             borderSkipped: false,
           },
           {
             label: "Sales 2",
-            data: [28, 48, 40, 19, 86, 27, 90],
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            borderColor: "rgba(255, 99, 132, 1)",
+            data: [100, 100, 100, 100, 100, 100, 100],
+            backgroundColor: "#B8D3E7",
             borderWidth: 1,
             borderSkipped: false,
           },
@@ -45,11 +45,34 @@ const KpiStatus = () => {
         },
         plugins: {
           legend: {
-            display: false,
+            display: true,
           },
           tooltip: {
             mode: "index",
             intersect: false,
+          },
+        },
+        interaction: {
+          mode: "index",
+          intersect: true,
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        elements: {
+          bar: {
+            maxBarThickness: 100, // Đặt độ dày tối đa của cột
+          },
+        },
+        layout: {
+          padding: {
+            right: 100, // Cung cấp không gian bên phải để scrollbar hiển thị
+          },
+        },
+        plugins: {
+          scrollbar: {
+            // Thiết lập scrollbar
+            display: true,
+            axis: "x", // Thiết lập scrollbar cho trục x (ngang)
           },
         },
       },
@@ -61,10 +84,14 @@ const KpiStatus = () => {
   }, []);
 
   return (
-    <div className="chart-container">
-      {" "}
-      {/* Áp dụng class vào container của biểu đồ */}
-      <canvas ref={chartRef}></canvas>
+    <div>
+      <div>
+        <NavbarStatus />
+        <div className="chart-container">
+          {/* Áp dụng class vào container của biểu đồ */}
+          <canvas ref={chartRef}></canvas>
+        </div>
+      </div>
     </div>
   );
 };

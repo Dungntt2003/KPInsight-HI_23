@@ -8,15 +8,16 @@
 }
 /* CSS cho tên navbar */
 .navbar-name {
+  margin-top: 30px;
   color: #074979;
-  font-size: 30;
+  font-size: 24px;
   text-align: center;
 }
 
 /* CSS cho các item trong menu */
 .navbar-menu-item {
   color: black;
-  font-size: 24px;
+  font-size: 18px;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 20px;
@@ -52,7 +53,7 @@
 }
 
 .navbar-menu-item .downicon {
-  margin-left: 14px;
+  margin-left: 20px;
   font-size: 18px;
   transition: transform 0.01s;
 }
