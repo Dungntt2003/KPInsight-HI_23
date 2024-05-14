@@ -17,6 +17,8 @@ import Done from "../pages/set-kpi/done";
 import Homepage from "../pages/homepage";
 import Target_list from "../pages/target/target_list";
 import Target_detail from "../pages/target/target_detail";
+import DefineTarget from "../pages/set-kpi/define-target";
+import TurnStandard from "../pages/set-kpi/turn-standard";
 function AllRoutes() {
   return (
     <Routes>
@@ -40,7 +42,7 @@ function AllRoutes() {
         path="/kpi-status"
         element={<HeaderLayout component={<KpiStatus />} />}
       />
-      {/* <Route path="/home" element={<MainLayout component={<Homepage />} />} /> */}
+      <Route path="/home" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
