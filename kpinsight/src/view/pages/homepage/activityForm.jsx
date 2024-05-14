@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form, Modal, Select } from "antd";
-
+import "./index.css";
 const { Option } = Select;
 
 const ActivityForm = ({ visible, onCancel, activities }) => {
@@ -57,18 +57,21 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
             <Option value="Khác">Khác</Option>
           </Select>
         </Form.Item>
+
         <Form.Item label="Chọn hoạt động">
           {selectedTag &&
             activities
               .filter((activity) => activity.tag === selectedTag)
               .map((activity) => (
-                <Checkbox
-                  key={activity.id}
-                  checked={selectedActivities.includes(activity.id)}
-                  onChange={() => handleActivityChange(activity.id)}
-                >
-                  {activity.name}
-                </Checkbox>
+                <div className="actForm">
+                  <Checkbox
+                    key={activity.id}
+                    checked={selectedActivities.includes(activity.id)}
+                    onChange={() => handleActivityChange(activity.id)}
+                  >
+                    {activity.name}
+                  </Checkbox>
+                </div>
               ))}
         </Form.Item>
       </Form>
