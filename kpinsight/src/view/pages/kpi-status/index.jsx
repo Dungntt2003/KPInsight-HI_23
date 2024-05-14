@@ -6,9 +6,9 @@ import NavbarStatus from "../../../components/navbar/navbar-status";
 import SpeedChart from "../../../components/speed-chart";
 
 const KpiStatus = () => {
-  const min = 50;
-  const max = 100;
-  const score = 105;
+  const min = 3;
+  const max = 7;
+  const score = 9;
 
   const chartRef = useRef(null);
   //Select chọn nhãn:
@@ -135,6 +135,13 @@ const KpiStatus = () => {
         </div>
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
         <SpeedChart min={min} max={max} score={score} />
+        <div className="detailKPI">
+          <h1 className="detail-tittle">Chi tiết KPI</h1>
+          <div className="suggest"></div>
+          <div className="activityKPI1">
+            <SpeedChart min={min} max={max} score={score} />
+          </div>
+        </div>
       </div>
     </div>
   );
