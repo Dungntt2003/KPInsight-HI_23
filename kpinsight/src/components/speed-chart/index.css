@@ -14,8 +14,8 @@
   align-items: center;
 }
 .speed-chart-container .speedometer {
-  width: 500px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
   padding: 100px;
   border-radius: 50%;
   background: radial-gradient(#ffff 0 0) content-box,
@@ -33,23 +33,23 @@
 
 .needle {
   position: absolute;
-  width: 380px;
-  height: 380px;
-  padding: 150px;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
+  width: 80px;
+  height: 80px;
+  padding: 140px;
+  left: 5%;
+  top: 3%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   background: conic-gradient(
         from 175deg at 50% 55%,
         #ccc 2deg,
-        #ea1c98 3deg 7deg,
-        #ccc 8 deg 10 deg,
+        #074979 3deg 7deg,
+        #ccc 8deg 10deg,
         #0000 0
       )
       0 -217px no-repeat,
-    radial-gradient(#ea1c98 0 -50%, #ccc 51%) content-box;
-  rotate: calc(cos(var(--score) * 180deg /100) * -90deg);
+    radial-gradient(white 0 -50%, #ccc 51%) content-box;
+  transform: rotate(calc(var(--score) * 1.8deg - 90deg));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@
 
 .score {
   rotate: calc(cos(var(--score) * 180deg /100) * 90deg);
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 800;
-  color: #eee;
+  color: #074979;
 }
