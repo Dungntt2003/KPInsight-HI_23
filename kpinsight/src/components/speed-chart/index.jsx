@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./index.css";
 
 const SpeedChart = ({ min, score, max }) => {
   return (
-    <div className="speed-chart-container" style={{ "--score": score }}>
+    <div
+      className="speed-chart-container"
+      style={{ "--score": score, "--min": min, "--max": max }}
+    >
       <div className="speedometer">
-        <div className="needle">
+        <div className="needle"></div>
+        <div className="score-container">
           <span className="score">{score}%</span>
         </div>
-        {/* Add additional markers or elements here as needed */}
+        <div className="marker min-marker" title={`Min: ${min}`}></div>
+        <div className="marker max-marker" title={`Max: ${max}`}></div>
       </div>
     </div>
   );

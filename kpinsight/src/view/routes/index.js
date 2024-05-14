@@ -14,10 +14,9 @@ import SetKpiForm from "../pages/set-kpi/set-kpi-form";
 import ChooseOption from "../pages/set-kpi/choose-option";
 import ChooseMonth from "../pages/set-kpi/choose-month";
 import Done from "../pages/set-kpi/done";
-// import Homepage from "../pages/homepage";
-import Target_list from "../pages/target_list";
-import DefineTarget from "../pages/set-kpi/define-target";
-import TurnStandard from "../pages/set-kpi/turn-standard";
+import Homepage from "../pages/homepage";
+import Target_list from "../pages/target/target_list";
+import Target_detail from "../pages/target/target_detail";
 function AllRoutes() {
   return (
     <Routes>
@@ -99,6 +98,10 @@ function AllRoutes() {
       <Route
         path="/target_list"
         element={<MainLayout component={<Target_list />} />}
+      />
+      <Route
+        path="/target_detail"
+        element={<MainLayout component={<Target_detail />} />}
       />
     </Routes>
   );

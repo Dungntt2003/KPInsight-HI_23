@@ -5,9 +5,9 @@
 }
 
 .flex-container {
-  height: 550px;
+  height: 400px;
   overflow: hidden; /* Tránh tràn nội dung */
-  margin-top: 0px;
+  margin-top: 110px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
 }
 
 .calendar-wrap {
-  height: 90%;
+  height: 85%;
   width: 700px;
   margin-top: 20px;
   transform: translateX(-15%);
@@ -48,8 +48,8 @@
   height: 100% !important;
 }
 .chart-container {
-  margin-top: 20px;
-  transform: translateX(-35%);
+  margin-top: 10px;
+  transform: translateX(-15%);
   overflow: hidden; /* Tránh tràn nội dung */
   flex: 1;
   display: flex;
@@ -57,8 +57,8 @@
 }
 
 .chart {
-  margin-top: 60px;
-  width: 100%;
+  margin-top: 0px;
+  width: 70%;
 }
 
 .add-button {
@@ -73,12 +73,12 @@
 }
 
 .act1 {
-  width: 100%;
+  width: 710px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px; /* Bo tròn góc */
   margin-top: 20px; /* Khoảng cách với các phần tử khác phía trên */
-  padding: 5px; /* Khoảng cách bên trong khung */
-  transform: translateX(34%);
+  padding: 2px; /* Khoảng cách bên trong khung */
+  transform: translateX(35%);
   background: #8fbcdd;
   display: flex;
   align-items: center;
@@ -88,8 +88,8 @@
 .act-name {
   margin-left: 50px;
   width: 100%;
-  max-width: 800px;
-  font-size: 16px;
+  max-width: 700px;
+  font-size: 14px;
 }
 
 .update-button {
@@ -106,4 +106,8 @@
 .tag {
   border-radius: 20px;
   margin-left: 10px;
+}
+
+.actForm {
+  display: block;
 }

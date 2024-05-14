@@ -6,9 +6,9 @@ import NavbarStatus from "../../../components/navbar/navbar-status";
 import SpeedChart from "../../../components/speed-chart";
 
 const KpiStatus = () => {
-  const min = 20;
+  const min = 50;
   const max = 100;
-  const score = 70;
+  const score = 20;
 
   const chartRef = useRef(null);
   //Select chọn nhãn:

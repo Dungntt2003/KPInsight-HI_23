@@ -6,6 +6,9 @@
   --c3: #f69220;
   --c4: #8ba247;
   --c5: #23b473;
+  --score: 0;
+  --min: 0;
+  --max: 100;
 
   width: 100vw;
   height: 100vh;
@@ -13,6 +16,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .speed-chart-container .speedometer {
   width: 200px;
   height: 200px;
@@ -53,11 +57,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
-
-.score {
-  /* rotate: calc(cos(var(--score) * 180deg /100) * 90deg); */
+.score-container {
+  box-sizing: content-box;
+  position: absolute;
+  width: 38%;
+  height: 42%;
+  z-index: 100;
+}
+.score-container .score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   font-size: 24px;
   font-weight: 800;
   color: #074979;
+  z-index: 100;
+}
+
+.marker {
+  position: absolute;
+  width: 3px;
+  height: 100px;
+  background-color: black;
+  top: 0;
+  transform-origin: bottom center;
+}
+
+.min-marker {
+  left: 50%;
+  transform: rotate(calc(var(--min) * 1.8deg - 90deg));
+  height: 50%; /* Độ dài của vạch Min bằng độ rộng của speedometer */
+  width: 3px;
+}
+
+.max-marker {
+  left: 50%;
+  transform: rotate(90deg); /* Always at 180 degrees */
+  height: 50%;
+  width: 3px;
+}
+
+.marker:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 15px;
+  white-space: nowrap;
 }
