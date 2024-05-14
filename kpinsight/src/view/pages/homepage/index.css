@@ -35,8 +35,18 @@
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 0px;
+  overflow-y: auto;
+  height: 500px;
 }
 
+.ant-picker-cell {
+  height: 32px !important;
+}
+
+/* Đảm bảo chiều cao của panel lịch là 100% */
+.ant-picker-calendar-full .ant-picker-panel {
+  height: 100% !important;
+}
 .chart-container {
   margin-top: 20px;
   transform: translateX(-35%);
