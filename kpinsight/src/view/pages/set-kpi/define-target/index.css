@@ -18,3 +18,44 @@
   margin: 0;
   padding: 0;
 }
+
+.define-target-input-act {
+  width: 100px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: #074979;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.define-target-input-act:hover {
+  background-color: white;
+  color: #074979;
+}
+
+.define-target-btn-add-act {
+  border: 2px solid #074979;
+}
+
+.define-target-label {
+  width: 150px;
+  border: 2px solid #074979;
+  background-color: white;
+  color: #074979;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 70%;
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+
+.define-target-card-big {
+  background-color: #83a4bc;
+  padding: 24px;
+  margin: 12px 0;
+}
+.define-target-btn-add-label {
+  background-color: #074979;
+  color: white;
+}

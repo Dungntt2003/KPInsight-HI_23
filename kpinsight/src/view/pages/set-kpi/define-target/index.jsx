@@ -5,27 +5,9 @@ import { CloseOutlined } from "@ant-design/icons";
 import { Button, Card, Form, Input, Space, Typography, Radio } from "antd";
 const { Paragraph } = Typography;
 function DefineTarget() {
-  const [clickTriggerStr, setClickTriggerStr] = useState("");
   const [form1] = Form.useForm();
   const [form2] = Form.useForm();
-  const radioToState = (input) => {
-    switch (input) {
-      case "text":
-        return ["text"];
-      case "both":
-        return ["icon", "text"];
-      case "icon":
-      default:
-        return ["icon"];
-    }
-  };
-  const [chooseTrigger, setChooseTrigger] = useState(["icon"]);
-  const stateToRadio = useMemo(() => {
-    if (chooseTrigger.includes("text")) {
-      return chooseTrigger.includes("icon") ? "both" : "text";
-    }
-    return "icon";
-  }, [chooseTrigger]);
+
   return (
     <div className="define-target-container">
       <div className="define-target-wrap">
@@ -33,23 +15,6 @@ function DefineTarget() {
           <h3 className="define-target-header">Xác định mục tiêu KPI</h3>
         </div>
         <div className="define-target-list">
-          <Radio.Group
-            onChange={(e) => setChooseTrigger(radioToState(e.target.value))}
-            value={stateToRadio}
-          >
-            <Radio value="icon">icon</Radio>
-            <Radio value="text">text</Radio>
-            <Radio value="both">both</Radio>
-          </Radio.Group>
-          <Paragraph
-            editable={{
-              tooltip: "click to edit text",
-              onChange: setClickTriggerStr,
-              triggerType: chooseTrigger,
-            }}
-          >
-            {clickTriggerStr}
-          </Paragraph>
           <Form
             labelCol={{
               span: 6,
@@ -64,7 +29,14 @@ function DefineTarget() {
             }}
             autoComplete="off"
             initialValues={{
-              items: [{}],
+              items: [
+                {
+                  name: "Học tập",
+                },
+                {
+                  name: "Cá nhân",
+                },
+              ],
             }}
           >
             <Form.List name="items">
@@ -79,9 +51,17 @@ function DefineTarget() {
                   {fields.map((field) => (
                     <Card
                       size="small"
+                      className="define-target-card-big"
                       title={
-                        <Form.Item label="Title" name={[field.title, "title"]}>
-                          <Input />
+                        <Form.Item
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                          name={[field.name, "name"]}
+                        >
+                          <Input className="define-target-label" />
                         </Form.Item>
                       }
                       key={field.key}
@@ -107,7 +87,34 @@ function DefineTarget() {
                         }}
                         autoComplete="off"
                         initialValues={{
-                          items: [{}],
+                          items: [
+                            {
+                              name: "IT",
+                              list: [
+                                {
+                                  first: "Hoàn thành khóa học ReactJs",
+                                },
+                                {
+                                  first:
+                                    "Đạt giải cuộc thi Shecodes tháng 9/2024",
+                                },
+                                {
+                                  first: "Thiết kế component ở figma",
+                                },
+                              ],
+                            },
+                            {
+                              name: "Ngoại ngữ",
+                              list: [
+                                {
+                                  first: "Đạt chứng chỉ Toeic 500+",
+                                },
+                                {
+                                  first: "Học xong từ vựng N3",
+                                },
+                              ],
+                            },
+                          ],
                         }}
                       >
                         <Form.List name="items">
@@ -124,7 +131,19 @@ function DefineTarget() {
                               {fields1.map((field1) => (
                                 <Card
                                   size="small"
-                                  title={`Item ${field1.name + 1}`}
+                                  title={
+                                    <Form.Item
+                                      name={[field1.name, "name"]}
+                                      noStyle
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <Input className="define-target-input-act" />
+                                    </Form.Item>
+                                  }
                                   key={field1.key}
                                   style={{ minWidth: "400px" }}
                                   extra={
@@ -155,6 +174,7 @@ function DefineTarget() {
                                               >
                                                 <Input
                                                   style={{ width: "350px" }}
+                                                  value={subField1.first}
                                                 />
                                               </Form.Item>
                                               <CloseOutlined
@@ -170,6 +190,7 @@ function DefineTarget() {
                                             type="dashed"
                                             onClick={() => subOpt1.add()}
                                             block
+                                            className="define-target-btn-add-act"
                                           >
                                             + Thêm mục tiêu
                                           </Button>
@@ -185,6 +206,7 @@ function DefineTarget() {
                                 style={{ width: "60%", margin: "auto" }}
                                 onClick={() => add()}
                                 block
+                                className="define-target-btn-add-label"
                               >
                                 + Thêm nhãn
                               </Button>
