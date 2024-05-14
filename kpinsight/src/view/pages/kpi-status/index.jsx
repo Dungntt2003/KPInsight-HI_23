@@ -3,12 +3,12 @@ import { Select } from "antd";
 import Chart from "chart.js/auto";
 import "./index.css"; // Import tệp CSS tùy chỉnh
 import NavbarStatus from "../../../components/navbar/navbar-status";
-import DonutChart from "../../../components/donut-chart";
+import SpeedChart from "../../../components/speed-chart";
 
 const KpiStatus = () => {
   const min = 20;
-  const max = 180;
-  const current = 50;
+  const max = 100;
+  const score = 70;
 
   const chartRef = useRef(null);
   //Select chọn nhãn:
@@ -129,12 +129,12 @@ const KpiStatus = () => {
             ]}
           />
         </div>
-        <div className="chart-container">
+        <div className="columnchart-container">
           {/* Áp dụng class vào container của biểu đồ */}
           <canvas ref={chartRef}></canvas>
         </div>
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
-        <DonutChart min={min} max={max} current={current} />
+        <SpeedChart min={min} max={max} score={score} />
       </div>
     </div>
   );

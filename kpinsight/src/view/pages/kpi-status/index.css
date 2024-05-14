@@ -11,24 +11,24 @@
 }
 .body .navbar-menu-container {
   position: fixed;
-  top: 0;
+  top: 81px;
   left: 0;
   height: 100%; /* Chiều cao tương đương với chiều rộng của trang */
   z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */
 }
-.body .header {
+/* .body .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000; /* Đảm bảo hiển thị trên các phần khác */
-}
 .namepage {
   flex: 1;
   font-size: 30px;
   font-weight: 900;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 110px;
+  margin-left: 200px;
   color: #074979;
 }
 .select {
@@ -36,12 +36,12 @@
   margin-top: -25px;
 }
 
-.body .chart-container {
+.body .columnchart-container {
   margin-top: 10px;
   margin-left: 350px;
   z-index: 1; /* Đảm bảo chart hiển thị phía sau navbar */
 }
-.chart-container canvas {
+.columnchart-container canvas {
   overflow: scroll;
   border: 3px solid black;
   border-radius: 20px;
@@ -51,18 +51,18 @@
 }
 
 /* Tùy chỉnh màu và độ dày của đường viền */
-.chart-container canvas.chartjs-render-monitor {
+.columnchart-container canvas.chartjs-render-monitor {
   border: 3px solid black;
 }
 
 /* Tùy chỉnh màu của tiêu đề biểu đồ => Đang không dùng được*/
-.chart-container .chart-title {
-  color: black;
+.columnchart-container .chart-title {
+  color: black !important;
   font-size: 50px;
 }
 
 /* Tùy chỉnh màu của các nhãn trên trục y => Đang không dùng được*/
-.chart-container .chart-y-axis {
+.columnchart-container .chart-y-axis {
   color: black;
 }
 
@@ -71,5 +71,6 @@
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
+  margin-left: 200px;
   color: #517fa1;
 }
