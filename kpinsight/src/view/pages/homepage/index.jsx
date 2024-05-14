@@ -1,6 +1,6 @@
 import "./index.css";
 import React, { useState } from "react";
-import { Calendar } from "antd";
+import { Calendar, theme } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button, Tag } from "antd";
 import { PieChart } from "@mui/x-charts/PieChart";
@@ -11,11 +11,11 @@ function Homepage() {
     console.log(value.format("YYYY-MM-DD"), mode);
   };
   const data = [
-    { id: 0, value: 5 },
-    { id: 1, value: 5 },
-    { id: 2, value: 10 },
-    { id: 3, value: 30 },
-    { id: 4, value: 30 },
+    { id: 0, value: 5, label: "Tình nguyện" },
+    { id: 1, value: 5, label: "Tài chính" },
+    { id: 2, value: 10, label: "Sức khỏe" },
+    { id: 3, value: 30, label: "Ngoại ngữ" },
+    { id: 4, value: 30, label: "IT" },
   ];
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activities, setActivities] = useState([
@@ -56,7 +56,7 @@ function Homepage() {
                     color: "gray",
                   },
                   innerRadius: 30,
-                  outerRadius: 105,
+                  outerRadius: 120,
                   paddingAngle: 3,
                   cornerRadius: 5,
                   startAngle: -90,
@@ -68,7 +68,7 @@ function Homepage() {
         </div>
         <div className="flex-item calendar-wrap">
           <div className="calendar-container">
-            <Calendar onPanelChange={onPanelChange} />
+            <Calendar fullscreen={false} onPanelChange={onPanelChange} />
           </div>
         </div>
       </div>
