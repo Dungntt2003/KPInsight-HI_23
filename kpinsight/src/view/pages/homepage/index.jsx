@@ -56,14 +56,13 @@ function Homepage() {
                     color: "gray",
                   },
                   innerRadius: 30,
-                  outerRadius: 100,
+                  outerRadius: 105,
                   paddingAngle: 3,
                   cornerRadius: 5,
                   startAngle: -90,
                   endAngle: 180,
                 },
               ]}
-              height={300}
             />
           </div>
         </div>
