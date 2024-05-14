@@ -14,6 +14,7 @@ import SetKpiForm from "../pages/set-kpi/set-kpi-form";
 import ChooseOption from "../pages/set-kpi/choose-option";
 import ChooseMonth from "../pages/set-kpi/choose-month";
 import Done from "../pages/set-kpi/done";
+import Homepage from "../pages/homepage";
 import Target_list from "../pages/target_list";
 function AllRoutes() {
   return (
@@ -38,6 +39,7 @@ function AllRoutes() {
         path="/kpi-status"
         element={<MainLayout component={<KpiStatus />} />}
       />
+      <Route path="/home" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
