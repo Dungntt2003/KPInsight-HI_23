@@ -1,4 +1,4 @@
-.list-container {
+.target-list-container {
   display: flex;
   margin: 30px 0;
   width: 100%;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.list-frame {
+.target-list-frame {
   padding: 50px 100px;
   margin-left: 250px;
   margin-right: 20px;
@@ -24,8 +24,8 @@ h3 {
   margin-bottom: 20px;
 }
 
-#header,
-#title {
+#kpi-target-header,
+#goal-list-title {
   margin: 0 auto auto 0;
   padding: 8px 0 0;
   flex-shrink: 0;
@@ -37,12 +37,12 @@ h3 {
   border-radius: 15px;
 }
 
-#title {
+#goal-list-title {
   margin-top: 25px;
   width: 120px;
 }
 
-.select-container {
+.kpi-target-select-container {
   margin-left: 1200px;
   margin-top: -25px;
   /* flex: 1;
@@ -50,7 +50,7 @@ h3 {
   justify-content: flex-end; */
 }
 
-.list-wrap {
+.target-list-wrap {
   width: auto;
   margin: 50px auto;
   padding: 20px;
@@ -59,10 +59,21 @@ h3 {
   background-color: #ffff;
 }
 
-#goalList {
+.target-list-item {
+  /* display: flex; */
+  align-items: center;
+}
+
+#target-goalList {
   list-style: none;
+  flex: 1;
   padding: 0;
   margin: 0;
+}
+
+.target-list-content-detail {
+  display: flex;
+  align-items: center;
 }
 
 li {
@@ -75,12 +86,12 @@ li {
   justify-content: space-between;
 }
 
-.content {
+.target-list-content {
   text-align: left;
 }
 
-.tag,
-.date {
+.target-list-tag,
+.target-list-date {
   text-align: right;
   background-color: #ffff;
   padding: 2px 5px;
@@ -88,7 +99,7 @@ li {
   margin-right: 0px;
 }
 
-.icon {
+.target-list-icon {
   font-size: 1.2em;
   margin-left: 10px;
   color: #074979;
@@ -98,6 +109,10 @@ li {
   padding: 0;
 }
 
-#title-icon {
+#goal-list-title-icon {
   margin-top: 25px;
 }
+
+/* .list-item .icon {
+  margin-left: auto;
+} */
