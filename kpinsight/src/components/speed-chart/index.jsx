@@ -6,7 +6,7 @@ const SpeedChart = ({ min, score, max }) => {
     <div className="speed-chart-container" style={{ "--score": score }}>
       <div className="speedometer">
         <div className="needle">
-          <span className="score">{score}</span>
+          <span className="score">{score}%</span>
         </div>
         {/* Add additional markers or elements here as needed */}
       </div>

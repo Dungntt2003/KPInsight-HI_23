@@ -36,8 +36,8 @@
   width: 80px;
   height: 80px;
   padding: 140px;
-  left: 5%;
-  top: 3%;
+  left: 6%;
+  top: 5%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: conic-gradient(
@@ -56,8 +56,8 @@
 }
 
 .score {
-  rotate: calc(cos(var(--score) * 180deg /100) * 90deg);
-  font-size: 30px;
+  /* rotate: calc(cos(var(--score) * 180deg /100) * 90deg); */
+  font-size: 24px;
   font-weight: 800;
   color: #074979;
 }

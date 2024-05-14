@@ -37,7 +37,7 @@ function AllRoutes() {
       />
       <Route
         path="/kpi-status"
-        element={<MainLayout component={<KpiStatus />} />}
+        element={<HeaderLayout component={<KpiStatus />} />}
       />
       <Route path="/home" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />

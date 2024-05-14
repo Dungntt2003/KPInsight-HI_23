@@ -8,7 +8,7 @@ import SpeedChart from "../../../components/speed-chart";
 const KpiStatus = () => {
   const min = 20;
   const max = 100;
-  const score = 100;
+  const score = 70;
 
   const chartRef = useRef(null);
   //Select chọn nhãn:
@@ -129,7 +129,7 @@ const KpiStatus = () => {
             ]}
           />
         </div>
-        <div className="chart-container">
+        <div className="columnchart-container">
           {/* Áp dụng class vào container của biểu đồ */}
           <canvas ref={chartRef}></canvas>
         </div>
