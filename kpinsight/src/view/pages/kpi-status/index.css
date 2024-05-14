@@ -3,11 +3,6 @@
   font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  display: flex;
-  flex-direction: column; /* Thiết lập layout theo cột */
-  min-height: 100vh; /* Đảm bảo body có ít nhất 100% chiều cao của viewport */
-  margin: 0; /* Loại bỏ margin mặc định */
-  padding: 0; /* Loại bỏ padding mặc định */
 }
 .body .navbar-menu-container {
   position: fixed;
