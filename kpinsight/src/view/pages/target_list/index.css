@@ -1,0 +1,98 @@
+.list-container {
+  display: flex;
+  margin: 30px 0;
+  width: 100%;
+  height: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+Select {
+  width: 130px;
+  margin-bottom: auto;
+}
+
+.list-frame {
+  padding: 50px 100px;
+  margin: 0 56px;
+  border-radius: 60px;
+  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+h3 {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#header,
+#title {
+  margin: 0 auto auto 0;
+  padding: 8px 0 0;
+  flex-shrink: 0;
+  background-color: #074979;
+  color: #ffff;
+  width: 200px;
+  height: 30px;
+  display: block;
+  border-radius: 15px;
+}
+
+#title {
+  width: 130px;
+}
+
+.select-container {
+  width: 130px;
+  margin-left: auto;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list-wrap {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #074979;
+  background-color: #ffff;
+}
+
+#goalList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #ffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  text-align: left;
+}
+
+.tag,
+.date {
+  background-color: #ffff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.icon {
+  font-size: 1.2em;
+  margin-left: 10px;
+  color: #074979;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
