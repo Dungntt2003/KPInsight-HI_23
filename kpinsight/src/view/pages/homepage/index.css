@@ -1,0 +1,109 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-container {
+  height: 550px;
+  overflow: hidden; /* Tránh tràn nội dung */
+  margin-top: 0px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.calendar-wrap {
+  height: 90%;
+  width: 700px;
+  margin-top: 20px;
+  transform: translateX(-15%);
+  border-radius: 20px;
+  overflow: hidden; /* Tránh tràn nội dung */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.flex-item {
+  padding: 10px;
+}
+
+.calendar-container {
+  width: 100%;
+  transform: translateX(0%);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  overflow-y: auto;
+  height: 500px;
+}
+
+.ant-picker-cell {
+  height: 32px !important;
+}
+
+/* Đảm bảo chiều cao của panel lịch là 100% */
+.ant-picker-calendar-full .ant-picker-panel {
+  height: 100% !important;
+}
+.chart-container {
+  margin-top: 20px;
+  transform: translateX(-35%);
+  overflow: hidden; /* Tránh tràn nội dung */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.chart {
+  margin-top: 60px;
+  width: 100%;
+}
+
+.add-button {
+  transform: translateX(330%);
+  margin-bottom: 0px;
+  background-color: #074979;
+  border-radius: 10px;
+}
+
+.act-list {
+  width: 710px;
+}
+
+.act1 {
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px; /* Bo tròn góc */
+  margin-top: 20px; /* Khoảng cách với các phần tử khác phía trên */
+  padding: 5px; /* Khoảng cách bên trong khung */
+  transform: translateX(34%);
+  background: #8fbcdd;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.act-name {
+  margin-left: 50px;
+  width: 100%;
+  max-width: 800px;
+  font-size: 16px;
+}
+
+.update-button {
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.time {
+  display: block;
+  font-size: 14px;
+  color: #666;
+}
+
+.tag {
+  border-radius: 20px;
+  margin-left: 10px;
+}
