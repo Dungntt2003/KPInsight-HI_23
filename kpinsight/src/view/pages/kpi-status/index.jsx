@@ -8,7 +8,7 @@ import SpeedChart from "../../../components/speed-chart";
 const KpiStatus = () => {
   const min = 50;
   const max = 100;
-  const score = 20;
+  const score = 105;
 
   const chartRef = useRef(null);
   //Select chọn nhãn:

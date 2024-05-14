@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .speed-chart-container .speedometer {
@@ -32,7 +33,7 @@
       var(--c5) 180deg,
       #0000 0
     );
-  position: relative;
+  position: absolute;
 }
 
 .needle {
@@ -89,14 +90,14 @@
   left: 50%;
   transform: rotate(calc(var(--min) * 1.8deg - 90deg));
   height: 50%; /* Độ dài của vạch Min bằng độ rộng của speedometer */
-  width: 3px;
+  width: 2px;
 }
 
 .max-marker {
   left: 50%;
   transform: rotate(90deg); /* Always at 180 degrees */
   height: 50%;
-  width: 3px;
+  width: 2px;
 }
 
 .marker:hover::after {
@@ -111,4 +112,28 @@
   border-radius: 3px;
   font-size: 15px;
   white-space: nowrap;
+}
+.exceed {
+  width: 200px;
+  height: 200px;
+  padding: 100px;
+  border-radius: 50%;
+  transform: rotate(270deg);
+  background: radial-gradient(#ffff 0 0) content-box,
+    conic-gradient(
+      from 180deg,
+      #2390b4,
+      #2360b4 calc(var(--exceed) * 1.8deg),
+      transparent 0
+    );
+  position: absolute;
+}
+
+.white-space {
+  width: 200px;
+  height: 200px;
+  padding: 100px;
+  border-radius: 50%;
+  background: radial-gradient(#ffff 0 0) content-box;
+  position: absolute;
 }
