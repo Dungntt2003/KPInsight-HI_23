@@ -24,6 +24,13 @@ function SetKpiForm(props) {
       case 1:
         navigate("/choose-month");
         break;
+
+      case 2:
+        navigate("/define-target");
+        break;
+      case 3:
+        navigate("/turn-standard");
+        break;
       case 4:
         navigate("/set-done");
         break;
@@ -34,7 +41,7 @@ function SetKpiForm(props) {
       <div className="set-kpi-navbar">
         <NavbarGoal />
       </div>
-      <div className="set-kpi-content">
+      <div className="set-kpi-content" style={{ marginTop: "110px" }}>
         <div className="set-kpi-step">
           <Steps
             current={current}
