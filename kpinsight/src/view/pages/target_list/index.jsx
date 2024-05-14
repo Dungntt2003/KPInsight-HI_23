@@ -8,8 +8,10 @@ import {
   StarOutlined,
   DownCircleOutlined,
 } from "@ant-design/icons";
+import NavbarGoal from "../../../components/navbar/navbar-goal";
 
 function Target_list() {
+  //Choose label
   const handleChange = (value) => {
     console.log(value);
   };
@@ -80,29 +82,41 @@ function Target_list() {
   ]);
   return (
     <div className="list-container">
+      <NavbarGoal />
       <div className="list-frame">
         <h3>
           <span id="header">Mục tiêu KPI</span>
           <span id="select-container">
             <Select
-              labelInValue
-              defaultValue={{
-                value: "0",
-                label: "Chọn lĩnh vực",
+              defaultValue="Lọc theo nhãn"
+              style={{
+                width: 150,
               }}
               onChange={handleChange}
               options={[
                 {
-                  value: "1",
-                  label: "Ngoại ngữ",
+                  label: <span>Học tập</span>,
+                  title: "Học tập",
+                  options: [
+                    {
+                      label: <span>IT</span>,
+                      value: "IT",
+                    },
+                    {
+                      label: <span>Ngoại ngữ</span>,
+                      value: "Ngoại ngữ",
+                    },
+                  ],
                 },
                 {
-                  value: "2",
-                  label: "IT",
-                },
-                {
-                  value: "3",
-                  label: "Gia đình",
+                  label: <span>Cá nhân</span>,
+                  title: "Cá nhân",
+                  options: [
+                    {
+                      label: <span>Gia đình</span>,
+                      value: "Gia đình",
+                    },
+                  ],
                 },
               ]}
             />
@@ -112,10 +126,10 @@ function Target_list() {
         <div className="list-wrap">
           <h3>
             <span id="title">Học tập</span>
-            <span className="icon">
+            <span className="icon" id="title-icon">
               <EditOutlined />
             </span>
-            <span className="icon">
+            <span className="icon" id="title-icon">
               <CloseCircleOutlined />
             </span>
           </h3>
@@ -142,10 +156,10 @@ function Target_list() {
         <div className="list-wrap">
           <h3>
             <span id="title">Xã hội</span>
-            <span className="icon">
+            <span className="icon" id="title-icon">
               <EditOutlined />
             </span>
-            <span className="icon">
+            <span className="icon" id="title-icon">
               <CloseCircleOutlined />
             </span>
           </h3>
@@ -169,9 +183,9 @@ function Target_list() {
           </div>
         </div>
 
-        <span className="icon">
+        {/* <span className="icon">
           <DownCircleOutlined />
-        </span>
+        </span> */}
       </div>
     </div>
   );

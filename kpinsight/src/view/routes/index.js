@@ -14,6 +14,7 @@ import SetKpiForm from "../pages/set-kpi/set-kpi-form";
 import ChooseOption from "../pages/set-kpi/choose-option";
 import ChooseMonth from "../pages/set-kpi/choose-month";
 import Done from "../pages/set-kpi/done";
+import Target_list from "../pages/target_list";
 function AllRoutes() {
   return (
     <Routes>
