@@ -1,0 +1,63 @@
+/* CSS cho khung menu */
+.navbar-menu-container {
+  width: 200px;
+  height: 620px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  text-align: center;
+}
+/* CSS cho tên navbar */
+.navbar-name {
+  margin-top: 30px;
+  color: #074979;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* CSS cho các item trong menu */
+.navbar-menu-item {
+  color: black;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* CSS cho item được chọn */
+.navbar-menu-item.selected {
+  background-color: #517fa1;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* CSS cho các item có children */
+.navbar-menu-item.has-children {
+  /* Định nghĩa CSS cho các item có children */
+  font-weight: bold;
+}
+
+/* CSS cho các item có children khi chúng đang mở */
+.navbar-menu-item.has-children.open {
+  /* Định nghĩa CSS cho các item có children khi chúng đang mở */
+  border: 3px solid #074979;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #074979;
+  background-color: rgba(7, 74, 121, 0.267);
+}
+
+.child-item {
+  background-color: rgba(7, 74, 121, 0.267);
+}
+
+.navbar-menu-item .downicon {
+  margin-left: 20px;
+  font-size: 18px;
+  transition: transform 0.01s;
+}
+
+.navbar-menu-item.has-children.open .downicon {
+  transform: rotate(180deg);
+}

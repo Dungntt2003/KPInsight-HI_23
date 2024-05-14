@@ -32,6 +32,13 @@
   }
 }
 
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .footer-container .img {
   aspect-ratio: 1;
   object-fit: auto;
