@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Dungntt2003/KPInsight-HI_23/tree/main/kpinsight/static/css/main.93e56593.css",
+    "main.js": "/Dungntt2003/KPInsight-HI_23/tree/main/kpinsight/static/js/main.9aed9276.js",
+    "index.html": "/Dungntt2003/KPInsight-HI_23/tree/main/kpinsight/index.html",
+    "main.93e56593.css.map": "/Dungntt2003/KPInsight-HI_23/tree/main/kpinsight/static/css/main.93e56593.css.map",
+    "main.9aed9276.js.map": "/Dungntt2003/KPInsight-HI_23/tree/main/kpinsight/static/js/main.9aed9276.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93e56593.css",
+    "static/js/main.9aed9276.js"
+  ]
+}
