@@ -4,6 +4,8 @@
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+/* Navbar */
 .body .navbar-menu-container {
   position: fixed;
   top: 81px;
@@ -26,11 +28,12 @@
   margin-left: 200px;
   color: #074979;
 }
-.select {
+.select1 {
   margin-left: 81%;
   margin-top: -25px;
 }
 
+/* Column chart */
 .body .columnchart-container {
   margin-top: 10px;
   /* margin-left: 350px; */
@@ -75,24 +78,31 @@
 /* Chi tiết */
 .detailKPI {
   padding: 50px 100px;
+  margin-top: 20px;
   margin-left: 250px;
   margin-right: 20px;
   margin-bottom: 20px;
   width: 1000px !important;
-  height: 800px;
+  height: fit-content;
   border-radius: 60px;
   box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
-.detailKPI .detail-tittle {
+.detail-tittle {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-  margin-top: -10px;
+  margin-top: -20px;
   color: #517fa1;
+  width: 100%;
+}
+.select2 {
+  margin-left: 81%;
+  margin-top: -30px;
 }
 
-.detailKPI .suggest {
+/* Đề xuất */
+.suggest {
   width: auto;
   margin: 30px auto;
   padding: 20px;
@@ -100,29 +110,90 @@
   border: 3px solid #074979;
   background-color: #ffff;
 }
-
-.detailKPI .activityKPI1 {
-  width: auto;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 15px;
-  border: 3px solid #074979;
-  background-color: #ffff;
-}
-
-.activityKPI1 .activity-name {
-  font-size: 20px;
+.suggest-name {
+  font-size: 24px;
   font-weight: bold;
-  margin-top: -10px;
-  margin-left: 10px;
-  color: #517fa1;
+  margin-top: 10px;
+  text-align: center;
+  color: #074979;
 }
-
-.activityKPI1 .complete-rate,
-.each-time {
+.suggest-notice {
+  margin-top: 0px;
   font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #e82222;
+}
+.suggest-data {
+  width: auto;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #ffff;
+  display: flex;
+}
+
+/* Chi tiết từng hoạt động */
+.detailKPI .activityKPI1,
+.activityKPI2,
+.activityKPI3,
+.activityKPI4,
+.activityKPI5,
+.activityKPI6 {
+  width: auto;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #074979;
+  background-color: #ffff;
+  display: flex;
+}
+.activity-content {
+  width: 70%;
+  margin-left: 20px;
+}
+.activity-name {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
   font-weight: bold;
   margin-top: -10px;
   margin-left: 10px;
+  color: white;
+}
+.activity-name-sub {
+  box-sizing: border-box;
+  color: white;
+  background-color: #517fa1;
+  border: 3px solid #517fa1;
+  border-radius: 15px;
+  padding: 3px 10px;
+}
+.activity-content .activity-name-tag {
+  margin-left: 10px;
+  font-size: 18px;
+}
+.complete-rate,
+.each-time,
+.need-time {
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: 600;
+  margin-left: 40px;
   color: #517fa1;
+}
+.request-view-activity {
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 15px;
+  margin-left: 40px;
+  color: #074979;
+}
+.activity-chart {
+  width: 50%;
+}
+
+.activity-chart-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -17,7 +17,7 @@
 .navbar-goal-item {
   color: white;
   background-color: #074979;
-  font-size: 13px;
+  font-size: 18px;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -32,7 +32,7 @@
   background-color: white;
   color: #074979;
   font-weight: bolder;
-  border: 2px solid #074979;
+  border: 3px solid #074979;
   border-radius: 15px;
 }
 

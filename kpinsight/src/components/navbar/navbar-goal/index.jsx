@@ -13,7 +13,7 @@ const items = [
   {
     key: "2",
     icon: <UnorderedListOutlined />,
-    label: "Danh sách mục tiêu",
+    label: "Mục tiêu",
   },
 ];
 

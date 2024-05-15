@@ -27,7 +27,7 @@ const KpiStatus = () => {
         datasets: [
           {
             label: "Đã thực hiện",
-            data: [80, 40, 120, 145, 65, 90],
+            data: [80, 40, 170, 142.9, 16.7, 54.5],
             backgroundColor: "#074979",
             borderWidth: 0,
             borderSkipped: false,
@@ -90,14 +90,18 @@ const KpiStatus = () => {
       <div>
         <NavbarStatus />
         <h1 className="namepage">Trạng thái KPI</h1>
-        <div className="select">
+        <div className="select1">
           <Select
-            defaultValue="Lọc theo nhãn"
+            defaultValue="Tất cả"
             style={{
               width: 150,
             }}
             onChange={handleChange}
             options={[
+              {
+                label: <span>Tất cả</span>,
+                value: "Tất cả",
+              },
               {
                 label: <span>Học tập</span>,
                 title: "Học tập",
@@ -109,6 +113,20 @@ const KpiStatus = () => {
                   {
                     label: <span>Ngoại ngữ</span>,
                     value: "Ngoại ngữ",
+                  },
+                ],
+              },
+              {
+                label: <span>Xã hội</span>,
+                title: "Học tập",
+                options: [
+                  {
+                    label: <span>CLB</span>,
+                    value: "CLB",
+                  },
+                  {
+                    label: <span>Tình nguyện</span>,
+                    value: "Tình nguyện",
                   },
                 ],
               },
@@ -130,26 +148,214 @@ const KpiStatus = () => {
           <canvas ref={chartRef}></canvas>
         </div>
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
-        <SpeedChart min={3} max={8} score={11} />
         <div className="detailKPI">
-          <h1 className="detail-tittle">Chi tiết KPI</h1>
-          <div className="suggest"></div>
-          <div className="activityKPI1">
-            <div className="activity-name">
-              Học thiết kế giao diện
-              <Flex gap="4px 0" wrap>
-                <Tag color="green">Tốt</Tag>
-              </Flex>
+          <div className="detail-tittle">Chi tiết KPI</div>
+          <div className="select2">
+            <Select
+              defaultValue="Tất cả"
+              style={{
+                width: 150,
+              }}
+              onChange={handleChange}
+              options={[
+                {
+                  label: <span>Tất cả</span>,
+                  value: "Tất cả",
+                },
+                {
+                  label: <span>Xuất sắc</span>,
+                  value: "Xuất sắc",
+                },
+                {
+                  label: <span>Tốt</span>,
+                  value: "Tốt",
+                },
+                {
+                  label: <span>Khá</span>,
+                  value: "Khá",
+                },
+                {
+                  label: <span>Trung bình</span>,
+                  value: "Trung bình",
+                },
+                {
+                  label: <span>Yếu</span>,
+                  value: "Yếu",
+                },
+              ]}
+            />
+          </div>
+          <div className="suggest">
+            <h1 className="suggest-name">
+              Đề xuất hoạt động nên ưu tiên hoàn thành
+            </h1>
+            <h1 className="suggest-notice">
+              (Dành cho những hoạt động chưa đạt mức giá trị tối thiểu khi đã
+              qua 3/4 giai đoạn)
+            </h1>
+            <div className="suggest-data">
+              <div className="activity-name">
+                <div className="activity-name-sub">Làm Project GR1</div>
+                <div className="activity-name-tag">
+                  <Tag color="volcano" style={{ fontSize: "15px" }}>
+                    Trung bình
+                  </Tag>
+                </div>
+              </div>
+              <div className="activity-name">
+                <div className="activity-name-sub">Code màn figma</div>
+                <div className="activity-name-tag">
+                  <Tag color="red" style={{ fontSize: "15px" }}>
+                    Yếu
+                  </Tag>
+                </div>
+              </div>
             </div>
-            <h1 className="complete-rate">Hoàn thành được 4/5 nhiệm vụ</h1>
-            <h1 className="each-time">
-              Trung bình thực hiện mỗi nhiệm vụ hết 2h
-            </h1>
-            <h1 className="need-time">
-              Cần thêm 2h nữa để hoàn thành hoạt động này!
-            </h1>
-            <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
-            <SpeedChart min={2} max={5} score={4} />
+          </div>
+
+          <div className="activityKPI1">
+            <div className="activity-content">
+              <div className="activity-name">
+                <div className="activity-name-sub">Học thiết kế giao diện</div>
+                <div className="activity-name-tag">
+                  <Tag color="green" style={{ fontSize: "15px" }}>
+                    Tốt
+                  </Tag>
+                </div>
+              </div>
+              <h1 className="complete-rate">Đã hoàn thành 4/5 nhiệm vụ</h1>
+              <h1 className="each-time">
+                Trung bình thực hiện mỗi nhiệm vụ hết 2 giờ
+              </h1>
+              <h1 className="need-time">
+                Cần thêm 2 giờ nữa để hoàn thành hoạt động này!
+              </h1>
+              <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            </div>
+            <div className="activity-chart">
+              <div className="activity-chart-wrap">
+                <SpeedChart min={2} max={5} score={4} />
+              </div>
+            </div>
+          </div>
+          <div className="activityKPI2">
+            <div className="activity-content">
+              <div className="activity-name">
+                <div className="activity-name-sub">Làm Project GR1</div>
+                <div className="activity-name-tag">
+                  <Tag color="volcano" style={{ fontSize: "15px" }}>
+                    Trung bình
+                  </Tag>
+                </div>
+              </div>
+              <h1 className="complete-rate">Đã hoàn thành 2/5 nhiệm vụ</h1>
+              <h1 className="each-time">
+                Trung bình thực hiện mỗi nhiệm vụ hết 3 giờ 12 phút
+              </h1>
+              <h1 className="need-time">
+                Cần thêm 9 giờ 36 phút nữa để hoàn thành hoạt động này!
+              </h1>
+              <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            </div>
+            <div className="activity-chart">
+              <div className="activity-chart-wrap">
+                <SpeedChart min={3} max={5} score={2} />
+              </div>
+            </div>
+          </div>
+          <div className="activityKPI3">
+            <div className="activity-content">
+              <div className="activity-name">
+                <div className="activity-name-sub">Học ReactJS</div>
+                <div className="activity-name-tag">
+                  <Tag color="geekblue" style={{ fontSize: "15px" }}>
+                    Xuất sắc
+                  </Tag>
+                </div>
+              </div>
+              <h1 className="complete-rate">Đã hoàn thành 34/20 bài học</h1>
+              <h1 className="each-time">Trung bình học một bài hết 20 phút</h1>
+              <h1 className="need-time">Bạn đã hoàn thành vượt chỉ tiêu!</h1>
+              <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            </div>
+            <div className="activity-chart">
+              <div className="activity-chart-wrap">
+                <SpeedChart min={7} max={20} score={34} />
+              </div>
+            </div>
+          </div>
+          <div className="activityKPI4">
+            <div className="activity-content">
+              <div className="activity-name">
+                <div className="activity-name-sub">Làm BT ITSS</div>
+                <div className="activity-name-tag">
+                  <Tag color="geekblue" style={{ fontSize: "15px" }}>
+                    Xuất sắc
+                  </Tag>
+                </div>
+              </div>
+              <h1 className="complete-rate">Đã hoàn thành 10/7 bài</h1>
+              <h1 className="each-time">
+                Trung bình thực hiện mỗi nhiệm vụ hết 1 giờ 30 phút
+              </h1>
+              <h1 className="need-time">Bạn đã hoàn thành vượt chỉ tiêu!</h1>
+              <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            </div>
+            <div className="activity-chart">
+              <div className="activity-chart-wrap">
+                <SpeedChart min={5} max={7} score={10} />
+              </div>
+            </div>
+          </div>
+          <div className="activityKPI5">
+            <div className="activity-content">
+              <div className="activity-name">
+                <div className="activity-name-sub">Code màn figma</div>
+                <div className="activity-name-tag">
+                  <Tag color="red" style={{ fontSize: "15px" }}>
+                    Yếu
+                  </Tag>
+                </div>
+              </div>
+              <h1 className="complete-rate">Đã hoàn thành 1/6 màn</h1>
+              <h1 className="each-time">
+                Trung bình thực hiện mỗi nhiệm vụ hết 4 giờ 45 phút
+              </h1>
+              <h1 className="need-time">
+                Cần thêm 23 giờ 45 phút nữa để hoàn thành hoạt động này!
+              </h1>
+              <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            </div>
+            <div className="activity-chart">
+              <div className="activity-chart-wrap">
+                <SpeedChart min={4} max={6} score={1} />
+              </div>
+            </div>
+          </div>
+          <div className="activityKPI6">
+            <div className="activity-content">
+              <div className="activity-name">
+                <div className="activity-name-sub">Học Git</div>
+                <div className="activity-name-tag">
+                  <Tag color="gold" style={{ fontSize: "15px" }}>
+                    Khá
+                  </Tag>
+                </div>
+              </div>
+              <h1 className="complete-rate">Đã hoàn thành 6/11 bài học</h1>
+              <h1 className="each-time">
+                Trung bình thực hiện mỗi nhiệm vụ hết 40 phút
+              </h1>
+              <h1 className="need-time">
+                Cần thêm 3 giờ 20 phút nữa để hoàn thành hoạt động này!
+              </h1>
+              <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            </div>
+            <div className="activity-chart">
+              <div className="activity-chart-wrap">
+                <SpeedChart min={4} max={11} score={6} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
