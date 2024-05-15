@@ -32,7 +32,10 @@ function ChooseMonth() {
           </div>
           <div className="choose-month-btn">
             <Button type="primary" className="choose-month-button">
-              Thiết lập lại
+              Quay lại
+            </Button>
+            <Button type="primary" className="choose-month-button">
+              Lưu và thoát
             </Button>
             <Button type="primary" className="choose-month-button">
               Tiếp tục

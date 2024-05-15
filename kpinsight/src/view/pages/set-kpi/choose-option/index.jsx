@@ -68,9 +68,6 @@ function ChooseOption() {
         </div>
         <div className="choose-btn">
           <Button type="primary" className="choose-button">
-            Thiết lập lại
-          </Button>
-          <Button type="primary" className="choose-button">
             Tiếp tục
           </Button>
         </div>

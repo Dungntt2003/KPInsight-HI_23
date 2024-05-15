@@ -1,6 +1,6 @@
 import "./index.css";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useRef } from "react";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
 import {
@@ -11,15 +11,46 @@ import {
   Space,
   Typography,
   Radio,
+  Divider,
   Modal,
   Select,
 } from "antd";
 const { Paragraph } = Typography;
+let index = 0;
 function TurnStandard() {
   const [form1] = Form.useForm();
   const [form2] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [select, setSelect] = useState("");
+  const [items, setItems] = useState(["Từ", "Bài", "Nhóm", "Section"]);
+  const [itemTime, setItemTime] = useState([
+    "Phút",
+    "Giờ",
+    "Ngày",
+    "Tuần",
+    "Tháng",
+  ]);
+  const [name, setName] = useState("");
+  const inputRef = useRef(null);
+  const onNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const addItem = (e) => {
+    e.preventDefault();
+    setItems([...items, name || `New item ${index++}`]);
+    setName("");
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+  };
+  const addItemTime = (e) => {
+    e.preventDefault();
+    setItemTime([...itemTime, name || `New item ${index++}`]);
+    setName("");
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+  };
   const showModal = (e) => {
     // console.log(e.target.value);
     setIsModalOpen(true);
@@ -261,6 +292,17 @@ function TurnStandard() {
             </Form.List>
           </Form>
         </div>
+        <div className="choose-month-btn">
+          <Button type="primary" className="choose-month-button">
+            Quay lại
+          </Button>
+          <Button type="primary" className="choose-month-button">
+            Lưu và thoát
+          </Button>
+          <Button type="primary" className="choose-month-button">
+            Tiếp tục
+          </Button>
+        </div>
       </div>
       <Modal
         title="Quy chuẩn KPI"
@@ -275,6 +317,7 @@ function TurnStandard() {
           <div className="turn-standard-act-unit">Đơn vị</div>
           <div className="turn-standard-act-time">Thời lượng</div>
         </div>
+        {/* Add task to goal */}
         <Form
           name="dynamic_form_nest_item"
           // onFinish={onFinish}
@@ -283,7 +326,8 @@ function TurnStandard() {
           }}
           autoComplete="off"
         >
-          <Form.List name="users">
+          {/* fields : task list */}
+          <Form.List name="tasks">
             {(fields, { add, remove }) => (
               <>
                 {fields.map(({ key, name, ...restField }) => (
@@ -295,6 +339,7 @@ function TurnStandard() {
                     }}
                     align="baseline"
                   >
+                    {/* Add task name */}
                     <Form.Item
                       {...restField}
                       name={[name, "name"]}
@@ -305,8 +350,13 @@ function TurnStandard() {
                         },
                       ]}
                     >
-                      <Input placeholder="Tên hoạt động" />
+                      <Input
+                        className="turn-standard-inp"
+                        placeholder="Tên hoạt động"
+                        style={{ marginLeft: "12px", width: "190px" }}
+                      />
                     </Form.Item>
+                    {/* Add sub task, min, max */}
                     <Form.Item
                       {...restField}
                       name={[name, "detail"]}
@@ -317,10 +367,13 @@ function TurnStandard() {
                         },
                       ]}
                     >
+                      {/* choose unit or task */}
                       <Select
+                        className="turn-standard-select"
                         placeholder="Chọn cách thiết lập"
                         style={{
-                          width: 300,
+                          width: 350,
+                          marginLeft: "16px",
                         }}
                         onChange={handleChange}
                         options={[
@@ -334,13 +387,245 @@ function TurnStandard() {
                           },
                         ]}
                       />
-                      <div className="turn-standard-max">
-                        <Input placeholder="haha" />
+                      {/* if choose unit */}
+                      {select === "unit" && (
+                        <div className="turn-standard-choose-unit">
+                          {/* add begin, max, min */}
+                          <Input
+                            placeholder="Bắt đầu"
+                            className="turn-standard-choose-unit-item turn-standard-inp"
+                          />
+                          <Input
+                            placeholder="Tối thiểu"
+                            className="turn-standard-choose-unit-item turn-standard-inp"
+                          />
+                          <Input
+                            placeholder="Lớn nhất"
+                            className="turn-standard-choose-unit-item turn-standard-inp"
+                          />
+                        </div>
+                      )}
+                      {/* if choose task */}
+                      {select === "task" && (
+                        <div className="turn-standard-choose-task">
+                          {/* add sub task */}
+                          <Form
+                            name="dynamic_form_nest_item-2"
+                            // onFinish={onFinish}
+                            style={{
+                              maxWidth: 350,
+                              marginLeft: "16px",
+                            }}
+                            autoComplete="off"
+                          >
+                            <Form.List name="sub-task">
+                              {(fields1, { add, remove }) => (
+                                <>
+                                  {fields1.map(
+                                    ({ key, name, ...restField }) => (
+                                      <Space
+                                        key={key}
+                                        style={{
+                                          display: "flex",
+                                          marginBottom: 8,
+                                        }}
+                                        align="baseline"
+                                      >
+                                        <Form.Item
+                                          {...restField}
+                                          name={[name, "sub-task"]}
+                                          rules={[
+                                            {
+                                              required: true,
+                                              message: "Nhập nhiệm vụ",
+                                            },
+                                          ]}
+                                        >
+                                          <Input
+                                            className="turn-standard-inp"
+                                            placeholder="Thêm nhiệm vụ"
+                                            style={{
+                                              margin: "2px 0",
+                                              width: "350px",
+                                            }}
+                                          />
+                                        </Form.Item>
+
+                                        <MinusCircleOutlined
+                                          onClick={() => remove(name)}
+                                        />
+                                      </Space>
+                                    )
+                                  )}
+                                  <Form.Item>
+                                    <Button
+                                      type="dashed"
+                                      onClick={() => add()}
+                                      block
+                                      className="turn-standard-btn-add"
+                                      icon={<PlusOutlined />}
+                                      style={{ margin: "2px 0" }}
+                                    >
+                                      Thêm nhiệm vụ
+                                    </Button>
+                                  </Form.Item>
+                                </>
+                              )}
+                            </Form.List>
+                          </Form>
+                          <div className="turn-standard-choose-minmax">
+                            {/* choose task min */}
+                            <Select
+                              className="turn-standard-select"
+                              placeholder="Chọn mục tiêu tối thiểu"
+                              style={{
+                                width: 350,
+                                marginLeft: "16px",
+                              }}
+                              // onChange={handleChange}
+                              options={[
+                                {
+                                  value: "1",
+                                  label: "Vẽ usecase cho dự án",
+                                },
+                                {
+                                  value: "2",
+                                  label: "Đặc tả các usecase",
+                                },
+                              ]}
+                            />
+                            {/* choose task max */}
+                            <Select
+                              className="turn-standard-select"
+                              placeholder="Chọn mục tiêu tối đa"
+                              style={{
+                                width: 350,
+                                marginLeft: "16px",
+                                marginTop: "6px",
+                              }}
+                              // onChange={handleChange}
+                              options={[
+                                {
+                                  value: "1",
+                                  label: "Vẽ usecase cho dự án",
+                                },
+                                {
+                                  value: "2",
+                                  label: "Đặc tả các usecase",
+                                },
+                              ]}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </Form.Item>
+                    {/* choose unit of task */}
+                    {select === "unit" ? (
+                      <Form.Item>
+                        <Select
+                          className="turn-standard-select"
+                          style={{
+                            width: 100,
+                            marginLeft: "16px",
+                          }}
+                          placeholder="Bài"
+                          dropdownRender={(menu) => (
+                            <>
+                              {menu}
+                              <Divider
+                                style={{
+                                  margin: "8px 0",
+                                }}
+                              />
+                              <Space
+                                style={{
+                                  padding: "0 8px 4px",
+                                }}
+                              >
+                                <Input
+                                  className="turn-standard-inp"
+                                  placeholder="Nhập đơn vị khác"
+                                  ref={inputRef}
+                                  value={name}
+                                  onChange={onNameChange}
+                                  onKeyDown={(e) => e.stopPropagation()}
+                                />
+                                <Button
+                                  // type="text"
+                                  icon={<PlusOutlined />}
+                                  onClick={addItem}
+                                >
+                                  {/* Add item */}
+                                </Button>
+                              </Space>
+                            </>
+                          )}
+                          options={items.map((item) => ({
+                            label: item,
+                            value: item,
+                          }))}
+                        />
+                      </Form.Item>
+                    ) : (
+                      <div style={{ minWidth: "80px", marginLeft: "16px" }}>
+                        Nhiệm vụ
                       </div>
+                    )}
+                    {/* choose time for task */}
+                    <Form.Item style={{ marginLeft: "16px" }}>
+                      <Input
+                        style={{ minWidth: "40px" }}
+                        className="turn-standard-inp"
+                      />
+                    </Form.Item>
+                    <Form.Item>
+                      <Select
+                        className="turn-standard-select"
+                        style={{
+                          width: 80,
+                        }}
+                        placeholder="Giờ"
+                        dropdownRender={(menu) => (
+                          <>
+                            {menu}
+                            <Divider
+                              style={{
+                                margin: "8px 0",
+                              }}
+                            />
+                            <Space
+                              style={{
+                                padding: "0 8px 4px",
+                              }}
+                            >
+                              <Input
+                                // placeholder="Please enteritem "
+                                ref={inputRef}
+                                value={name}
+                                className="turn-standard-inp"
+                                onChange={onNameChange}
+                                onKeyDown={(e) => e.stopPropagation()}
+                              />
+                              <Button
+                                type="text"
+                                icon={<PlusOutlined />}
+                                onClick={addItemTime}
+                              >
+                                {/* Add item */}
+                              </Button>
+                            </Space>
+                          </>
+                        )}
+                        options={itemTime.map((itemTime) => ({
+                          label: itemTime,
+                          value: itemTime,
+                        }))}
+                      />
                     </Form.Item>
                     <MinusCircleOutlined onClick={() => remove(name)} />
                   </Space>
                 ))}
+                {/* add new task */}
                 <Form.Item>
                   <div
                     className="turn-standard-add-item"
@@ -350,6 +635,7 @@ function TurnStandard() {
                       type="dashed"
                       onClick={() => add()}
                       block
+                      className="turn-standard-btn-add"
                       style={{ width: "50%" }}
                       icon={<PlusOutlined />}
                     >

@@ -232,6 +232,17 @@ function DefineTarget() {
             </Form.List>
           </Form>
         </div>
+        <div className="choose-month-btn">
+          <Button type="primary" className="choose-month-button">
+            Quay lại
+          </Button>
+          <Button type="primary" className="choose-month-button">
+            Lưu và thoát
+          </Button>
+          <Button type="primary" className="choose-month-button">
+            Tiếp tục
+          </Button>
+        </div>
       </div>
     </div>
   );
