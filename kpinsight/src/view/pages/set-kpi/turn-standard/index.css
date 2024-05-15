@@ -18,3 +18,76 @@
   margin: 0;
   padding: 0;
 }
+
+.turn-standard-input-act {
+  width: 100px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: #074979;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.turn-standard-input-act:hover {
+  background-color: white;
+  color: #074979;
+}
+
+.turn-standard-btn-add-act {
+  border: 2px solid #074979;
+  width: 350px !important;
+}
+
+.turn-standard-label {
+  width: 150px;
+  border: 2px solid #074979;
+  background-color: white;
+  color: #074979;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 70%;
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+
+.turn-standard-card-big {
+  background-color: #83a4bc;
+  padding: 24px;
+  margin: 12px 0;
+}
+.turn-standard-btn-add-label {
+  background-color: #074979;
+  color: white;
+}
+
+.turn-standard-tags {
+  display: flex;
+  justify-content: space-around;
+  margin: 16px 0;
+}
+
+.turn-standard-act-name,
+.turn-standard-act-detail,
+.turn-standard-act-unit,
+.turn-standard-act-time {
+  padding: 4px 12px;
+  background-color: #074979;
+  color: white;
+  border-radius: 15px;
+  margin: 0 16px;
+  text-align: center;
+}
+.turn-standard-act-name {
+  flex: 2;
+}
+.turn-standard-act-detail {
+  flex: 4;
+}
+
+.turn-standard-act-unit {
+  flex: 1;
+}
+.turn-standard-act-time {
+  flex: 1;
+}

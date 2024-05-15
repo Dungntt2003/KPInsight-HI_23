@@ -61,7 +61,10 @@ function DefineTarget() {
                           }}
                           name={[field.name, "name"]}
                         >
-                          <Input className="define-target-label" />
+                          <Input
+                            className="define-target-label"
+                            placeholder="Nhập lĩnh vực"
+                          />
                         </Form.Item>
                       }
                       key={field.key}
@@ -141,11 +144,14 @@ function DefineTarget() {
                                         alignItems: "center",
                                       }}
                                     >
-                                      <Input className="define-target-input-act" />
+                                      <Input
+                                        className="define-target-input-act"
+                                        placeholder="Nhập nhãn"
+                                      />
                                     </Form.Item>
                                   }
                                   key={field1.key}
-                                  style={{ minWidth: "450px" }}
+                                  style={{ minWidth: "48%" }}
                                   extra={
                                     <CloseOutlined
                                       onClick={() => {
@@ -162,18 +168,18 @@ function DefineTarget() {
                                             display: "flex",
                                             flexDirection: "column",
                                             rowGap: 16,
-                                            width: "480px",
+                                            width: "100%",
                                           }}
                                         >
                                           {subFields1.map((subField1) => (
                                             <Space key={subField1.key}>
                                               <Form.Item
                                                 noStyle
-                                                style={{ width: "480px" }}
+                                                style={{ width: "380px" }}
                                                 name={[subField1.name, "first"]}
                                               >
                                                 <Input
-                                                  style={{ width: "450px" }}
+                                                  style={{ width: "380px" }}
                                                   value={subField1.first}
                                                 />
                                               </Form.Item>
@@ -186,6 +192,7 @@ function DefineTarget() {
                                               />
                                             </Space>
                                           ))}
+
                                           <Button
                                             type="dashed"
                                             onClick={() => subOpt1.add()}

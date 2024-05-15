@@ -1,55 +1,48 @@
 import "./index.css";
 
 import React, { useState, useMemo } from "react";
-import { CloseOutlined } from "@ant-design/icons";
-import { Button, Card, Form, Input, Space, Typography, Radio } from "antd";
+import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+
+import {
+  Button,
+  Card,
+  Form,
+  Input,
+  Space,
+  Typography,
+  Radio,
+  Modal,
+  Select,
+} from "antd";
 const { Paragraph } = Typography;
 function TurnStandard() {
-  const [clickTriggerStr, setClickTriggerStr] = useState("");
   const [form1] = Form.useForm();
   const [form2] = Form.useForm();
-  const radioToState = (input) => {
-    switch (input) {
-      case "text":
-        return ["text"];
-      case "both":
-        return ["icon", "text"];
-      case "icon":
-      default:
-        return ["icon"];
-    }
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [select, setSelect] = useState("");
+  const showModal = (e) => {
+    // console.log(e.target.value);
+    setIsModalOpen(true);
   };
-  const [chooseTrigger, setChooseTrigger] = useState(["icon"]);
-  const stateToRadio = useMemo(() => {
-    if (chooseTrigger.includes("text")) {
-      return chooseTrigger.includes("icon") ? "both" : "text";
-    }
-    return "icon";
-  }, [chooseTrigger]);
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+    // console.log(typeof value);
+    setSelect(value);
+  };
+
   return (
     <div className="turn-standard-container">
       <div className="turn-standard-wrap">
         <div className="turn-standard-heading">
-          <h3 className="turn-standard-header">Quy chuẩn mục tiêu thành</h3>
+          <h3 className="turn-standard-header">Xác định mục tiêu KPI</h3>
         </div>
         <div className="turn-standard-list">
-          <Radio.Group
-            onChange={(e) => setChooseTrigger(radioToState(e.target.value))}
-            value={stateToRadio}
-          >
-            <Radio value="icon">icon</Radio>
-            <Radio value="text">text</Radio>
-            <Radio value="both">both</Radio>
-          </Radio.Group>
-          <Paragraph
-            editable={{
-              tooltip: "click to edit text",
-              onChange: setClickTriggerStr,
-              triggerType: chooseTrigger,
-            }}
-          >
-            {clickTriggerStr}
-          </Paragraph>
           <Form
             labelCol={{
               span: 6,
@@ -64,7 +57,14 @@ function TurnStandard() {
             }}
             autoComplete="off"
             initialValues={{
-              items: [{}],
+              items: [
+                {
+                  name: "Học tập",
+                },
+                {
+                  name: "Cá nhân",
+                },
+              ],
             }}
           >
             <Form.List name="items">
@@ -79,19 +79,30 @@ function TurnStandard() {
                   {fields.map((field) => (
                     <Card
                       size="small"
+                      className="turn-standard-card-big"
                       title={
-                        <Form.Item label="Title" name={[field.title, "title"]}>
-                          <Input />
+                        <Form.Item
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                          name={[field.name, "name"]}
+                        >
+                          <Input
+                            className="turn-standard-label"
+                            placeholder="Nhập lĩnh vực"
+                          />
                         </Form.Item>
                       }
                       key={field.key}
-                      extra={
-                        <CloseOutlined
-                          onClick={() => {
-                            remove(field.name);
-                          }}
-                        />
-                      }
+                      // extra={
+                      //   <CloseOutlined
+                      //     onClick={() => {
+                      //       remove(field.name);
+                      //     }}
+                      //   />
+                      // }
                     >
                       <Form
                         labelCol={{
@@ -107,7 +118,34 @@ function TurnStandard() {
                         }}
                         autoComplete="off"
                         initialValues={{
-                          items: [{}],
+                          items: [
+                            {
+                              name: "IT",
+                              list: [
+                                {
+                                  first: "Hoàn thành khóa học ReactJs",
+                                },
+                                {
+                                  first:
+                                    "Đạt giải cuộc thi Shecodes tháng 9/2024",
+                                },
+                                {
+                                  first: "Thiết kế component ở figma",
+                                },
+                              ],
+                            },
+                            {
+                              name: "Ngoại ngữ",
+                              list: [
+                                {
+                                  first: "Đạt chứng chỉ Toeic 500+",
+                                },
+                                {
+                                  first: "Học xong từ vựng N3",
+                                },
+                              ],
+                            },
+                          ],
                         }}
                       >
                         <Form.List name="items">
@@ -124,16 +162,31 @@ function TurnStandard() {
                               {fields1.map((field1) => (
                                 <Card
                                   size="small"
-                                  title={`Item ${field1.name + 1}`}
-                                  key={field1.key}
-                                  style={{ width: "300px" }}
-                                  extra={
-                                    <CloseOutlined
-                                      onClick={() => {
-                                        remove(field1.name);
+                                  title={
+                                    <Form.Item
+                                      name={[field1.name, "name"]}
+                                      noStyle
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                       }}
-                                    />
+                                    >
+                                      <Input
+                                        className="turn-standard-input-act"
+                                        placeholder="Nhập nhãn"
+                                      />
+                                    </Form.Item>
                                   }
+                                  key={field1.key}
+                                  style={{ width: "47%" }}
+                                  // extra={
+                                  //   <CloseOutlined
+                                  //     onClick={() => {
+                                  //       remove(field1.name);
+                                  //     }}
+                                  //   />
+                                  // }
                                 >
                                   <Form.Item>
                                     <Form.List name={[field1.name, "list"]}>
@@ -143,36 +196,40 @@ function TurnStandard() {
                                             display: "flex",
                                             flexDirection: "column",
                                             rowGap: 16,
-                                            width: "250px",
+                                            width: "100%",
                                           }}
                                         >
                                           {subFields1.map((subField1) => (
                                             <Space key={subField1.key}>
                                               <Form.Item
                                                 noStyle
-                                                style={{ width: "250px" }}
+                                                style={{ width: "360px" }}
                                                 name={[subField1.name, "first"]}
                                               >
                                                 <Input
-                                                  style={{ width: "250px" }}
+                                                  style={{ width: "340px" }}
+                                                  value={subField1.first}
+                                                  onClick={showModal}
                                                 />
                                               </Form.Item>
-                                              <CloseOutlined
+                                              {/* <CloseOutlined
                                                 onClick={() => {
                                                   subOpt1.remove(
                                                     subField1.name
                                                   );
                                                 }}
-                                              />
+                                              /> */}
                                             </Space>
                                           ))}
-                                          <Button
+
+                                          {/* <Button
                                             type="dashed"
                                             onClick={() => subOpt1.add()}
                                             block
+                                            className="turn-standard-btn-add-act"
                                           >
                                             + Thêm mục tiêu
-                                          </Button>
+                                          </Button> */}
                                         </div>
                                       )}
                                     </Form.List>
@@ -180,14 +237,15 @@ function TurnStandard() {
                                 </Card>
                               ))}
 
-                              <Button
+                              {/* <Button
                                 type="dashed"
-                                style={{ width: "70%", margin: "auto" }}
+                                style={{ width: "60%", margin: "auto" }}
                                 onClick={() => add()}
                                 block
+                                className="turn-standard-btn-add-label"
                               >
                                 + Thêm nhãn
-                              </Button>
+                              </Button> */}
                             </div>
                           )}
                         </Form.List>
@@ -195,15 +253,115 @@ function TurnStandard() {
                     </Card>
                   ))}
 
-                  <Button type="dashed" onClick={() => add()} block>
+                  {/* <Button type="dashed" onClick={() => add()} block>
                     + Thêm lĩnh vực
-                  </Button>
+                  </Button> */}
                 </div>
               )}
             </Form.List>
           </Form>
         </div>
       </div>
+      <Modal
+        title="Quy chuẩn KPI"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        style={{ minWidth: "900px" }}
+      >
+        <div className="turn-standard-tags">
+          <div className="turn-standard-act-name">Tên hoạt động</div>
+          <div className="turn-standard-act-detail">Chi tiết</div>
+          <div className="turn-standard-act-unit">Đơn vị</div>
+          <div className="turn-standard-act-time">Thời lượng</div>
+        </div>
+        <Form
+          name="dynamic_form_nest_item"
+          // onFinish={onFinish}
+          style={{
+            width: 850,
+          }}
+          autoComplete="off"
+        >
+          <Form.List name="users">
+            {(fields, { add, remove }) => (
+              <>
+                {fields.map(({ key, name, ...restField }) => (
+                  <Space
+                    key={key}
+                    style={{
+                      display: "flex",
+                      marginBottom: 8,
+                    }}
+                    align="baseline"
+                  >
+                    <Form.Item
+                      {...restField}
+                      name={[name, "name"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Thiếu tên hoạt động",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="Tên hoạt động" />
+                    </Form.Item>
+                    <Form.Item
+                      {...restField}
+                      name={[name, "detail"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Thiếu chi tiết",
+                        },
+                      ]}
+                    >
+                      <Select
+                        placeholder="Chọn cách thiết lập"
+                        style={{
+                          width: 300,
+                        }}
+                        onChange={handleChange}
+                        options={[
+                          {
+                            value: "unit",
+                            label: "Theo đơn vị cụ thể",
+                          },
+                          {
+                            value: "task",
+                            label: "Theo nhiệm vụ cụ thể",
+                          },
+                        ]}
+                      />
+                      <div className="turn-standard-max">
+                        <Input placeholder="haha" />
+                      </div>
+                    </Form.Item>
+                    <MinusCircleOutlined onClick={() => remove(name)} />
+                  </Space>
+                ))}
+                <Form.Item>
+                  <div
+                    className="turn-standard-add-item"
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button
+                      type="dashed"
+                      onClick={() => add()}
+                      block
+                      style={{ width: "50%" }}
+                      icon={<PlusOutlined />}
+                    >
+                      Thêm hoạt động
+                    </Button>
+                  </div>
+                </Form.Item>
+              </>
+            )}
+          </Form.List>
+        </Form>
+      </Modal>
     </div>
   );
 }

@@ -36,6 +36,7 @@
 
 .define-target-btn-add-act {
   border: 2px solid #074979;
+  width: 380px !important;
 }
 
 .define-target-label {
