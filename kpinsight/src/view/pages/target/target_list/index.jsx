@@ -1,7 +1,7 @@
 import "./index.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Flex, Select, Tag } from "antd";
+import { Select, Tag, message, Popconfirm, Pagination } from "antd";
 import {
   EllipsisOutlined,
   CloseCircleOutlined,
@@ -13,9 +13,16 @@ import {
 import NavbarGoal from "../../../../components/navbar/navbar-goal";
 
 function Target_list() {
-  //Choose label
-  const handleChange = (value) => {
+  //Choose label - select
+  const handleLabel = (value) => {
     console.log(value);
+  };
+
+  //Navigate
+  const [current, setCurrent] = useState(3);
+  const handlePagination = (page) => {
+    console.log(page);
+    setCurrent(page);
   };
 
   //Star
@@ -25,24 +32,35 @@ function Target_list() {
         study.id === id ? { ...study, star: !study.star } : study
       )
     );
+    setSocials(
+      socials.map((social) =>
+        social.id === id ? { ...social, star: !social.star } : social
+      )
+    );
+    setPersonas(
+      personas.map((persona) =>
+        persona.id === id ? { ...persona, star: !persona.star } : persona
+      )
+    );
   };
 
-  //Filter
-  // const [selectedTag, setSelectedTag] = useState(""); // Trạng thái của tag được chọn
-  // const filteredStudies = studies.filter(
-  //   (study) =>
-  //     selectedTag === "" ||
-  //     (study.tag && study.tag.props.children === selectedTag)
-  // );
+  //Pop confirm
+  const confirm = (e) => {
+    console.log(e);
+    message.success("Đã xóa mục tiêu!");
+  };
+  const cancel = (e) => {
+    console.log(e);
+    message.error("Hủy xóa mục tiêu!");
+  };
 
+  //Data
   const [studies, setStudies] = useState([
     {
       id: 0,
       content: "Đạt 3.0/4.0 kì 2023.2",
       // tag: (
-      //   <Flex gap="4px 0" wrap>
-      //     <Tag color="#074979"></Tag>
-      //   </Flex>
+      //     <Tag id=""color="#074979"></Tag>
       // ),
       createdDate: "2023/08/01",
       star: true,
@@ -50,41 +68,52 @@ function Target_list() {
     {
       id: 1,
       content: "Đạt chứng chỉ TOEIC 500+",
-      tag: <Tag color="magenta">Ngoại ngữ</Tag>,
+      tag: (
+        <Tag id="tag-nn" color="magenta">
+          Ngoại ngữ
+        </Tag>
+      ),
       createdDate: "2023/07/30",
       star: false,
     },
     {
       id: 2,
       content: "Đạt giải cuộc thi She Codes 2023",
-      tag: <Tag color="red">IT</Tag>,
+      tag: (
+        <Tag id="tag-it" color="red">
+          IT
+        </Tag>
+      ),
       createdDate: "2023/07/30",
       star: false,
     },
   ]);
   const [socials, setSocials] = useState([
     {
+      id: 3,
       content: "Tích cực hoạt động CLB Sách",
-      tag: <Tag color="magenta">CLB</Tag>,
+      tag: (
+        <Tag id="tag-clb" color="magenta">
+          CLB
+        </Tag>
+      ),
       createdDate: "2023/08/01",
       star: false,
     },
     {
+      id: 4,
       content: "Tham gia tình nguyện 'Mùa hè xanh'",
       // tag: (
-      //   <Flex gap="4px 0" wrap>
       //     <Tag color="#074979">Ngoại ngữ</Tag>
-      //   </Flex>
       // ),
       createdDate: "2023/07/30",
       star: true,
     },
     {
+      id: 5,
       content: "Tham gia trải nghiệm làm gốm",
       // tag: (
-      //   <Flex gap="4px 0" wrap>
       //     <Tag color="#074979">IT</Tag>
-      //   </Flex>
       // ),
       createdDate: "2023/07/30",
       star: false,
@@ -92,24 +121,40 @@ function Target_list() {
   ]);
   const [personas, setPersonas] = useState([
     {
+      id: 6,
       content: "Chăm sóc sức khỏe",
-      tag: <Tag color="magenta">Sức khỏe</Tag>,
+      tag: (
+        <Tag id="tag-sk" color="magenta">
+          Sức khỏe
+        </Tag>
+      ),
       createdDate: "2023/08/01",
       star: false,
     },
     {
+      id: 7,
       content: "Dành thời gian cho gia đình",
-      tag: <Tag color="red">Gia đình</Tag>,
+      tag: (
+        <Tag id="tag-gd" color="red">
+          Gia đình
+        </Tag>
+      ),
       createdDate: "2023/07/30",
       star: true,
     },
     {
+      id: 8,
       content: "Quản lý chi tiêu hiệu quả",
-      tag: <Tag color="orange">Tài chính</Tag>,
+      tag: (
+        <Tag id="tag-tc" color="orange">
+          Tài chính
+        </Tag>
+      ),
       createdDate: "2023/07/30",
       star: false,
     },
   ]);
+
   return (
     <div className="target-list-container">
       <NavbarGoal />
@@ -118,12 +163,16 @@ function Target_list() {
           <span id="kpi-target-header">Mục tiêu KPI</span>
           <span id="kpi-target-select-container">
             <Select
-              defaultValue="Lọc theo nhãn"
+              defaultValue="Tất cả nhãn"
               style={{
                 width: 150,
               }}
-              onChange={handleChange}
+              onChange={handleLabel}
               options={[
+                {
+                  label: <span>Tất cả nhãn</span>,
+                  value: "Tất cả nhãn",
+                },
                 {
                   label: <span>Học tập</span>,
                   title: "Học tập",
@@ -181,15 +230,25 @@ function Target_list() {
             >
               <EditOutlined />
             </Link>
-            <span className="target-list-icon" id="goal-list-title-icon">
-              <CloseCircleOutlined />
-            </span>
+            <Popconfirm
+              placement="bottomLeft"
+              title="Xóa mục tiêu"
+              description="Xác nhận xóa mục tiêu"
+              onConfirm={confirm}
+              onCancel={cancel}
+              okText="Xác nhận"
+              cancelText="Hủy"
+            >
+              <span className="target-list-icon" id="goal-list-title-icon">
+                <CloseCircleOutlined />
+              </span>
+            </Popconfirm>
           </h3>
 
           <div className="target-list-item">
             <ul id="target-goalList">
               {studies.map((study, index) => (
-                <li key={index}>
+                <li id="target-goalList-item" key={index}>
                   <span className="target-list-content">{study.content}</span>
                   <span className="target-list-content-detail">
                     <span className="target-list-tag">{study.tag}</span>
@@ -223,74 +282,119 @@ function Target_list() {
         <div className="target-list-wrap">
           <h3>
             <span id="goal-list-title">Xã hội</span>
-            <span className="target-list-icon" id="goal-list-title-icon">
+            <Link
+              to="/target_detail"
+              className="target-list-icon"
+              id="goal-list-title-icon"
+            >
               <EditOutlined />
-            </span>
-            <span className="target-list-icon" id="goal-list-title-icon">
-              <CloseCircleOutlined />
-            </span>
+            </Link>
+            <Popconfirm
+              placement="bottomLeft"
+              title="Xóa mục tiêu"
+              description="Xác nhận xóa mục tiêu"
+              onConfirm={confirm}
+              onCancel={cancel}
+              okText="Xác nhận"
+              cancelText="Hủy"
+            >
+              <span className="target-list-icon" id="goal-list-title-icon">
+                <CloseCircleOutlined />
+              </span>
+            </Popconfirm>
           </h3>
 
           <div className="target-list-item">
             <ul id="target-goalList">
               {socials.map((social, index) => (
-                <li key={index}>
+                <li id="target-goalList-item" key={index}>
                   <span className="target-list-content">{social.content}</span>
                   <span className="target-list-content-detail">
                     <span className="target-list-tag">{social.tag}</span>
                     <span className="target-list-date">
                       {social.createdDate}
                     </span>
-                    <span className="target-list-icon">
-                      <StarOutlined />
+                    <span
+                      className="target-list-icon"
+                      onClick={() => handleStarClick(social.id)}
+                    >
+                      {social.star ? (
+                        <StarFilled style={{ color: "gold" }} />
+                      ) : (
+                        <StarOutlined />
+                      )}
                     </span>
                   </span>
                 </li>
               ))}
             </ul>
-            <span className="target-list-icon">
+            <Link to="/target_detail" className="target-list-icon">
               <EllipsisOutlined />
-            </span>
+            </Link>
           </div>
         </div>
 
         <div className="target-list-wrap">
           <h3>
             <span id="goal-list-title">Cá nhân</span>
-            <span className="target-list-icon" id="goal-list-title-icon">
+            <Link
+              to="/target_detail"
+              className="target-list-icon"
+              id="goal-list-title-icon"
+            >
               <EditOutlined />
-            </span>
-            <span className="target-list-icon" id="goal-list-title-icon">
-              <CloseCircleOutlined />
-            </span>
+            </Link>
+            <Popconfirm
+              placement="bottomLeft"
+              title="Xóa mục tiêu"
+              description="Xác nhận xóa mục tiêu"
+              onConfirm={confirm}
+              onCancel={cancel}
+              okText="Xác nhận"
+              cancelText="Hủy"
+            >
+              <span className="target-list-icon" id="goal-list-title-icon">
+                <CloseCircleOutlined />
+              </span>
+            </Popconfirm>
           </h3>
 
           <div className="target-list-item">
             <ul id="target-goalList">
               {personas.map((persona, index) => (
-                <li key={index}>
+                <li id="target-goalList-item" key={index}>
                   <span className="target-list-content">{persona.content}</span>
                   <span className="target-list-content-detail">
                     <span className="target-list-tag">{persona.tag}</span>
                     <span className="target-list-date">
                       {persona.createdDate}
                     </span>
-                    <span className="target-list-icon">
-                      <StarOutlined />
+                    <span
+                      className="target-list-icon"
+                      onClick={() => handleStarClick(persona.id)}
+                    >
+                      {persona.star ? (
+                        <StarFilled style={{ color: "gold" }} />
+                      ) : (
+                        <StarOutlined />
+                      )}
                     </span>
                   </span>
                 </li>
               ))}
             </ul>
-            <span className="target-list-icon">
+            <Link to="/target_detail" className="target-list-icon">
               <EllipsisOutlined />
-            </span>
+            </Link>
           </div>
         </div>
 
-        {/* <span className="target-list-icon">
-          <DownCircleOutlined />
-        </span> */}
+        <Pagination
+          // showQuickJumper
+          defaultCurrent={1}
+          total={20}
+          onChange={handlePagination}
+        />
       </div>
     </div>
   );
