@@ -3,6 +3,7 @@ import "./index.css";
 import React, { useState, useMemo } from "react";
 import { CloseOutlined } from "@ant-design/icons";
 import { Button, Card, Form, Input, Space, Typography, Radio } from "antd";
+import { Link } from "react-router-dom";
 const { Paragraph } = Typography;
 function DefineTarget() {
   const [form1] = Form.useForm();
@@ -231,6 +232,23 @@ function DefineTarget() {
               )}
             </Form.List>
           </Form>
+        </div>
+        <div className="choose-month-btn">
+          <Button type="primary" className="choose-month-button">
+            <Link to="/choose-month" className="header-link">
+              Quay lại
+            </Link>
+          </Button>
+          <Button type="primary" className="choose-month-button">
+            <Link to="/" className="header-link">
+              Lưu và thoát
+            </Link>
+          </Button>
+          <Button type="primary" className="choose-month-button">
+            <Link to="/turn-standard" className="header-link">
+              Tiếp tục
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

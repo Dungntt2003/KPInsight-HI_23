@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 function Login() {
   const onFinish = (values) => {
+    localStorage.setItem("username", values.username);
     console.log("Received values of form: ", values);
   };
   return (

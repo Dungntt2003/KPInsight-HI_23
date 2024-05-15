@@ -1,6 +1,7 @@
 import "./index.css";
 import { Button } from "antd";
 import { CheckOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 function Done() {
   return (
@@ -18,7 +19,9 @@ function Done() {
           </p>
           <div className="done-btn">
             <Button type="primary" className="done-button">
-              Để sau
+              <Link to="/target-list" className="header-link">
+                Để sau
+              </Link>
             </Button>
             <Button type="primary" className="done-button">
               Tải về
