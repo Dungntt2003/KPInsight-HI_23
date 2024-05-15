@@ -71,13 +71,13 @@
 }
 
 .card-warning {
-  transform: translate(30%);
-  background-color: #8fbcdd; /* Thay đổi màu nền thẻ */
-  border-radius: 10px;
+  transform: translate(25%);
+  /* background-color: #8fbcdd;  */
+  /* border-radius: 10px; */
   padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   height: 50%;
-  margin-top: 10px;
+  margin-top: 0px;
   /*flex: 1;
   margin-right: 10px;*/
 }

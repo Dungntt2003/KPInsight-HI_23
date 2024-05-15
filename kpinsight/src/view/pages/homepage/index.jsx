@@ -90,7 +90,11 @@ function Homepage() {
       </div>
       <div className="flex-container-card">
         <div className="flex-item card-warning">
-          <Card title="Nhắc nhở" bordered={false}>
+          <Card
+            title="Nhắc nhở"
+            bordered={false}
+            style={{ backgroundColor: "#8fbcdd" }}
+          >
             <p>Đã 1 tuần không cập nhật hoạt động</p>
           </Card>
         </div>
