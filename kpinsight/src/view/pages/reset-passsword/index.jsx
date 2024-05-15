@@ -10,7 +10,7 @@ function ResetPassword() {
   const handleFinish = (value) => {
     toast.success("Thiết lập mật khẩu mới thành công!", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

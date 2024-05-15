@@ -1,5 +1,6 @@
 import "./index.css";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { Button, Card, Tag } from "antd";
@@ -100,10 +101,14 @@ function DefineGoal() {
           </div>
           <div className="define-btn">
             <Button type="primary" className="define-button">
-              Thiết lập lại
+              <Link to="/choose-option" className="header-link">
+                Thiết lập lại
+              </Link>
             </Button>
             <Button type="primary" className="define-button">
-              Tiếp tục
+              <Link to="/turn-standard" className="header-link">
+                Tiếp tục
+              </Link>
             </Button>
           </div>
         </div>

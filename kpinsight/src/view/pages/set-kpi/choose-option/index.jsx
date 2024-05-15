@@ -1,5 +1,6 @@
 import "./index.css";
 import { Button, Select } from "antd";
+import { Link } from "react-router-dom";
 
 function ChooseOption() {
   return (
@@ -68,7 +69,9 @@ function ChooseOption() {
         </div>
         <div className="choose-btn">
           <Button type="primary" className="choose-button">
-            Tiếp tục
+            <Link to="/choose-month" className="header-link">
+              Tiếp tục
+            </Link>
           </Button>
         </div>
       </div>
