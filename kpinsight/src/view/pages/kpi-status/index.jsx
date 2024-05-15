@@ -1,21 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import { Select } from "antd";
+import { Select, Divider, Flex, Tag } from "antd";
 import Chart from "chart.js/auto";
 import "./index.css"; // Import tệp CSS tùy chỉnh
 import NavbarStatus from "../../../components/navbar/navbar-status";
 import SpeedChart from "../../../components/speed-chart";
 
 const KpiStatus = () => {
-  const min = 3;
-  const max = 7;
-  const score = 9;
-
   const chartRef = useRef(null);
   //Select chọn nhãn:
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
-  //Tạo biểu đồ:
+  //Tạo biểu đồ cột:
   useEffect(() => {
     const myChart = new Chart(chartRef.current, {
       type: "bar",
@@ -134,12 +130,26 @@ const KpiStatus = () => {
           <canvas ref={chartRef}></canvas>
         </div>
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
-        <SpeedChart min={min} max={max} score={score} />
+        <SpeedChart min={3} max={8} score={11} />
         <div className="detailKPI">
           <h1 className="detail-tittle">Chi tiết KPI</h1>
           <div className="suggest"></div>
           <div className="activityKPI1">
-            <SpeedChart min={min} max={max} score={score} />
+            <div className="activity-name">
+              Học thiết kế giao diện
+              <Flex gap="4px 0" wrap>
+                <Tag color="green">Tốt</Tag>
+              </Flex>
+            </div>
+            <h1 className="complete-rate">Hoàn thành được 4/5 nhiệm vụ</h1>
+            <h1 className="each-time">
+              Trung bình thực hiện mỗi nhiệm vụ hết 2h
+            </h1>
+            <h1 className="need-time">
+              Cần thêm 2h nữa để hoàn thành hoạt động này!
+            </h1>
+            <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
+            <SpeedChart min={2} max={5} score={4} />
           </div>
         </div>
       </div>

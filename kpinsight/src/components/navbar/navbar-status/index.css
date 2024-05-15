@@ -1,10 +1,14 @@
 /* CSS cho khung menu */
 .navbar-menu-container {
   width: 200px;
-  height: 620px;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 10px;
   text-align: center;
+  position: fixed;
+  top: 81px;
+  left: 0;
+  height: 100%; /* Chiều cao tương đương với chiều rộng của trang */
+  z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */
 }
 /* CSS cho tên navbar */
 .navbar-name {

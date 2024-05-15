@@ -27,13 +27,13 @@
   color: #074979;
 }
 .select {
-  margin-left: 1200px;
+  margin-left: 81%;
   margin-top: -25px;
 }
 
 .body .columnchart-container {
   margin-top: 10px;
-  margin-left: 350px;
+  /* margin-left: 350px; */
   z-index: 1; /* Đảm bảo chart hiển thị phía sau navbar */
 }
 .columnchart-container canvas {
@@ -44,6 +44,7 @@
   width: 1000px !important;
   height: 400px !important;
   box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25);
+  margin-left: 24%;
 }
 
 /* Tùy chỉnh màu và độ dày của đường viền */
@@ -107,4 +108,21 @@
   border-radius: 15px;
   border: 3px solid #074979;
   background-color: #ffff;
+}
+
+.activityKPI1 .activity-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-left: 10px;
+  color: #517fa1;
+}
+
+.activityKPI1 .complete-rate,
+.each-time {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-left: 10px;
+  color: #517fa1;
 }

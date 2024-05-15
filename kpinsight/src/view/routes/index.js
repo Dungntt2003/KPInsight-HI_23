@@ -19,6 +19,7 @@ import Target_list from "../pages/target/target_list";
 import Target_detail from "../pages/target/target_detail";
 import DefineTarget from "../pages/set-kpi/define-target";
 import TurnStandard from "../pages/set-kpi/turn-standard";
+import ActivityForm from "../pages/homepage/activityForm";
 function AllRoutes() {
   return (
     <Routes>
@@ -28,11 +29,11 @@ function AllRoutes() {
       />
       <Route
         path="/navbar-status"
-        element={<MainLayout component={<NavbarStatus />} />}
+        element={<HeaderLayout component={<NavbarStatus />} />}
       />
       <Route
         path="/navbar-option"
-        element={<MainLayout component={<NavbarOption />} />}
+        element={<HeaderLayout component={<NavbarOption />} />}
       />
       <Route
         path="/speed-chart"
@@ -42,7 +43,7 @@ function AllRoutes() {
         path="/kpi-status"
         element={<HeaderLayout component={<KpiStatus />} />}
       />
-      <Route path="/home" element={<MainLayout component={<Homepage />} />} />
+      <Route path="/" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
@@ -99,11 +100,15 @@ function AllRoutes() {
       />
       <Route
         path="/target_list"
-        element={<MainLayout component={<Target_list />} />}
+        element={<HeaderLayout component={<Target_list />} />}
       />
       <Route
         path="/target_detail"
         element={<MainLayout component={<Target_detail />} />}
+      />
+      <Route
+        path="/activity-list"
+        element={<MainLayout component={<ActivityForm />} />}
       />
     </Routes>
   );

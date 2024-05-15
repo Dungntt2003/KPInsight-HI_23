@@ -145,7 +145,7 @@ function DefineTarget() {
                                     </Form.Item>
                                   }
                                   key={field1.key}
-                                  style={{ minWidth: "400px" }}
+                                  style={{ minWidth: "450px" }}
                                   extra={
                                     <CloseOutlined
                                       onClick={() => {
@@ -162,18 +162,18 @@ function DefineTarget() {
                                             display: "flex",
                                             flexDirection: "column",
                                             rowGap: 16,
-                                            width: "350px",
+                                            width: "480px",
                                           }}
                                         >
                                           {subFields1.map((subField1) => (
                                             <Space key={subField1.key}>
                                               <Form.Item
                                                 noStyle
-                                                style={{ width: "350px" }}
+                                                style={{ width: "480px" }}
                                                 name={[subField1.name, "first"]}
                                               >
                                                 <Input
-                                                  style={{ width: "350px" }}
+                                                  style={{ width: "450px" }}
                                                   value={subField1.first}
                                                 />
                                               </Form.Item>
