@@ -43,7 +43,7 @@ function AllRoutes() {
         path="/kpi-status"
         element={<HeaderLayout component={<KpiStatus />} />}
       />
-      <Route path="/home" element={<MainLayout component={<Homepage />} />} />
+      <Route path="/" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
