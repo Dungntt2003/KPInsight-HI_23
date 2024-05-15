@@ -7,7 +7,7 @@
 .flex-container {
   height: 400px;
   overflow: hidden; /* Tránh tràn nội dung */
-  margin-top: 110px;
+  margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;

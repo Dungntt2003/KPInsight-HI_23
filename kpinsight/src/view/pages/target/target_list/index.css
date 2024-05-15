@@ -23,7 +23,7 @@ Flex:hover {
   cursor: pointer;
 }
 
-h3 {
+.target-list-container h3 {
   display: flex;
   margin-top: -15px;
   margin-bottom: 20px;
