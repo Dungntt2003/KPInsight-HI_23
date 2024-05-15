@@ -84,7 +84,7 @@ Tag:hover {
   align-items: center;
 }
 
-li {
+.target-goalList-item {
   padding: 10px;
   text-align: right;
   margin-bottom: 5px;
