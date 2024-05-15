@@ -1,59 +1,17 @@
 import "./index.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Select, Tag, message, Popconfirm, Pagination } from "antd";
+import { Select, Tag, message, Modal, Pagination } from "antd";
 import {
   EllipsisOutlined,
   CloseCircleOutlined,
   EditOutlined,
   StarOutlined,
   StarFilled,
-  DownCircleOutlined,
 } from "@ant-design/icons";
 import NavbarGoal from "../../../../components/navbar/navbar-goal";
 
 function Target_list() {
-  //Choose label - select
-  const handleLabel = (value) => {
-    console.log(value);
-  };
-
-  //Navigate
-  const [current, setCurrent] = useState(3);
-  const handlePagination = (page) => {
-    console.log(page);
-    setCurrent(page);
-  };
-
-  //Star
-  const handleStarClick = (id) => {
-    setStudies(
-      studies.map((study) =>
-        study.id === id ? { ...study, star: !study.star } : study
-      )
-    );
-    setSocials(
-      socials.map((social) =>
-        social.id === id ? { ...social, star: !social.star } : social
-      )
-    );
-    setPersonas(
-      personas.map((persona) =>
-        persona.id === id ? { ...persona, star: !persona.star } : persona
-      )
-    );
-  };
-
-  //Pop confirm
-  const confirm = (e) => {
-    console.log(e);
-    message.success("Đã xóa mục tiêu!");
-  };
-  const cancel = (e) => {
-    console.log(e);
-    message.error("Hủy xóa mục tiêu!");
-  };
-
   //Data
   const [studies, setStudies] = useState([
     {
@@ -155,6 +113,84 @@ function Target_list() {
     },
   ]);
 
+  //Choose label - select
+  const handleLabel = (value) => {
+    console.log(value);
+  };
+
+  //Pagigation
+  const [current, setCurrent] = useState(3);
+  const handlePagination = (page) => {
+    console.log(page);
+    setCurrent(page);
+  };
+
+  //Star
+  const handleStarClick = (id) => {
+    setStudies(
+      studies.map((study) =>
+        study.id === id ? { ...study, star: !study.star } : study
+      )
+    );
+    setSocials(
+      socials.map((social) =>
+        social.id === id ? { ...social, star: !social.star } : social
+      )
+    );
+    setPersonas(
+      personas.map((persona) =>
+        persona.id === id ? { ...persona, star: !persona.star } : persona
+      )
+    );
+  };
+
+  //Pop confirm
+  const confirm = (e) => {
+    console.log(e);
+    message.success("Đã xóa mục tiêu!");
+  };
+  const cancel = (e) => {
+    console.log(e);
+    message.error("Hủy xóa mục tiêu!");
+  };
+
+  //Delete confirm - modal
+  const LocalizedModal = () => {
+    const [openModal, setOpenModal] = useState(false);
+    const showModal = () => {
+      setOpenModal(true);
+    };
+    const handleModalCancel = () => {
+      setOpenModal(false);
+      message.error("Hủy xóa mục tiêu!");
+    };
+    const handleModalOk = () => {
+      setOpenModal(false);
+      message.success("Đã xóa mục tiêu!");
+    };
+    return (
+      <>
+        <span
+          onClick={showModal}
+          className="target-list-icon"
+          id="goal-list-title-icon"
+        >
+          <CloseCircleOutlined />
+        </span>
+        <Modal
+          title="Xóa mục tiêu"
+          open={openModal}
+          onOk={handleModalOk}
+          onCancel={handleModalCancel}
+          okText="Xác nhận"
+          cancelText="Hủy"
+        >
+          <p>Xác nhận xóa mục tiêu</p>
+        </Modal>
+      </>
+    );
+  };
+
   return (
     <div className="target-list-container">
       <NavbarGoal />
@@ -230,19 +266,7 @@ function Target_list() {
             >
               <EditOutlined />
             </Link>
-            <Popconfirm
-              placement="bottomLeft"
-              title="Xóa mục tiêu"
-              description="Xác nhận xóa mục tiêu"
-              onConfirm={confirm}
-              onCancel={cancel}
-              okText="Xác nhận"
-              cancelText="Hủy"
-            >
-              <span className="target-list-icon" id="goal-list-title-icon">
-                <CloseCircleOutlined />
-              </span>
-            </Popconfirm>
+            <LocalizedModal className="target-list-icon" />
           </h3>
 
           <div className="target-list-item">
@@ -289,19 +313,7 @@ function Target_list() {
             >
               <EditOutlined />
             </Link>
-            <Popconfirm
-              placement="bottomLeft"
-              title="Xóa mục tiêu"
-              description="Xác nhận xóa mục tiêu"
-              onConfirm={confirm}
-              onCancel={cancel}
-              okText="Xác nhận"
-              cancelText="Hủy"
-            >
-              <span className="target-list-icon" id="goal-list-title-icon">
-                <CloseCircleOutlined />
-              </span>
-            </Popconfirm>
+            <LocalizedModal className="target-list-icon" />
           </h3>
 
           <div className="target-list-item">
@@ -344,19 +356,7 @@ function Target_list() {
             >
               <EditOutlined />
             </Link>
-            <Popconfirm
-              placement="bottomLeft"
-              title="Xóa mục tiêu"
-              description="Xác nhận xóa mục tiêu"
-              onConfirm={confirm}
-              onCancel={cancel}
-              okText="Xác nhận"
-              cancelText="Hủy"
-            >
-              <span className="target-list-icon" id="goal-list-title-icon">
-                <CloseCircleOutlined />
-              </span>
-            </Popconfirm>
+            <LocalizedModal className="target-list-icon" />
           </h3>
 
           <div className="target-list-item">
