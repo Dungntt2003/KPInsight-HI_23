@@ -104,7 +104,7 @@ function AllRoutes() {
       />
       <Route
         path="/target_detail"
-        element={<MainLayout component={<Target_detail />} />}
+        element={<HeaderLayout component={<Target_detail />} />}
       />
       <Route
         path="/activity-list"
