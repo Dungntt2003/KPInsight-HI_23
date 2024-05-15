@@ -1,6 +1,6 @@
 import "./index.css";
 import React, { useState } from "react";
-import { Calendar, theme } from "antd";
+import { Calendar, theme, Card } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button, Tag } from "antd";
 import { PieChart } from "@mui/x-charts/PieChart";
@@ -45,6 +45,7 @@ function Homepage() {
       <div className="flex-container">
         <div className="flex-item chart-container">
           <div className="chart">
+            {/* <h3>Tổng quan KPI</h3> */}
             <PieChart
               series={[
                 {
@@ -87,30 +88,37 @@ function Homepage() {
           activities={activities}
         />
       </div>
-      <div className="act-list">
-        <div className="act1">
-          <div className="act-name">
-            Học thiết kế Web
-            <Tag className="tag">IT</Tag>
-            <span className="time">08:00 - 11:30</span>
-          </div>
-          <Button className="update-button">Cập nhật</Button>
+      <div className="flex-container-card">
+        <div className="flex-item card-warning">
+          <Card title="Nhắc nhở" bordered={false}>
+            <p>Đã 1 tuần không cập nhật hoạt động</p>
+          </Card>
         </div>
-        <div className="act1">
-          <div className="act-name">
-            Học từ vựng N3+
-            <Tag className="tag">Ngoại ngữ</Tag>
-            <span className="time">14:00 - 15:30</span>
+        <div className="flex-item act-list">
+          <div className="act1">
+            <div className="act-name">
+              Học thiết kế Web
+              <Tag className="tag">IT</Tag>
+              <span className="time">08:00 - 11:30</span>
+            </div>
+            <Button className="update-button">Cập nhật</Button>
           </div>
-          <Button className="update-button">Cập nhật</Button>
-        </div>
-        <div className="act1">
-          <div className="act-name">
-            Luyện Shadowing
-            <Tag className="tag">Ngoại ngữ</Tag>
-            <span className="time">19:00 - 21:00</span>
+          <div className="act1">
+            <div className="act-name">
+              Học từ vựng N3+
+              <Tag className="tag">Ngoại ngữ</Tag>
+              <span className="time">14:00 - 15:30</span>
+            </div>
+            <Button className="update-button">Cập nhật</Button>
           </div>
-          <Button className="update-button">Cập nhật</Button>
+          <div className="act1">
+            <div className="act-name">
+              Luyện Shadowing
+              <Tag className="tag">Ngoại ngữ</Tag>
+              <span className="time">19:00 - 21:00</span>
+            </div>
+            <Button className="update-button">Cập nhật</Button>
+          </div>
         </div>
       </div>
     </div>

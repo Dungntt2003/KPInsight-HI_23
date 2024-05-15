@@ -15,6 +15,15 @@
   width: 100%;
 }
 
+.flex-container-card {
+  overflow: hidden; /* Tránh tràn nội dung */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .calendar-wrap {
   height: 85%;
   width: 50%;
@@ -61,6 +70,18 @@
   border-radius: 10px;
 }
 
+.card-warning {
+  transform: translate(30%);
+  background-color: #8fbcdd; /* Thay đổi màu nền thẻ */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 50%;
+  margin-top: 10px;
+  /*flex: 1;
+  margin-right: 10px;*/
+}
+
 .act-list {
   max-width: 730px;
   width: 100%;
@@ -70,9 +91,9 @@
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px; /* Bo tròn góc */
-  margin-top: 20px; /* Khoảng cách với các phần tử khác phía trên */
+  margin-top: 0px; /* Khoảng cách với các phần tử khác phía trên */
   padding: 2px; /* Khoảng cách bên trong khung */
-  transform: translateX(37%);
+  transform: translateX(-10%);
   background: #8fbcdd;
   display: flex;
   align-items: center;
@@ -87,7 +108,7 @@
 }
 
 .update-button {
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 20px;
 }
 
