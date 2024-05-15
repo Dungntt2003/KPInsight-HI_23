@@ -1,0 +1,128 @@
+.activity-detail-container {
+  display: flex;
+  margin-top: 110px;
+  width: 100%;
+  height: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-detail-frame {
+  padding: 10px 50px;
+  margin-left: 250px;
+  margin-right: 20px;
+  width: 1000px !important;
+  border-radius: 60px;
+  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.list-frame h3 {
+  display: flex;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+#act-title {
+  margin: 0 auto auto 0;
+  padding: 8px 0 0;
+  flex-shrink: 0;
+  /* background-color: #074979;*/
+  color: #074979;
+  width: 200px;
+  height: 30px;
+  display: block;
+  border-radius: px;
+}
+
+#act-title {
+  margin-top: 0px;
+  width: 100%px;
+  font-size: 24px;
+}
+
+#act-tag {
+  background-color: #fff;
+  border: 1px solid #074979;
+  padding: 5px 30px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.kpi-target-select-container {
+  margin-left: 1200px;
+  margin-top: -25px;
+  /* flex: 1;
+    display: flex;
+    justify-content: flex-end; */
+}
+
+.activity-detail-wrap {
+  width: auto;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #074979;
+  background-color: #ffff;
+}
+
+.activity-detail-item {
+  /* display: flex; */
+  align-items: center;
+}
+
+#task-list {
+  list-style: none;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-detail-content-detail {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  padding: 10px;
+  text-align: right;
+  margin-bottom: 5px;
+  background-color: #ffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.activity-detail-doctor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.activity-detail-content {
+  text-align: left;
+}
+
+.activity-detail-tag,
+.activity-detail-date {
+  text-align: right;
+  background-color: #ffff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-right: 0px;
+}
+
+.act-icon {
+  font-size: 1.2em;
+  margin-left: 10px;
+  color: #074979;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#act-title-icon {
+  margin-top: 25px;
+}
