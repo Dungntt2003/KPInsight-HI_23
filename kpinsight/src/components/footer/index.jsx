@@ -7,7 +7,9 @@ function Footer() {
   return (
     <div
       className={
-        path === "/forgot-password" || path === "/reset-password"
+        path === "/forgot-password" ||
+        path === "/reset-password" ||
+        path === "/login"
           ? "footer-container footer-fixed"
           : "footer-container"
       }

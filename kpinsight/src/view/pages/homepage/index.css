@@ -6,6 +6,16 @@
 
 .flex-container {
   height: 400px;
+  /*height: 100%;*/
+  overflow: hidden; /* Tránh tràn nội dung */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flex-container-card {
   overflow: hidden; /* Tránh tràn nội dung */
   margin-top: 10px;
   margin-bottom: 10px;
@@ -16,9 +26,9 @@
 
 .calendar-wrap {
   height: 85%;
-  width: 700px;
+  width: 50%;
   margin-top: 20px;
-  transform: translateX(-15%);
+  transform: translateX(-10%);
   border-radius: 20px;
   overflow: hidden; /* Tránh tràn nội dung */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -36,17 +46,9 @@
   margin-bottom: 0px;
   margin-right: 0px;
   overflow-y: auto;
-  height: 500px;
+  /*height: 500px;*/
 }
 
-.ant-picker-cell {
-  height: 32px !important;
-}
-
-/* Đảm bảo chiều cao của panel lịch là 100% */
-.ant-picker-calendar-full .ant-picker-panel {
-  height: 100% !important;
-}
 .chart-container {
   margin-top: 10px;
   transform: translateX(-15%);
@@ -62,23 +64,36 @@
 }
 
 .add-button {
-  transform: translateX(330%);
+  transform: translateX(350%);
   margin-bottom: 0px;
   background-color: #074979;
   border-radius: 10px;
 }
 
+.card-warning {
+  transform: translate(25%);
+  /* background-color: #8fbcdd;  */
+  /* border-radius: 10px; */
+  padding: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  height: 50%;
+  margin-top: 0px;
+  /*flex: 1;
+  margin-right: 10px;*/
+}
+
 .act-list {
-  width: 710px;
+  max-width: 730px;
+  width: 100%;
 }
 
 .act1 {
-  width: 710px;
+  width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px; /* Bo tròn góc */
-  margin-top: 20px; /* Khoảng cách với các phần tử khác phía trên */
+  margin-top: 0px; /* Khoảng cách với các phần tử khác phía trên */
   padding: 2px; /* Khoảng cách bên trong khung */
-  transform: translateX(35%);
+  transform: translateX(-10%);
   background: #8fbcdd;
   display: flex;
   align-items: center;
@@ -93,7 +108,7 @@
 }
 
 .update-button {
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 20px;
 }
 

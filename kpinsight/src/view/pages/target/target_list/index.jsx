@@ -1,11 +1,13 @@
 import "./index.css";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Flex, Select, Tag } from "antd";
 import {
   EllipsisOutlined,
   CloseCircleOutlined,
   EditOutlined,
   StarOutlined,
+  StarFilled,
   DownCircleOutlined,
 } from "@ant-design/icons";
 import NavbarGoal from "../../../../components/navbar/navbar-goal";
@@ -16,8 +18,26 @@ function Target_list() {
     console.log(value);
   };
 
-  const [studies] = useState([
+  //Star
+  const handleStarClick = (id) => {
+    setStudies(
+      studies.map((study) =>
+        study.id === id ? { ...study, star: !study.star } : study
+      )
+    );
+  };
+
+  //Filter
+  // const [selectedTag, setSelectedTag] = useState(""); // Trạng thái của tag được chọn
+  // const filteredStudies = studies.filter(
+  //   (study) =>
+  //     selectedTag === "" ||
+  //     (study.tag && study.tag.props.children === selectedTag)
+  // );
+
+  const [studies, setStudies] = useState([
     {
+      id: 0,
       content: "Đạt 3.0/4.0 kì 2023.2",
       // tag: (
       //   <Flex gap="4px 0" wrap>
@@ -28,34 +48,24 @@ function Target_list() {
       star: true,
     },
     {
+      id: 1,
       content: "Đạt chứng chỉ TOEIC 500+",
-      tag: (
-        <Flex gap="4px 0" wrap>
-          <Tag color="#074979">Ngoại ngữ</Tag>
-        </Flex>
-      ),
+      tag: <Tag color="magenta">Ngoại ngữ</Tag>,
       createdDate: "2023/07/30",
       star: false,
     },
     {
+      id: 2,
       content: "Đạt giải cuộc thi She Codes 2023",
-      tag: (
-        <Flex gap="4px 0" wrap>
-          <Tag color="#074979">IT</Tag>
-        </Flex>
-      ),
+      tag: <Tag color="red">IT</Tag>,
       createdDate: "2023/07/30",
       star: false,
     },
   ]);
-  const [socials] = useState([
+  const [socials, setSocials] = useState([
     {
       content: "Tích cực hoạt động CLB Sách",
-      // tag: (
-      //   <Flex gap="4px 0" wrap>
-      //     <Tag color="#074979"></Tag>
-      //   </Flex>
-      // ),
+      tag: <Tag color="magenta">CLB</Tag>,
       createdDate: "2023/08/01",
       star: false,
     },
@@ -80,34 +90,22 @@ function Target_list() {
       star: false,
     },
   ]);
-  const [personas] = useState([
+  const [personas, setPersonas] = useState([
     {
       content: "Chăm sóc sức khỏe",
-      // tag: (
-      //   <Flex gap="4px 0" wrap>
-      //     <Tag color="#074979"></Tag>
-      //   </Flex>
-      // ),
+      tag: <Tag color="magenta">Sức khỏe</Tag>,
       createdDate: "2023/08/01",
       star: false,
     },
     {
       content: "Dành thời gian cho gia đình",
-      tag: (
-        <Flex gap="4px 0" wrap>
-          <Tag color="#074979">Gia đình</Tag>
-        </Flex>
-      ),
+      tag: <Tag color="red">Gia đình</Tag>,
       createdDate: "2023/07/30",
       star: true,
     },
     {
       content: "Quản lý chi tiêu hiệu quả",
-      // tag: (
-      //   <Flex gap="4px 0" wrap>
-      //     <Tag color="#074979">IT</Tag>
-      //   </Flex>
-      // ),
+      tag: <Tag color="orange">Tài chính</Tag>,
       createdDate: "2023/07/30",
       star: false,
     },
@@ -141,12 +139,30 @@ function Target_list() {
                   ],
                 },
                 {
+                  label: <span>Xã hội</span>,
+                  title: "Xã hội",
+                  options: [
+                    {
+                      label: <span>CLB</span>,
+                      value: "CLB",
+                    },
+                  ],
+                },
+                {
                   label: <span>Cá nhân</span>,
                   title: "Cá nhân",
                   options: [
                     {
+                      label: <span>Sức khỏe</span>,
+                      value: "Sức khỏe",
+                    },
+                    {
                       label: <span>Gia đình</span>,
                       value: "Gia đình",
+                    },
+                    {
+                      label: <span>Tài chính</span>,
+                      value: "Tài chính",
                     },
                   ],
                 },
@@ -158,9 +174,13 @@ function Target_list() {
         <div className="target-list-wrap">
           <h3>
             <span id="goal-list-title">Học tập</span>
-            <span className="target-list-icon" id="goal-list-title-icon">
+            <Link
+              to="/target_detail"
+              className="target-list-icon"
+              id="goal-list-title-icon"
+            >
               <EditOutlined />
-            </span>
+            </Link>
             <span className="target-list-icon" id="goal-list-title-icon">
               <CloseCircleOutlined />
             </span>
@@ -176,16 +196,27 @@ function Target_list() {
                     <span className="target-list-date">
                       {study.createdDate}
                     </span>
-                    <span className="target-list-icon">
-                      <StarOutlined />
+                    <span
+                      className="target-list-icon"
+                      onClick={() => handleStarClick(study.id)}
+                    >
+                      {study.star ? (
+                        <StarFilled style={{ color: "gold" }} />
+                      ) : (
+                        <StarOutlined />
+                      )}
                     </span>
                   </span>
                 </li>
               ))}
             </ul>
-            <span className="target-list-icon">
+            <Link to="/target_detail" className="target-list-icon">
+              <EllipsisOutlined />
+            </Link>
+            {/* <span className="target-list-icon">
               <EllipsisOutlined />
             </span>
+            {showOtherScreen && <Target_detail />} */}
           </div>
         </div>
 
