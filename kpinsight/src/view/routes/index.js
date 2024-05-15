@@ -28,11 +28,11 @@ function AllRoutes() {
       />
       <Route
         path="/navbar-status"
-        element={<MainLayout component={<NavbarStatus />} />}
+        element={<HeaderLayout component={<NavbarStatus />} />}
       />
       <Route
         path="/navbar-option"
-        element={<MainLayout component={<NavbarOption />} />}
+        element={<HeaderLayout component={<NavbarOption />} />}
       />
       <Route
         path="/speed-chart"
