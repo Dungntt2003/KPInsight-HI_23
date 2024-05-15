@@ -42,7 +42,7 @@ Tag:hover {
 }
 
 #kpi-target-header {
-  margin-left: -10px;
+  margin-left: -35px;
 }
 
 #goal-list-title {
@@ -84,7 +84,7 @@ Tag:hover {
   align-items: center;
 }
 
-.target-goalList-item {
+#target-goalList-item {
   padding: 10px;
   text-align: right;
   margin-bottom: 5px;

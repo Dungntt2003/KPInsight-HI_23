@@ -18,7 +18,11 @@
   box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
-.list-frame h3 {
+Tag:hover {
+  cursor: pointer;
+}
+
+.target-list-container h3 {
   display: flex;
   margin-top: -15px;
   margin-bottom: 20px;
@@ -35,6 +39,10 @@
   height: 30px;
   display: block;
   border-radius: 15px;
+}
+
+#kpi-target-header {
+  margin-left: -35px;
 }
 
 #goal-list-title {
@@ -76,7 +84,7 @@
   align-items: center;
 }
 
-li {
+#target-goalList-item {
   padding: 10px;
   text-align: right;
   margin-bottom: 5px;
