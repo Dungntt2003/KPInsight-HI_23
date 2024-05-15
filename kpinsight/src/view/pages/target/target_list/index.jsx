@@ -139,12 +139,30 @@ function Target_list() {
                   ],
                 },
                 {
+                  label: <span>Xã hội</span>,
+                  title: "Xã hội",
+                  options: [
+                    {
+                      label: <span>CLB</span>,
+                      value: "CLB",
+                    },
+                  ],
+                },
+                {
                   label: <span>Cá nhân</span>,
                   title: "Cá nhân",
                   options: [
                     {
+                      label: <span>Sức khỏe</span>,
+                      value: "Sức khỏe",
+                    },
+                    {
                       label: <span>Gia đình</span>,
                       value: "Gia đình",
+                    },
+                    {
+                      label: <span>Tài chính</span>,
+                      value: "Tài chính",
                     },
                   ],
                 },

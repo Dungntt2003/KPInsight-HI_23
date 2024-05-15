@@ -99,7 +99,7 @@ function AllRoutes() {
       />
       <Route
         path="/target_list"
-        element={<MainLayout component={<Target_list />} />}
+        element={<HeaderLayout component={<Target_list />} />}
       />
       <Route
         path="/target_detail"
