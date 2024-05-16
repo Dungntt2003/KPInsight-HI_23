@@ -1,7 +1,7 @@
 import NavbarOption from "../../../../components/navbar/navbar-option";
 import React, { useEffect, useRef } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Input } from "antd";
+import { Input, Button } from "antd";
 import "./index.css";
 
 const SettingAccount = () => {
@@ -97,7 +97,9 @@ const SettingAccount = () => {
             </div>
           </div>
         </div>
-        <div className="update-info">Cập nhật thông tin</div>
+        <Button type="primary" htmlType="submit" className="update-info">
+          Cập nhật thông tin
+        </Button>
       </div>
     </div>
   );

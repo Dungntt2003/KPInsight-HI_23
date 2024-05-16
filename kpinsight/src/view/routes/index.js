@@ -52,13 +52,12 @@ function AllRoutes() {
         element={<HeaderLayout component={<SettingAccount />} />}
       />
       <Route
-<<<<<<< HEAD
         path="/setting/change-password"
         element={<HeaderLayout component={<ChangePassword />} />}
-=======
+      />
+      <Route
         path="/general-setting"
         element={<HeaderLayout component={<GeneralSetting />} />}
->>>>>>> 6cf7dafe53c3e196a0a168a29ae652e7989c4d3c
       />
       <Route path="/" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />

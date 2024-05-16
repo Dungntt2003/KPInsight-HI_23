@@ -124,7 +124,7 @@
   color: white;
   background-color: #074979;
   border-radius: 20px;
-  padding: 4px 12px;
+  padding: 4px 12px 4px 4px;
   width: fit-content;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
