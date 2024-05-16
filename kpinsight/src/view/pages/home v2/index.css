@@ -71,3 +71,10 @@
   border-radius: 10px;
   margin-right: 20px;
 }
+
+.add-button {
+  transform: translateX(310%);
+  margin-bottom: 0px;
+  background-color: #074979;
+  border-radius: 10px;
+}
