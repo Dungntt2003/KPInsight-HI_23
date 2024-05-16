@@ -19,7 +19,8 @@ import Target_list from "../pages/target/target_list";
 import Target_detail from "../pages/target/target_detail";
 import DefineTarget from "../pages/set-kpi/define-target";
 import TurnStandard from "../pages/set-kpi/turn-standard";
-import ActivityForm from "../pages/homepage/activityForm";
+import ActivityList from "../pages/activity-list";
+import ActivityDetail from "../pages/activity-detail";
 import Setting from "../pages/setting";
 function AllRoutes() {
   return (
@@ -113,7 +114,11 @@ function AllRoutes() {
       />
       <Route
         path="/activity-list"
-        element={<MainLayout component={<ActivityForm />} />}
+        element={<HeaderLayout component={<ActivityList />} />}
+      />
+      <Route
+        path="/activity-detail"
+        element={<HeaderLayout component={<ActivityDetail />} />}
       />
     </Routes>
   );
