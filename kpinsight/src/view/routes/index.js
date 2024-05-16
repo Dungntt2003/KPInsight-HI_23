@@ -23,6 +23,7 @@ import ActivityList from "../pages/activity-list";
 import ActivityDetail from "../pages/activity-detail";
 import GeneralSetting from "../pages/general-setting";
 import SettingAccount from "../pages/setting/account";
+import Help from "../pages/setting/help";
 function AllRoutes() {
   return (
     <Routes>
@@ -125,6 +126,7 @@ function AllRoutes() {
         path="/activity-detail"
         element={<HeaderLayout component={<ActivityDetail />} />}
       />
+      <Route path="/help" element={<HeaderLayout component={<Help />} />} />
     </Routes>
   );
 }
