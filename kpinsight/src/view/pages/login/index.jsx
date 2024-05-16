@@ -1,14 +1,16 @@
 import "./index.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 function Login() {
+  const navigate = useNavigate();
   const onFinish = (values) => {
     localStorage.setItem("username", values.username);
     console.log("Received values of form: ", values);
+    navigate("/home");
   };
   return (
     <div className="login-container">
@@ -68,9 +70,7 @@ function Login() {
               htmlType="submit"
               className="login-form-button"
             >
-              <Link to="/home" className="header-link">
-                ĐĂNG NHẬP
-              </Link>
+              ĐĂNG NHẬP
             </Button>
           </Form.Item>
         </Form>
