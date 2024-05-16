@@ -10,10 +10,15 @@ const SettingAccount = () => {
       <NavbarOption />;
       <div className="namepage-logout">
         <div className="namepage-setting">Thông tin cơ bản</div>
-        <div className="log-out">
-          <LogoutOutlined />
-          <div className="log-out-text">Đăng xuất</div>
-        </div>
+
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="log-out-text"
+          icon={<LogoutOutlined />}
+        >
+          Đăng xuất
+        </Button>
       </div>
       <div>
         <div className="account-wrap">
