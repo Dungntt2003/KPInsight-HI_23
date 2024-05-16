@@ -50,7 +50,7 @@ function Header() {
                 </Link>
               </button>
               <button class="header-login">
-                <Link className="header-link" to="/">
+                <Link className="header-link" to="/setting">
                   <img
                     src="https://www.svgrepo.com/show/382097/female-avatar-girl-face-woman-user-9.svg"
                     alt=""
