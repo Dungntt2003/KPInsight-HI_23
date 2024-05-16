@@ -21,8 +21,9 @@ import DefineTarget from "../pages/set-kpi/define-target";
 import TurnStandard from "../pages/set-kpi/turn-standard";
 import ActivityList from "../pages/activity-list";
 import ActivityDetail from "../pages/activity-detail";
-import GeneralSetting from "../pages/general-setting";
+import GeneralSetting from "../pages/setting/general-setting";
 import SettingAccount from "../pages/setting/account";
+import Help from "../pages/setting/help";
 import ChangePassword from "../pages/setting/change-password";
 import Home from "../pages/home v2";
 function AllRoutes() {
@@ -131,6 +132,7 @@ function AllRoutes() {
         path="/activity-detail"
         element={<HeaderLayout component={<ActivityDetail />} />}
       />
+      <Route path="/help" element={<HeaderLayout component={<Help />} />} />
       <Route path="/home" element={<HeaderLayout component={<Home />} />} />
     </Routes>
   );

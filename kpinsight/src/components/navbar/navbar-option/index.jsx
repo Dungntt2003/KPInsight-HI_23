@@ -33,7 +33,7 @@ function NavbarOption() {
   const [selectedKey, setSelectedKey] = useState(null);
   const handleItemClick = (key) => {
     const item = items.find((item) => item.key === key);
-    setSelectedKey(key); // Lưu trữ key của item được click
+    setSelectedKey(key);
   };
   return (
     <div className="navbar-option-container">
