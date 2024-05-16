@@ -9,75 +9,57 @@ import {
   StarOutlined,
   DownCircleOutlined,
 } from "@ant-design/icons";
-
+import Checkbox from "@mui/material/Checkbox";
 function ActivityDetail() {
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const handleChange = (value) => {
     console.log(value);
   };
 
-  const [studies] = useState([
+  const [studies_html] = useState([
     {
-      content: "Đạt 3.0/4.0 kì 2023.2",
-      createdDate: "2023/08/01",
+      content: "F8 HTML, CSS cơ bản",
+      createdDate: "2024/03/01",
       createdTime: "09:00-10:00",
       star: true,
     },
     {
-      content: "Đạt chứng chỉ TOEIC 500+",
-      createdDate: "2023/07/30",
+      content: "F8 HTML, CSS nâng cao",
+      createdDate: "2024/03/30",
       createdTime: "09:00-10:00",
       star: false,
     },
   ]);
-  // const [socials] = useState([
-  //   {
-  //     content: "Tích cực hoạt động CLB Sách",
-  //     createdDate: "2023/08/01",
-  //     star: false,
-  //   },
-  //   {
-  //     content: "Tham gia tình nguyện 'Mùa hè xanh'",
-  //     createdDate: "2023/07/30",
-  //     star: true,
-  //   },
-  //   {
-  //     content: "Tham gia trải nghiệm làm gốm",
-  //     // tag: (
-  //     //   <Flex gap="4px 0" wrap>
-  //     //     <Tag color="#074979">IT</Tag>
-  //     //   </Flex>
-  //     // ),
-  //     createdDate: "2023/07/30",
-  //     star: false,
-  //   },
-  // ]);
-  // const [personas] = useState([
-  //   {
-  //     content: "Chăm sóc sức khỏe",
-  //     // tag: (
-  //     //   <Flex gap="4px 0" wrap>
-  //     //     <Tag color="#074979"></Tag>
-  //     //   </Flex>
-  //     // ),
-  //     createdDate: "2023/08/01",
-  //     star: false,
-  //   },
-  //   {
-  //     content: "Dành thời gian cho gia đình",
-  //     tag: (
-  //       <Flex gap="4px 0" wrap>
-  //         <Tag color="#074979">Gia đình</Tag>
-  //       </Flex>
-  //     ),
-  //     createdDate: "2023/07/30",
-  //     star: true,
-  //   },
-  //   {
-  //     content: "Quản lý chi tiêu hiệu quả",
-  //     createdDate: "2023/07/30",
-  //     star: false,
-  //   },
-  // ]);
+  const [studies_js] = useState([
+    {
+      content: "F8 ReactJS cơ bản",
+      createdDate: "2024/03/01",
+      createdTime: "09:00-10:00",
+      star: true,
+    },
+    {
+      content: "F8 ReactJS nâng cao",
+      createdDate: "2024/03/30",
+      createdTime: "09:00-10:00",
+    },
+    {
+      content: "Lập trình giao diện Web Thông tin với ReactJS",
+    },
+  ]);
+  const [studies_figma] = useState([
+    {
+      content: "Làm quen với Figma Youtube-Học UIUX",
+      createdDate: "2024/03/01",
+      createdTime: "09:00-10:00",
+      star: true,
+    },
+    {
+      content: "Figma nâng cao Youtube-Học UIUX",
+      createdDate: "2024/03/30",
+      createdTime: "09:00-10:00",
+      star: false,
+    },
+  ]);
   return (
     <div>
       <div className="activity-detail-container">
@@ -102,10 +84,15 @@ function ActivityDetail() {
             </div>
 
             <div className="activity-detail-item">
-              <h4>Học HTML, CSS</h4>
+              <div className="activity-detail-item-header">
+                <h4>Học HTML, CSS</h4>
+                <span id="checkbox-act">
+                  <Checkbox {...label} disabled checked />
+                </span>
+              </div>
               <div className="activity-detail-tasks">
                 <ul id="task-list">
-                  {studies.map((study, index) => (
+                  {studies_html.map((study, index) => (
                     <li key={index}>
                       <span className="activity-detail-content">
                         {study.content}
@@ -117,17 +104,65 @@ function ActivityDetail() {
                         <span className="activity-detail-date">
                           {study.createdDate}
                         </span>
-                        <span className="activity-detail-icon">
-                          <StarOutlined />
-                        </span>
                       </span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <span className="activity-detail-icon">
-                <EllipsisOutlined />
-              </span>
+              <div className="activity-detail-item">
+                <div className="activity-detail-item-header">
+                  <h4>Học ReactJS</h4>
+                  <span id="checkbox-act">
+                    <Checkbox {...label} disabled />
+                  </span>
+                </div>
+                <div className="activity-detail-tasks">
+                  <ul id="task-list">
+                    {studies_js.map((study, index) => (
+                      <li key={index}>
+                        <span className="activity-detail-content">
+                          {study.content}
+                        </span>
+                        <span className="activity-detail-content-detail">
+                          <span className="activity-detail-date">
+                            {study.createdTime}
+                          </span>
+                          <span className="activity-detail-date">
+                            {study.createdDate}
+                          </span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="activity-detail-item">
+                <div className="activity-detail-item-header">
+                  <h4>Học thiết kế Figma</h4>
+                  <span id="checkbox-act">
+                    <Checkbox {...label} disabled />
+                  </span>
+                </div>
+                <div className="activity-detail-tasks">
+                  <ul id="task-list">
+                    {studies_figma.map((study, index) => (
+                      <li key={index}>
+                        <span className="activity-detail-content">
+                          {study.content}
+                        </span>
+                        <span className="activity-detail-content-detail">
+                          <span className="activity-detail-date">
+                            {study.createdTime}
+                          </span>
+                          <span className="activity-detail-date">
+                            {study.createdDate}
+                          </span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
