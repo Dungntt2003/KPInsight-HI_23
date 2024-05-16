@@ -22,6 +22,7 @@ import TurnStandard from "../pages/set-kpi/turn-standard";
 import ActivityList from "../pages/activity-list";
 import ActivityDetail from "../pages/activity-detail";
 import SettingAccount from "../pages/setting/account";
+import ChangePassword from "../pages/setting/change-password";
 function AllRoutes() {
   return (
     <Routes>
@@ -48,6 +49,10 @@ function AllRoutes() {
       <Route
         path="/setting/account"
         element={<HeaderLayout component={<SettingAccount />} />}
+      />
+      <Route
+        path="/setting/change-password"
+        element={<HeaderLayout component={<ChangePassword />} />}
       />
       <Route path="/" element={<MainLayout component={<Homepage />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />
