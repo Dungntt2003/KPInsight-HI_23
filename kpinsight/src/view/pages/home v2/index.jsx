@@ -11,9 +11,34 @@ import ImageIcon from "../../../assets/icons/glass/war-icon.webp";
 import ImgIcon from "../../../assets/icons/glass/task-icon.png";
 import IconDone from "../../../assets/icons/glass/done.webp";
 import IconProgress from "../../../assets/icons/glass/inprogress.png";
+import ActivityForm from "./activityFormv2";
+import { PlusOutlined } from "@ant-design/icons";
 function Home() {
   const onPanelChange = (value, mode) => {
     console.log(value.format("YYYY-MM-DD"), mode);
+  };
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [activities, setActivities] = useState([
+    { id: 1, name: "Học thiết kế Web", tag: "IT" },
+    { id: 2, name: "Project ITSS", tag: "IT" },
+    { id: 3, name: "Project AI", tag: "IT" },
+    { id: 4, name: "Nghiên cứu tốt nghiệp", tag: "IT" },
+    { id: 5, name: "Bài tập UIUX", tag: "IT" },
+    { id: 6, name: "Học reactJS", tag: "IT" },
+    { id: 7, name: "Học từ vựng N3", tag: "Ngoại ngữ" },
+    { id: 8, name: "Học ngữ pháp N3", tag: "Ngoại ngữ" },
+    { id: 9, name: "Nghe hiểu", tag: "Ngoại ngữ" },
+    { id: 10, name: "Đọc hiểu", tag: "Ngoại ngữ" },
+    { id: 11, name: "Luyện shadowing", tag: "Khác" },
+    // Add more activities as needed
+  ]);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
   return (
     <div className="home-main-container">
@@ -101,6 +126,21 @@ function Home() {
           <Calendar fullscreen={false} onPanelChange={onPanelChange} />
         </div>
         <div className="activity-list">
+          <div className="add-activity">
+            <Button
+              className="add-button"
+              type="primary"
+              icon={<PlusOutlined />}
+              onClick={showModal}
+            >
+              Thêm hoạt động
+            </Button>
+            <ActivityForm
+              visible={isModalVisible}
+              onCancel={handleCancel}
+              activities={activities}
+            />
+          </div>
           <div className="activity-list-content">
             <div className="activity-detail">
               Học thiết kế Web

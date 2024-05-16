@@ -10,6 +10,7 @@ import {
   StarFilled,
 } from "@ant-design/icons";
 import NavbarGoal from "../../../../components/navbar/navbar-goal";
+const { Option } = Select;
 
 function Target_list() {
   //Data
@@ -114,12 +115,13 @@ function Target_list() {
   ]);
 
   //Choose label - select
-  const handleLabel = (value) => {
-    console.log(value);
+  const [selectedTag, setSelectedTag] = useState("Tất cả nhãn");
+  const handleTagChange = (value) => {
+    setSelectedTag(value);
   };
 
   //Pagigation
-  const [current, setCurrent] = useState(3);
+  const [current, setCurrent] = useState(1);
   const handlePagination = (page) => {
     console.log(page);
     setCurrent(page);
@@ -191,6 +193,19 @@ function Target_list() {
     );
   };
 
+  // Lọc dữ liệu dựa trên tag đã chọn
+  const getFilteredData = () => {
+    if (selectedTag === "Tất cả nhãn") {
+      return [...studies, ...socials, ...personas];
+    }
+    return [...studies, ...socials, ...personas].filter(
+      (item) =>
+        item.tag && item.tag.props && item.tag.props.children === selectedTag
+    );
+  };
+
+  const filteredData = getFilteredData();
+
   return (
     <div className="target-list-container">
       <NavbarGoal />
@@ -203,7 +218,8 @@ function Target_list() {
               style={{
                 width: 150,
               }}
-              onChange={handleLabel}
+              value={selectedTag}
+              onChange={handleTagChange}
               options={[
                 {
                   label: <span>Tất cả nhãn</span>,
@@ -257,33 +273,19 @@ function Target_list() {
         </h3>
 
         <div className="target-list-wrap">
-          <h3>
-            <span id="goal-list-title">Học tập</span>
-            <Link
-              to="/target_detail"
-              className="target-list-icon"
-              id="goal-list-title-icon"
-            >
-              <EditOutlined />
-            </Link>
-            <LocalizedModal className="target-list-icon" />
-          </h3>
-
-          <div className="target-list-item">
-            <ul id="target-goalList">
-              {studies.map((study, index) => (
-                <li id="target-goalList-item" key={index}>
-                  <span className="target-list-content">{study.content}</span>
+          {filteredData.map((item) => (
+            <div className="target-list-item" key={item.id}>
+              <ul id="target-goalList">
+                <li id="target-goalList-item">
+                  <span className="target-list-content">{item.content}</span>
                   <span className="target-list-content-detail">
-                    <span className="target-list-tag">{study.tag}</span>
-                    <span className="target-list-date">
-                      {study.createdDate}
-                    </span>
+                    <span className="target-list-tag">{item.tag}</span>
+                    <span className="target-list-date">{item.createdDate}</span>
                     <span
                       className="target-list-icon"
-                      onClick={() => handleStarClick(study.id)}
+                      onClick={() => handleStarClick(item.id)}
                     >
-                      {study.star ? (
+                      {item.star ? (
                         <StarFilled style={{ color: "gold" }} />
                       ) : (
                         <StarOutlined />
@@ -291,102 +293,9 @@ function Target_list() {
                     </span>
                   </span>
                 </li>
-              ))}
-            </ul>
-            <Link to="/target_detail" className="target-list-icon">
-              <EllipsisOutlined />
-            </Link>
-            {/* <span className="target-list-icon">
-              <EllipsisOutlined />
-            </span>
-            {showOtherScreen && <Target_detail />} */}
-          </div>
-        </div>
-
-        <div className="target-list-wrap">
-          <h3>
-            <span id="goal-list-title">Xã hội</span>
-            <Link
-              to="/target_detail"
-              className="target-list-icon"
-              id="goal-list-title-icon"
-            >
-              <EditOutlined />
-            </Link>
-            <LocalizedModal className="target-list-icon" />
-          </h3>
-
-          <div className="target-list-item">
-            <ul id="target-goalList">
-              {socials.map((social, index) => (
-                <li id="target-goalList-item" key={index}>
-                  <span className="target-list-content">{social.content}</span>
-                  <span className="target-list-content-detail">
-                    <span className="target-list-tag">{social.tag}</span>
-                    <span className="target-list-date">
-                      {social.createdDate}
-                    </span>
-                    <span
-                      className="target-list-icon"
-                      onClick={() => handleStarClick(social.id)}
-                    >
-                      {social.star ? (
-                        <StarFilled style={{ color: "gold" }} />
-                      ) : (
-                        <StarOutlined />
-                      )}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <Link to="/target_detail" className="target-list-icon">
-              <EllipsisOutlined />
-            </Link>
-          </div>
-        </div>
-
-        <div className="target-list-wrap">
-          <h3>
-            <span id="goal-list-title">Cá nhân</span>
-            <Link
-              to="/target_detail"
-              className="target-list-icon"
-              id="goal-list-title-icon"
-            >
-              <EditOutlined />
-            </Link>
-            <LocalizedModal className="target-list-icon" />
-          </h3>
-
-          <div className="target-list-item">
-            <ul id="target-goalList">
-              {personas.map((persona, index) => (
-                <li id="target-goalList-item" key={index}>
-                  <span className="target-list-content">{persona.content}</span>
-                  <span className="target-list-content-detail">
-                    <span className="target-list-tag">{persona.tag}</span>
-                    <span className="target-list-date">
-                      {persona.createdDate}
-                    </span>
-                    <span
-                      className="target-list-icon"
-                      onClick={() => handleStarClick(persona.id)}
-                    >
-                      {persona.star ? (
-                        <StarFilled style={{ color: "gold" }} />
-                      ) : (
-                        <StarOutlined />
-                      )}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <Link to="/target_detail" className="target-list-icon">
-              <EllipsisOutlined />
-            </Link>
-          </div>
+              </ul>
+            </div>
+          ))}
         </div>
 
         <Pagination
