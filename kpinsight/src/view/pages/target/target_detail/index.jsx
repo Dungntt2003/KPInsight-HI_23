@@ -195,10 +195,25 @@ function Target_list() {
   };
 
   //Check box
+  // const CheckboxGroup = Checkbox.Group;
+  // const plainOptionsCheckbox = studies.map((study) => study.content);
+  // const defaultCheckedList = studies.map((study) => study.checked);
+  // const [checkedList, setCheckedList] = useState(defaultCheckedList);
+  // const checkAll = plainOptionsCheckbox.length === checkedList.length;
+  // const indeterminate =
+  //   checkedList.length > 0 && checkedList.length < plainOptionsCheckbox.length;
+  // const onChangeCheckBox = (list) => {
+  //   setCheckedList(list);
+  // };
+  // const onCheckAllChange = (e) => {
+  //   setCheckedList(e.target.checked ? plainOptionsCheckbox : []);
+  // };
+
   const [checkedItems, setCheckedItems] = useState(
     studies.filter((study) => study.checked).map((study) => study.id)
   );
-  const onChangeCheckBox = (itemId) => {
+  const onChangeCheckBox = (e, itemId) => {
+    console.log(`checked = ${e.checked}`);
     setCheckedItems((prev) =>
       prev.includes(itemId)
         ? prev.filter((id) => id !== itemId)
@@ -336,6 +351,12 @@ function Target_list() {
                       {study.content}
                     </span>
                   </Checkbox>
+                  {/* <Checkbox
+                    onChange={onChangeCheckBox}
+                    className="target-list-content"
+                  >
+                    <span className="target-list-content">{study.content}</span>
+                  </Checkbox> */}
                   <span className="target-list-content-detail">
                     <span className="target-list-tag">{study.tag}</span>
                     <span className="target-list-date">
