@@ -91,3 +91,29 @@
 .turn-standard-act-time {
   flex: 1;
 }
+.turn-standard-choose-unit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  margin-left: 12px;
+}
+.turn-standard-choose-unit-item {
+  margin: 6px 2px;
+}
+
+.turn-standard-inp {
+  border: 2px solid #074979;
+  color: black;
+}
+
+.turn-standard-select {
+  border: 2px solid #074979;
+  color: black;
+  border-radius: 10px;
+}
+
+.turn-standard-btn-add {
+  background-color: #074979;
+  color: white;
+}

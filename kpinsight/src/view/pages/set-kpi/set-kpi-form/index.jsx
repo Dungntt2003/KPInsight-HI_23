@@ -47,42 +47,55 @@ function SetKpiForm(props) {
             current={current}
             onChange={onChange}
             className="set-kpi-step-item"
+            style={{ display: "flex", alignItems: "center" }}
             items={[
               {
                 title: "Chọn cách thiết lập",
                 icon: (
-                  <FontAwesomeIcon
-                    icon={faRightToBracket}
-                    className="set-kpi-icon"
-                  />
+                  <div className="set-kpi-steps-icon">
+                    <FontAwesomeIcon
+                      icon={faRightToBracket}
+                      className="set-kpi-icon"
+                    />
+                  </div>
                 ),
               },
               {
                 title: "Thiết lập",
                 icon: (
-                  <FontAwesomeIcon
-                    icon={faPlusMinus}
-                    className="set-kpi-icon"
-                  />
+                  <div className="set-kpi-steps-icon">
+                    <FontAwesomeIcon
+                      icon={faPlusMinus}
+                      className="set-kpi-icon"
+                    />
+                  </div>
                 ),
               },
               {
                 title: "Xác định mục tiêu",
-                icon: <SolutionOutlined className="set-kpi-icon" />,
+                icon: (
+                  <div className="set-kpi-steps-icon">
+                    <SolutionOutlined className="set-kpi-icon" />,
+                  </div>
+                ),
               },
               {
                 title: "Quy chuẩn KPI",
                 icon: (
-                  <FontAwesomeIcon
-                    icon={faAngleRight}
-                    className="set-kpi-icon"
-                  />
+                  <div className="set-kpi-steps-icon">
+                    <FontAwesomeIcon
+                      icon={faAngleRight}
+                      className="set-kpi-icon"
+                    />
+                  </div>
                 ),
               },
               {
                 title: "Hoàn thành",
                 icon: (
-                  <FontAwesomeIcon icon={faCheck} className="set-kpi-icon" />
+                  <div className="set-kpi-steps-icon">
+                    <FontAwesomeIcon icon={faCheck} className="set-kpi-icon" />
+                  </div>
                 ),
               },
             ]}

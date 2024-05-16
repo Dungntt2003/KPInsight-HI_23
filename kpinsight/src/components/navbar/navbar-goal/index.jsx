@@ -4,6 +4,7 @@ import {
   UnorderedListOutlined,
   VerticalRightOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 const items = [
   {
     key: "1",
@@ -19,9 +20,12 @@ const items = [
 
 function NavbarGoal() {
   const [selectedKey, setSelectedKey] = useState(null);
+  const navigate = useNavigate();
   const handleItemClick = (key) => {
     const item = items.find((item) => item.key === key);
     setSelectedKey(key);
+    if (key === "1") navigate("/define-goal");
+    else if (key === "2") navigate("/target-list");
   };
   return (
     <div className="navbar-goal-container">
