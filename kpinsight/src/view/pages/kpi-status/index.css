@@ -74,6 +74,56 @@
   margin-left: 200px;
   color: #517fa1;
 }
+/* Round chart */
+.round-chart {
+  margin-top: 20px;
+  /* margin-left: 70%; */
+  margin-bottom: 0%;
+  margin-left: 100px;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+}
+.sum-rate {
+  margin-top: -2%;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  padding: 50px;
+  border-radius: 50%;
+  background: radial-gradient(#ffff 0 0) content-box;
+  position: absolute;
+  z-index: 5;
+  font-size: 20px;
+  color: #074979;
+  font-size: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sum-rate-text {
+  text-align: center;
+  font-size: 20px;
+  color: #074979;
+  font-weight: 900;
+}
+.kpi-status-current {
+  /* margin-top: 20px;
+  /* margin-left: 250px; */
+  /* margin-right: 20px;
+  margin-bottom: 20px;  */
+
+  text-align: center;
+  box-shadow: none;
+}
+.kpi-status-current-chart {
+  box-shadow: none;
+}
 
 /* Chi tiết */
 .detailKPI {

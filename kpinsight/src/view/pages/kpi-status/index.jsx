@@ -5,6 +5,10 @@ import "./index.css"; // Import tệp CSS tùy chỉnh
 import NavbarStatus from "../../../components/navbar/navbar-status";
 import SpeedChart from "../../../components/speed-chart";
 
+import Grid from "@mui/material/Unstable_Grid2";
+
+import AppCurrentKPI from "../home v2/app-current-kpi";
+
 const KpiStatus = () => {
   const chartRef = useRef(null);
   //Select chọn nhãn:
@@ -148,6 +152,27 @@ const KpiStatus = () => {
           <canvas ref={chartRef}></canvas>
         </div>
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
+        <div className="round-chart">
+          <div className="sum-rate">
+            <div className="sum-rate-text">84%</div>
+          </div>
+          <Grid xs={12} md={6} lg={4} className="kpi-status-current">
+            <AppCurrentKPI
+              className="kpi-status-current-chart"
+              chart={{
+                series: [
+                  { label: "Học thiết kế giao diện", value: 80 },
+                  { label: "Làm Project GR1", value: 40 },
+                  { label: "Học ReactJS", value: 170 },
+                  { label: "Làm BT ITSS", value: 142.9 },
+                  { label: "Code màn Figma", value: 16.7 },
+                  { label: "Học Git", value: 54.5 },
+                ],
+              }}
+            />
+          </Grid>
+        </div>
+
         <div className="detailKPI">
           <div className="detail-tittle">Chi tiết KPI</div>
           <div className="select-level">
