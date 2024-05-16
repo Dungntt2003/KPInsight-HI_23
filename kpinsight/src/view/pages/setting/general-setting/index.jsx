@@ -1,5 +1,5 @@
 import "./index.css";
-import NavbarOption from "../../../components/navbar/navbar-option";
+import NavbarOption from "../../../../components/navbar/navbar-option";
 import React from "react";
 import { Switch, Select } from "antd";
 const onChange = (checked) => {

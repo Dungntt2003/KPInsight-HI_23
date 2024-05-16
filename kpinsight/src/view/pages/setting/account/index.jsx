@@ -1,7 +1,7 @@
 import NavbarOption from "../../../../components/navbar/navbar-option";
 import React, { useEffect, useRef } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Input } from "antd";
+import { Input, Button } from "antd";
 import "./index.css";
 
 const SettingAccount = () => {
@@ -10,10 +10,15 @@ const SettingAccount = () => {
       <NavbarOption />;
       <div className="namepage-logout">
         <div className="namepage-setting">Thông tin cơ bản</div>
-        <div className="log-out">
-          <LogoutOutlined />
-          <div className="log-out-text">Đăng xuất</div>
-        </div>
+
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="log-out-text"
+          icon={<LogoutOutlined />}
+        >
+          Đăng xuất
+        </Button>
       </div>
       <div>
         <div className="account-wrap">
@@ -97,7 +102,9 @@ const SettingAccount = () => {
             </div>
           </div>
         </div>
-        <div className="update-info">Cập nhật thông tin</div>
+        <Button type="primary" htmlType="submit" className="update-info">
+          Cập nhật thông tin
+        </Button>
       </div>
     </div>
   );
