@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/KPInsight-HI_23/static/css/main.baae64e1.css",
-    "main.js": "/KPInsight-HI_23/static/js/main.f2771c5c.js",
+    "main.js": "/KPInsight-HI_23/static/js/main.94b921e1.js",
     "static/media/inprogress.png": "/KPInsight-HI_23/static/media/inprogress.6b7013d1fe44383a41b6.png",
     "static/media/welcome.jpg": "/KPInsight-HI_23/static/media/welcome.6af6bd9d8af3cbca0f4f.jpg",
     "static/media/task-icon.png": "/KPInsight-HI_23/static/media/task-icon.187d41f3175e16ecd678.png",
@@ -9,10 +9,10 @@
     "static/media/war-icon.webp": "/KPInsight-HI_23/static/media/war-icon.687ce9f1f8eccd581c59.webp",
     "index.html": "/KPInsight-HI_23/index.html",
     "main.baae64e1.css.map": "/KPInsight-HI_23/static/css/main.baae64e1.css.map",
-    "main.f2771c5c.js.map": "/KPInsight-HI_23/static/js/main.f2771c5c.js.map"
+    "main.94b921e1.js.map": "/KPInsight-HI_23/static/js/main.94b921e1.js.map"
   },
   "entrypoints": [
     "static/css/main.baae64e1.css",
-    "static/js/main.f2771c5c.js"
+    "static/js/main.94b921e1.js"
   ]
 }
