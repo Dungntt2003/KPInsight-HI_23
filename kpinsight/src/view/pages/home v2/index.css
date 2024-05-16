@@ -1,0 +1,73 @@
+.home-main-container {
+  margin-top: 110px;
+  padding: 50px;
+  margin-left: 0px;
+}
+
+.current-kpi {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.calendar-content {
+  margin-left: 60px;
+}
+
+.schedule-container {
+  display: flex;
+  gap: 20px; /* Khoảng cách giữa lịch và danh sách hoạt động */
+  margin-top: 20px;
+}
+
+.calendar-wrap {
+  flex: 1; /* Lịch chiếm một phần không gian */
+  height: auto;
+  width: 100%; /* Chiếm toàn bộ chiều rộng của phần flex */
+  border-radius: 20px;
+  overflow: hidden; /* Tránh tràn nội dung */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.activity-list {
+  flex: 1; /* Danh sách hoạt động chiếm một phần không gian */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Khoảng cách giữa các hoạt động */
+  overflow-y: auto;
+}
+
+.activity-list-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #ddd; /* Viền để phân biệt các hoạt động */
+  border-radius: 10px;
+  background-color: #8fbcdd;
+}
+
+.activity-detail {
+  flex: 1;
+}
+.time {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+.activity-detail {
+  margin-left: 20px;
+  width: 100%;
+  max-width: 700px;
+  font-size: 14px;
+}
+.tag {
+  border-radius: 5px;
+  margin-left: 10px;
+  font-size: 10px;
+}
+.update-button {
+  border-radius: 10px;
+  margin-right: 20px;
+}

@@ -24,6 +24,7 @@ import ActivityDetail from "../pages/activity-detail";
 import GeneralSetting from "../pages/general-setting";
 import SettingAccount from "../pages/setting/account";
 import ChangePassword from "../pages/setting/change-password";
+import Home from "../pages/home v2";
 function AllRoutes() {
   return (
     <Routes>
@@ -130,6 +131,7 @@ function AllRoutes() {
         path="/activity-detail"
         element={<HeaderLayout component={<ActivityDetail />} />}
       />
+      <Route path="/home" element={<HeaderLayout component={<Home />} />} />
     </Routes>
   );
 }
