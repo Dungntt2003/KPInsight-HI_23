@@ -6,7 +6,7 @@ function Header() {
   return (
     <div>
       <div class="header-container">
-        <Link to="/" className="header-link">
+        <Link to="/home" className="header-link">
           <div class="header-logo">
             <img
               loading="lazy"
@@ -50,7 +50,7 @@ function Header() {
                 </Link>
               </button>
               <button class="header-login">
-                <Link className="header-link" to="/setting">
+                <Link className="header-link" to="/setting/account">
                   <img
                     src="https://www.svgrepo.com/show/382097/female-avatar-girl-face-woman-user-9.svg"
                     alt=""

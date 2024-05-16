@@ -2,9 +2,29 @@ import NavbarOption from "../../../../components/navbar/navbar-option";
 import React, { useEffect, useRef } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
 import { Input, Button } from "antd";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const SettingAccount = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    toast.success("Cập nhập thông tin thành công!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    navigate("/");
+  };
   return (
     <div>
       <NavbarOption />;
@@ -16,6 +36,7 @@ const SettingAccount = () => {
           htmlType="submit"
           className="log-out-text"
           icon={<LogoutOutlined />}
+          onClick={handleLogout}
         >
           Đăng xuất
         </Button>
@@ -102,10 +123,16 @@ const SettingAccount = () => {
             </div>
           </div>
         </div>
-        <Button type="primary" htmlType="submit" className="update-info">
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="update-info"
+          onClick={handleClick}
+        >
           Cập nhật thông tin
         </Button>
       </div>
+      <ToastContainer />
     </div>
   );
 };

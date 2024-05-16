@@ -6,6 +6,7 @@ import {
   SettingOutlined,
   QuestionCircleOutlined,
 } from "@ant-design/icons";
+import { Link, useNavigate } from "react-router-dom";
 const items = [
   {
     key: "1",
@@ -30,10 +31,24 @@ const items = [
 ];
 
 function NavbarOption() {
+  const navigate = useNavigate();
   const [selectedKey, setSelectedKey] = useState(null);
   const handleItemClick = (key) => {
     const item = items.find((item) => item.key === key);
     setSelectedKey(key);
+    switch (key) {
+      case "1":
+        navigate("/setting/account");
+        break;
+      case "2":
+        navigate("/setting/change-password");
+        break;
+      case "3":
+        navigate("/setting/general-setting");
+        break;
+      case "4":
+        navigate("/setting/help");
+    }
   };
   return (
     <div className="navbar-option-container">

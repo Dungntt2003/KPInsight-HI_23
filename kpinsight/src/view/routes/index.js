@@ -26,6 +26,7 @@ import SettingAccount from "../pages/setting/account";
 import Help from "../pages/setting/help";
 import ChangePassword from "../pages/setting/change-password";
 import Home from "../pages/home v2";
+import Welcome from "../pages/welcome";
 function AllRoutes() {
   return (
     <Routes>
@@ -58,10 +59,12 @@ function AllRoutes() {
         element={<HeaderLayout component={<ChangePassword />} />}
       />
       <Route
-        path="/general-setting"
+        path="/setting/general-setting"
         element={<HeaderLayout component={<GeneralSetting />} />}
       />
-      <Route path="/" element={<MainLayout component={<Homepage />} />} />
+      {/* <Route path="/" element={<MainLayout component={<Homepage />} />} />
+       */}
+      <Route path="/" element={<HeaderLayout component={<Welcome />} />} />
       <Route path="/login" element={<MainLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
@@ -132,8 +135,11 @@ function AllRoutes() {
         path="/activity-detail"
         element={<HeaderLayout component={<ActivityDetail />} />}
       />
-      <Route path="/help" element={<HeaderLayout component={<Help />} />} />
-      <Route path="/home" element={<HeaderLayout component={<Home />} />} />
+      <Route
+        path="/setting/help"
+        element={<HeaderLayout component={<Help />} />}
+      />
+      <Route path="/home" element={<MainLayout component={<Home />} />} />
     </Routes>
   );
 }

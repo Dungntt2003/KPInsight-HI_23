@@ -68,7 +68,7 @@ function Login() {
               htmlType="submit"
               className="login-form-button"
             >
-              <Link to="/" className="header-link">
+              <Link to="/home" className="header-link">
                 ĐĂNG NHẬP
               </Link>
             </Button>
