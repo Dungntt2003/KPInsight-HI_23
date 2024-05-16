@@ -31,6 +31,7 @@
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.5",
+    "runes2": "^1.1.4",
     "sass": "^1.77.0",
     "scss": "^0.2.4",
     "styled-components": "^6.1.11",

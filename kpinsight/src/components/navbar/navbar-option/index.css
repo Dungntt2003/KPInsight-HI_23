@@ -5,6 +5,9 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   padding: 10px;
   text-align: left;
+  position: fixed;
+  top: 81px;
+  left: 0;
 }
 .navbar-frame {
   margin-top: 100px;

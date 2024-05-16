@@ -68,7 +68,9 @@ function Login() {
               htmlType="submit"
               className="login-form-button"
             >
-              ĐĂNG NHẬP
+              <Link to="/" className="header-link">
+                ĐĂNG NHẬP
+              </Link>
             </Button>
           </Form.Item>
         </Form>

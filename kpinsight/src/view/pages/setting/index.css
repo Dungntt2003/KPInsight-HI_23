@@ -1,0 +1,81 @@
+.namepage-logout {
+  display: flex;
+  margin-top: 100px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.namepage-setting {
+  padding-left: 200px;
+  width: 60%;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  color: #074979;
+}
+.log-out {
+  width: 25%;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #074979;
+  border-radius: 20px;
+  padding: 3px 10px;
+  width: fit-content;
+  display: flex;
+}
+.log-out-text {
+  margin-left: 10px;
+}
+.account-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 24%;
+  width: fit-content;
+  position: relative;
+}
+.account-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.avt-img {
+  /* margin-top: 10px; */
+}
+.change-img {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: #074979;
+  padding: 3px 10px;
+  width: fit-content;
+}
+
+.user-info {
+  padding-left: 20px;
+  width: 500px;
+}
+.user-name,
+.user-date,
+.user-address,
+.user-phone {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700px;
+  display: flex;
+}
+
+.name-text,
+.date-text,
+.address-text,
+.phone-text {
+  margin-right: 20px;
+  width: fit-content;
+}
