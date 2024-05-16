@@ -25,7 +25,7 @@ function NavbarGoal() {
     const item = items.find((item) => item.key === key);
     setSelectedKey(key);
     if (key === "1") navigate("/define-goal");
-    else if (key === "2") navigate("/target-list");
+    else if (key === "2") navigate("/target_list");
   };
   return (
     <div className="navbar-goal-container">
