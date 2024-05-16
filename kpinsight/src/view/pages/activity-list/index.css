@@ -39,11 +39,10 @@
   align-items: center;
 }
 
-#act-title {
+/* #act-title {
   margin: 0 auto auto 0;
   padding: 8px 0 0;
   flex-shrink: 0;
-  /* background-color: #074979;*/
   color: #074979;
   width: 200px;
   height: 30px;
@@ -75,7 +74,6 @@
 }
 
 .activity-detail-item {
-  /* display: flex; */
   align-items: center;
 }
 
@@ -92,15 +90,6 @@
   margin-right: 70px;
 }
 
-/* li {
-      padding: 10px;
-      text-align: right;
-      margin-bottom: 0px;
-      background-color: #ffff;
-      border-radius: 5px;
-      display: flex;
-      justify-content: space-between;
-    } */
 .activity-detail-doctor {
   display: flex;
   justify-content: space-between;
@@ -152,7 +141,7 @@
 
 .activity-detail-item ul li {
   padding: 5px 0;
-}
+} */
 
 /* Pagination */
 #components-pagination-demo-mini .ant-pagination:not(:last-child) {
