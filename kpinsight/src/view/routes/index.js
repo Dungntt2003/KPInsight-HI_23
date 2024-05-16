@@ -21,8 +21,8 @@ import DefineTarget from "../pages/set-kpi/define-target";
 import TurnStandard from "../pages/set-kpi/turn-standard";
 import ActivityList from "../pages/activity-list";
 import ActivityDetail from "../pages/activity-detail";
-import Setting from "../pages/setting";
 import GeneralSetting from "../pages/general-setting";
+import SettingAccount from "../pages/setting/account";
 function AllRoutes() {
   return (
     <Routes>
@@ -47,8 +47,8 @@ function AllRoutes() {
         element={<HeaderLayout component={<KpiStatus />} />}
       />
       <Route
-        path="/setting"
-        element={<HeaderLayout component={<Setting />} />}
+        path="/setting/account"
+        element={<HeaderLayout component={<SettingAccount />} />}
       />
       <Route
         path="/general-setting"

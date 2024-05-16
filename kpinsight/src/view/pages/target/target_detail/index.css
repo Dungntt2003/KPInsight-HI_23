@@ -22,10 +22,6 @@ Tag:hover {
   cursor: pointer;
 }
 
-Checkbox {
-  border: 3px solid #074979;
-}
-
 .target-list-container h3 {
   display: flex;
   margin-top: -15px;
