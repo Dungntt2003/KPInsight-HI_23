@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Select, Divider, Flex, Tag } from "antd";
+import { Select, Tag } from "antd";
 import Chart from "chart.js/auto";
 import "./index.css"; // Import tệp CSS tùy chỉnh
 import NavbarStatus from "../../../components/navbar/navbar-status";
@@ -90,7 +90,7 @@ const KpiStatus = () => {
       <div>
         <NavbarStatus />
         <h1 className="namepage">Trạng thái KPI</h1>
-        <div className="select1">
+        <div className="select-tag">
           <Select
             defaultValue="Tất cả"
             style={{
@@ -150,7 +150,7 @@ const KpiStatus = () => {
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
         <div className="detailKPI">
           <div className="detail-tittle">Chi tiết KPI</div>
-          <div className="select2">
+          <div className="select-level">
             <Select
               defaultValue="Tất cả"
               style={{

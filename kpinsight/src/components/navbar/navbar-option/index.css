@@ -1,7 +1,7 @@
 /* CSS cho khung menu */
 .navbar-option-container {
   width: 200px;
-  height: 620px;
+  height: 100%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   padding: 10px;
   text-align: left;
