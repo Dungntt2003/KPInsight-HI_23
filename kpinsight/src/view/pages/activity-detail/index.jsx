@@ -75,10 +75,10 @@ function ActivityDetail() {
                 <span id="act-title">Học thiết kế Web</span>
               </div>
               <div className="activity-detail-icon">
-                <span className="act-icon" id="act-title-icon">
+                {/* <span className="act-icon" id="act-title-icon">
                   <EditOutlined />
-                </span>
-                <Link className="header-link" to="/activity-list">
+                </span> */}
+                <Link className="header-link" to="/home">
                   <span className="act-icon" id="act-title-icon">
                     <CloseCircleOutlined />
                   </span>
