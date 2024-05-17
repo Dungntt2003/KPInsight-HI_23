@@ -19,7 +19,7 @@ function Done() {
           </p>
           <div className="done-btn">
             <Button type="primary" className="done-button">
-              <Link to="/target-list" className="header-link">
+              <Link to="/target_list" className="header-link">
                 Để sau
               </Link>
             </Button>

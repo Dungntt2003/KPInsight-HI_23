@@ -1,5 +1,5 @@
 import "./index.css";
-
+import { Link } from "react-router-dom";
 import React, { useState, useRef } from "react";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
@@ -294,13 +294,19 @@ function TurnStandard() {
         </div>
         <div className="choose-month-btn">
           <Button type="primary" className="choose-month-button">
-            Quay lại
+            <Link className="header-link" to="/define-target">
+              Quay lại
+            </Link>
           </Button>
           <Button type="primary" className="choose-month-button">
-            Lưu và thoát
+            <Link className="header-link" to="/home">
+              Lưu và thoát
+            </Link>
           </Button>
           <Button type="primary" className="choose-month-button">
-            Tiếp tục
+            <Link className="header-link" to="/set-done">
+              Tiếp tục
+            </Link>
           </Button>
         </div>
       </div>
