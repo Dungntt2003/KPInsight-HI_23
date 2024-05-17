@@ -6,7 +6,7 @@ function Welcome() {
       <div>
         <img
           src={WelcomeImage}
-          style={{ position: "fixed", top: "0", left: "0", width: "100%" }}
+          style={{ position: "fixed", top: "73px", left: "0", width: "100%" }}
           alt=""
           className="welcome-img"
         />
