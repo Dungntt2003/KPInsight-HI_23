@@ -185,7 +185,7 @@ function TurnStandard() {
                               style={{
                                 display: "flex",
                                 rowGap: 16,
-                                flexDirection: "column",
+                                flexDirection: "row",
                                 justifyContent: "space-between",
                                 flexWrap: "wrap",
                               }}
@@ -201,6 +201,7 @@ function TurnStandard() {
                                         display: "flex",
                                         justifyContent: "center",
                                         alignItems: "center",
+                                        // flexDirection: "row",
                                       }}
                                     >
                                       <Input
@@ -234,11 +235,11 @@ function TurnStandard() {
                                             <Space key={subField1.key}>
                                               <Form.Item
                                                 noStyle
-                                                style={{ width: "360px" }}
+                                                style={{ width: "460px" }}
                                                 name={[subField1.name, "first"]}
                                               >
                                                 <Input
-                                                  style={{ width: "340px" }}
+                                                  style={{ width: "440px" }}
                                                   value={subField1.first}
                                                   onClick={showModal}
                                                 />
