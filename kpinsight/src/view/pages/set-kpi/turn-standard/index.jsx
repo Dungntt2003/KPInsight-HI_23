@@ -71,7 +71,7 @@ function TurnStandard() {
     <div className="turn-standard-container">
       <div className="turn-standard-wrap">
         <div className="turn-standard-heading">
-          <h3 className="turn-standard-header">Xác định mục tiêu KPI</h3>
+          <h3 className="turn-standard-header">Quy chuẩn mục tiêu thành KPI</h3>
         </div>
         <div className="turn-standard-list">
           <Form
