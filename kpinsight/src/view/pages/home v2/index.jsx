@@ -13,13 +13,26 @@ import IconDone from "../../../assets/icons/glass/done.webp";
 import IconProgress from "../../../assets/icons/glass/inprogress.png";
 import ActivityForm from "./activityFormv2";
 import { PlusOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 function Home() {
   const onPanelChange = (value, mode) => {
     console.log(value.format("YYYY-MM-DD"), mode);
   };
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [activities, setActivities] = useState([
-    { id: 1, name: "Học thiết kế Web", tag: "IT" },
+    {
+      id: 1,
+      name: "Học thiết kế Web",
+      tag: "IT",
+      task: "Học thiết kế bằng Figma",
+    },
+    // { id: 1, name: "Học thiết kế Web", tag: "IT", task: "Học ReactJS" },
+    // {
+    //   id: 1,
+    //   name: "Học thiết kế Web",
+    //   tag: "IT",
+    //   task: "Học thiết kế bằng Figma",
+    // },
     { id: 2, name: "Project ITSS", tag: "IT" },
     { id: 3, name: "Project AI", tag: "IT" },
     { id: 4, name: "Nghiên cứu tốt nghiệp", tag: "IT" },
@@ -149,7 +162,11 @@ function Home() {
               </Tag>
               <span className="time">08:00 - 11:30</span>
             </div>
-            <Button className="update-button">Cập nhật</Button>
+            <Button className="update-button">
+              <Link className="header-link" to="/activity-detail">
+                Cập nhật{" "}
+              </Link>
+            </Button>
           </div>
 
           <div className="activity-list-content">
