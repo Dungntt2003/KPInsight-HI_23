@@ -41,7 +41,7 @@ function SetKpiForm(props) {
       <div className="set-kpi-navbar">
         <NavbarGoal />
       </div>
-      <div className="set-kpi-content" style={{ marginTop: "110px" }}>
+      <div className="set-kpi-content">
         <div className="set-kpi-step">
           <Steps
             current={current}

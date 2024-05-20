@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Register from "../pages/register";
-import MainLayout from "../../components/main-layout";
+// import HeaderLayout from "../../components/main-layout";
 import NavbarStatus from "../../components/navbar/navbar-status";
 import NavbarOption from "../../components/navbar/navbar-option";
 import SpeedChart from "../../components/speed-chart";
@@ -32,7 +32,7 @@ function AllRoutes() {
     <Routes>
       <Route
         path="/register"
-        element={<MainLayout component={<Register />} />}
+        element={<HeaderLayout component={<Register />} />}
       />
       <Route
         path="/navbar-status"
@@ -44,7 +44,7 @@ function AllRoutes() {
       />
       <Route
         path="/speed-chart"
-        element={<MainLayout component={<SpeedChart />} />}
+        element={<HeaderLayout component={<SpeedChart />} />}
       />
       <Route
         path="/kpi-status"
@@ -62,17 +62,17 @@ function AllRoutes() {
         path="/setting/general-setting"
         element={<HeaderLayout component={<GeneralSetting />} />}
       />
-      {/* <Route path="/" element={<MainLayout component={<Homepage />} />} />
+      {/* <Route path="/" element={<HeaderLayout component={<Homepage />} />} />
        */}
       <Route path="/" element={<HeaderLayout component={<Welcome />} />} />
-      <Route path="/login" element={<MainLayout component={<Login />} />} />
+      <Route path="/login" element={<HeaderLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
-        element={<MainLayout component={<ForgotPassword />} />}
+        element={<HeaderLayout component={<ForgotPassword />} />}
       />
       <Route
         path="/reset-password"
-        element={<MainLayout component={<ResetPassword />} />}
+        element={<HeaderLayout component={<ResetPassword />} />}
       />
       <Route
         path="/define-goal"
@@ -139,7 +139,7 @@ function AllRoutes() {
         path="/setting/help"
         element={<HeaderLayout component={<Help />} />}
       />
-      <Route path="/home" element={<MainLayout component={<Home />} />} />
+      <Route path="/home" element={<HeaderLayout component={<Home />} />} />
     </Routes>
   );
 }
