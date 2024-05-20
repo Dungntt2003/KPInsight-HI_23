@@ -13,7 +13,7 @@ function DefineTarget() {
     <div className="define-target-container">
       <div className="define-target-wrap">
         <div className="define-target-heading">
-          <h3 className="define-target-header">Xác định mục tiêu KPI</h3>
+          <h3 className="define-target-header">Xác định mục tiêu</h3>
         </div>
         <div className="define-target-list">
           <Form

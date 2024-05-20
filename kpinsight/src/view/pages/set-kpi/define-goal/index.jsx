@@ -119,7 +119,7 @@ function DefineGoal() {
         </div>
         <div className="define-card-form">
           <Card
-            title="Tình nguyện"
+            title="Xã hội"
             bordered={true}
             style={{
               width: "30%",

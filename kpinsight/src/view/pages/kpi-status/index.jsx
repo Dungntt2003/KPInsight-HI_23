@@ -1,15 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Select, Tag } from "antd";
 import Chart from "chart.js/auto";
 import "./index.css"; // Import tệp CSS tùy chỉnh
 import NavbarStatus from "../../../components/navbar/navbar-status";
 import SpeedChart from "../../../components/speed-chart";
+import ConfettiEffect from "../../../components/fileworks";
 
 import Grid from "@mui/material/Unstable_Grid2";
 
 import AppCurrentKPI from "../home v2/app-current-kpi";
 
 const KpiStatus = () => {
+  const [hover, setHover] = useState(false);
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const chartRef = useRef(null);
   //Select chọn nhãn:
   const handleChange = (value) => {
@@ -31,7 +38,7 @@ const KpiStatus = () => {
         datasets: [
           {
             label: "Đã thực hiện",
-            data: [80, 40, 170, 142.9, 16.7, 54.5],
+            data: [66.7, -50, 207.7, 250, -150, 28.6],
             backgroundColor: "#074979",
             borderWidth: 0,
             borderSkipped: false,
@@ -88,7 +95,23 @@ const KpiStatus = () => {
       myChart.destroy();
     };
   }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    };
 
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleFireWorks = (e) => {
+    const { clientX, clientY } = e;
+    setPosition({ x: clientX, y: clientY });
+    setHover(true);
+    setTimeout(() => {
+      setHover(false);
+    }, 5000);
+  };
   return (
     <div>
       <div>
@@ -154,19 +177,19 @@ const KpiStatus = () => {
         <h1 className="name2">Tổng quan trạng thái KPI</h1>
         <div className="round-chart">
           <div className="sum-rate">
-            <div className="sum-rate-text">84%</div>
+            <div className="sum-rate-text">58.8%</div>
           </div>
           <Grid xs={12} md={6} lg={4} className="kpi-status-current">
             <AppCurrentKPI
               className="kpi-status-current-chart"
               chart={{
                 series: [
-                  { label: "Học thiết kế giao diện", value: 80 },
-                  { label: "Làm Project GR1", value: 40 },
-                  { label: "Học ReactJS", value: 170 },
-                  { label: "Làm BT ITSS", value: 142.9 },
-                  { label: "Code màn Figma", value: 16.7 },
-                  { label: "Học Git", value: 54.5 },
+                  { label: "Học thiết kế giao diện", value: 66.7 },
+                  { label: "Làm Project GR1", value: -50 },
+                  { label: "Học ReactJS", value: 207.7 },
+                  { label: "Làm BT ITSS", value: 250 },
+                  { label: "Code màn Figma", value: -150 },
+                  { label: "Học Git", value: 28.6 },
                 ],
               }}
             />
@@ -303,10 +326,21 @@ const KpiStatus = () => {
               <h1 className="need-time">Bạn đã hoàn thành vượt chỉ tiêu!</h1>
               <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
             </div>
-            <div className="activity-chart">
+            <div
+              className="activity-chart"
+              onMouseEnter={handleFireWorks}
+              // onMouseLeave={() => setHover(false)}
+            >
               <div className="activity-chart-wrap">
                 <SpeedChart min={7} max={20} score={34} />
               </div>
+              <ConfettiEffect
+                width={dimensions.width}
+                height={dimensions.height}
+                x={position.x - 1000}
+                y={position.y - 250}
+                run={hover}
+              />
             </div>
           </div>
           <div className="activityKPI4">
@@ -326,10 +360,17 @@ const KpiStatus = () => {
               <h1 className="need-time">Bạn đã hoàn thành vượt chỉ tiêu!</h1>
               <h1 className="request-view-activity">Xem chi tiết hoạt động</h1>
             </div>
-            <div className="activity-chart">
+            <div className="activity-chart" onMouseEnter={handleFireWorks}>
               <div className="activity-chart-wrap">
                 <SpeedChart min={5} max={7} score={10} />
               </div>
+              <ConfettiEffect
+                width={dimensions.width}
+                height={dimensions.height}
+                x={position.x - 1000}
+                y={position.y - 250}
+                run={hover}
+              />
             </div>
           </div>
           <div className="activityKPI5">
