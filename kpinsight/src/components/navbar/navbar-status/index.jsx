@@ -46,18 +46,15 @@ function NavbarStatus() {
   const handleItemClick = (key) => {
     const item = items.find((item) => item.key === key);
     if (item && !item.children && !item.parentKey) {
-      // Kiểm tra nếu item không có children và không phải là children của item khác
-      setOpenKeys([]); // Đóng các item khác đang mở với children
+      setOpenKeys([]);
     }
-    setSelectedKey(key); // Lưu trữ key của item được click
-
-    // Nếu item có children, thay đổi trạng thái mở/closed của item đó
+    setSelectedKey(key);
 
     if (item && item.children) {
       if (openKeys.includes(key)) {
-        setOpenKeys(openKeys.filter((k) => k !== key)); // Đóng item nếu nó đã mở
+        setOpenKeys(openKeys.filter((k) => k !== key));
       } else {
-        setOpenKeys([...openKeys, key]); // Mở item nếu nó đã đóng
+        setOpenKeys([...openKeys, key]);
       }
     }
   };
@@ -77,9 +74,7 @@ function NavbarStatus() {
           >
             {item.label}
             {item.key === "sub1" && <DownOutlined className="downicon" />}{" "}
-            {/* Thêm biểu tượng mũi tên xuống sau "Xem thêm" */}
           </div>
-          {/* Hiển thị children nếu item có children và nó đang mở */}
           {item.children && openKeys.includes(item.key) && (
             <div className="navbar-submenu">
               {item.children.map((child) => (
