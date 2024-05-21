@@ -15,7 +15,7 @@
   margin-right: 20px;
   width: 1000px !important;
   border-radius: 60px;
-  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
+  /* box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25); */
 }
 
 #act-title {
@@ -47,7 +47,7 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 20px;
-  border: 3px solid #074979;
+  border: 2px solid #074979;
   background-color: #ffff;
 }
 
