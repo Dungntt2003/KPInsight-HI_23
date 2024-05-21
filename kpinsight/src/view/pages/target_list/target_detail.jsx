@@ -197,6 +197,44 @@ function Target_detail() {
     message.error("Hủy xóa mục tiêu!");
   };
 
+  //Delete confirm - modal
+  const LocalizedModal = () => {
+    const [openModal, setOpenModal] = useState(false);
+    const showModal = () => {
+      setOpenModal(true);
+    };
+    const handleModalCancel = () => {
+      setOpenModal(false);
+      message.error("Hủy xóa mục tiêu!");
+    };
+    const handleModalOk = () => {
+      setOpenModal(false);
+      message.success("Đã xóa mục tiêu!");
+    };
+    return (
+      <>
+        <span
+          onClick={showModal}
+          className="target-list-icon"
+          id="goal-list-title-icon"
+        >
+          <CloseCircleOutlined />
+        </span>
+        <Modal
+          title="Xóa mục tiêu"
+          open={openModal}
+          onOk={handleModalOk}
+          onCancel={handleModalCancel}
+          okText="Xác nhận"
+          cancelText="Hủy"
+        >
+          <p>Xác nhận xóa mục tiêu</p>
+        </Modal>
+      </>
+    );
+  };
+
+  //Checkbox
   const [checkedItems, setCheckedItems] = useState(
     datas.filter((data) => data.checked).map((data) => data.id)
   );
@@ -222,67 +260,70 @@ function Target_detail() {
   // Render filtered data
   const getFilteredData = () => {
     if (selectedTag === "Tất cả nhãn") {
-      return (
-        <ShowDetailComponent
-          Area={areaFromState}
-          data={datas}
-          setDatas={setDatas}
-        />
-      );
+      return <ShowDetailComponent data={datas} setDatas={setDatas} />;
     } else {
-      return filteredData.map((item, area) => (
-        <div key={item.id} className="target-list-wrap">
-          <div id="target-goalList-item">
-            <Checkbox
-              id="target-goalList-item-checkbox"
-              onChange={(e) => onChangeCheckBox(e, item.id)}
-              checked={checkedItems.includes(item.id)}
-            >
-              <div
-                className="target-list-content"
-                style={{
-                  textDecoration: checkedItems.includes(item.id)
-                    ? "line-through"
-                    : "none",
-                }}
-              >
-                {item.content}
-              </div>
-            </Checkbox>
-            <div className="target-list-content-detail">
-              <div className="target-list-tag">{item.tag}</div>
-              <div className="target-list-date">{item.createdDate}</div>
-              <div
-                className="target-list-icon"
-                onClick={() => handleStarClick(item.id)}
-              >
-                {item.star ? (
-                  <StarFilled style={{ color: "gold" }} />
-                ) : (
-                  <StarOutlined />
-                )}
-              </div>
-              <Popconfirm
-                placement="bottomLeft"
-                title="Xóa mục tiêu"
-                description="Xác nhận xóa mục tiêu"
-                onConfirm={confirmPop}
-                onCancel={cancelPop}
-                okText="Xác nhận"
-                cancelText="Hủy"
-              >
-                <div className="target-list-icon">
-                  <DeleteOutlined style={{ color: "black" }} />
-                </div>
-              </Popconfirm>
-            </div>
+      return (
+        <div className="target-list-wrap">
+          <div className="target-list-title">
+            <div id="goal-list-title">{item.area}</div>
+            <LocalizedModal className="target-list-icon" />
           </div>
-
+          {filteredData.map((item) => (
+            <div key={item.id}>
+              <div id="target-goalList-item">
+                <Checkbox
+                  id="target-goalList-item-checkbox"
+                  onChange={(e) => onChangeCheckBox(e, item.id)}
+                  checked={checkedItems.includes(item.id)}
+                >
+                  <div
+                    className="target-list-content"
+                    style={{
+                      fontFamily: "Arial, Helvetica, sans-serif",
+                      fontSize: "16px",
+                      textDecoration: checkedItems.includes(item.id)
+                        ? "line-through"
+                        : "none",
+                    }}
+                  >
+                    {item.content}
+                  </div>
+                </Checkbox>
+                <div className="target-list-content-detail">
+                  <div className="target-list-tag">{item.tag}</div>
+                  <div className="target-list-date">{item.createdDate}</div>
+                  <div
+                    className="target-list-icon"
+                    onClick={() => handleStarClick(item.id)}
+                  >
+                    {item.star ? (
+                      <StarFilled style={{ color: "gold" }} />
+                    ) : (
+                      <StarOutlined />
+                    )}
+                  </div>
+                  <Popconfirm
+                    placement="bottomLeft"
+                    title="Xóa mục tiêu"
+                    description="Xác nhận xóa mục tiêu"
+                    onConfirm={confirmPop}
+                    onCancel={cancelPop}
+                    okText="Xác nhận"
+                    cancelText="Hủy"
+                  >
+                    <div className="target-list-icon">
+                      <DeleteOutlined style={{ color: "black" }} />
+                    </div>
+                  </Popconfirm>
+                </div>
+              </div>
+            </div>
+          ))}
           <Link to="/target_list" id="target-list-link">
             <Button id="target-detail-btn">Lưu và Thoát</Button>
           </Link>
         </div>
-      ));
+      );
     }
   };
   // Effect to set default selected tag on initial load
@@ -293,7 +334,7 @@ function Target_detail() {
   return (
     <div className="target-list-frame">
       <div className="target-list-title">
-        <div id="kpi-target-title">Mục tiêu KPI</div>
+        <div id="kpi-target-title">{areaFromState}</div>
         <div id="kpi-target-select-container">
           <Select
             defaultValue="Tất cả nhãn"
@@ -360,7 +401,7 @@ function Target_detail() {
           setDatas={setDatas}
         />
       </div>
-      {getFilteredData()}
+      {getFilteredData(areaFromState)}
     </div>
   );
 }
