@@ -38,7 +38,7 @@ function ChooseMonth() {
               </Link>
             </Button>
             <Button type="primary" className="choose-month-button">
-              <Link to="/" className="header-link">
+              <Link to="/home" className="header-link">
                 Lưu và thoát
               </Link>
             </Button>

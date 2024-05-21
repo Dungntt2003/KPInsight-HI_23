@@ -1,19 +1,97 @@
 import "./index.css";
 
-import React, { useState, useMemo } from "react";
-import { CloseOutlined } from "@ant-design/icons";
-import { Button, Card, Form, Input, Space, Typography, Radio } from "antd";
+import React, { useState, useMemo, useRef } from "react";
+import { CloseOutlined, EllipsisOutlined } from "@ant-design/icons";
+import {
+  Button,
+  Card,
+  Form,
+  Input,
+  Space,
+  Typography,
+  Radio,
+  Modal,
+  Tour,
+} from "antd";
 import { Link } from "react-router-dom";
 const { Paragraph } = Typography;
 function DefineTarget() {
   const [form1] = Form.useForm();
   const [form2] = Form.useForm();
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const ref4 = useRef(null);
+  const ref5 = useRef(null);
+  const ref6 = useRef(null);
+  const ref7 = useRef(null);
+  const [open, setOpen] = useState(false);
+  const steps = [
+    {
+      title: "Xác định mục tiêu",
+      description:
+        "Xác định mục tiêu được phân cấp ra các lĩnh vực (Học tập, Cá nhân, CLB, ...). Các lĩnh vực bao gồm các nhãn (ví dụ Học tập chứa các nhãn IT, Ngoại ngữ, ...). Trong các nhãn chứa các mục tiêu chi tiết. Việc phân chia các lĩnh vực, nhãn đều do bạn tự thiết lập",
+      target: () => ref1.current,
+    },
+    {
+      title: "Thêm mục tiêu trong nhãn",
+      // description: "Put your files here.",
+      target: () => ref2.current,
+    },
+    {
+      title: "Xóa mục tiêu trong nhãn",
+      // description: "Save your changes.",
+      target: () => ref3.current,
+    },
+    {
+      title: "Thêm nhãn trong lĩnh vực",
+      // description: "Click to see other actions.",
+      target: () => ref4.current,
+    },
+    {
+      title: "Xóa nhãn trong lĩnh vực",
+      // description: "Click to see other actions.",
+      target: () => ref5.current,
+    },
+    {
+      title: "Thêm lĩnh vực",
+      // description: "Click to see other actions.",
+      target: () => ref6.current,
+    },
+    {
+      title: "Xóa lĩnh vực",
+      // description: "Click to see other actions.",
+      target: () => ref7.current,
+    },
+  ];
   return (
     <div className="define-target-container">
       <div className="define-target-wrap">
-        <div className="define-target-heading">
-          <h3 className="define-target-header">Xác định mục tiêu</h3>
+        <div
+          className="define-target-head"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div className="define-target-heading">
+            <h3 className="define-target-header" ref={ref1}>
+              Xác định mục tiêu
+            </h3>
+          </div>
+          <div className="define-target-intro">
+            <Button
+              type="primary"
+              onClick={() => setOpen(true)}
+              style={{ backgroundColor: "#074979", color: "white" }}
+            >
+              Hướng dẫn
+            </Button>
+          </div>
         </div>
         <div className="define-target-list">
           <Form
@@ -69,14 +147,19 @@ function DefineTarget() {
                         </Form.Item>
                       }
                       key={field.key}
-                      extra={
-                        <CloseOutlined
-                          onClick={() => {
-                            remove(field.name);
-                          }}
-                        />
-                      }
+                      extra={<CloseOutlined onClick={showModal} ref={ref7} />}
                     >
+                      <Modal
+                        title="Xác nhận xóa"
+                        open={isModalOpen}
+                        onOk={() => {
+                          setIsModalOpen(false);
+                          remove(field.name);
+                        }}
+                        onCancel={handleCancel}
+                      >
+                        <p>Bạn có muốn xóa lĩnh vực không</p>
+                      </Modal>
                       <Form
                         labelCol={{
                           span: 6,
@@ -155,12 +238,28 @@ function DefineTarget() {
                                   style={{ minWidth: "48%" }}
                                   extra={
                                     <CloseOutlined
-                                      onClick={() => {
-                                        remove(field1.name);
-                                      }}
+                                      ref={ref5}
+                                      onClick={
+                                        showModal
+                                        //   () => {
+
+                                        //   // remove(field1.name);
+                                        // }
+                                      }
                                     />
                                   }
                                 >
+                                  <Modal
+                                    title="Xác nhận xóa"
+                                    open={isModalOpen}
+                                    onOk={() => {
+                                      setIsModalOpen(false);
+                                      remove(field1.name);
+                                    }}
+                                    onCancel={handleCancel}
+                                  >
+                                    <p>Bạn có muốn xóa nhãn không</p>
+                                  </Modal>
                                   <Form.Item>
                                     <Form.List name={[field1.name, "list"]}>
                                       {(subFields1, subOpt1) => (
@@ -173,18 +272,25 @@ function DefineTarget() {
                                           }}
                                         >
                                           {subFields1.map((subField1) => (
-                                            <Space key={subField1.key}>
+                                            <Space
+                                              key={subField1.key}
+                                              style={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                width: "133%",
+                                              }}
+                                            >
                                               <Form.Item
                                                 noStyle
-                                                style={{ width: "380px" }}
                                                 name={[subField1.name, "first"]}
                                               >
                                                 <Input
-                                                  style={{ width: "380px" }}
+                                                  style={{ width: "220%" }}
                                                   value={subField1.first}
                                                 />
                                               </Form.Item>
                                               <CloseOutlined
+                                                ref={ref3}
                                                 onClick={() => {
                                                   subOpt1.remove(
                                                     subField1.name
@@ -199,6 +305,7 @@ function DefineTarget() {
                                             onClick={() => subOpt1.add()}
                                             block
                                             className="define-target-btn-add-act"
+                                            ref={ref2}
                                           >
                                             + Thêm mục tiêu
                                           </Button>
@@ -214,6 +321,7 @@ function DefineTarget() {
                                 style={{ width: "60%", margin: "auto" }}
                                 onClick={() => add()}
                                 block
+                                ref={ref4}
                                 className="define-target-btn-add-label"
                               >
                                 + Thêm nhãn
@@ -225,7 +333,7 @@ function DefineTarget() {
                     </Card>
                   ))}
 
-                  <Button type="dashed" onClick={() => add()} block>
+                  <Button type="dashed" onClick={() => add()} block ref={ref6}>
                     + Thêm lĩnh vực
                   </Button>
                 </div>
@@ -251,6 +359,7 @@ function DefineTarget() {
           </Button>
         </div>
       </div>
+      <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
     </div>
   );
 }

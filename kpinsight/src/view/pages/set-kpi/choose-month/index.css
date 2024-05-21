@@ -7,7 +7,9 @@
   width: 350px;
   padding: 20px;
   margin: 50px;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1); */
+  border: 2px solid #074979;
+  /* border-radius: 15px; */
   border-radius: 20px;
   display: flex;
   flex-direction: column;
