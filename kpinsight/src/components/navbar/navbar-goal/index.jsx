@@ -21,7 +21,7 @@ const items = [
 ];
 
 function NavbarGoal() {
-  const [selectedKey, setSelectedKey] = useState("");
+  const [selectedKey, setSelectedKey] = useState("1");
   const navigate = useNavigate();
   const handleSelected = (key, link) => {
     setSelectedKey(key);

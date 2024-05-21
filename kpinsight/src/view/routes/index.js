@@ -28,6 +28,7 @@ import ChangePassword from "../pages/setting/change-password";
 import Home from "../pages/home v2";
 import Welcome from "../pages/welcome";
 import GoalLayout from "../../components/goal-layout/goal-layout";
+import SettingForm from "../pages/setting/setting-form";
 function AllRoutes() {
   return (
     <Routes>
@@ -53,15 +54,27 @@ function AllRoutes() {
       />
       <Route
         path="/setting/account"
-        element={<HeaderLayout component={<SettingAccount />} />}
+        element={
+          <HeaderLayout
+            component={<SettingForm component={<SettingAccount />} />}
+          />
+        }
       />
       <Route
         path="/setting/change-password"
-        element={<HeaderLayout component={<ChangePassword />} />}
+        element={
+          <HeaderLayout
+            component={<SettingForm component={<ChangePassword />} />}
+          />
+        }
       />
       <Route
         path="/setting/general-setting"
-        element={<HeaderLayout component={<GeneralSetting />} />}
+        element={
+          <HeaderLayout
+            component={<SettingForm component={<GeneralSetting />} />}
+          />
+        }
       />
       {/* <Route path="/" element={<HeaderLayout component={<Homepage />} />} />
        */}
@@ -172,7 +185,9 @@ function AllRoutes() {
       />
       <Route
         path="/setting/help"
-        element={<HeaderLayout component={<Help />} />}
+        element={
+          <HeaderLayout component={<SettingForm component={<Help />} />} />
+        }
       />
       <Route path="/home" element={<HeaderLayout component={<Home />} />} />
     </Routes>

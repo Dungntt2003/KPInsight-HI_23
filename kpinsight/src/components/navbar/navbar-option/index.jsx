@@ -32,7 +32,7 @@ const items = [
 
 function NavbarOption() {
   const navigate = useNavigate();
-  const [selectedKey, setSelectedKey] = useState(null);
+  const [selectedKey, setSelectedKey] = useState("1");
   const handleItemClick = (key) => {
     const item = items.find((item) => item.key === key);
     setSelectedKey(key);

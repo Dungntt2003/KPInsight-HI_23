@@ -2,16 +2,18 @@
 .navbar-option-container {
   width: 200px;
   height: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); */
   padding: 10px;
+  background-color: rgba(7, 74, 121, 0.2);
   text-align: left;
   position: fixed;
-  top: 81px;
+  top: 79px;
   left: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .navbar-frame {
-  margin-top: 100px;
-  background-color: rgba(7, 74, 121, 0.267);
+  margin-top: 45px;
+  /* background-color: rgba(7, 74, 121, 0.267); */
   border-radius: 15px;
 }
 
@@ -33,7 +35,7 @@
   background-color: white;
   color: #074979;
   font-weight: bolder;
-  border: 3px solid #074979;
+  border: 2px solid #074979;
   border-radius: 15px;
 }
 

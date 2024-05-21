@@ -5,7 +5,7 @@ function SettingForm(props) {
       <div>
         <NavbarOption />
       </div>
-      <div style={{ marginLeft: "220px" }}>{props.component}</div>
+      <div>{props.component}</div>
     </div>
   );
 }
