@@ -179,7 +179,7 @@ const KpiStatus = () => {
           <div className="sum-rate">
             <div className="sum-rate-text">58.8%</div>
           </div>
-          <Grid xs={12} md={6} lg={4} className="kpi-status-current">
+          {/* <Grid xs={12} md={6} lg={4} className="kpi-status-current">
             <AppCurrentKPI
               className="kpi-status-current-chart"
               chart={{
@@ -193,7 +193,7 @@ const KpiStatus = () => {
                 ],
               }}
             />
-          </Grid>
+          </Grid> */}
         </div>
 
         <div className="detailKPI">
