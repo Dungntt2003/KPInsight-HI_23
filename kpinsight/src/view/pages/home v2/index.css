@@ -25,8 +25,9 @@
   height: auto;
   width: 100%; /* Chiếm toàn bộ chiều rộng của phần flex */
   border-radius: 20px;
+  border: 2px solid #074979;
   overflow: hidden; /* Tránh tràn nội dung */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   flex-shrink: 0;
 }
 
@@ -70,11 +71,15 @@
 .update-button {
   border-radius: 10px;
   margin-right: 20px;
+  border: 2px solid #074979;
+  color: #074979;
 }
 
 .add-button {
   /* transform: translateX(310%); */
+  border: 2px solid #074979;
   margin-bottom: 0px;
-  background-color: #074979;
+  background-color: #fff;
   border-radius: 10px;
+  color: #074979;
 }
