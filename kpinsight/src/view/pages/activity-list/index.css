@@ -25,7 +25,7 @@
 
 #act-list-col {
   background: rgba(7, 73, 121, 0.15);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
   width: 200px;
   height: 220px;
   padding: 20px;
