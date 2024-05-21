@@ -10,29 +10,33 @@
 }
 
 .target-list-frame {
+  margin: 50px;
   padding: 50px 100px;
-  /* margin-left: 250px; */
-  /* margin-right: 20px; */
-  /* width: 1000px !important; */
-  border-radius: 60px;
-  /* box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25); */
+  border-radius: 15px;
+  border: 2px solid #074979;
 }
 
 Tag:hover {
   cursor: pointer;
 }
 
-.target-list-container h3 {
+.target-list-title {
   display: flex;
   margin-top: -15px;
   margin-bottom: 20px;
 }
 
-#kpi-target-header,
+.kpi-target-select-container {
+  margin-left: 1200px;
+  margin-top: -25px;
+}
+
+#kpi-target-title,
 #goal-list-title {
   margin: 0 auto auto 0;
   padding: 8px 0 0;
   flex-shrink: 0;
+  text-align: center;
   background-color: #074979;
   color: #ffff;
   width: 200px;
@@ -41,25 +45,21 @@ Tag:hover {
   border-radius: 15px;
 }
 
-#kpi-target-header {
+#kpi-target-title {
   margin-left: -35px;
 }
 
 #goal-list-title {
-  margin-top: 25px;
+  margin-top: 20px;
   width: 120px;
-}
-
-.kpi-target-select-container {
-  margin-left: 1200px;
-  margin-top: -25px;
-  /* flex: 1;
-  display: flex;
-  justify-content: flex-end; */
+  display: inline-table;
+  vertical-align: middle;
 }
 
 .target-list-wrap {
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
   margin: 50px auto;
   padding: 20px;
   border-radius: 15px;
@@ -68,20 +68,13 @@ Tag:hover {
 }
 
 .target-list-item {
-  /* display: flex; */
   align-items: center;
 }
 
 #target-goalList {
   list-style: none;
-  flex: 1;
   padding: 0;
   margin: 0;
-}
-
-.target-list-content-detail {
-  display: flex;
-  align-items: center;
 }
 
 #target-goalList-item {
@@ -98,6 +91,11 @@ Tag:hover {
   text-align: left;
 }
 
+.target-list-content-detail {
+  display: flex;
+  align-items: center;
+}
+
 .target-list-tag,
 .target-list-date {
   text-align: right;
@@ -109,7 +107,7 @@ Tag:hover {
 
 .target-list-icon {
   font-size: 1.2em;
-  margin-left: 10px;
+  align-items: center;
   color: #074979;
   border: none;
   background: none;
@@ -119,6 +117,10 @@ Tag:hover {
 
 #goal-list-title-icon {
   margin-top: 25px;
+}
+
+#target-list-see-more {
+  margin-left: 50%;
 }
 
 #target-detail-btn {
@@ -135,4 +137,9 @@ Tag:hover {
 
 #target-list-link {
   text-decoration: none;
+}
+
+.target-list-pagination-container {
+  display: flex;
+  justify-content: center;
 }
