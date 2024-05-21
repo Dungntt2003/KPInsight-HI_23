@@ -74,32 +74,6 @@ const ShowDataComponent = ({ data, setDatas }) => {
   };
 
   return (
-    // <div className="data-list">
-    //   {Object.keys(groupedData).map((area) => (
-    //     <div key={area} className="data-area">
-    //       <h2>{area}</h2>
-    //       {groupedData[area].map((item) => (
-    //         <div key={item.id} className="data-item">
-    //           <div className="data-item-content">
-    //             <div className="data-item-header">
-    //               <p>{item.content}</p>
-    //               {item.star ? (
-    //                 <StarFilled style={{ color: "#fadb14" }} />
-    //               ) : (
-    //                 <StarOutlined />
-    //               )}
-    //             </div>
-    //             <div className="data-item-footer">
-    //               {item.tag}
-    //               <span className="data-item-date">{item.createdDate}</span>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   ))}
-    // </div>
-
     <div>
       {Object.keys(groupedData).map((area) => (
         <div key={area} className="target-list-wrap">

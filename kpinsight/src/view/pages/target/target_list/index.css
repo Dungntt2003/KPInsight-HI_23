@@ -12,7 +12,7 @@
 .target-list-frame {
   margin: 50px;
   padding: 50px 100px;
-  border-radius: 60px;
+  border-radius: 15px;
   border: 2px solid #074979;
 }
 
@@ -34,9 +34,6 @@ Tag:hover {
 .kpi-target-select-container {
   margin-left: 1200px;
   margin-top: -25px;
-  /* flex: 1;
-  display: flex;
-  justify-content: flex-end; */
 }
 
 #kpi-target-title,
@@ -76,7 +73,6 @@ Tag:hover {
 }
 
 .target-list-item {
-  /* display: flex; */
   align-items: center;
 }
 
@@ -136,7 +132,3 @@ Tag:hover {
   display: flex;
   justify-content: center;
 }
-
-/* .list-item .icon {
-  margin-left: auto;
-} */
