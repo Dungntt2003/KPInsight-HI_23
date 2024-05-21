@@ -17,9 +17,7 @@ function Help() {
   const onSearch = (value, _e, info) => console.log(info?.source, value);
   return (
     <div className="help-container">
-      <div className="help-navbar">
-        <NavbarOption />
-      </div>
+      <div className="help-navbar">{/* <NavbarOption /> */}</div>
       <div className="help-content">
         <h3 className="help-header">Trợ giúp</h3>
         <div className="help-search">

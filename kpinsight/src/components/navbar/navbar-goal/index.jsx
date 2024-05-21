@@ -35,12 +35,12 @@ function NavbarGoal() {
         {items.map((item) => (
           <div>
             <div
-              onClick={() => handleSelected(item.key, item.navigate)}
-              className={`navbar-goal-item ${
-                selectedKey === item.key ? "navbar-selected" : ""
-              }`}
+            // onClick={() => handleSelected(item.key, item.navigate)}
+            // className={`navbar-goal-item ${
+            //   selectedKey === item.key ? "navbar-selected" : ""
+            // }`}
             >
-              {/* <Link
+              <Link
                 key={item.key}
                 className={`navbar-goal-item ${
                   selectedKey === item.key ? "navbar-selected" : ""
@@ -49,12 +49,12 @@ function NavbarGoal() {
                 onClick={() => {
                   setSelectedKey(item.key);
                 }}
-              // > */}
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span className="icon"> {item.icon}</span>
-                {item.label}
-              </div>
-              {/* </Link> */}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span className="icon"> {item.icon}</span>
+                  {item.label}
+                </div>
+              </Link>
             </div>
           </div>
         ))}

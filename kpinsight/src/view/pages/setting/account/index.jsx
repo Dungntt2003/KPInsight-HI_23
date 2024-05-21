@@ -27,7 +27,7 @@ const SettingAccount = () => {
   };
   return (
     <div>
-      <NavbarOption />;
+      {/* <NavbarOption />; */}
       <div className="namepage-logout">
         <div className="namepage-setting">Thông tin cơ bản</div>
 
