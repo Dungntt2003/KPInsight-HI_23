@@ -264,10 +264,10 @@ function Target_detail() {
     } else {
       return (
         <div className="target-list-wrap">
-          <div className="target-list-title">
-            <div id="goal-list-title">{item.area}</div>
+          {/* <div className="target-list-title">
+            <div id="goal-list-title">{area}</div>
             <LocalizedModal className="target-list-icon" />
-          </div>
+          </div> */}
           {filteredData.map((item) => (
             <div key={item.id}>
               <div id="target-goalList-item">

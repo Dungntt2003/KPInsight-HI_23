@@ -3,40 +3,131 @@ import React, { useState } from "react";
 import { Select, Col, Row, Pagination, Tag } from "antd";
 import { StarFilled, StarOutlined } from "@ant-design/icons";
 import NavbarStatus from "../../../components/navbar/navbar-status";
+import ShowActivitiesComponent from "./show-activities";
 
 function ActivityList() {
   //Data
-  // const [activities, setActivities] = useState([
-  //   {
-  //     id: 0,
-  //     content: "Học thiết kế Web",
-  //     tag1: (
-  //       <Tag id="" color="#074979">
-  //         Đã hoàn thành
-  //       </Tag>
-  //     ),
-  //     tag2: <Tag color="volcano">IT</Tag>,
-  //     createdDate: "2023/08/01",
-  //     star: true,
-  //   },
-  // ]);
+  const [activities, setActivities] = useState([
+    {
+      id: 0,
+      content: "Học thiết kế Web",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/08/01",
+      createTime: "5:00",
+      quantity: "300/300",
+      star: true,
+    },
+    {
+      id: 1,
+      content: "Học thiết kế bằng Figma",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/04/01",
+      createTime: "40:00",
+      quantity: "15/15",
+      star: true,
+    },
+    {
+      id: 2,
+      content: "Học thiết kế bằng Figma2",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/04/01",
+      createTime: "40:00",
+      quantity: "15/15",
+      star: true,
+    },
+    {
+      id: 3,
+      content: "Học thiết kế bằng Figma3",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/04/01",
+      createTime: "40:00",
+      quantity: "15/15",
+      star: true,
+    },
+    {
+      id: 4,
+      content: "Học thiết kế bằng Figma4",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/04/01",
+      createTime: "40:00",
+      quantity: "15/15",
+      star: true,
+    },
+    {
+      id: 5,
+      content: "Học thiết kế bằng Figma5",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/04/01",
+      createTime: "40:00",
+      quantity: "15/15",
+      star: true,
+    },
+    {
+      id: 6,
+      content: "Học thiết kế bằng Figma6",
+      tag1: (
+        <Tag id="" color="#074979">
+          Đã hoàn thành
+        </Tag>
+      ),
+      tag2: <Tag color="volcano">IT</Tag>,
+      createdDate: "2024/04/01",
+      createTime: "40:00",
+      quantity: "15/15",
+      star: true,
+    },
+  ]);
 
   //Choose label - select
   const handleLabel = (value) => {
     console.log(value);
   };
 
-  //Pagination
-  const showTotalPage = (totalPage) => `Total ${totalPage} items`;
+  //Pagigation
+  const [current, setCurrent] = useState(1);
+  const handlePagination = (page) => {
+    console.log(page);
+    setCurrent(page);
+  };
 
   //Star
-  // const handleStarClick = (id) => {
-  //   setActivities(
-  //     activities.map((activity) =>
-  //       activity.id === id ? { ...activity, star: !activity.star } : activity
-  //     )
-  //   );
-  // };
+  const handleStarClick = (id) => {
+    setActivities(
+      activities.map((activity) =>
+        activity.id === id ? { ...activity, star: !activity.star } : activity
+      )
+    );
+  };
 
   return (
     <div className="activity-list-container">
@@ -166,63 +257,72 @@ function ActivityList() {
         </span> */}
         <div className="activity-list-grid-container" style={{ padding: 20 }}>
           <Row gutter={[16, 16]}>
-            {/* <ul id="act-list-goalList">
-              {activities.map((activity, index) => (
-                <li id="act-list-item" key={index}>
-                  <span className="act-list-content-detail">
-                    <span className="act-list-tag">{activity.tag1}</span>
-                    <span className="act-list-date">
-                      {activity.createdDate}
-                    </span>
-                    <span
-                      className="act-list-star"
-                      onClick={() => handleStarClick(activity.id)}
-                    >
-                      {study.star ? (
-                        <StarFilled style={{ color: "gold" }} />
-                      ) : (
-                        <StarOutlined />
-                      )}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul> */}
             <Col span={8}>
-              {/* <div id="act-list-col">
-                <Tag>Đang thực hiện</Tag>
-                <span className="act-list-star" onChange={onChangeStarClick}>
-                  {star ? (
-                    <StarFilled style={{ color: "gold" }} />
-                  ) : (
-                    <StarOutlined />
-                  )}
-                </span>
-                <h3>Học thiết kế Web</h3>
-                <Tag color="volcano">IT</Tag>
-              </div> */}
+              <div id="act-list-col">
+                <ShowActivitiesComponent
+                  id={0}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
+              </div>
             </Col>
             <Col span={8}>
-              <div id="act-list-col">Column 2</div>
+              <div id="act-list-col">
+                <ShowActivitiesComponent
+                  id={1}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
+              </div>
             </Col>
             <Col span={8}>
-              <div id="act-list-col">Column 3</div>
+              <div id="act-list-col">
+                <ShowActivitiesComponent
+                  id={2}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
+              </div>
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
             <Col span={8}>
-              <div id="act-list-col">Column 4</div>
+              <div id="act-list-col">
+                <ShowActivitiesComponent
+                  id={3}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
+              </div>
             </Col>
             <Col span={8}>
-              <div id="act-list-col">Column 5</div>
+              <div id="act-list-col">
+                <ShowActivitiesComponent
+                  id={4}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
+              </div>
             </Col>
             <Col span={8}>
-              <div id="act-list-col">Column 6</div>
+              <div id="act-list-col">
+                <ShowActivitiesComponent
+                  id={5}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
+              </div>
             </Col>
           </Row>
         </div>
+
         <span className="act-pagi">
-          <Pagination size="small" total={50} showSizeChanger showQuickJumper />
+          <Pagination
+            // showQuickJumper
+            defaultCurrent={1}
+            total={50}
+            onChange={handlePagination}
+          />
         </span>
       </div>
     </div>
