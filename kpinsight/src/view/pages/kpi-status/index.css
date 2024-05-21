@@ -10,7 +10,7 @@
   position: fixed;
   top: 81px;
   left: 0;
-  height: 100%; /* Chiều cao tương đương với chiều rộng của trang */
+  height: 100%; /* Chiều cao tương đương với chiều cao của trang */
   z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */
 }
 /* .body .header {
@@ -24,30 +24,39 @@
   font-size: 30px;
   font-weight: 900;
   text-align: center;
-  margin-top: 110px;
-  margin-left: 200px;
+  margin-top: 10vh;
+  margin-left: 18vw;
+  width: 80vw;
   color: #074979;
 }
 .select-tag {
-  margin-left: 81%;
+  margin-left: 80%;
   margin-top: -25px;
+}
+
+.two-chart {
+  margin-top: 0px;
+  margin-left: 18vw;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
 }
 
 /* Column chart */
 .body .columnchart-container {
   margin-top: 10px;
-  margin-left: 10vw;
-  /* margin-left: 350px; */
-  z-index: 1; /* Đảm bảo chart hiển thị phía sau navbar */
+  margin-left: 2vw;
+  width: 60vw !important;
+  height: 45vh !important;
 }
-.columnchart-container canvas {
+*/ .columnchart-container canvas {
   overflow: scroll;
   border: 3px solid black;
   border-radius: 20px;
   background-color: white;
   width: 60vw !important;
-  height: 50vh !important;
-  box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25);
+  height: 45vh !important;
+  /* box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25); */
   /* margin-left: 24%; */
 }
 
@@ -71,8 +80,6 @@
   font-size: 24px;
   font-weight: bold;
   text-align: center;
-  margin-top: 30px;
-  margin-left: 200px;
   color: #517fa1;
 }
 /* Round chart */
@@ -90,17 +97,19 @@
   position: relative;
   display: flex;
 }
+.sum-rate-wrap {
+}
 .sum-rate {
-  margin-top: -2%;
+  /* margin-left: 18vw; */
   text-align: center;
-  width: 30vw;
-  height: 50vh;
-  padding: 50px;
+  width: 15vw;
+  height: 15vw;
+  /* padding: 50px; */
   border-radius: 50%;
-  background: radial-gradient(#ffff 0 0) content-box;
-  position: absolute;
+  background: #b8d3e7 content-box;
+  position: relative;
   z-index: 5;
-  font-size: 20px;
+  font-size: 24px;
   color: #074979;
   font-size: 900;
   display: flex;
@@ -109,7 +118,7 @@
 }
 .sum-rate-text {
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
   color: #074979;
   font-weight: 900;
 }
@@ -128,27 +137,24 @@
 
 /* Chi tiết */
 .detailKPI {
-  padding: 50px 100px;
-  margin-top: 20px;
-  margin-left: 250px;
-  margin-right: 20px;
+  margin-top: 10vh;
+  margin-left: 18vw;
   margin-bottom: 20px;
-  width: 1000px !important;
+  width: 78vw !important;
   height: fit-content;
   border-radius: 60px;
-  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
 .detail-tittle {
   font-size: 24px;
   font-weight: bold;
-  text-align: center;
+  margin-left: 3.5vw;
   margin-top: -20px;
   color: #517fa1;
   width: 100%;
 }
 .select-level {
-  margin-left: 81%;
+  margin-left: 82%;
   margin-top: -30px;
 }
 

@@ -170,14 +170,17 @@ const KpiStatus = () => {
             ]}
           />
         </div>
-        <div className="columnchart-container">
-          {/* Áp dụng class vào container của biểu đồ */}
-          <canvas ref={chartRef}></canvas>
-        </div>
-        <h1 className="name2">Tổng quan trạng thái KPI</h1>
-        <div className="round-chart">
-          <div className="sum-rate">
-            <div className="sum-rate-text">58.8%</div>
+        <div className="two-chart">
+          <div className="sum-rate-wrap">
+            <h1 className="name2">Tổng quan</h1>
+            <div className="sum-rate">
+              <div className="sum-rate-text">58.8%</div>
+            </div>
+          </div>
+
+          <div className="columnchart-container">
+            {/* Áp dụng class vào container của biểu đồ */}
+            <canvas ref={chartRef}></canvas>
           </div>
           {/* <Grid xs={12} md={6} lg={4} className="kpi-status-current">
             <AppCurrentKPI
