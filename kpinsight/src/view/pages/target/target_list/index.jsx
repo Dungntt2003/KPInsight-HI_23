@@ -1,5 +1,5 @@
 import "./index.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Select, Tag, message, Modal, Pagination } from "antd";
 import {
@@ -9,12 +9,15 @@ import {
   StarOutlined,
   StarFilled,
 } from "@ant-design/icons";
+import ShowDataComponent from "./show_data_component";
+const { Option } = Select;
 
 function Target_list() {
   //Data
-  const [studies, setStudies] = useState([
+  const [datas, setDatas] = useState([
     {
       id: 0,
+      area: "Học tập",
       content: "Đạt 3.0/4.0 kì 2023.2",
       // tag: (
       //     <Tag id=""color="#074979"></Tag>
@@ -24,6 +27,7 @@ function Target_list() {
     },
     {
       id: 1,
+      area: "Học tập",
       content: "Đạt chứng chỉ TOEIC 500+",
       tag: (
         <Tag id="tag-nn" color="magenta">
@@ -35,6 +39,7 @@ function Target_list() {
     },
     {
       id: 2,
+      area: "Học tập",
       content: "Đạt giải cuộc thi She Codes 2023",
       tag: (
         <Tag id="tag-it" color="red">
@@ -44,10 +49,9 @@ function Target_list() {
       createdDate: "2023/07/30",
       star: false,
     },
-  ]);
-  const [socials, setSocials] = useState([
     {
       id: 3,
+      area: "Xã hội",
       content: "Tích cực hoạt động CLB Sách",
       tag: (
         <Tag id="tag-clb" color="magenta">
@@ -59,6 +63,7 @@ function Target_list() {
     },
     {
       id: 4,
+      area: "Xã hội",
       content: "Tham gia tình nguyện 'Mùa hè xanh'",
       // tag: (
       //     <Tag color="#074979">Ngoại ngữ</Tag>
@@ -68,6 +73,7 @@ function Target_list() {
     },
     {
       id: 5,
+      area: "Xã hội",
       content: "Tham gia trải nghiệm làm gốm",
       // tag: (
       //     <Tag color="#074979">IT</Tag>
@@ -75,10 +81,9 @@ function Target_list() {
       createdDate: "2023/07/30",
       star: false,
     },
-  ]);
-  const [personas, setPersonas] = useState([
     {
       id: 6,
+      area: "Cá nhân",
       content: "Chăm sóc sức khỏe",
       tag: (
         <Tag id="tag-sk" color="magenta">
@@ -90,6 +95,7 @@ function Target_list() {
     },
     {
       id: 7,
+      area: "Cá nhân",
       content: "Dành thời gian cho gia đình",
       tag: (
         <Tag id="tag-gd" color="red">
@@ -101,6 +107,7 @@ function Target_list() {
     },
     {
       id: 8,
+      area: "Cá nhân",
       content: "Quản lý chi tiêu hiệu quả",
       tag: (
         <Tag id="tag-tc" color="orange">
@@ -112,9 +119,19 @@ function Target_list() {
     },
   ]);
 
+  //Star
+  const handleStarClick = (id) => {
+    setDatas(
+      datas.map((item) =>
+        item.id === id ? { ...item, star: !item.star } : item
+      )
+    );
+  };
+
   //Choose label - select
-  const handleLabel = (value) => {
-    console.log(value);
+  const [selectedTag, setSelectedTag] = useState("Tất cả nhãn");
+  const handleTagChange = (value) => {
+    setSelectedTag(value);
   };
 
   //Pagigation
@@ -124,71 +141,54 @@ function Target_list() {
     setCurrent(page);
   };
 
-  //Star
-  const handleStarClick = (id) => {
-    setStudies(
-      studies.map((study) =>
-        study.id === id ? { ...study, star: !study.star } : study
-      )
-    );
-    setSocials(
-      socials.map((social) =>
-        social.id === id ? { ...social, star: !social.star } : social
-      )
-    );
-    setPersonas(
-      personas.map((persona) =>
-        persona.id === id ? { ...persona, star: !persona.star } : persona
-      )
-    );
+  // Filtered data based on selected tag
+  const filteredData = datas.filter(
+    (item) =>
+      selectedTag === "Tất cả nhãn" ||
+      (item.tag && item.tag.props && item.tag.props.children === selectedTag)
+  );
+
+  // Render filtered data
+  const getFilteredData = () => {
+    if (selectedTag === "Tất cả nhãn") {
+      return <ShowDataComponent data={datas} setDatas={setDatas} />;
+    } else {
+      return filteredData.map((item) => (
+        <div className="target-list-wrap" key={item.id}>
+          <div id="target-goalList-item">
+            <div className="target-list-content">{item.content}</div>
+            <div className="target-list-content-detail">
+              <div className="target-list-tag">{item.tag}</div>
+              <div className="target-list-date">{item.createdDate}</div>
+              <div
+                className="target-list-icon"
+                onClick={() => handleStarClick(item.id)}
+              >
+                {item.star ? (
+                  <StarFilled style={{ color: "gold" }} />
+                ) : (
+                  <StarOutlined />
+                )}
+              </div>
+            </div>
+          </div>
+
+          <Link
+            to="/target_detail"
+            className="target-list-icon"
+            id="target-list-see-more"
+          >
+            <EllipsisOutlined />
+          </Link>
+        </div>
+      ));
+    }
   };
 
-  //Pop confirm
-  const confirm = (e) => {
-    console.log(e);
-    message.success("Đã xóa mục tiêu!");
-  };
-  const cancel = (e) => {
-    console.log(e);
-    message.error("Hủy xóa mục tiêu!");
-  };
-
-  //Delete confirm - modal
-  const LocalizedModal = () => {
-    const [openModal, setOpenModal] = useState(false);
-    const showModal = () => {
-      setOpenModal(true);
-    };
-    const handleModalCancel = () => {
-      setOpenModal(false);
-      message.error("Hủy xóa mục tiêu!");
-    };
-    const handleModalOk = () => {
-      setOpenModal(false);
-      message.success("Đã xóa mục tiêu!");
-    };
-    return (
-      <>
-        <span
-          onClick={showModal}
-          className="target-list-icon"
-          id="goal-list-title-icon"
-        >
-          <CloseCircleOutlined />
-        </span>
-        <Modal
-          title="Xóa mục tiêu"
-          open={openModal}
-          onOk={handleModalOk}
-          onCancel={handleModalCancel}
-          okText="Xác nhận"
-          cancelText="Hủy"
-        >
-          <p>Xác nhận xóa mục tiêu</p>
-        </Modal>
-      </>
-    );
-  };
+  // Effect to set default selected tag and trigger filter on initial load
+  useEffect(() => {
+    handleTagChange("Tất cả nhãn");
+  }, []);
 
   return (
     <div className="target-list-frame">
@@ -200,7 +200,8 @@ function Target_list() {
             style={{
               width: 150,
             }}
-            onChange={handleLabel}
+            value={selectedTag}
+            onChange={handleTagChange}
             options={[
               {
                 label: <span>Tất cả nhãn</span>,
@@ -253,146 +254,7 @@ function Target_list() {
         </div>
       </div>
 
-      <div className="target-list-wrap">
-        <div className="target-list-title">
-          <div id="goal-list-title">Học tập</div>
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="goal-list-title-icon"
-          >
-            <EditOutlined />
-          </Link>
-          <LocalizedModal className="target-list-icon" />
-        </div>
-
-        <div className="target-list-item">
-          <ul id="target-goalList">
-            {studies.map((study, index) => (
-              <li id="target-goalList-item" key={index}>
-                <span className="target-list-content">{study.content}</span>
-                <span className="target-list-content-detail">
-                  <span className="target-list-tag">{study.tag}</span>
-                  <span className="target-list-date">{study.createdDate}</span>
-                  <span
-                    className="target-list-icon"
-                    onClick={() => handleStarClick(study.id)}
-                  >
-                    {study.star ? (
-                      <StarFilled style={{ color: "gold" }} />
-                    ) : (
-                      <StarOutlined />
-                    )}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="target-list-see-more"
-          >
-            <EllipsisOutlined />
-          </Link>
-          {/* <span className="target-list-icon">
-              <EllipsisOutlined />
-            </span>
-            {showOtherScreen && <Target_detail />} */}
-        </div>
-      </div>
-
-      <div className="target-list-wrap">
-        <div className="target-list-title">
-          <div id="goal-list-title">Xã hội</div>
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="goal-list-title-icon"
-          >
-            <EditOutlined />
-          </Link>
-          <LocalizedModal className="target-list-icon" />
-        </div>
-
-        <div className="target-list-item">
-          <ul id="target-goalList">
-            {socials.map((social, index) => (
-              <li id="target-goalList-item" key={index}>
-                <span className="target-list-content">{social.content}</span>
-                <span className="target-list-content-detail">
-                  <span className="target-list-tag">{social.tag}</span>
-                  <span className="target-list-date">{social.createdDate}</span>
-                  <span
-                    className="target-list-icon"
-                    onClick={() => handleStarClick(social.id)}
-                  >
-                    {social.star ? (
-                      <StarFilled style={{ color: "gold" }} />
-                    ) : (
-                      <StarOutlined />
-                    )}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="target-list-see-more"
-          >
-            <EllipsisOutlined />
-          </Link>
-        </div>
-      </div>
-
-      <div className="target-list-wrap">
-        <div className="target-list-title">
-          <div id="goal-list-title">Cá nhân</div>
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="goal-list-title-icon"
-          >
-            <EditOutlined />
-          </Link>
-          <LocalizedModal className="target-list-icon" />
-        </div>
-
-        <div className="target-list-item">
-          <ul id="target-goalList">
-            {personas.map((persona, index) => (
-              <li id="target-goalList-item" key={index}>
-                <span className="target-list-content">{persona.content}</span>
-                <span className="target-list-content-detail">
-                  <span className="target-list-tag">{persona.tag}</span>
-                  <span className="target-list-date">
-                    {persona.createdDate}
-                  </span>
-                  <span
-                    className="target-list-icon"
-                    onClick={() => handleStarClick(persona.id)}
-                  >
-                    {persona.star ? (
-                      <StarFilled style={{ color: "gold" }} />
-                    ) : (
-                      <StarOutlined />
-                    )}
-                  </span>
-                </span>
-              </li>
-            ))}
-          </ul>
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="target-list-see-more"
-          >
-            <EllipsisOutlined />
-          </Link>
-        </div>
-      </div>
+      {getFilteredData()}
 
       <div className="target-list-pagination-container">
         <Pagination
