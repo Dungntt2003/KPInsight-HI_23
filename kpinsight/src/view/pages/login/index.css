@@ -9,7 +9,8 @@
   padding: 50px 100px;
   /* max-width: 650px; */
   border-radius: 60px;
-  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid #074979;
+  /* box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1); */
 }
 
 .login-form {

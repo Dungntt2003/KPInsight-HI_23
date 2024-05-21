@@ -207,104 +207,100 @@ function Target_list() {
   const filteredData = getFilteredData();
 
   return (
-    <div className="target-list-container">
-      <NavbarGoal />
-      <div className="target-list-frame">
-        <h3>
-          <span id="kpi-target-header">Mục tiêu KPI</span>
-          <span id="kpi-target-select-container">
-            <Select
-              defaultValue="Tất cả nhãn"
-              style={{
-                width: 150,
-              }}
-              value={selectedTag}
-              onChange={handleTagChange}
-              options={[
-                {
-                  label: <span>Tất cả nhãn</span>,
-                  value: "Tất cả nhãn",
-                },
-                {
-                  label: <span>Học tập</span>,
-                  title: "Học tập",
-                  options: [
-                    {
-                      label: <span>IT</span>,
-                      value: "IT",
-                    },
-                    {
-                      label: <span>Ngoại ngữ</span>,
-                      value: "Ngoại ngữ",
-                    },
-                  ],
-                },
-                {
-                  label: <span>Xã hội</span>,
-                  title: "Xã hội",
-                  options: [
-                    {
-                      label: <span>CLB</span>,
-                      value: "CLB",
-                    },
-                  ],
-                },
-                {
-                  label: <span>Cá nhân</span>,
-                  title: "Cá nhân",
-                  options: [
-                    {
-                      label: <span>Sức khỏe</span>,
-                      value: "Sức khỏe",
-                    },
-                    {
-                      label: <span>Gia đình</span>,
-                      value: "Gia đình",
-                    },
-                    {
-                      label: <span>Tài chính</span>,
-                      value: "Tài chính",
-                    },
-                  ],
-                },
-              ]}
-            />
-          </span>
-        </h3>
-
-        <div className="target-list-wrap">
-          {filteredData.map((item) => (
-            <div className="target-list-item" key={item.id}>
-              <ul id="target-goalList">
-                <li id="target-goalList-item">
-                  <span className="target-list-content">{item.content}</span>
-                  <span className="target-list-content-detail">
-                    <span className="target-list-tag">{item.tag}</span>
-                    <span className="target-list-date">{item.createdDate}</span>
-                    <span
-                      className="target-list-icon"
-                      onClick={() => handleStarClick(item.id)}
-                    >
-                      {item.star ? (
-                        <StarFilled style={{ color: "gold" }} />
-                      ) : (
-                        <StarOutlined />
-                      )}
-                    </span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          ))}
+    <div className="target-list-frame">
+      <div className="kpi-target-heading">
+        <div id="kpi-target-header">Mục tiêu KPI</div>
+        <div id="kpi-target-select-container">
+          <Select
+            defaultValue="Tất cả nhãn"
+            style={{
+              width: 150,
+            }}
+            value={selectedTag}
+            onChange={handleTagChange}
+            options={[
+              {
+                label: <span>Tất cả nhãn</span>,
+                value: "Tất cả nhãn",
+              },
+              {
+                label: <span>Học tập</span>,
+                title: "Học tập",
+                options: [
+                  {
+                    label: <span>IT</span>,
+                    value: "IT",
+                  },
+                  {
+                    label: <span>Ngoại ngữ</span>,
+                    value: "Ngoại ngữ",
+                  },
+                ],
+              },
+              {
+                label: <span>Xã hội</span>,
+                title: "Xã hội",
+                options: [
+                  {
+                    label: <span>CLB</span>,
+                    value: "CLB",
+                  },
+                ],
+              },
+              {
+                label: <span>Cá nhân</span>,
+                title: "Cá nhân",
+                options: [
+                  {
+                    label: <span>Sức khỏe</span>,
+                    value: "Sức khỏe",
+                  },
+                  {
+                    label: <span>Gia đình</span>,
+                    value: "Gia đình",
+                  },
+                  {
+                    label: <span>Tài chính</span>,
+                    value: "Tài chính",
+                  },
+                ],
+              },
+            ]}
+          />
         </div>
-
-        <Pagination
-          // showQuickJumper
-          defaultCurrent={1}
-          total={20}
-          onChange={handlePagination}
-        />
       </div>
+      <div className="target-list-wrap">
+        {filteredData.map((item) => (
+          <div className="target-list-item" key={item.id}>
+            <ul id="target-goalList">
+              <li id="target-goalList-item">
+                <span className="target-list-content">{item.content}</span>
+                <span className="target-list-content-detail">
+                  <span className="target-list-tag">{item.tag}</span>
+                  <span className="target-list-date">{item.createdDate}</span>
+                  <span
+                    className="target-list-icon"
+                    onClick={() => handleStarClick(item.id)}
+                  >
+                    {item.star ? (
+                      <StarFilled style={{ color: "gold" }} />
+                    ) : (
+                      <StarOutlined />
+                    )}
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <Pagination
+        // showQuickJumper
+        defaultCurrent={1}
+        total={20}
+        onChange={handlePagination}
+      />
     </div>
   );
 }

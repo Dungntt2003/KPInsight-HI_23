@@ -24,7 +24,7 @@ const ChangePassword = () => {
   };
   return (
     <div>
-      <NavbarOption />
+      {/* <NavbarOption /> */}
 
       <div className="namepage-changepassword">Thay đổi mật khẩu</div>
       <div className="change-password-wrap">

@@ -261,144 +261,140 @@ function Target_list() {
   };
 
   return (
-    <div className="target-list-container">
-      <NavbarGoal />
-      <div className="target-list-frame">
+    <div className="target-list-frame">
+      <h3>
+        <span id="kpi-target-header">Mục tiêu KPI</span>
+        <span id="kpi-target-select-container">
+          <Select
+            defaultValue="Tất cả nhãn"
+            style={{
+              width: 150,
+            }}
+            onChange={handleLabel}
+            options={[
+              {
+                label: <span>Tất cả nhãn</span>,
+                value: "Tất cả nhãn",
+              },
+              {
+                label: <span>Học tập</span>,
+                title: "Học tập",
+                options: [
+                  {
+                    label: <span>IT</span>,
+                    value: "IT",
+                  },
+                  {
+                    label: <span>Ngoại ngữ</span>,
+                    value: "Ngoại ngữ",
+                  },
+                ],
+              },
+              {
+                label: <span>Xã hội</span>,
+                title: "Xã hội",
+                options: [
+                  {
+                    label: <span>CLB</span>,
+                    value: "CLB",
+                  },
+                ],
+              },
+              {
+                label: <span>Cá nhân</span>,
+                title: "Cá nhân",
+                options: [
+                  {
+                    label: <span>Sức khỏe</span>,
+                    value: "Sức khỏe",
+                  },
+                  {
+                    label: <span>Gia đình</span>,
+                    value: "Gia đình",
+                  },
+                  {
+                    label: <span>Tài chính</span>,
+                    value: "Tài chính",
+                  },
+                ],
+              },
+            ]}
+          />
+        </span>
+      </h3>
+
+      <div className="target-list-wrap">
         <h3>
-          <span id="kpi-target-header">Mục tiêu KPI</span>
-          <span id="kpi-target-select-container">
-            <Select
-              defaultValue="Tất cả nhãn"
-              style={{
-                width: 150,
-              }}
-              onChange={handleLabel}
-              options={[
-                {
-                  label: <span>Tất cả nhãn</span>,
-                  value: "Tất cả nhãn",
-                },
-                {
-                  label: <span>Học tập</span>,
-                  title: "Học tập",
-                  options: [
-                    {
-                      label: <span>IT</span>,
-                      value: "IT",
-                    },
-                    {
-                      label: <span>Ngoại ngữ</span>,
-                      value: "Ngoại ngữ",
-                    },
-                  ],
-                },
-                {
-                  label: <span>Xã hội</span>,
-                  title: "Xã hội",
-                  options: [
-                    {
-                      label: <span>CLB</span>,
-                      value: "CLB",
-                    },
-                  ],
-                },
-                {
-                  label: <span>Cá nhân</span>,
-                  title: "Cá nhân",
-                  options: [
-                    {
-                      label: <span>Sức khỏe</span>,
-                      value: "Sức khỏe",
-                    },
-                    {
-                      label: <span>Gia đình</span>,
-                      value: "Gia đình",
-                    },
-                    {
-                      label: <span>Tài chính</span>,
-                      value: "Tài chính",
-                    },
-                  ],
-                },
-              ]}
-            />
-          </span>
+          <span id="goal-list-title">Học tập</span>
+          <LocalizedModal className="target-list-icon" />
         </h3>
 
-        <div className="target-list-wrap">
-          <h3>
-            <span id="goal-list-title">Học tập</span>
-            <LocalizedModal className="target-list-icon" />
-          </h3>
-
-          <div className="target-list-item">
-            <ul id="target-goalList">
-              {studies.map((study, index) => (
-                <li id="target-goalList-item" key={index}>
-                  <Checkbox
-                    id="target-goalList-item-checkbox"
-                    onChangeCheckBox={() => onChangeCheckBox(study.id)}
-                    checked={checkedItems.includes(study.id)}
+        <div className="target-list-item">
+          <ul id="target-goalList">
+            {studies.map((study, index) => (
+              <li id="target-goalList-item" key={index}>
+                <Checkbox
+                  id="target-goalList-item-checkbox"
+                  onChangeCheckBox={() => onChangeCheckBox(study.id)}
+                  checked={checkedItems.includes(study.id)}
+                >
+                  <span
+                    className="target-list-content"
+                    style={{
+                      textDecoration: checkedItems.includes(study.id)
+                        ? "line-through"
+                        : "none",
+                    }}
                   >
-                    <span
-                      className="target-list-content"
-                      style={{
-                        textDecoration: checkedItems.includes(study.id)
-                          ? "line-through"
-                          : "none",
-                      }}
-                    >
-                      {study.content}
-                    </span>
-                  </Checkbox>
-                  {/* <Checkbox
+                    {study.content}
+                  </span>
+                </Checkbox>
+                {/* <Checkbox
                     onChange={onChangeCheckBox}
                     className="target-list-content"
                   >
                     <span className="target-list-content">{study.content}</span>
                   </Checkbox> */}
-                  <span className="target-list-content-detail">
-                    <span className="target-list-tag">{study.tag}</span>
-                    <span className="target-list-date">
-                      {study.createdDate}
-                    </span>
-                    <span
-                      className="target-list-icon"
-                      onClick={() => handleStarClick(study.id)}
-                    >
-                      {study.star ? (
-                        <StarFilled style={{ color: "gold" }} />
-                      ) : (
-                        <StarOutlined />
-                      )}
-                    </span>
-                    <Popconfirm
-                      placement="bottomLeft"
-                      title="Xóa mục tiêu"
-                      description="Xác nhận xóa mục tiêu"
-                      onConfirm={confirmPop}
-                      onCancel={cancelPop}
-                      okText="Xác nhận"
-                      cancelText="Hủy"
-                    >
-                      <span className="target-list-icon">
-                        <DeleteOutlined style={{ color: "black" }} />
-                      </span>
-                    </Popconfirm>
+                <span className="target-list-content-detail">
+                  <span className="target-list-tag">{study.tag}</span>
+                  <span className="target-list-date">{study.createdDate}</span>
+                  <span
+                    className="target-list-icon"
+                    onClick={() => handleStarClick(study.id)}
+                  >
+                    {study.star ? (
+                      <StarFilled style={{ color: "gold" }} />
+                    ) : (
+                      <StarOutlined />
+                    )}
                   </span>
-                </li>
-              ))}
-            </ul>
-            <Link to="/target_detail" className="target-list-icon">
-              <EllipsisOutlined />
-            </Link>
-            <Link to="/target_list" id="target-list-link">
-              <Button id="target-detail-btn">Lưu và Thoát</Button>
-            </Link>
-          </div>
+                  <Popconfirm
+                    placement="bottomLeft"
+                    title="Xóa mục tiêu"
+                    description="Xác nhận xóa mục tiêu"
+                    onConfirm={confirmPop}
+                    onCancel={cancelPop}
+                    okText="Xác nhận"
+                    cancelText="Hủy"
+                  >
+                    <span className="target-list-icon">
+                      <DeleteOutlined style={{ color: "black" }} />
+                    </span>
+                  </Popconfirm>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <Link to="/target_detail" className="target-list-icon">
+            <EllipsisOutlined />
+          </Link>
+          <Link to="/target_list" id="target-list-link">
+            <Button id="target-detail-btn">Lưu và Thoát</Button>
+          </Link>
         </div>
+      </div>
 
-        {/* <div className="target-list-wrap">
+      {/* <div className="target-list-wrap">
           <h3>
             <span id="goal-list-title">Xã hội</span>
             <Link
@@ -507,7 +503,6 @@ function Target_list() {
             </Link>
           </div>
         </div> */}
-      </div>
     </div>
   );
 }

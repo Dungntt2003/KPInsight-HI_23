@@ -8,8 +8,9 @@ body {
   background-color: #074979;
   display: flex;
   gap: 20px;
+  font-size: 18px;
   color: #fff;
-  padding: 13px 34px;
+  padding: 10px 34px;
   position: fixed;
   top: 0;
   left: 0;
@@ -65,13 +66,15 @@ body {
   background: none;
   border: none;
   padding: 0;
+  text-align: center;
   color: inherit;
   cursor: pointer;
   margin-right: 40px;
-  font-size: 16px;
+  font-size: 18px;
 }
 .header-login {
-  font-size: 16px;
+  font-size: 18px;
+  text-align: center;
   font-family: Inter, sans-serif;
   background: none;
   border: none;
@@ -83,10 +86,16 @@ body {
 
 .header-register:hover,
 .header-login:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .header-link {
   text-decoration: none;
   color: white;
+  padding: 2px 0;
+}
+
+.header-active {
+  text-align: center;
+  border-bottom: 2px solid white;
 }

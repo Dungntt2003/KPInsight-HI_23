@@ -1,5 +1,4 @@
 import "./index.css";
-import NavbarOption from "../../../../components/navbar/navbar-option";
 import React from "react";
 import { Switch, Select } from "antd";
 const onChange = (checked) => {
@@ -8,9 +7,7 @@ const onChange = (checked) => {
 function GeneralSetting() {
   return (
     <div className="general-container">
-      <div className="general-navbar">
-        <NavbarOption />
-      </div>
+      <div className="general-navbar">{/* <NavbarOption /> */}</div>
       <div className="general-content">
         <h3 className="general-header">Cài đặt chung</h3>
         <div className="general-body">

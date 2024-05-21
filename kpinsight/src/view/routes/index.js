@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import Register from "../pages/register";
-import MainLayout from "../../components/main-layout";
+// import HeaderLayout from "../../components/main-layout";
 import NavbarStatus from "../../components/navbar/navbar-status";
 import NavbarOption from "../../components/navbar/navbar-option";
 import SpeedChart from "../../components/speed-chart";
 import KpiStatus from "../../view/pages/kpi-status";
 import Login from "../pages/login";
 import ForgotPassword from "../pages/forgot-password";
-import ResetPassword from "../pages/reset-passsword";
+import ResetPassword from "../pages/setting/reset-passsword";
 import DefineGoal from "../pages/set-kpi/define-goal";
 import HeaderLayout from "../../components/layout-header";
 import SetKpiForm from "../pages/set-kpi/set-kpi-form";
@@ -27,12 +27,13 @@ import Help from "../pages/setting/help";
 import ChangePassword from "../pages/setting/change-password";
 import Home from "../pages/home v2";
 import Welcome from "../pages/welcome";
+import GoalLayout from "../../components/goal-layout/goal-layout";
 function AllRoutes() {
   return (
     <Routes>
       <Route
         path="/register"
-        element={<MainLayout component={<Register />} />}
+        element={<HeaderLayout component={<Register />} />}
       />
       <Route
         path="/navbar-status"
@@ -44,7 +45,7 @@ function AllRoutes() {
       />
       <Route
         path="/speed-chart"
-        element={<MainLayout component={<SpeedChart />} />}
+        element={<HeaderLayout component={<SpeedChart />} />}
       />
       <Route
         path="/kpi-status"
@@ -62,29 +63,39 @@ function AllRoutes() {
         path="/setting/general-setting"
         element={<HeaderLayout component={<GeneralSetting />} />}
       />
-      {/* <Route path="/" element={<MainLayout component={<Homepage />} />} />
+      {/* <Route path="/" element={<HeaderLayout component={<Homepage />} />} />
        */}
       <Route path="/" element={<HeaderLayout component={<Welcome />} />} />
-      <Route path="/login" element={<MainLayout component={<Login />} />} />
+      <Route path="/login" element={<HeaderLayout component={<Login />} />} />
       <Route
         path="/forgot-password"
-        element={<MainLayout component={<ForgotPassword />} />}
+        element={<HeaderLayout component={<ForgotPassword />} />}
       />
       <Route
         path="/reset-password"
-        element={<MainLayout component={<ResetPassword />} />}
+        element={<HeaderLayout component={<ResetPassword />} />}
       />
       <Route
         path="/define-goal"
         element={
-          <HeaderLayout component={<SetKpiForm component={<DefineGoal />} />} />
+          <HeaderLayout
+            component={
+              <GoalLayout
+                component={<SetKpiForm component={<DefineGoal />} />}
+              />
+            }
+          />
         }
       />
       <Route
         path="/choose-option"
         element={
           <HeaderLayout
-            component={<SetKpiForm component={<ChooseOption />} />}
+            component={
+              <GoalLayout
+                component={<SetKpiForm component={<ChooseOption />} />}
+              />
+            }
           />
         }
       />
@@ -92,7 +103,11 @@ function AllRoutes() {
         path="/choose-month"
         element={
           <HeaderLayout
-            component={<SetKpiForm component={<ChooseMonth />} />}
+            component={
+              <GoalLayout
+                component={<SetKpiForm component={<ChooseMonth />} />}
+              />
+            }
           />
         }
       />
@@ -100,14 +115,22 @@ function AllRoutes() {
       <Route
         path="/set-done"
         element={
-          <HeaderLayout component={<SetKpiForm component={<Done />} />} />
+          <HeaderLayout
+            component={
+              <GoalLayout component={<SetKpiForm component={<Done />} />} />
+            }
+          />
         }
       />
       <Route
         path="/define-target"
         element={
           <HeaderLayout
-            component={<SetKpiForm component={<DefineTarget />} />}
+            component={
+              <GoalLayout
+                component={<SetKpiForm component={<DefineTarget />} />}
+              />
+            }
           />
         }
       />
@@ -115,17 +138,29 @@ function AllRoutes() {
         path="/turn-standard"
         element={
           <HeaderLayout
-            component={<SetKpiForm component={<TurnStandard />} />}
+            component={
+              <GoalLayout
+                component={<SetKpiForm component={<TurnStandard />} />}
+              />
+            }
           />
         }
       />
       <Route
         path="/target_list"
-        element={<HeaderLayout component={<Target_list />} />}
+        element={
+          <HeaderLayout
+            component={<GoalLayout component={<Target_list />} />}
+          />
+        }
       />
       <Route
         path="/target_detail"
-        element={<HeaderLayout component={<Target_detail />} />}
+        element={
+          <HeaderLayout
+            component={<GoalLayout component={<Target_detail />} />}
+          />
+        }
       />
       <Route
         path="/activity-list"
@@ -139,7 +174,7 @@ function AllRoutes() {
         path="/setting/help"
         element={<HeaderLayout component={<Help />} />}
       />
-      <Route path="/home" element={<MainLayout component={<Home />} />} />
+      <Route path="/home" element={<HeaderLayout component={<Home />} />} />
     </Routes>
   );
 }

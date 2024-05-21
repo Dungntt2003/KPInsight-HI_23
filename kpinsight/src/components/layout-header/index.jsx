@@ -6,7 +6,9 @@ function HeaderLayout(props) {
       <div className="header">
         <Header />
       </div>
-      <div className="body">{props.component}</div>
+      <div className="body" style={{ marginTop: "110px" }}>
+        {props.component}
+      </div>
     </div>
   );
 }

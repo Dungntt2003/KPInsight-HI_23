@@ -1,12 +1,14 @@
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 function Header() {
+  const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
-  // console.log(user);
   return (
     <div>
       <div class="header-container">
-        <Link to="/home" className="header-link">
+        <Link to="/home" className="header-link" onClick={() => setActive("")}>
           <div class="header-logo">
             <img
               loading="lazy"
@@ -20,13 +22,25 @@ function Header() {
           {!user ? (
             <>
               <button class="header-register">
-                <Link className="header-link" to="/register">
+                <Link
+                  className={`header-link ${
+                    active === "register" ? "header-active" : ""
+                  }`}
+                  to="/register"
+                  onClick={() => setActive("register")}
+                >
                   Đăng ký
                 </Link>
               </button>
 
               <button class="header-login">
-                <Link className="header-link" to="/login">
+                <Link
+                  className={`header-link ${
+                    active === "login" ? "header-active" : ""
+                  }`}
+                  to="/login"
+                  onClick={() => setActive("login")}
+                >
                   Đăng nhập
                 </Link>
               </button>
@@ -34,23 +48,45 @@ function Header() {
           ) : (
             <>
               <button class="header-login">
-                <Link className="header-link" to="/activity-list">
+                <Link
+                  to="/activity-list"
+                  className={`header-link ${
+                    active === "activity" ? "header-active" : ""
+                  }`}
+                  onClick={() => setActive("activity")}
+                >
                   Hoạt động
                 </Link>
               </button>
 
               <button class="header-login">
-                <Link className="header-link" to="/define-goal">
+                <Link
+                  className={`header-link ${
+                    active === "target" ? "header-active" : ""
+                  }`}
+                  onClick={() => setActive("target")}
+                  to="/define-goal"
+                >
                   Mục tiêu KPI
                 </Link>
               </button>
               <button class="header-login">
-                <Link className="header-link" to="/kpi-status">
+                <Link
+                  to="/kpi-status"
+                  className={`header-link ${
+                    active === "status" ? "header-active" : ""
+                  }`}
+                  onClick={() => setActive("status")}
+                >
                   Trạng thái KPI
                 </Link>
               </button>
               <button class="header-login">
-                <Link className="header-link" to="/setting/account">
+                <Link
+                  className="header-link"
+                  to="/setting/account"
+                  onClick={() => setActive("")}
+                >
                   <img
                     src="https://www.svgrepo.com/show/382097/female-avatar-girl-face-woman-user-9.svg"
                     alt=""

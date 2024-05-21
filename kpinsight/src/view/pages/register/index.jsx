@@ -46,7 +46,7 @@ function Register() {
             layout="horizontal"
             style={{
               minWidth: 600,
-              marginLeft: 70,
+              marginLeft: 10,
             }}
             onFinish={handleFinish}
           >

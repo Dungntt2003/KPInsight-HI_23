@@ -4,44 +4,57 @@ import {
   UnorderedListOutlined,
   VerticalRightOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const items = [
   {
     key: "1",
     icon: <VerticalRightOutlined />,
     label: "Thiết lập KPI",
+    navigate: "/define-goal",
   },
   {
     key: "2",
     icon: <UnorderedListOutlined />,
     label: "Mục tiêu",
+    navigate: "/target_list",
   },
 ];
 
 function NavbarGoal() {
-  const [selectedKey, setSelectedKey] = useState(null);
+  const [selectedKey, setSelectedKey] = useState("");
   const navigate = useNavigate();
-  const handleItemClick = (key) => {
-    const item = items.find((item) => item.key === key);
+  const handleSelected = (key, link) => {
     setSelectedKey(key);
-    if (key === "1") navigate("/define-goal");
-    else if (key === "2") navigate("/target_list");
+    // setTimeout(() => {
+    //   navigate(link);
+    // }, 1000);
   };
   return (
     <div className="navbar-goal-container">
       <div className="navbar-goal-frame">
         {items.map((item) => (
-          <div key={item.key}>
+          <div>
             <div
-              className={`navbar-goal-item ${
-                selectedKey === item.key ? "navbar-selected" : ""
-              }`}
-              onClick={() => handleItemClick(item.key)}
+            // onClick={() => handleSelected(item.key, item.navigate)}
+            // className={`navbar-goal-item ${
+            //   selectedKey === item.key ? "navbar-selected" : ""
+            // }`}
             >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span className="icon"> {item.icon}</span>
-                {item.label}
-              </div>
+              <Link
+                key={item.key}
+                className={`navbar-goal-item ${
+                  selectedKey === item.key ? "navbar-selected" : ""
+                }`}
+                to={item.navigate}
+                onClick={() => {
+                  setSelectedKey(item.key);
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span className="icon"> {item.icon}</span>
+                  {item.label}
+                </div>
+              </Link>
             </div>
           </div>
         ))}
