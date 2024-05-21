@@ -1,12 +1,18 @@
 .define-history,
 .define-form {
   margin: 30px 0;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1); */
+  border: 2px solid #074979;
+
+  border-radius: 20px;
   padding: 16px;
 }
 
 .define-list {
   padding-left: 40px;
+}
+.define-item-list {
+  font-size: 16px;
 }
 .define-heading {
   padding: 4px 12px;

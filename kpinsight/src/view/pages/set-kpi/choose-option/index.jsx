@@ -1,5 +1,6 @@
 import "./index.css";
-import { Button, Select } from "antd";
+import { Button, Select, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 function ChooseOption() {
@@ -57,7 +58,15 @@ function ChooseOption() {
             />
           </div>
           <div>
-            <Button className="choose-import">Import file</Button>
+            {/* <Button className="choose-import">Import file</Button> */}
+            <Upload
+              // action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+              listType="file"
+            >
+              <Button className="choose-import" icon={<UploadOutlined />}>
+                Tải tệp lên
+              </Button>
+            </Upload>
           </div>
         </div>
         <div className="choose-note">

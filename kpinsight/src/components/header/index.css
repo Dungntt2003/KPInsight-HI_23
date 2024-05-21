@@ -98,4 +98,5 @@ body {
 .header-active {
   text-align: center;
   border-bottom: 2px solid white;
+  font-weight: bold;
 }
