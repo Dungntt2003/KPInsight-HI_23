@@ -1,11 +1,25 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
-import { Select, Tag } from "antd";
-import { StarOutlined, StarFilled } from "@ant-design/icons";
+import { Link, useLocation } from "react-router-dom";
+import {
+  message,
+  Modal,
+  Select,
+  Tag,
+  Popconfirm,
+  Checkbox,
+  Button,
+} from "antd";
+import {
+  CloseCircleOutlined,
+  StarOutlined,
+  StarFilled,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import ShowDetailComponent from "./show_detail_component";
 const { Option } = Select;
 
-function Target_detail({ Area }) {
+function Target_detail() {
   //Data
   const [datas, setDatas] = useState([
     {
@@ -160,12 +174,37 @@ function Target_detail({ Area }) {
     },
   ]);
 
+  //Area location
+  const location = useLocation();
+  const areaFromState = location.state?.area;
+
   //Star
   const handleStarClick = (id) => {
     setDatas(
       datas.map((item) =>
         item.id === id ? { ...item, star: !item.star } : item
       )
+    );
+  };
+
+  //Pop confirm
+  const confirmPop = (e) => {
+    console.log(e);
+    message.success("Đã xóa mục tiêu!");
+  };
+  const cancelPop = (e) => {
+    console.log(e);
+    message.error("Hủy xóa mục tiêu!");
+  };
+
+  const [checkedItems, setCheckedItems] = useState(
+    datas.filter((data) => data.checked).map((data) => data.id)
+  );
+  const onChangeCheckBox = (e, itemId) => {
+    setCheckedItems((prev) =>
+      prev.includes(itemId)
+        ? prev.filter((id) => id !== itemId)
+        : [...prev, itemId]
     );
   };
 
@@ -184,13 +223,32 @@ function Target_detail({ Area }) {
   const getFilteredData = () => {
     if (selectedTag === "Tất cả nhãn") {
       return (
-        <ShowDetailComponent Area={Area} data={datas} setDatas={setDatas} />
+        <ShowDetailComponent
+          Area={areaFromState}
+          data={datas}
+          setDatas={setDatas}
+        />
       );
     } else {
-      return filteredData.map((item) => (
-        <div className="target-list-wrap" key={item.id}>
+      return filteredData.map((item, area) => (
+        <div key={item.id} className="target-list-wrap">
           <div id="target-goalList-item">
-            <div className="target-list-content">{item.content}</div>
+            <Checkbox
+              id="target-goalList-item-checkbox"
+              onChange={(e) => onChangeCheckBox(e, item.id)}
+              checked={checkedItems.includes(item.id)}
+            >
+              <div
+                className="target-list-content"
+                style={{
+                  textDecoration: checkedItems.includes(item.id)
+                    ? "line-through"
+                    : "none",
+                }}
+              >
+                {item.content}
+              </div>
+            </Checkbox>
             <div className="target-list-content-detail">
               <div className="target-list-tag">{item.tag}</div>
               <div className="target-list-date">{item.createdDate}</div>
@@ -204,13 +262,30 @@ function Target_detail({ Area }) {
                   <StarOutlined />
                 )}
               </div>
+              <Popconfirm
+                placement="bottomLeft"
+                title="Xóa mục tiêu"
+                description="Xác nhận xóa mục tiêu"
+                onConfirm={confirmPop}
+                onCancel={cancelPop}
+                okText="Xác nhận"
+                cancelText="Hủy"
+              >
+                <div className="target-list-icon">
+                  <DeleteOutlined style={{ color: "black" }} />
+                </div>
+              </Popconfirm>
             </div>
           </div>
+
+          <Link to="/target_list" id="target-list-link">
+            <Button id="target-detail-btn">Lưu và Thoát</Button>
+          </Link>
         </div>
       ));
     }
   };
-  // Effect to set default selected tag and trigger filter on initial load
+  // Effect to set default selected tag on initial load
   useEffect(() => {
     setSelectedTag("Tất cả nhãn");
   }, []);
@@ -278,7 +353,13 @@ function Target_detail({ Area }) {
           />
         </div>
       </div>
-
+      <div>
+        <ShowDetailComponent
+          area={areaFromState}
+          data={datas}
+          setDatas={setDatas}
+        />
+      </div>
       {getFilteredData()}
     </div>
   );

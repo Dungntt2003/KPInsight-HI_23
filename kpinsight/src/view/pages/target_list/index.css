@@ -108,6 +108,7 @@ Tag:hover {
 .target-list-icon {
   font-size: 1.2em;
   align-items: center;
+  margin-left: 10px;
   color: #074979;
   border: none;
   background: none;

@@ -1,6 +1,6 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Select,
   Tag,
@@ -84,26 +84,11 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
     );
   };
 
-  //Check box
-  // const CheckboxGroup = Checkbox.Group;
-  // const plainOptionsCheckbox = studies.map((study) => study.content);
-  // const defaultCheckedList = studies.map((study) => study.checked);
-  // const [checkedList, setCheckedList] = useState(defaultCheckedList);
-  // const checkAll = plainOptionsCheckbox.length === checkedList.length;
-  // const indeterminate =
-  //   checkedList.length > 0 && checkedList.length < plainOptionsCheckbox.length;
-  // const onChangeCheckBox = (list) => {
-  //   setCheckedList(list);
-  // };
-  // const onCheckAllChange = (e) => {
-  //   setCheckedList(e.target.checked ? plainOptionsCheckbox : []);
-  // };
-
+  // Check box
   const [checkedItems, setCheckedItems] = useState(
     data.filter((data) => data.checked).map((data) => data.id)
   );
   const onChangeCheckBox = (e, itemId) => {
-    console.log(`checked = ${e.checked}`);
     setCheckedItems((prev) =>
       prev.includes(itemId)
         ? prev.filter((id) => id !== itemId)

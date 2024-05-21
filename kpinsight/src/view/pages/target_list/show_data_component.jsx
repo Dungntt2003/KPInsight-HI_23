@@ -26,16 +26,6 @@ const ShowDataComponent = ({ data, setDatas }) => {
     );
   };
 
-  //Pop confirm
-  const confirm = (e) => {
-    console.log(e);
-    message.success("Đã xóa mục tiêu!");
-  };
-  const cancel = (e) => {
-    console.log(e);
-    message.error("Hủy xóa mục tiêu!");
-  };
-
   //Delete confirm - modal
   const LocalizedModal = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -80,7 +70,7 @@ const ShowDataComponent = ({ data, setDatas }) => {
           <div className="target-list-title">
             <div id="goal-list-title">{area}</div>
             <Link
-              to="/target_detail"
+              to={{ pathname: "/target_detail", state: { area } }}
               className="target-list-icon"
               id="goal-list-title-icon"
             >
@@ -111,7 +101,7 @@ const ShowDataComponent = ({ data, setDatas }) => {
             ))}
 
             <Link
-              to="/target_detail"
+              to={{ pathname: "/target_detail", state: { area } }}
               className="target-list-icon"
               id="target-list-see-more"
             >

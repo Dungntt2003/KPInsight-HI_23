@@ -172,14 +172,6 @@ function Target_list() {
               </div>
             </div>
           </div>
-
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="target-list-see-more"
-          >
-            <EllipsisOutlined />
-          </Link>
         </div>
       ));
     }
