@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/KPInsight-HI_23/static/css/main.bac46586.css",
-    "main.js": "/KPInsight-HI_23/static/js/main.828a6501.js",
+    "main.css": "/KPInsight-HI_23/static/css/main.f18f5116.css",
+    "main.js": "/KPInsight-HI_23/static/js/main.bb54fd34.js",
+    "static/media/logo.png": "/KPInsight-HI_23/static/media/logo.b43c15d86e41815caf3c.png",
     "static/media/inprogress.png": "/KPInsight-HI_23/static/media/inprogress.6b7013d1fe44383a41b6.png",
-    "static/media/welcome.jpg": "/KPInsight-HI_23/static/media/welcome.6af6bd9d8af3cbca0f4f.jpg",
     "static/media/task-icon.png": "/KPInsight-HI_23/static/media/task-icon.187d41f3175e16ecd678.png",
     "static/media/way2.png": "/KPInsight-HI_23/static/media/way2.db786e9057b3fc938cb5.png",
     "static/media/done.webp": "/KPInsight-HI_23/static/media/done.47e10366e0904049e2ed.webp",
     "static/media/war-icon.webp": "/KPInsight-HI_23/static/media/war-icon.687ce9f1f8eccd581c59.webp",
     "index.html": "/KPInsight-HI_23/index.html",
-    "main.bac46586.css.map": "/KPInsight-HI_23/static/css/main.bac46586.css.map",
-    "main.828a6501.js.map": "/KPInsight-HI_23/static/js/main.828a6501.js.map"
+    "main.f18f5116.css.map": "/KPInsight-HI_23/static/css/main.f18f5116.css.map",
+    "main.bb54fd34.js.map": "/KPInsight-HI_23/static/js/main.bb54fd34.js.map"
   },
   "entrypoints": [
-    "static/css/main.bac46586.css",
-    "static/js/main.828a6501.js"
+    "static/css/main.f18f5116.css",
+    "static/js/main.bb54fd34.js"
   ]
 }
