@@ -29,21 +29,21 @@ const ChangePassword = () => {
       <div className="namepage-changepassword">Thay đổi mật khẩu</div>
       <div className="change-password-wrap">
         <Form className="reset-form" autoComplete="off" onFinish={handleFinish}>
-          <Form.Item label={<KeyOutlined />} name="password" rules={[]}>
+          <Form.Item label={<KeyOutlined />} name="old-password" rules={[]}>
             <Input.Password placeholder="Nhập mật khẩu cũ" />
           </Form.Item>
-          <Form.Item label={<KeyOutlined />} name="password" rules={[]}>
+          <Form.Item label={<KeyOutlined />} name="new-password" rules={[]}>
             <Input.Password placeholder="Nhập mật khẩu mới" />
           </Form.Item>
           <Form.Item
             label={<KeyOutlined />}
-            name="password2"
-            dependencies={["password"]}
+            name="again-password"
+            dependencies={["new-password"]}
             rules={[
               {},
               ({ getFieldValue }) => ({
                 validator(_, value) {
-                  if (!value || getFieldValue("password") === value) {
+                  if (!value || getFieldValue("new-password") === value) {
                     return Promise.resolve();
                   }
                   return Promise.reject(

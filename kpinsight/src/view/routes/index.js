@@ -29,6 +29,7 @@ import Home from "../pages/home v2";
 import Welcome from "../pages/welcome";
 import GoalLayout from "../../components/goal-layout/goal-layout";
 import SettingForm from "../pages/setting/setting-form";
+import PieChart from "../../components/piechart";
 function AllRoutes() {
   return (
     <Routes>
@@ -43,6 +44,10 @@ function AllRoutes() {
       <Route
         path="/navbar-option"
         element={<HeaderLayout component={<NavbarOption />} />}
+      />
+      <Route
+        path="/piechart"
+        element={<HeaderLayout component={<PieChart />} />}
       />
       <Route
         path="/speed-chart"
