@@ -188,8 +188,8 @@ function Target_detail() {
   };
 
   //Pop confirm
-  const confirmPop = (e) => {
-    console.log(e);
+  const confirmPop = (id) => {
+    setDatas(datas.filter((item) => item.id !== id));
     message.success("Đã xóa mục tiêu!");
   };
   const cancelPop = (e) => {
@@ -306,7 +306,7 @@ function Target_detail() {
                     placement="bottomLeft"
                     title="Xóa mục tiêu"
                     description="Xác nhận xóa mục tiêu"
-                    onConfirm={confirmPop}
+                    onConfirm={() => confirmPop(item.id)}
                     onCancel={cancelPop}
                     okText="Xác nhận"
                     cancelText="Hủy"
@@ -396,7 +396,7 @@ function Target_detail() {
       </div>
       <div>
         <ShowDetailComponent
-          area={areaFromState}
+          // area={areaFromState}
           data={datas}
           setDatas={setDatas}
         />
