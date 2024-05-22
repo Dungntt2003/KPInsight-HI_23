@@ -127,6 +127,7 @@ function ActivityList() {
   //Choose label - select
   const handleLabel = (value) => {
     console.log(value);
+    // setActivities(activities.filter((item, index) => item.tag2 === value));
   };
 
   //Pagigation

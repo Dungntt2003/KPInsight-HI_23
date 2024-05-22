@@ -55,10 +55,19 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
     if (selectedActivities.length === 0) {
       alert("Vui lòng chọn ít nhất một hoạt động.");
     } else {
-      console.log("Selected activities:", selectedActivities);
+      console.log(selectedTag);
+      console.log("Selected activities:", selectedActivities[0]);
+      console.log(activities[selectedActivities[0] - 1].name);
       console.log("Notes:", notes);
       console.log("Start time:", startTime ? startTime.format("HH:mm") : "");
       console.log("End time:", endTime ? endTime.format("HH:mm") : "");
+      const activityInfo = {
+        name: activities[selectedActivities[0] - 1].name,
+        startTime: startTime,
+        endTime: endTime,
+        tag: selectedTag,
+      };
+      sessionStorage.setItem("activities", JSON.stringify(activityInfo));
       onCancel();
     }
   };
@@ -85,7 +94,11 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
     >
       <Form>
         <Form.Item label="Chọn chủ đề" className="form-item">
-          <Select value={selectedCategory} onChange={handleCategoryChange}>
+          <Select
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            style={{ minWidth: "150px" }}
+          >
             {Object.keys(categories).map((category) => (
               <Option key={category} value={category}>
                 {category}
@@ -96,7 +109,11 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
 
         {selectedCategory && (
           <Form.Item label="Chọn tag" className="form-item">
-            <Select value={selectedTag} onChange={handleTagChange}>
+            <Select
+              value={selectedTag}
+              onChange={handleTagChange}
+              style={{ minWidth: "300px" }}
+            >
               {categories[selectedCategory].map((tag) => (
                 <Option key={tag} value={tag}>
                   {tag}
@@ -108,7 +125,11 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
 
         {selectedTag && (
           <Form.Item label="Chọn hoạt động" className="form-item">
-            <Select value={selectedActivity} onChange={handleActivitySelect}>
+            <Select
+              value={selectedActivity}
+              onChange={handleActivitySelect}
+              style={{ minWidth: "300px" }}
+            >
               {activities
                 .filter((activity) => activity.tag === selectedTag)
                 .map((activity) => (
