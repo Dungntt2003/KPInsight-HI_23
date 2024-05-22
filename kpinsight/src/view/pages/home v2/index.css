@@ -90,3 +90,20 @@
   color: white !important;
   border: none !important;
 }
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-item label {
+  min-width: 120px; /* Chiều rộng tối thiểu của nhãn */
+  margin-right: 10px;
+}
+
+.form-item .ant-select,
+.form-item .ant-input,
+.form-item .ant-picker {
+  flex: 1;
+}

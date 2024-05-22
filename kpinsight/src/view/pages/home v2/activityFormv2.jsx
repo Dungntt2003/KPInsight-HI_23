@@ -68,6 +68,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
     "Xã hội": ["Tình nguyện"],
     "Cá nhân": ["Tài chính", "Sức khỏe", "Gia đình"],
   };
+
   return (
     <Modal
       title="Thêm hoạt động"
@@ -83,7 +84,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
       ]}
     >
       <Form>
-        <Form.Item label="Chọn chủ đề">
+        <Form.Item label="Chọn chủ đề" className="form-item">
           <Select value={selectedCategory} onChange={handleCategoryChange}>
             {Object.keys(categories).map((category) => (
               <Option key={category} value={category}>
@@ -94,7 +95,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
         </Form.Item>
 
         {selectedCategory && (
-          <Form.Item label="Chọn tag">
+          <Form.Item label="Chọn tag" className="form-item">
             <Select value={selectedTag} onChange={handleTagChange}>
               {categories[selectedCategory].map((tag) => (
                 <Option key={tag} value={tag}>
@@ -106,7 +107,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
         )}
 
         {selectedTag && (
-          <Form.Item label="Chọn hoạt động">
+          <Form.Item label="Chọn hoạt động" className="form-item">
             <Select value={selectedActivity} onChange={handleActivitySelect}>
               {activities
                 .filter((activity) => activity.tag === selectedTag)
@@ -120,7 +121,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
         )}
 
         {selectedActivity && (
-          <Form.Item label="Danh sách task">
+          <Form.Item label="Danh sách task" className="form-item">
             {activities
               .filter((activity) => activity.id === selectedActivity)
               .map((activity) => (
@@ -136,7 +137,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
           </Form.Item>
         )}
 
-        <Form.Item label="Chọn thời gian">
+        <Form.Item label="Chọn thời gian" className="form-item">
           <TimePicker
             value={startTime}
             onChange={handleStartTimeChange}
@@ -152,7 +153,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
           />
         </Form.Item>
 
-        <Form.Item label="Ghi chú">
+        <Form.Item label="Ghi chú" className="form-item">
           <TextArea value={notes} onChange={(e) => setNotes(e.target.value)} />
         </Form.Item>
       </Form>
