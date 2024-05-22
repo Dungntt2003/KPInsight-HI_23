@@ -546,14 +546,14 @@ const KpiStatus = () => {
               {
                 <div className="activityKPI6">
                   <div className="activity-content">
-                    <div className="activity-name">
+                    {/* <div className="activity-name">
                       <div className="activity-name-sub">Học Git</div>
                       <div className="activity-name-tag">
                         <Tag color="gold" style={{ fontSize: "15px" }}>
                           Khá
                         </Tag>
                       </div>
-                    </div>
+                    </div> */}
                     <h1 className="complete-rate">
                       Đã hoàn thành 6/11 bài học
                     </h1>

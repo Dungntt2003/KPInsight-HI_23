@@ -10,10 +10,15 @@
   position: fixed;
   top: 80px;
   left: 0;
-  height: 100%;
-  z-index: 1000;
+  height: 100%; /* Chiều cao tương đương với chiều cao của trang */
+  z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */
 }
-
+/* .body .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Đảm bảo hiển thị trên các phần khác */
 .namepage {
   flex: 1;
   font-size: 30px;
@@ -47,29 +52,35 @@
   align-items: center;
 }
 
+/* Column chart */
 .body .columnchart-container {
   margin-left: 2vw;
   width: 56vw !important;
   height: 45vh !important;
 }
-.columnchart-container canvas {
+*/ .columnchart-container canvas {
   overflow: scroll;
   border: 3px solid black;
   border-radius: 20px;
   background-color: white;
   width: 60vw !important;
   height: 45vh !important;
+  /* box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25); */
+  /* margin-left: 24%; */
 }
 
+/* Tùy chỉnh màu và độ dày của đường viền */
 .columnchart-container canvas.chartjs-render-monitor {
   border: 3px solid black;
 }
 
+/* Tùy chỉnh màu của tiêu đề biểu đồ => Đang không dùng được*/
 .columnchart-container .chart-title {
   color: black !important;
   font-size: 50px;
 }
 
+/* Tùy chỉnh màu của các nhãn trên trục y => Đang không dùng được*/
 .columnchart-container .chart-y-axis {
   color: black;
 }
@@ -81,8 +92,10 @@
   text-align: left;
   color: #517fa1;
 }
+/* Round chart */
 .round-chart {
   margin-top: 20px;
+  /* margin-left: 70%; */
   margin-bottom: 0%;
   margin-left: 15vw;
 
@@ -95,9 +108,17 @@
   display: flex;
 }
 .sum-rate-wrap {
+  --c1: #c1262c;
+  --c2: #db5c23;
+  --c3: #f69220;
+  --c4: #8ba247;
+  --c5: #23b473;
+  --c6: #2390b4;
+  --c7: #2360b4;
+  --c8: #2330b4;
 }
-.sum-rate {
-  text-align: center;
+
+/* .sum-rate {
   width: 15vw;
   height: 15vw;
   border-radius: 50%;
@@ -119,8 +140,14 @@
   font-size: 30px;
   color: white;
   font-weight: 900;
-}
-*/ .kpi-status-current {
+} */
+
+.kpi-status-current {
+  /* margin-top: 20px;
+  /* margin-left: 250px; */
+  /* margin-right: 20px;
+  margin-bottom: 20px;  */
+
   text-align: center;
   box-shadow: none;
 }
@@ -128,6 +155,7 @@
   box-shadow: none;
 }
 
+/* Chi tiết */
 .detailKPI {
   margin-top: 4vw;
   margin-left: 18vw;
@@ -153,6 +181,7 @@
   margin-top: -30px;
 }
 
+/* Đề xuất */
 .suggest {
   width: 85%;
   margin: 2vw auto;
@@ -183,6 +212,22 @@
   padding: 2vw;
   background-color: #ffff;
   display: flex;
+}
+
+/* Chi tiết từng hoạt động */
+.collapse-activity {
+  width: 85%;
+  margin: 2vw auto;
+  border-radius: 15px;
+  border: 2px solid #517fa1;
+  color: #ffff !important;
+  background-color: #517fa1;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 100;
+}
+.ant-collapse-header {
+  color: #ffff !important;
 }
 
 .detailKPI .activityKPI1,
