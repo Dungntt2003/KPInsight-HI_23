@@ -90,11 +90,15 @@ function ActivityList() {
       id: 4,
       content: "Luyện Shadowing",
       tag1: (
-        <Tag id="" color="#074979">
+        <Tag id="col-tag-1" color="#074979">
           Đã hoàn thành
         </Tag>
       ),
-      tag2: <Tag color="magenta">Ngoại ngữ</Tag>,
+      tag2: (
+        <Tag id="col-tag-2" color="magenta">
+          Ngoại ngữ
+        </Tag>
+      ),
       createdDate: "2024/02/21",
       createTime: "18:00",
       quantity: "10/10",
