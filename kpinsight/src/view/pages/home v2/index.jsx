@@ -77,7 +77,7 @@ function Home() {
         </Grid>
         <Grid xs={12} sm={6} md={3} className="summary-home">
           <AppWidgetSummary
-            title="Tổng số nhiệm vụ hiện tại"
+            title="Tổng số hoạt động hiện tại"
             total={60}
             color="warning"
             icon={<img alt="icon" src={ImgIcon} style={{ width: "60px" }} />}
@@ -86,7 +86,7 @@ function Home() {
 
         <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
-            title="Nhiệm vụ đã hoàn thành"
+            title="Hoạt động đã hoàn thành"
             total={40}
             color="error"
             icon={<img alt="icon" src={IconDone} style={{ width: "60px" }} />}
@@ -94,7 +94,7 @@ function Home() {
         </Grid>
         <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
-            title="Nhiệm vụ chưa hoàn thành"
+            title="Hoạt động chưa hoàn thành"
             total={20}
             color="error"
             icon={
