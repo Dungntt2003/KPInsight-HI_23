@@ -147,3 +147,32 @@
 #components-pagination-demo-mini .ant-pagination:not(:last-child) {
   margin-bottom: 24px;
 }
+
+.act-list-col-main-contain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 40px;
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+.act-list-col-main-contain > div {
+  margin-bottom: 15px; /* Khoảng cách giữa các phần tử, nếu cần */
+}
+
+#col-tag-1,
+#col-tag-2 {
+  border-radius: 6px;
+}
+
+#col-tag-1 {
+  background-color: #074979;
+  color: aliceblue;
+}
+
+.act-col-link {
+  text-decoration: none;
+  color: #074979;
+  padding: 2px 0;
+}

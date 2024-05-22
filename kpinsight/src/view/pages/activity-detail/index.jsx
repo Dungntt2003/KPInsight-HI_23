@@ -78,7 +78,7 @@ function ActivityDetail() {
                 {/* <span className="act-icon" id="act-title-icon">
                   <EditOutlined />
                 </span> */}
-                <Link className="header-link" to="/home">
+                <Link className="header-link" to="/activity-list">
                   <span className="act-icon" id="act-title-icon">
                     <CloseCircleOutlined />
                   </span>

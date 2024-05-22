@@ -1,7 +1,13 @@
 import "./index.css";
 import React, { useState } from "react";
 import { Select, Col, Row, Pagination, Tag } from "antd";
-import { StarFilled, StarOutlined } from "@ant-design/icons";
+import {
+  StarFilled,
+  StarOutlined,
+  CalendarOutlined,
+  FieldTimeOutlined,
+  FileDoneOutlined,
+} from "@ant-design/icons";
 import NavbarStatus from "../../../components/navbar/navbar-status";
 import ShowActivitiesComponent from "./show-activities";
 
@@ -12,99 +18,105 @@ function ActivityList() {
       id: 0,
       content: "Học thiết kế Web",
       tag1: (
-        <Tag id="" color="#074979">
-          Đã hoàn thành
+        <Tag id="col-tag-1" color="#074979">
+          Đang thực hiện
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
-      createdDate: "2024/08/01",
-      createTime: "5:00",
-      quantity: "300/300",
-      star: true,
+      tag2: (
+        <Tag id="col-tag-2" color="volcano">
+          IT
+        </Tag>
+      ),
+      createdDate: "2024/01/15",
+      createTime: "35:00",
+      quantity: "3/5",
+      star: false,
     },
     {
       id: 1,
-      content: "Học thiết kế bằng Figma",
+      content: "Học từ vựng N3",
       tag1: (
-        <Tag id="" color="#074979">
-          Đã hoàn thành
+        <Tag id="col-tag-1" color="#074979">
+          Đang thực hiện
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
-      createdDate: "2024/04/01",
+      tag2: (
+        <Tag id="col-tag-2" color="magenta">
+          Ngoại ngữ
+        </Tag>
+      ),
+      createdDate: "2024/02/01",
       createTime: "40:00",
-      quantity: "15/15",
-      star: true,
+      quantity: "300/880",
+      star: false,
     },
     {
       id: 2,
-      content: "Học thiết kế bằng Figma2",
+      content: "Project ITSS",
       tag1: (
-        <Tag id="" color="#074979">
-          Đã hoàn thành
+        <Tag id="col-tag-1" color="#074979">
+          Đang thực hiện
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
-      createdDate: "2024/04/01",
+      tag2: (
+        <Tag id="col-tag-2" color="volcano">
+          IT
+        </Tag>
+      ),
+      createdDate: "2024/03/21",
       createTime: "40:00",
-      quantity: "15/15",
-      star: true,
+      quantity: "15/25",
+      star: false,
     },
     {
       id: 3,
-      content: "Học thiết kế bằng Figma3",
+      content: "Học ngữ pháp N3",
       tag1: (
-        <Tag id="" color="#074979">
+        <Tag id="col-tag-1" color="#074979">
           Đã hoàn thành
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
+      tag2: (
+        <Tag id="col-tag-2" color="magenta">
+          Ngoại ngữ
+        </Tag>
+      ),
       createdDate: "2024/04/01",
-      createTime: "40:00",
+      createTime: "19:00",
       quantity: "15/15",
-      star: true,
+      star: false,
     },
     {
       id: 4,
-      content: "Học thiết kế bằng Figma4",
+      content: "Luyện Shadowing",
       tag1: (
         <Tag id="" color="#074979">
           Đã hoàn thành
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
-      createdDate: "2024/04/01",
-      createTime: "40:00",
-      quantity: "15/15",
-      star: true,
+      tag2: <Tag color="magenta">Ngoại ngữ</Tag>,
+      createdDate: "2024/02/21",
+      createTime: "18:00",
+      quantity: "10/10",
+      star: false,
     },
     {
       id: 5,
-      content: "Học thiết kế bằng Figma5",
+      content: "Project OOP",
       tag1: (
-        <Tag id="" color="#074979">
+        <Tag id="col-tag-1" color="#074979">
           Đã hoàn thành
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
-      createdDate: "2024/04/01",
-      createTime: "40:00",
-      quantity: "15/15",
-      star: true,
-    },
-    {
-      id: 6,
-      content: "Học thiết kế bằng Figma6",
-      tag1: (
-        <Tag id="" color="#074979">
-          Đã hoàn thành
+      tag2: (
+        <Tag id="col-tag-2" color="volcano">
+          IT
         </Tag>
       ),
-      tag2: <Tag color="volcano">IT</Tag>,
-      createdDate: "2024/04/01",
-      createTime: "40:00",
+      createdDate: "2024/01/05",
+      createTime: "50:00",
       quantity: "15/15",
-      star: true,
+      star: false,
     },
   ]);
 

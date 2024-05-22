@@ -1,5 +1,12 @@
 import React from "react";
-import { StarOutlined, StarFilled } from "@ant-design/icons";
+import {
+  StarOutlined,
+  StarFilled,
+  CalendarOutlined,
+  FieldTimeOutlined,
+  FileDoneOutlined,
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const ShowActivityComponent = ({ id, activities, setActivities }) => {
   //Star
@@ -21,20 +28,39 @@ const ShowActivityComponent = ({ id, activities, setActivities }) => {
   return (
     <div id="act-list-item">
       <div className="act-list-content-detail">
-        <div className="act-list-tag">{activity.tag1}</div>
-        <div
-          className="act-list-star"
-          onClick={() => handleStarClick(activity.id)}
-        >
-          {activity.star ? (
-            <StarFilled style={{ color: "gold" }} />
-          ) : (
-            <StarOutlined />
-          )}
+        <div className="act-list-header">
+          <span className="act-list-tag">{activity.tag1}</span>
+          <span className="act-list-tag">{activity.tag2}</span>
+          <span
+            className="act-list-star"
+            onClick={() => handleStarClick(activity.id)}
+          >
+            {activity.star ? (
+              <StarFilled style={{ color: "gold" }} />
+            ) : (
+              <StarOutlined />
+            )}
+          </span>
         </div>
-        <div className="act-list-date">{activity.createdDate}</div>
-        <div className="act-list-time">{activity.createTime}</div>
-        <div className="act-list-quantity">{activity.quantity}</div>
+        <div className="act-list-content">
+          <Link className="act-col-link" to="/activity-detail">
+            <h3>{activity.content}</h3>
+          </Link>
+        </div>
+        <div className="act-list-col-main-contain">
+          <div className="act-list-date">
+            <CalendarOutlined />
+            {activity.createdDate}
+          </div>
+          <div className="act-list-time">
+            <FieldTimeOutlined />
+            {activity.createTime}
+          </div>
+          <div className="act-list-quantity">
+            <FileDoneOutlined />
+            {activity.quantity}
+          </div>
+        </div>
       </div>
     </div>
   );
