@@ -27,7 +27,7 @@ const ShowDataComponent = ({ data, setDatas }) => {
   };
 
   //Delete confirm - modal
-  const LocalizedModal = () => {
+  const LocalizedModal = ({ Area }) => {
     const [openModal, setOpenModal] = useState(false);
     const showModal = () => {
       setOpenModal(true);
@@ -38,6 +38,7 @@ const ShowDataComponent = ({ data, setDatas }) => {
     };
     const handleModalOk = () => {
       setOpenModal(false);
+      setDatas(data.filter((item) => item.area !== Area));
       message.success("Đã xóa mục tiêu!");
     };
     return (
@@ -76,7 +77,7 @@ const ShowDataComponent = ({ data, setDatas }) => {
             >
               <EditOutlined />
             </Link>
-            <LocalizedModal className="target-list-icon" />
+            <LocalizedModal className="target-list-icon" Area={area} />
           </div>
 
           <div className="target-list-item">

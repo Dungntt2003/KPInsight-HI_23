@@ -38,8 +38,8 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
   };
 
   //Pop confirm
-  const confirmPop = (e) => {
-    console.log(e);
+  const confirmPop = (id) => {
+    setDatas(data.filter((item) => item.id !== id));
     message.success("Đã xóa mục tiêu!");
   };
   const cancelPop = (e) => {
@@ -48,7 +48,7 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
   };
 
   //Delete confirm - modal
-  const LocalizedModal = () => {
+  const LocalizedModal = ({ Area }) => {
     const [openModal, setOpenModal] = useState(false);
     const showModal = () => {
       setOpenModal(true);
@@ -59,6 +59,7 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
     };
     const handleModalOk = () => {
       setOpenModal(false);
+      setDatas(data.filter((item) => item.area !== Area));
       message.success("Đã xóa mục tiêu!");
     };
     return (
@@ -102,7 +103,7 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
         <div key={area} className="target-list-wrap">
           <div className="target-list-title">
             <div id="goal-list-title">{area}</div>
-            <LocalizedModal className="target-list-icon" />
+            <LocalizedModal className="target-list-icon" Area={area} />
           </div>
 
           <div className="target-list-item">
@@ -141,7 +142,7 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
                     placement="bottomLeft"
                     title="Xóa mục tiêu"
                     description="Xác nhận xóa mục tiêu"
-                    onConfirm={confirmPop}
+                    onConfirm={() => confirmPop(item.id)}
                     onCancel={cancelPop}
                     okText="Xác nhận"
                     cancelText="Hủy"

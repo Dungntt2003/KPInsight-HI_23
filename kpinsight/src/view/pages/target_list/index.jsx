@@ -1,14 +1,7 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Select, Tag, message, Modal, Pagination } from "antd";
-import {
-  EllipsisOutlined,
-  CloseCircleOutlined,
-  EditOutlined,
-  StarOutlined,
-  StarFilled,
-} from "@ant-design/icons";
+import { Select, Tag, Pagination } from "antd";
+import { StarOutlined, StarFilled } from "@ant-design/icons";
 import ShowDataComponent from "./show_data_component";
 const { Option } = Select;
 
