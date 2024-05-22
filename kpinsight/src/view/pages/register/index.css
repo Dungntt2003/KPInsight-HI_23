@@ -62,3 +62,19 @@
   font-weight: 600;
   margin-left: 20px;
 }
+
+@media only screen and (max-width: 750px) {
+  .register-wrap {
+    width: 350px;
+  }
+  .register-form {
+    width: 300px !important;
+  }
+  .register-btn,
+  .register-check,
+  .register-btn-regis,
+  .other-option-regis,
+  .register-other-option {
+    margin-left: 0;
+  }
+}

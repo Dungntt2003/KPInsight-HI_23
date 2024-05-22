@@ -45,9 +45,10 @@ function Register() {
             }}
             layout="horizontal"
             style={{
-              minWidth: 600,
+              width: 600,
               marginLeft: 10,
             }}
+            className="register-form"
             onFinish={handleFinish}
           >
             <Form.Item
@@ -159,7 +160,10 @@ function Register() {
                 </Select.Option>
               </Select>
             </Form.Item>
-            <Form.Item style={{ textAlign: "center", marginLeft: "100px" }}>
+            <Form.Item
+              style={{ textAlign: "center", marginLeft: "100px" }}
+              className="other-option-regis"
+            >
               <div className="register-other-option">Hoặc</div>
             </Form.Item>
             <Form.Item style={{ textAlign: "center" }}>

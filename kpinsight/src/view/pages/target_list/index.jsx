@@ -1,14 +1,7 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Select, Tag, message, Modal, Pagination } from "antd";
-import {
-  EllipsisOutlined,
-  CloseCircleOutlined,
-  EditOutlined,
-  StarOutlined,
-  StarFilled,
-} from "@ant-design/icons";
+import { Select, Tag, Pagination } from "antd";
+import { StarOutlined, StarFilled } from "@ant-design/icons";
 import ShowDataComponent from "./show_data_component";
 const { Option } = Select;
 
@@ -18,6 +11,7 @@ function Target_list() {
     {
       id: 0,
       area: "Học tập",
+      checked: false,
       content: "Đạt 3.0/4.0 kì 2023.2",
       // tag: (
       //     <Tag id=""color="#074979"></Tag>
@@ -28,6 +22,7 @@ function Target_list() {
     {
       id: 1,
       area: "Học tập",
+      checked: false,
       content: "Đạt chứng chỉ TOEIC 500+",
       tag: (
         <Tag id="tag-nn" color="magenta">
@@ -40,6 +35,7 @@ function Target_list() {
     {
       id: 2,
       area: "Học tập",
+      checked: false,
       content: "Đạt giải cuộc thi She Codes 2023",
       tag: (
         <Tag id="tag-it" color="red">
@@ -52,6 +48,7 @@ function Target_list() {
     {
       id: 3,
       area: "Xã hội",
+      checked: false,
       content: "Tích cực hoạt động CLB Sách",
       tag: (
         <Tag id="tag-clb" color="magenta">
@@ -64,6 +61,7 @@ function Target_list() {
     {
       id: 4,
       area: "Xã hội",
+      checked: false,
       content: "Tham gia tình nguyện 'Mùa hè xanh'",
       // tag: (
       //     <Tag color="#074979">Ngoại ngữ</Tag>
@@ -74,6 +72,7 @@ function Target_list() {
     {
       id: 5,
       area: "Xã hội",
+      checked: false,
       content: "Tham gia trải nghiệm làm gốm",
       // tag: (
       //     <Tag color="#074979">IT</Tag>
@@ -84,6 +83,7 @@ function Target_list() {
     {
       id: 6,
       area: "Cá nhân",
+      checked: false,
       content: "Chăm sóc sức khỏe",
       tag: (
         <Tag id="tag-sk" color="magenta">
@@ -96,6 +96,7 @@ function Target_list() {
     {
       id: 7,
       area: "Cá nhân",
+      checked: false,
       content: "Dành thời gian cho gia đình",
       tag: (
         <Tag id="tag-gd" color="red">
@@ -108,6 +109,7 @@ function Target_list() {
     {
       id: 8,
       area: "Cá nhân",
+      checked: false,
       content: "Quản lý chi tiêu hiệu quả",
       tag: (
         <Tag id="tag-tc" color="orange">
@@ -115,6 +117,45 @@ function Target_list() {
         </Tag>
       ),
       createdDate: "2023/07/30",
+      star: false,
+    },
+    {
+      id: 9,
+      area: "Học tập",
+      checked: true,
+      content: "Đạt KPA 3.0/4.0 kì 2022.2",
+      // tag: (
+      //   <Tag id="tag-it" color="red">
+      //     IT
+      //   </Tag>
+      // ),
+      createdDate: "2023/02/15",
+      star: true,
+    },
+    {
+      id: 10,
+      area: "Học tập",
+      checked: true,
+      content: "Đạt chứng chỉ JLPT N3",
+      tag: (
+        <Tag id="tag-nn" color="magenta">
+          Ngoại ngữ
+        </Tag>
+      ),
+      createdDate: "2023/02/15",
+      star: false,
+    },
+    {
+      id: 11,
+      area: "Học tập",
+      checked: true,
+      content: "Hoàn thành khóa học ReactJS",
+      tag: (
+        <Tag id="tag-it" color="red">
+          IT
+        </Tag>
+      ),
+      createdDate: "2023/02/15",
       star: false,
     },
   ]);
@@ -153,35 +194,31 @@ function Target_list() {
     if (selectedTag === "Tất cả nhãn") {
       return <ShowDataComponent data={datas} setDatas={setDatas} />;
     } else {
-      return filteredData.map((item) => (
-        <div className="target-list-wrap" key={item.id}>
-          <div id="target-goalList-item">
-            <div className="target-list-content">{item.content}</div>
-            <div className="target-list-content-detail">
-              <div className="target-list-tag">{item.tag}</div>
-              <div className="target-list-date">{item.createdDate}</div>
-              <div
-                className="target-list-icon"
-                onClick={() => handleStarClick(item.id)}
-              >
-                {item.star ? (
-                  <StarFilled style={{ color: "gold" }} />
-                ) : (
-                  <StarOutlined />
-                )}
+      return (
+        <div className="target-list-wrap">
+          {filteredData.map((item) => (
+            <div key={item.id}>
+              <div id="target-goalList-item">
+                <div className="target-list-content">{item.content}</div>
+                <div className="target-list-content-detail">
+                  <div className="target-list-tag">{item.tag}</div>
+                  <div className="target-list-date">{item.createdDate}</div>
+                  <div
+                    className="target-list-icon"
+                    onClick={() => handleStarClick(item.id)}
+                  >
+                    {item.star ? (
+                      <StarFilled style={{ color: "gold" }} />
+                    ) : (
+                      <StarOutlined />
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <Link
-            to="/target_detail"
-            className="target-list-icon"
-            id="target-list-see-more"
-          >
-            <EllipsisOutlined />
-          </Link>
+          ))}
         </div>
-      ));
+      );
     }
   };
 

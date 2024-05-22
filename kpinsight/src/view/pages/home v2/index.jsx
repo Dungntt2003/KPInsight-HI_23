@@ -15,6 +15,8 @@ import ActivityForm from "./activityFormv2";
 import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 function Home() {
+  const storedActivityInfo = JSON.parse(sessionStorage.getItem("activities"));
+  console.log(storedActivityInfo);
   const onPanelChange = (value, mode) => {
     console.log(value.format("YYYY-MM-DD"), mode);
   };
@@ -53,6 +55,11 @@ function Home() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const formatDate = (stringDate) => {
+    const [hour, minute] = stringDate.split("T")[1].split(":").slice(0, 2);
+    return hour + ":" + minute;
+  };
   return (
     <div className="home-main-container">
       {/* <Typography variant="h5" sx={{ mb: 5 }}>
@@ -77,7 +84,7 @@ function Home() {
         </Grid>
         <Grid xs={12} sm={6} md={3} className="summary-home">
           <AppWidgetSummary
-            title="Tổng số nhiệm vụ hiện tại"
+            title="Tổng số hoạt động hiện tại"
             total={60}
             color="warning"
             icon={<img alt="icon" src={ImgIcon} style={{ width: "60px" }} />}
@@ -86,7 +93,7 @@ function Home() {
 
         <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
-            title="Nhiệm vụ đã hoàn thành"
+            title="Hoạt động đã hoàn thành"
             total={40}
             color="error"
             icon={<img alt="icon" src={IconDone} style={{ width: "60px" }} />}
@@ -94,7 +101,7 @@ function Home() {
         </Grid>
         <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
-            title="Nhiệm vụ chưa hoàn thành"
+            title="Hoạt động chưa hoàn thành"
             total={20}
             color="error"
             icon={
@@ -164,7 +171,7 @@ function Home() {
             </div>
             <Button className="update-button">
               <Link className="header-link" to="/activity-detail">
-                Cập nhật{" "}
+                Cập nhật
               </Link>
             </Button>
           </div>
@@ -210,6 +217,23 @@ function Home() {
             </div>
             <Button className="update-button">Cập nhật</Button>
           </div>
+          {storedActivityInfo && (
+            <>
+              <div className="activity-list-content">
+                <div className="activity-detail">
+                  {storedActivityInfo.name}
+                  <Tag className="tag" color="magenta">
+                    {storedActivityInfo.tag}
+                  </Tag>
+                  <span className="time">
+                    {formatDate(storedActivityInfo.endTime)} -{" "}
+                    {formatDate(storedActivityInfo.startTime)}
+                  </span>
+                </div>
+                <Button className="update-button">Cập nhật</Button>
+              </div>
+            </>
+          )}
         </div>
       </div>
       <Grid xs={12} md={6} lg={4} className="current-kpi">

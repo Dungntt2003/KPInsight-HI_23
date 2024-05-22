@@ -16,26 +16,25 @@
 
 .schedule-container {
   display: flex;
-  gap: 20px; /* Khoảng cách giữa lịch và danh sách hoạt động */
+  gap: 20px;
   margin-top: 20px;
 }
 
 .calendar-wrap {
-  flex: 1; /* Lịch chiếm một phần không gian */
+  flex: 1;
   height: auto;
-  width: 100%; /* Chiếm toàn bộ chiều rộng của phần flex */
+  width: 100%;
   border-radius: 20px;
   border: 2px solid #074979;
-  overflow: hidden; /* Tránh tràn nội dung */
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  overflow: hidden;
   flex-shrink: 0;
 }
 
 .activity-list {
-  flex: 1; /* Danh sách hoạt động chiếm một phần không gian */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Khoảng cách giữa các hoạt động */
+  gap: 10px;
   overflow-y: auto;
 }
 
@@ -44,7 +43,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  border: 1px solid #ddd; /* Viền để phân biệt các hoạt động */
+  border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #8fbcdd;
 }
@@ -89,4 +88,21 @@
   background-color: #074979 !important;
   color: white !important;
   border: none !important;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-item label {
+  min-width: 120px;
+  margin-right: 10px;
+}
+
+.form-item .ant-select,
+.form-item .ant-input,
+.form-item .ant-picker {
+  flex: 1;
 }
