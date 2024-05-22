@@ -1,6 +1,7 @@
 import "./index.css";
 import welcome from "../../../assets/images/logo.png";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 function Welcome() {
   return (
     <div className="welcome-container">
@@ -15,13 +16,15 @@ function Welcome() {
               fontSize: "18px",
             }}
           >
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-            >
-              Bắt đầu
-            </Button>
+            <Link className="header-link" to="/register">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="login-form-button"
+              >
+                Bắt đầu
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="welcome-img">

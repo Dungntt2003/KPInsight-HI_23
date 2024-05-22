@@ -6,7 +6,7 @@ function Header() {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
   return (
-    <div>
+    <div className="header-max">
       <div class="header-container">
         <Link to="/home" className="header-link" onClick={() => setActive("")}>
           <div class="header-logo">

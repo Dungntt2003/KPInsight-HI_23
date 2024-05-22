@@ -100,3 +100,23 @@ body {
   border-bottom: 2px solid white;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 750px) {
+  .header-container {
+    display: none;
+  }
+  .header-max {
+    background-color: #074979;
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    color: #fff;
+    padding: 10px 34px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 50px;
+  }
+}

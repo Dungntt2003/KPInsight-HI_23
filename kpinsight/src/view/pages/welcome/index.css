@@ -20,3 +20,16 @@
   margin: 50px 0;
   color: #074979;
 }
+
+@media only screen and (max-width: 750px) {
+  .welcome-get-started {
+    flex-direction: column;
+    flex-flow: column-reverse;
+  }
+  .welcome-get-header {
+    font-size: 25px;
+  }
+  .welcome-img {
+    width: 100%;
+  }
+}
