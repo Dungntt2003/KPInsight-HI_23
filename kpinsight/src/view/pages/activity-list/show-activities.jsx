@@ -33,6 +33,7 @@ const ShowActivityComponent = ({ id, activities, setActivities }) => {
           <span className="act-list-tag">{activity.tag2}</span>
           <span
             className="act-list-star"
+            style={{ cursor: "pointer" }}
             onClick={() => handleStarClick(activity.id)}
           >
             {activity.star ? (
