@@ -58,7 +58,7 @@
   width: 56vw !important;
   height: 45vh !important;
 }
-*/ .columnchart-container canvas {
+canvas {
   overflow: scroll;
   border: 3px solid black;
   border-radius: 20px;
