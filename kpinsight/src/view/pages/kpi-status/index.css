@@ -60,10 +60,10 @@
 }
 canvas {
   overflow: scroll;
-  border: 3px solid black;
-  border-radius: 20px;
+  /* border: 3px solid black;
+  border-radius: 20px; */
   background-color: white;
-  width: 60vw !important;
+  /* width: 60vw !important; */
   height: 45vh !important;
   /* box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25); */
   /* margin-left: 24%; */
