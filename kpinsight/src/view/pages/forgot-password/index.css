@@ -45,3 +45,10 @@
   background-color: #8fc2e6 !important;
   color: white;
 }
+
+@media screen and (max-width: 430px) {
+  .forgot-wrap {
+    padding: 50px 40px;
+    margin-top: 20%;
+  }
+}

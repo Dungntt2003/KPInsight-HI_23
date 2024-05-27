@@ -26,11 +26,17 @@ function ResetPassword() {
       <div className="reset-wrap">
         <h3 className="reset-header">THIẾT LẬP LẠI MẬT KHẨU</h3>
         <Form className="reset-form" autoComplete="off" onFinish={handleFinish}>
-          <Form.Item label={<KeyOutlined />} name="password" rules={[]}>
+          <Form.Item
+            className="reset-item-form"
+            label={<KeyOutlined className="reset-icon" />}
+            name="password"
+            rules={[]}
+          >
             <Input.Password placeholder="Nhập mật khẩu mới" />
           </Form.Item>
           <Form.Item
-            label={<KeyOutlined />}
+            className="reset-item-form"
+            label={<KeyOutlined className="reset-icon" />}
             name="password2"
             dependencies={["password"]}
             rules={[

@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .header-container {
@@ -16,6 +17,9 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+.header-mobile {
+  display: none;
 }
 @media (max-width: 991px) {
   .div {
@@ -105,6 +109,12 @@ body {
   .header-container {
     display: none;
   }
+  .header-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
   .header-max {
     background-color: #074979;
     display: flex;
@@ -118,5 +128,13 @@ body {
     right: 0;
     z-index: 1000;
     height: 50px;
+  }
+  .header-mobile-ava {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .header-mobile-name {
+    font-weight: 700;
   }
 }

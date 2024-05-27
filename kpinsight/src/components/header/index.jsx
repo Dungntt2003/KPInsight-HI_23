@@ -5,6 +5,7 @@ import { useState } from "react";
 function Header() {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
+
   return (
     <div className="header-max">
       <div class="header-container">
@@ -98,6 +99,24 @@ function Header() {
           )}
         </div>
       </div>
+      {user && (
+        <div className="header-mobile">
+          <div className="header-mobile-logo">
+            <Link className="header-link" to="/home">
+              <h3 className="header-mobile-name">KPInsight</h3>
+            </Link>
+          </div>
+          <div className="header-mobile-avatar">
+            <Link className="header-link" to="/setting/account">
+              <img
+                src="https://www.svgrepo.com/show/382097/female-avatar-girl-face-woman-user-9.svg"
+                alt="avatar"
+                className="header-mobile-ava"
+              />
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -52,6 +52,7 @@ function Register() {
             onFinish={handleFinish}
           >
             <Form.Item
+              className="register-form-item-mobile"
               label={<UserOutlined className="register-icon" />}
               name="name"
               rules={[
@@ -63,6 +64,7 @@ function Register() {
               <Input placeholder="Họ và tên" />
             </Form.Item>
             <Form.Item
+              className="register-form-item-mobile"
               name="email"
               label={<UserAddOutlined className="register-icon" />}
               rules={[
@@ -75,6 +77,7 @@ function Register() {
               <Input placeholder="Email" />
             </Form.Item>
             <Form.Item
+              className="register-form-item-mobile"
               label={<UsergroupAddOutlined className="register-icon" />}
               name="username"
               rules={[
@@ -86,6 +89,7 @@ function Register() {
               <Input placeholder="Tên đăng nhập" />
             </Form.Item>
             <Form.Item
+              className="register-form-item-mobile"
               name="password"
               label={<KeyOutlined className="register-icon" />}
               rules={[
@@ -99,6 +103,7 @@ function Register() {
             </Form.Item>
 
             <Form.Item
+              className="register-form-item-mobile"
               name="confirm"
               label={<KeyOutlined className="register-icon" />}
               dependencies={["password"]}
@@ -122,6 +127,7 @@ function Register() {
               <Input.Password placeholder="Nhập lại mật khẩu" />
             </Form.Item>
             <Form.Item
+              className="register-form-item-mobile"
               label={
                 <FontAwesomeIcon
                   icon={faGraduationCap}
@@ -135,6 +141,7 @@ function Register() {
               </Select>
             </Form.Item>
             <Form.Item
+              className="register-form-item-mobile"
               label={
                 <FontAwesomeIcon
                   icon={faGraduationCap}
@@ -161,12 +168,16 @@ function Register() {
               </Select>
             </Form.Item>
             <Form.Item
+              className="register-form-item-mobile"
               style={{ textAlign: "center", marginLeft: "100px" }}
               className="other-option-regis"
             >
               <div className="register-other-option">Hoặc</div>
             </Form.Item>
-            <Form.Item style={{ textAlign: "center" }}>
+            <Form.Item
+              // className="register-form-item-mobile"
+              style={{ textAlign: "center" }}
+            >
               <Button
                 type="primary"
                 shape="round"
@@ -176,7 +187,10 @@ function Register() {
                 Tiếp tục với Google
               </Button>
             </Form.Item>
-            <Form.Item style={{ textAlign: "center" }}>
+            <Form.Item
+              className="register-form-item-mobile"
+              style={{ textAlign: "center" }}
+            >
               <Button
                 type="primary"
                 shape="round"
@@ -187,12 +201,16 @@ function Register() {
               </Button>
             </Form.Item>
             <Form.Item
+              // className="register-form-item-mobile"
               style={{ textAlign: "center" }}
               className="register-check"
             >
               <Checkbox>Tôi đồng ý với các điều khoản</Checkbox>
             </Form.Item>
-            <Form.Item style={{ textAlign: "center" }}>
+            <Form.Item
+              // className="register-form-item-mobile"
+              style={{ textAlign: "center" }}
+            >
               <Button
                 type="primary"
                 className="register-btn-regis"
