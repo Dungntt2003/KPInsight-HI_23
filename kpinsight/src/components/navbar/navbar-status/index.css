@@ -6,7 +6,7 @@
   text-align: center;
   background-color: rgba(7, 74, 121, 0.2);
   position: fixed;
-  top: 79px;
+  top: 78px;
   left: 0;
   height: 100%; /* Chiều cao tương đương với chiều rộng của trang */
   z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */

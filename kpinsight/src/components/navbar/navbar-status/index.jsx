@@ -40,7 +40,7 @@ const items = [
 ];
 
 function NavbarStatus() {
-  const [selectedKey, setSelectedKey] = useState(null);
+  const [selectedKey, setSelectedKey] = useState("1");
   const [openKeys, setOpenKeys] = useState([]);
 
   const handleItemClick = (key) => {
@@ -65,7 +65,7 @@ function NavbarStatus() {
       {items.map((item) => (
         <div key={item.key}>
           <div
-            className={`navbar-menu-item ${
+            className={`navbar-item ${
               selectedKey === item.key ? "selected" : ""
             } ${item.children ? "has-children" : ""} ${
               openKeys.includes(item.key) ? "open" : ""
