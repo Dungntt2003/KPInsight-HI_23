@@ -137,4 +137,8 @@ body {
   .header-mobile-name {
     font-weight: 700;
   }
+  .header-mobile-back {
+    font-size: 20px;
+    color: white;
+  }
 }

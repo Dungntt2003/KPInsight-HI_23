@@ -1,11 +1,14 @@
 import "./index.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
-
+  const location = useLocation();
+  const navigate = useNavigate();
   return (
     <div className="header-max">
       <div class="header-container">
@@ -101,11 +104,23 @@ function Header() {
       </div>
       {user && (
         <div className="header-mobile">
-          <div className="header-mobile-logo">
-            <Link className="header-link" to="/home">
-              <h3 className="header-mobile-name">KPInsight</h3>
-            </Link>
-          </div>
+          {location.pathname === "/home" ? (
+            <div className="header-mobile-logo">
+              <Link className="header-link" to="/home">
+                <h3 className="header-mobile-name">KPInsight</h3>
+              </Link>
+            </div>
+          ) : (
+            <>
+              <div className="header-mobile-back">
+                <FontAwesomeIcon
+                  icon={faArrowLeft}
+                  onClick={() => navigate(-1)}
+                />
+              </div>
+              <div className="header-mobile-name-page">Tên Trang</div>
+            </>
+          )}
           <div className="header-mobile-avatar">
             <Link className="header-link" to="/setting/account">
               <img
