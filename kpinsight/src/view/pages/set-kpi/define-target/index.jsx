@@ -133,6 +133,7 @@ function DefineTarget() {
                       className="define-target-card-big"
                       title={
                         <Form.Item
+                          className="define-target-form-mobile"
                           style={{
                             display: "flex",
                             justifyContent: "center",
@@ -235,6 +236,7 @@ function DefineTarget() {
                                     </Form.Item>
                                   }
                                   key={field1.key}
+                                  className="define-target-form-item-mobile"
                                   style={{ minWidth: "48%" }}
                                   extra={
                                     <CloseOutlined
@@ -274,6 +276,7 @@ function DefineTarget() {
                                           {subFields1.map((subField1) => (
                                             <Space
                                               key={subField1.key}
+                                              className="define-target-space-item-mobile"
                                               style={{
                                                 display: "flex",
                                                 justifyContent: "space-between",
@@ -285,6 +288,7 @@ function DefineTarget() {
                                                 name={[subField1.name, "first"]}
                                               >
                                                 <Input
+                                                  className="define-target-input-mobile"
                                                   style={{ width: "220%" }}
                                                   value={subField1.first}
                                                 />
@@ -359,7 +363,12 @@ function DefineTarget() {
           </Button>
         </div>
       </div>
-      <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
+      <Tour
+        open={open}
+        onClose={() => setOpen(false)}
+        steps={steps}
+        className="define-target-tour-mobile"
+      />
     </div>
   );
 }

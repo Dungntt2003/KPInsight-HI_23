@@ -173,6 +173,7 @@ function DefineGoal() {
         </div>
         <div className="define-card-form">
           <Card
+            className="define-mobile-item"
             title="Học tập"
             bordered={true}
             style={{
@@ -191,6 +192,7 @@ function DefineGoal() {
             </p>
           </Card>
           <Card
+            className="define-mobile-item"
             title="Xã hội"
             bordered={true}
             style={{
@@ -205,6 +207,7 @@ function DefineGoal() {
             <p>Trải nghiệm làm gốm</p>
           </Card>
           <Card
+            className="define-mobile-item"
             title="Cá nhân"
             bordered={true}
             style={{

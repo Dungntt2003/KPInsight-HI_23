@@ -55,3 +55,14 @@
   background-color: #074979 !important;
   color: white !important;
 }
+
+@media screen and (max-width: 430px) {
+  .choose-month-button {
+    margin: 12px 6px;
+  }
+  .choose-month-wrap {
+    padding: 20px 10px;
+    width: 90% !important;
+    margin: 25px 0;
+  }
+}

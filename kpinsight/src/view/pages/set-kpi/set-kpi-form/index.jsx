@@ -8,7 +8,7 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { SolutionOutlined } from "@ant-design/icons";
-import { Steps } from "antd";
+import { Steps, Tooltip } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function SetKpiForm(props) {
@@ -62,51 +62,97 @@ function SetKpiForm(props) {
           style={{ display: "flex", alignItems: "center" }}
           items={[
             {
-              title: "Chọn cách thiết lập",
+              title: (
+                <div className="set-kpi-step-mobile">Chọn cách thiết lập</div>
+              ),
               icon: (
                 <div className="set-kpi-steps-icon">
                   <FontAwesomeIcon
                     icon={faRightToBracket}
                     className="set-kpi-icon"
                   />
+                  <Tooltip
+                    className="set-kpi-steps-mobile-tooltip"
+                    title="Chọn cách thiết lập"
+                  >
+                    <FontAwesomeIcon
+                      icon={faRightToBracket}
+                      className="set-kpi-icon-mobile"
+                    />
+                  </Tooltip>
                 </div>
               ),
             },
             {
-              title: "Thiết lập",
+              title: <div className="set-kpi-step-mobile">Thiết lập</div>,
               icon: (
                 <div className="set-kpi-steps-icon">
                   <FontAwesomeIcon
                     icon={faPlusMinus}
                     className="set-kpi-icon"
                   />
+                  <Tooltip
+                    className="set-kpi-steps-mobile-tooltip"
+                    title="Thiết lập"
+                  >
+                    <FontAwesomeIcon
+                      icon={faPlusMinus}
+                      className="set-kpi-icon-mobile"
+                    />
+                  </Tooltip>
                 </div>
               ),
             },
             {
-              title: "Xác định mục tiêu",
+              title: (
+                <div className="set-kpi-step-mobile">Xác định mục tiêu</div>
+              ),
               icon: (
                 <div className="set-kpi-steps-icon">
-                  <SolutionOutlined className="set-kpi-icon" />,
+                  <SolutionOutlined className="set-kpi-icon" />
+                  <Tooltip
+                    className="set-kpi-steps-mobile-tooltip"
+                    title="Xác định mục tiêu"
+                  >
+                    <SolutionOutlined className="set-kpi-icon-mobile" />
+                  </Tooltip>
                 </div>
               ),
             },
             {
-              title: "Quy chuẩn KPI",
+              title: <div className="set-kpi-step-mobile">Quy chuẩn KPI</div>,
               icon: (
                 <div className="set-kpi-steps-icon">
                   <FontAwesomeIcon
                     icon={faAngleRight}
                     className="set-kpi-icon"
                   />
+                  <Tooltip
+                    className="set-kpi-steps-mobile-tooltip"
+                    title="Quy chuẩn KPI"
+                  >
+                    <FontAwesomeIcon
+                      icon={faAngleRight}
+                      className="set-kpi-icon-mobile"
+                    />
+                  </Tooltip>
                 </div>
               ),
             },
             {
-              title: "Hoàn thành",
+              title: <div className="set-kpi-step-mobile">Hoàn thành</div>,
               icon: (
                 <div className="set-kpi-steps-icon">
                   <FontAwesomeIcon icon={faCheck} className="set-kpi-icon" />
+                  <Tooltip
+                    className="set-kpi-steps-mobile-tooltip"
+                    title="Hoàn thành"
+                  >
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="set-kpi-icon-mobile"
+                    />
+                  </Tooltip>
                 </div>
               ),
             },

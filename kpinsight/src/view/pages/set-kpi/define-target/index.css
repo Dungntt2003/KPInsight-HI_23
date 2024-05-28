@@ -62,3 +62,31 @@
   background-color: #074979;
   color: white;
 }
+
+@media screen and (max-width: 430px) {
+  .define-target-form-item-mobile {
+    min-width: 100% !important;
+  }
+  .define-target-card-big {
+    padding: 24px 0;
+  }
+  .define-target-space-item-mobile {
+    width: 100% !important;
+  }
+  .define-target-input-mobile {
+    width: 130% !important;
+  }
+  .define-target-btn-add-act {
+    width: 100% !important;
+  }
+  .define-target-btn-add-label {
+    width: 100% !important;
+  }
+  .ant-tour {
+    width: 400px !important;
+  }
+  .define-target-form-mobile {
+    margin-bottom: 6px;
+    margin-left: -20%;
+  }
+}
