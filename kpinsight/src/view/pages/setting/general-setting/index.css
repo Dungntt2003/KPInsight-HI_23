@@ -37,7 +37,7 @@
   padding: 15px 30px;
   font-size: 18px;
   border: 1px solid #074979;
-  box-shadow: 1px 1px 5px #074979;
+  /* box-shadow: 1px 1px 5px #074979; */
 }
 
 .general-secret-wrap {
@@ -45,4 +45,30 @@
   justify-content: space-between;
   align-items: center;
   margin: 8px 0;
+}
+
+@media screen and (max-width: 430px) {
+  .general-content {
+    margin-left: 0;
+    padding: 10px 20px;
+  }
+  .general-header {
+    margin-left: 0;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 500;
+  }
+  .general-secret-bound {
+    padding: 10px;
+  }
+  .general-name {
+    font-size: 20px;
+  }
+  .general-secret-wrap {
+    font-size: 16px;
+  }
+  .general-setting-select-mobile {
+    font-size: 16px;
+    width: 100px !important;
+  }
 }

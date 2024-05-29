@@ -68,6 +68,7 @@ function GeneralSetting() {
                   <div className="general-switch">
                     <Select
                       defaultValue="day"
+                      className="general-setting-select-mobile"
                       style={{
                         width: 120,
                         border: "2px solid #074979",
