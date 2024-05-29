@@ -63,18 +63,7 @@ function Home() {
   };
   return (
     <div className="home-main-container">
-      {/* <Typography variant="h5" sx={{ mb: 5 }}>
-        Xin chào 👋
-      </Typography> */}
-      <Grid container spacing={3}>
-        {/* <Grid xs={12} sm={6} md={3}>
-          <AppWidgetSummary
-            title="Weekly Sales"
-            total={714000}
-            color="success"
-            icon={<img alt="icon" src="/assets/icons/glass/war-icon.webp" />}
-          />
-        </Grid> */}
+      <Grid container spacing={5}>
         <Grid xs={12} sm={6} md={3} className="summary-home">
           <AppWidgetSummary
             title="Đã 2 tuần không cập nhật"
@@ -92,20 +81,7 @@ function Home() {
           />
         </Grid>
         <Grid xs={12} md={6} lg={4} className="current-kpi">
-          {/* <AppCurrentKPI
-          title="KPI tổng quan"
-          chart={{
-            series: [
-              { label: "IT", value: 40 },
-              { label: "Ngoại ngữ", value: 30 },
-              { label: "Tài chính", value: 10 },
-              { label: "Tình nguyện", value: 10 },
-            ],
-          }}
-        /> */}
-        
           <PieChart percentage={83}></PieChart>
-        
         </Grid>
 
         {/* <Grid xs={12} sm={6} md={3}>
@@ -258,7 +234,7 @@ function Home() {
         </div>
       </div>
       <Grid xs={12} md={6} lg={4} className="current-kpi">
-        <AppCurrentKPI
+        {/* <AppCurrentKPI
           title="KPI tổng quan"
           chart={{
             series: [
@@ -268,7 +244,8 @@ function Home() {
               { label: "Tình nguyện", value: 10 },
             ],
           }}
-        />
+        /> */}
+        {/* <AppCurrentKPI title="KPI tổng quan" chart={chartData} /> */}
       </Grid>
     </div>
   );
