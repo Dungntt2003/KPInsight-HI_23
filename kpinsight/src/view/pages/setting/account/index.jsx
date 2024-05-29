@@ -33,14 +33,14 @@ const SettingAccount = () => {
         <Button
           type="primary"
           htmlType="submit"
-          className="log-out-text"
+          className="log-out-text log-out-mobile"
           icon={<LogoutOutlined />}
           onClick={handleLogout}
         >
           Đăng xuất
         </Button>
       </div>
-      <div>
+      <div className="namepage-mobile">
         <div className="account-wrap">
           <div className="account-container">
             <div className="account-pic">
@@ -129,6 +129,44 @@ const SettingAccount = () => {
           onClick={handleClick}
         >
           Cập nhật thông tin
+        </Button>
+      </div>
+      <div className="mobile-line"></div>
+      <div className="change-pass-mobile">
+        <div className="change-pass-mobile-header">Thay đổi mật khẩu</div>
+        <div className="change-pass-mobile-content">
+          <div className="change-pass-mobile-old_pass">
+            <div className="change-pass-mobile-old-text">Mật khẩu cũ:</div>
+            <div className="change-pass-mobile-old-inp">
+              <Input.Password />
+            </div>
+          </div>
+          <div className="change-pass-mobile-old_pass">
+            <div className="change-pass-mobile-old-text">Mật khẩu mới:</div>
+            <div className="change-pass-mobile-old-inp">
+              <Input.Password />
+            </div>
+          </div>
+          <div className="change-pass-mobile-old_pass">
+            <div className="change-pass-mobile-old-text">
+              Nhập lại mật khẩu:
+            </div>
+            <div className="change-pass-mobile-old-inp">
+              <Input.Password />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mobile-line"></div>
+      <div className="logout-mobile">
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="log-out-text"
+          icon={<LogoutOutlined />}
+          onClick={handleLogout}
+        >
+          Đăng xuất
         </Button>
       </div>
       <ToastContainer />

@@ -276,7 +276,14 @@ function ActivityList() {
         </span> */}
         <div className="activity-list-grid-container" style={{ padding: 20 }}>
           <Row gutter={[16, 16]}>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Col
+              xs={24}
+              sm={12}
+              md={8}
+              lg={8}
+              xl={8}
+              className="act-list-col-wrap"
+            >
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={0}
@@ -285,7 +292,14 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Col
+              xs={24}
+              sm={12}
+              md={8}
+              lg={8}
+              xl={8}
+              className="act-list-col-wrap"
+            >
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={1}
@@ -294,7 +308,14 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Col
+              xs={24}
+              sm={12}
+              md={8}
+              lg={8}
+              xl={8}
+              className="act-list-col-wrap"
+            >
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={2}
@@ -305,7 +326,14 @@ function ActivityList() {
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Col
+              xs={24}
+              sm={12}
+              md={8}
+              lg={8}
+              xl={8}
+              className="act-list-col-wrap"
+            >
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={3}
@@ -314,7 +342,14 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Col
+              xs={24}
+              sm={12}
+              md={8}
+              lg={8}
+              xl={8}
+              className="act-list-col-wrap"
+            >
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={4}
@@ -323,7 +358,14 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
+            <Col
+              xs={24}
+              sm={12}
+              md={8}
+              lg={8}
+              xl={8}
+              className="act-list-col-wrap"
+            >
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={5}
