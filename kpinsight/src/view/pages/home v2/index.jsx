@@ -58,8 +58,9 @@ function Home() {
   };
 
   const formatDate = (stringDate) => {
-    const [hour, minute] = stringDate.split("T")[1].split(":").slice(0, 2);
-    return hour + ":" + minute;
+    // const [hour, minute] = stringDate.split("T")[1].split(":").slice(0, 2);
+    // return hour + ":" + minute;
+    return stringDate;
   };
   return (
     <div className="home-main-container">
@@ -72,7 +73,7 @@ function Home() {
             icon={<img alt="icon" src={ImageIcon} style={{ width: "60px" }} />}
           />
         </Grid>
-        <Grid xs={12} sm={6} md={3} className="summary-home">
+        <Grid xs={12} sm={6} md={3} className="summary-home" id="sum-2">
           <AppWidgetSummary
             title="Tổng số hoạt động hiện tại"
             total={60}
