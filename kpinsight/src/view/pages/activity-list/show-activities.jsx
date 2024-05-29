@@ -50,16 +50,22 @@ const ShowActivityComponent = ({ id, activities, setActivities }) => {
         </div>
         <div className="act-list-col-main-contain">
           <div className="act-list-date">
-            <CalendarOutlined />
-            {activity.createdDate}
+            <span className="act-list-icon-small">
+              <CalendarOutlined />
+            </span>
+            <span>{activity.createdDate}</span>
           </div>
           <div className="act-list-time">
-            <FieldTimeOutlined />
-            {activity.createTime}
+            <span className="act-list-icon-small">
+              <FieldTimeOutlined />
+            </span>
+            <span>{activity.createTime}</span>
           </div>
           <div className="act-list-quantity">
-            <FileDoneOutlined />
-            {activity.quantity}
+            <span className="act-list-icon-small">
+              <FileDoneOutlined />
+            </span>
+            <span>{activity.quantity}</span>
           </div>
         </div>
       </div>
