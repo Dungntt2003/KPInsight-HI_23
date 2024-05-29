@@ -1,8 +1,9 @@
-import React from "react";
+// import React from "react";
 import "./index.css";
 
 const SpeedChart = ({ min, score, max }) => {
   const scorePercentage = (((score - min) / (max - min)) * 100).toFixed(1);
+
   return (
     <div
       className="speed-chart-container"

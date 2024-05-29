@@ -14,6 +14,7 @@ import IconProgress from "../../../assets/icons/glass/inprogress.png";
 import ActivityForm from "./activityFormv2";
 import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import PieChart from "../../../components/piechart";
 function Home() {
   const storedActivityInfo = JSON.parse(sessionStorage.getItem("activities"));
   console.log(storedActivityInfo);
@@ -62,18 +63,7 @@ function Home() {
   };
   return (
     <div className="home-main-container">
-      {/* <Typography variant="h5" sx={{ mb: 5 }}>
-        Xin chào 👋
-      </Typography> */}
-      <Grid container spacing={3}>
-        {/* <Grid xs={12} sm={6} md={3}>
-          <AppWidgetSummary
-            title="Weekly Sales"
-            total={714000}
-            color="success"
-            icon={<img alt="icon" src="/assets/icons/glass/war-icon.webp" />}
-          />
-        </Grid> */}
+      <Grid container spacing={5}>
         <Grid xs={12} sm={6} md={3} className="summary-home">
           <AppWidgetSummary
             title="Đã 2 tuần không cập nhật"
@@ -90,16 +80,20 @@ function Home() {
             icon={<img alt="icon" src={ImgIcon} style={{ width: "60px" }} />}
           />
         </Grid>
+        <Grid xs={12} md={6} lg={4} className="current-kpi">
+          <PieChart percentage={83}></PieChart>
+        </Grid>
 
-        <Grid xs={12} sm={6} md={3}>
+        {/* <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
             title="Hoạt động đã hoàn thành"
             total={40}
             color="error"
             icon={<img alt="icon" src={IconDone} style={{ width: "60px" }} />}
           />
-        </Grid>
-        <Grid xs={12} sm={6} md={3}>
+        </Grid> */}
+
+        {/* <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
             title="Hoạt động chưa hoàn thành"
             total={20}
@@ -108,7 +102,10 @@ function Home() {
               <img alt="icon" src={IconProgress} style={{ width: "60px" }} />
             }
           />
-        </Grid>
+        </Grid> */}
+        {/* <Grid xs={12} sm={6} md={3}>
+          <PieChart percentage={83}></PieChart>
+        </Grid> */}
       </Grid>
       {/* <Grid xs={12} md={6} lg={8} className="calendar-content">
         <div className="flex-item calendar-wrap">
@@ -237,7 +234,7 @@ function Home() {
         </div>
       </div>
       <Grid xs={12} md={6} lg={4} className="current-kpi">
-        <AppCurrentKPI
+        {/* <AppCurrentKPI
           title="KPI tổng quan"
           chart={{
             series: [
@@ -247,7 +244,8 @@ function Home() {
               { label: "Tình nguyện", value: 10 },
             ],
           }}
-        />
+        /> */}
+        {/* <AppCurrentKPI title="KPI tổng quan" chart={chartData} /> */}
       </Grid>
     </div>
   );

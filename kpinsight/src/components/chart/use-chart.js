@@ -4,6 +4,8 @@ import { alpha, useTheme } from "@mui/material/styles";
 
 import { useResponsive } from "./use-responsive";
 
+import SpeedChart from "../speed-chart";
+
 // ----------------------------------------------------------------------
 
 export default function useChart(options) {

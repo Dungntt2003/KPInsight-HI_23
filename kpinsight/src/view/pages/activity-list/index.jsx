@@ -148,7 +148,9 @@ function ActivityList() {
 
   return (
     <div className="activity-list-container">
-      <NavbarStatus />
+      <div className="nav-act-detail">
+        <NavbarStatus />
+      </div>
       <div className="activity-list-frame">
         <span id="activity-list-select-container">
           <Select
@@ -274,7 +276,7 @@ function ActivityList() {
         </span> */}
         <div className="activity-list-grid-container" style={{ padding: 20 }}>
           <Row gutter={[16, 16]}>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={0}
@@ -283,7 +285,7 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={1}
@@ -292,7 +294,7 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={2}
@@ -303,7 +305,7 @@ function ActivityList() {
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={3}
@@ -312,7 +314,7 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={4}
@@ -321,7 +323,7 @@ function ActivityList() {
                 />
               </div>
             </Col>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8} lg={8} xl={8}>
               <div id="act-list-col">
                 <ShowActivitiesComponent
                   id={5}

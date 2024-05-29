@@ -44,19 +44,19 @@ function ActivityDetail() {
       createdTime: "16:00-18:00",
     },
     {
-      content: "Lập trình giao diện Web Thông tin với ReactJS",
+      content: "Lập trình với ReactJS",
       createdDate: "2024/04/10",
       createdTime: "09:00-10:00",
     },
   ]);
   const [studies_figma] = useState([
     {
-      content: "Làm quen với Figma Youtube-Học UIUX",
+      content: "Làm quen với Figma",
       createdDate: "2024/04/01",
       createdTime: "11:00-15:00",
     },
     {
-      content: "Figma nâng cao Youtube-Học UIUX",
+      content: "Figma nâng cao",
       createdDate: "2024/04/04",
       createdTime: "19:00-21:00",
     },
@@ -64,12 +64,17 @@ function ActivityDetail() {
   return (
     <div>
       <div className="activity-detail-container">
-        <NavbarStatus />
+        <div className="nav-act-detail">
+          <NavbarStatus />
+        </div>
+
         <div className="activity-detail-frame">
           <div className="activity-detail-wrap">
             <div className="activity-detail-doctor">
               <div className="activity-detail-tag">
-                <Tag id="act-tag">IT</Tag>
+                <Tag id="act-tag" color="volcano">
+                  IT
+                </Tag>
               </div>
               <div className="activity-detail-name">
                 <span id="act-title">Học thiết kế Web</span>

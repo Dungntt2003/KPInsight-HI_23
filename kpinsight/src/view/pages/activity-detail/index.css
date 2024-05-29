@@ -13,7 +13,8 @@
   padding: 10px 50px;
   margin-left: 250px;
   margin-right: 20px;
-  width: 1000px !important;
+  max-width: 1000px !important;
+  width: 100%;
   border-radius: 60px;
 }
 
@@ -34,8 +35,7 @@
 }
 
 #act-tag {
-  background-color: #fff;
-  border: 1px solid #074979;
+  /* background-color: #fff; */
   padding: 5px 30px;
   font-size: 16px;
   border-radius: 10px;
@@ -123,4 +123,33 @@
 
 .activity-detail-item ul li {
   padding: 5px 0;
+}
+
+@media screen and (max-width: 430px) {
+  .nav-act-detail {
+    display: none;
+  }
+  .activity-detail-container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 70px;
+  }
+  .activity-detail-frame {
+    margin: 0 10px;
+    width: 100%;
+    padding: 10px;
+  }
+  .activity-detail-wrap {
+    margin: 20px 0;
+    padding: 10px;
+  }
+  .activity-detail-content,
+  .activity-detail-content-detail {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 10px;
+  }
+  #act-title {
+    font-size: 20px;
+  }
 }
