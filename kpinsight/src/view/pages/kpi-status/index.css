@@ -22,7 +22,7 @@
 .namepage {
   flex: 1;
   font-size: 30px;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
   margin-top: 10vh;
   margin-left: 18vw;
@@ -54,9 +54,11 @@
 
 /* Column chart */
 .body .columnchart-container {
+  margin-top: 2vw;
   margin-left: 2vw;
   width: 56vw !important;
   height: 45vh !important;
+  overflow-x: auto;
 }
 canvas {
   overflow: scroll;
@@ -88,9 +90,9 @@ canvas {
 .name2 {
   margin-left: 3.5vw;
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
-  color: #517fa1;
+  color: #074979;
 }
 /* Round chart */
 .round-chart {
@@ -170,10 +172,10 @@ canvas {
 
 .detail-tittle {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 3.5vw;
   margin-top: 2vw;
-  color: #517fa1;
+  color: #074979;
   width: 100%;
 }
 .select-level {
@@ -194,7 +196,7 @@ canvas {
 }
 .suggest-name {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   margin-top: 1vw;
   text-align: center;
   color: #074979;
@@ -216,18 +218,21 @@ canvas {
 
 /* Chi tiết từng hoạt động */
 .collapse-activity {
-  width: 85%;
+  width: 90%;
   margin: 2vw auto;
   border-radius: 15px;
   border: 2px solid #517fa1;
   color: #ffff !important;
-  background-color: #517fa1;
+  background-color: #d4e8f6;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
   z-index: 100;
 }
 .ant-collapse-header {
-  color: #ffff !important;
+  color: #074979 !important;
+}
+.ant-collapse > .ant-collapse-item {
+  border-bottom: 1px solid #074979;
 }
 
 .detailKPI .activityKPI1,
@@ -259,9 +264,9 @@ canvas {
 }
 .activity-name-sub {
   box-sizing: border-box;
-  color: white;
-  background-color: #517fa1;
-  border: 3px solid #517fa1;
+  color: #074979;
+  /* background-color: #d4e8f6; */
+  border: 1px solid #074979;
   border-radius: 15px;
   padding: 3px 10px;
 }
@@ -355,24 +360,6 @@ canvas {
     justify-content: center;
     align-items: center;
   }
-  .piechart .sum-rate {
-    width: 30vw !important;
-    height: 30vw !important;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: conic-gradient(
-      var(--dynamic-color) 0%,
-      var(--dynamic-color) var(--percentage),
-      #e0e0e0 var(--percentage),
-      #e0e0e0 100%
-    );
-  }
-  .piechart .sum-rate-text {
-    font-size: 14px;
-  }
   /* Column chart */
   .body .columnchart-container {
     margin-left: 2vw;
@@ -393,40 +380,20 @@ canvas {
   .name2 {
     margin-left: 3.5vw;
     font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-    color: #517fa1;
   }
 
-  .kpi-status-current {
-    /* margin-top: 20px;
-    /* margin-left: 250px; */
-    /* margin-right: 20px;
-    margin-bottom: 20px;  */
-
-    text-align: center;
-    box-shadow: none;
-  }
   /* Chi tiết */
   .detailKPI {
-    margin-top: 4vw;
+    margin-top: 5vw;
     margin-left: 5vw;
     margin-bottom: 80px !important;
-    border: 3px solid #074979;
-    border-radius: 15px;
-    box-sizing: content-box;
-    margin-bottom: 4vw;
     width: 90% !important;
-    height: fit-content;
-    border-radius: 15px;
   }
 
   .detail-tittle {
     font-size: 18px;
-    font-weight: bold;
     margin-left: 3.5vw;
     margin-top: 2vw;
-    color: #517fa1;
     width: 100%;
   }
   .select-level {
@@ -448,24 +415,19 @@ canvas {
     width: auto;
     /* margin: 1vw auto; */
     padding: 1vw;
-    background-color: #ffff;
     display: flex;
+    flex-direction: column;
+    padding: auto;
   }
 
   /* Chi tiết từng hoạt động */
   .collapse-activity {
-    width: 85%;
+    width: 90%;
     margin: 2vw auto;
-    border-radius: 15px;
-    border: 2px solid #517fa1;
-    color: #ffff !important;
-    background-color: #517fa1;
+
     font-size: 14px;
     font-weight: bold;
     z-index: 100;
-  }
-  .ant-collapse-header {
-    color: #ffff !important;
   }
 
   .detailKPI .activityKPI1,
@@ -474,12 +436,6 @@ canvas {
   .activityKPI4,
   .activityKPI5,
   .activityKPI6 {
-    /* width: 85%; */
-    /* margin: 2vw auto; */
-    /* padding: 2vw; */
-    /* border-radius: 15px;
-    border: 2px solid #074979; */
-    background-color: #ffff;
     display: flex;
     flex-direction: column;
   }
@@ -490,20 +446,12 @@ canvas {
   }
   .activity-name {
     font-size: 14px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
+
     margin-top: -10px;
     margin-left: 10px;
-    color: white;
   }
   .activity-name-sub {
-    box-sizing: border-box;
-    color: white;
-    background-color: #517fa1;
-    border: 3px solid #517fa1;
-    border-radius: 15px;
-    padding: 3px 10px;
+    margin: 8px;
   }
   .activity-content .activity-name-tag {
     margin-left: 10px;
@@ -512,26 +460,16 @@ canvas {
   .complete-rate,
   .each-time,
   .need-time {
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: 600;
-    margin-left: 40px;
-    color: #517fa1;
+    font-size: 14px;
+    margin-top: 1vw;
+
+    margin-left: 0px;
   }
   .request-view-activity {
     font-size: 18px;
-    font-weight: 800;
-    margin-top: 15px;
-    margin-left: 40px;
-    color: #074979;
+    margin-left: 0px;
   }
   .activity-chart {
-    width: 50%;
-  }
-
-  .activity-chart-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
   }
 }
