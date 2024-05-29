@@ -147,9 +147,9 @@
   .activity-detail-content-detail {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 10px;
+    font-size: 12px;
   }
-  #act-title {
-    font-size: 20px;
-  }
+  /* #act-title {
+    font-size: 24px;
+  } */
 }
