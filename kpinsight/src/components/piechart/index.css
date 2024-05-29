@@ -40,3 +40,19 @@ input[type="range"] {
   margin-top: 20px;
   width: 80%;
 }
+
+@media only screen and (max-width: 430px) {
+  .sum-rate {
+    width: 40vw;
+    height: 40vw;
+  }
+  .sum-rate-text {
+    position: absolute;
+    padding-top: 25%;
+    padding-left: 15%;
+    text-align: center;
+    font-size: 24px;
+    color: #074979;
+    font-weight: 900;
+  }
+}

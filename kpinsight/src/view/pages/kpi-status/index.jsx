@@ -58,18 +58,21 @@ const KpiStatus = () => {
           "Làm BT ITSS",
           "Code màn figma",
           "Học Git",
+          "Làm BT ITSS",
+          "Code màn figma",
+          "Học Git",
         ],
         datasets: [
           {
             label: "Đã thực hiện",
-            data: [66.7, -50, 207.7, 250, -150, 28.6],
+            data: [66.7, -50, 207.7, 250, -150, 28.6, 250, -150, 28.6],
             backgroundColor: "#074979",
             borderWidth: 0,
             borderSkipped: false,
           },
           {
             label: "Mục tiêu",
-            data: [100, 100, 100, 100, 100, 100],
+            data: [100, 100, 100, 100, 100, 100, 100, 100, 100],
             backgroundColor: "#B8D3E7",
             borderWidth: 0,
             borderSkipped: false,
@@ -80,6 +83,11 @@ const KpiStatus = () => {
         scales: {
           y: {
             beginAtZero: true,
+          },
+          x: {
+            ticks: {
+              display: false, // Ẩn các nhãn của trục x
+            },
           },
         },
         plugins: {
@@ -204,7 +212,7 @@ const KpiStatus = () => {
               <div className="sum-rate-text">{percentage}%</div>
             </div> */}
 
-              <PieChart percentage={58} />
+              <PieChart className="piechart" percentage={58} />
             </div>
 
             <div className="columnchart-container">
