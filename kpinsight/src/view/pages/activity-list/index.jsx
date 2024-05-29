@@ -72,7 +72,7 @@ function ActivityList() {
       id: 3,
       content: "Học ngữ pháp N3",
       tag1: (
-        <Tag id="col-tag-1" color="#074979">
+        <Tag id="col-tag-done" color="#fff">
           Đã hoàn thành
         </Tag>
       ),
@@ -90,7 +90,7 @@ function ActivityList() {
       id: 4,
       content: "Luyện Shadowing",
       tag1: (
-        <Tag id="col-tag-1" color="#074979">
+        <Tag id="col-tag-done" color="#fff">
           Đã hoàn thành
         </Tag>
       ),
@@ -108,7 +108,7 @@ function ActivityList() {
       id: 5,
       content: "Project OOP",
       tag1: (
-        <Tag id="col-tag-1" color="#074979">
+        <Tag id="col-tag-done" color="#fff">
           Đã hoàn thành
         </Tag>
       ),
