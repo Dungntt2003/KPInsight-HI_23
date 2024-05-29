@@ -294,3 +294,318 @@ canvas {
   justify-content: center;
   align-items: center;
 }
+
+/* Responsive */
+/* @media (min-width: 768px) {
+  .namepage {
+    font-size: 3vw;
+  }
+
+  .name2,
+  .detail-tittle,
+  .suggest-name,
+  .suggest-notice,
+  .collapse-activity {
+    font-size: 2.5vw;
+  }
+
+  .suggest-data {
+    flex-direction: row;
+  }
+
+  .columnchart-container,
+  .general-kpi,
+  .detailKPI,
+  .collapse-activity {
+    width: 78vw;
+  }
+
+  .two-chart {
+    flex-direction: row;
+  }
+} */
+
+@media only screen and (max-width: 414px) {
+  .namepage {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 5vh;
+  }
+  .navbar-menu-container {
+    position: none;
+    top: 80px;
+    left: 0;
+    height: 100%; /* Chiều cao tương đương với chiều cao của trang */
+    z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */
+  }
+  .two-chart {
+    flex-direction: column;
+  }
+
+  .columnchart-container,
+  .round-chart {
+    width: 100%;
+    height: 35vh;
+  }
+
+  .suggest-name {
+    font-size: 18px;
+  }
+
+  .suggest-notice {
+    font-size: 14px;
+  }
+
+  .collapse-activity {
+    font-size: 14px;
+  }
+
+  .ant-collapse-header {
+    font-size: 14px;
+  }
+
+  .activity-chart-wrap {
+    height: 150px;
+  }
+
+  .namepage {
+    flex: 1;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 5vh;
+    /* margin-left: 18vw; */
+    width: 100%;
+    color: #074979;
+  }
+  .select-tag {
+    margin-left: 80%;
+    margin-top: -25px;
+    width: fit-content;
+  }
+  .general-kpi {
+    margin-top: 2vw;
+    margin-left: 18vw;
+    width: 78vw;
+    border: 3px solid #074979;
+    border-radius: 15px;
+    box-sizing: content-box;
+  }
+  .two-chart {
+    padding-left: 2vw;
+    padding-bottom: 2vw;
+    /* width: 80vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Column chart */
+  .body .columnchart-container {
+    margin-left: 2vw;
+    width: 56vw !important;
+    height: 45vh !important;
+  }
+  canvas {
+    overflow: scroll;
+    /* border: 3px solid black;
+    border-radius: 20px; */
+    background-color: white;
+    /* width: 60vw !important; */
+    height: 45vh !important;
+    /* box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.25); */
+    /* margin-left: 24%; */
+  }
+
+  /* Tùy chỉnh màu và độ dày của đường viền */
+  .columnchart-container canvas.chartjs-render-monitor {
+    border: 3px solid black;
+  }
+
+  /* Tùy chỉnh màu của tiêu đề biểu đồ => Đang không dùng được*/
+  .columnchart-container .chart-title {
+    color: black !important;
+    font-size: 50px;
+  }
+
+  /* Tùy chỉnh màu của các nhãn trên trục y => Đang không dùng được*/
+  .columnchart-container .chart-y-axis {
+    color: black;
+  }
+
+  .name2 {
+    margin-left: 3.5vw;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    color: #517fa1;
+  }
+  /* Round chart */
+  .round-chart {
+    margin-top: 20px;
+    /* margin-left: 70%; */
+    margin-bottom: 0%;
+    margin-left: 15vw;
+
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+  }
+  .kpi-status-current {
+    /* margin-top: 20px;
+    /* margin-left: 250px; */
+    /* margin-right: 20px;
+    margin-bottom: 20px;  */
+
+    text-align: center;
+    box-shadow: none;
+  }
+  .kpi-status-current-chart {
+    box-shadow: none;
+  }
+
+  /* Chi tiết */
+  .detailKPI {
+    margin-top: 4vw;
+    margin-left: 18vw;
+    border: 3px solid #074979;
+    border-radius: 15px;
+    box-sizing: content-box;
+    margin-bottom: 4vw;
+    width: 78vw !important;
+    height: fit-content;
+    border-radius: 15px;
+  }
+
+  .detail-tittle {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 3.5vw;
+    margin-top: 2vw;
+    color: #517fa1;
+    width: 100%;
+  }
+  .select-level {
+    margin-left: 82%;
+    margin-top: -30px;
+  }
+
+  /* Đề xuất */
+  .suggest {
+    width: 85%;
+    margin: 2vw auto;
+    align-items: center;
+    justify-items: center;
+    padding: 2vw;
+    border-radius: 15px;
+    border: 2px solid #074979;
+    background-color: #ffff;
+  }
+  .suggest-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 1vw;
+    text-align: center;
+    color: #074979;
+  }
+  .suggest-notice {
+    margin-top: 0px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #e82222;
+  }
+  .suggest-data {
+    width: auto;
+    /* margin: 1vw auto; */
+    padding: 2vw;
+    background-color: #ffff;
+    display: flex;
+  }
+
+  /* Chi tiết từng hoạt động */
+  .collapse-activity {
+    width: 85%;
+    margin: 2vw auto;
+    border-radius: 15px;
+    border: 2px solid #517fa1;
+    color: #ffff !important;
+    background-color: #517fa1;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+  }
+  .ant-collapse-header {
+    color: #ffff !important;
+  }
+
+  .detailKPI .activityKPI1,
+  .activityKPI2,
+  .activityKPI3,
+  .activityKPI4,
+  .activityKPI5,
+  .activityKPI6 {
+    /* width: 85%; */
+    margin: 2vw auto;
+    /* padding: 2vw; */
+    /* border-radius: 15px;
+    border: 2px solid #074979; */
+    background-color: #ffff;
+    display: flex;
+  }
+  .activity-content {
+    width: 70%;
+    margin-left: 20px;
+  }
+  .activity-name {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-left: 10px;
+    color: white;
+  }
+  .activity-name-sub {
+    box-sizing: border-box;
+    color: white;
+    background-color: #517fa1;
+    border: 3px solid #517fa1;
+    border-radius: 15px;
+    padding: 3px 10px;
+  }
+  .activity-content .activity-name-tag {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  .complete-rate,
+  .each-time,
+  .need-time {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: 600;
+    margin-left: 40px;
+    color: #517fa1;
+  }
+  .request-view-activity {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: 40px;
+    color: #074979;
+  }
+  .activity-chart {
+    width: 50%;
+  }
+
+  .activity-chart-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
