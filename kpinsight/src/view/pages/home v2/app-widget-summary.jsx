@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-
+import "./index.css";
 import { fShortenNumber } from "../../../utils/format-number";
 
 // ----------------------------------------------------------------------
@@ -25,7 +25,9 @@ export default function AppWidgetSummary({
       sx={{
         px: 3,
         py: 5,
-        borderRadius: 2,
+        borderRadius: 5,
+        border: 2,
+        borderColor: "#074979",
         ...sx,
       }}
       {...other}
@@ -35,7 +37,11 @@ export default function AppWidgetSummary({
       <Stack spacing={0.5}>
         <Typography variant="h4">{fShortenNumber(total)}</Typography>
 
-        <Typography variant="subtitle2" sx={{ color: "text.disabled" }}>
+        <Typography
+          className="title-card-home"
+          variant="subtitle2"
+          sx={{ color: "text.disabled" }}
+        >
           {title}
         </Typography>
       </Stack>

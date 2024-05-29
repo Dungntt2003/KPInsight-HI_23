@@ -65,23 +65,23 @@ function Home() {
   return (
     <div className="home-main-container">
       <Grid container spacing={5}>
-        <Grid xs={12} sm={6} md={3} className="summary-home">
+        <Grid xs={6} sm={6} md={3} className="summary-home">
           <AppWidgetSummary
             title="Đã 2 tuần không cập nhật"
             total="2"
             color="info"
-            icon={<img alt="icon" src={ImageIcon} style={{ width: "60px" }} />}
+            icon={<img alt="icon" src={ImageIcon} style={{ width: "50px" }} />}
           />
         </Grid>
-        <Grid xs={12} sm={6} md={3} className="summary-home" id="sum-2">
+        <Grid xs={6} sm={6} md={3} className="summary-home" id="sum-2">
           <AppWidgetSummary
-            title="Tổng số hoạt động hiện tại"
+            title="Số hoạt động hiện tại"
             total={60}
             color="warning"
-            icon={<img alt="icon" src={ImgIcon} style={{ width: "60px" }} />}
+            icon={<img alt="icon" src={ImgIcon} style={{ width: "40px" }} />}
           />
         </Grid>
-        <Grid xs={12} md={6} lg={4} className="current-kpi">
+        <Grid xs={6} md={6} lg={4} className="current-kpi">
           <PieChart percentage={83}></PieChart>
         </Grid>
 
@@ -234,8 +234,8 @@ function Home() {
           )}
         </div>
       </div>
-      <Grid xs={12} md={6} lg={4} className="current-kpi">
-        {/* <AppCurrentKPI
+      {/* <Grid xs={12} md={6} lg={4} className="current-kpi">
+        <AppCurrentKPI
           title="KPI tổng quan"
           chart={{
             series: [
@@ -245,9 +245,9 @@ function Home() {
               { label: "Tình nguyện", value: 10 },
             ],
           }}
-        /> */}
-        {/* <AppCurrentKPI title="KPI tổng quan" chart={chartData} /> */}
-      </Grid>
+        />
+        
+      </Grid> */}
     </div>
   );
 }

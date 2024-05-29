@@ -5,7 +5,7 @@
 }
 
 .current-kpi {
-  margin-top: 20px;
+  margin-top: 0px;
   border-radius: 10px;
   box-shadow: none;
   margin-left: 100px;
@@ -62,6 +62,7 @@
   width: 100%;
   max-width: 700px;
   font-size: 14px;
+  /* color: #fff; */
 }
 .tag {
   border-radius: 5px;
@@ -110,13 +111,13 @@
 @media screen and (max-width: 430px) {
   .home-main-container {
     margin-top: 80px;
-    padding: 10px;
+    padding: 25px;
     margin-bottom: 70px;
   }
 
   .current-kpi {
     margin-left: 0;
-    margin-top: 10px;
+    margin-top: 25px;
   }
 
   .activity-list-content {
@@ -138,7 +139,39 @@
   #sum-2 {
     display: none;
   }
-  .update-button {
-    display: none;
+
+  .calendar-wrap,
+  .activity-list {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .schedule-container {
+    flex-direction: column;
+  }
+
+  .title-card-home {
+    font-size: 14px !important;
+  }
+
+  .ant-picker-calendar-mode-switch
+    /* .css-dev-only-do-not-override-1okl62o  */ {
+    display: none !important;
+  }
+  /* .MuiTypography-root  */
+  .MuiTypography-h4 {
+    /* .css-5lbw0b-MuiTypography-root { */
+    display: none !important;
+  }
+  /* .MuiStack-root */
+  /* .MuiPaper-root */
+  /* .MuiPaper-elevation */
+  /* .MuiPaper-rounded */
+  /* .MuiPaper-elevation1 */
+  /* .MuiCard-root */
+  .css-hq563t-MuiStack-root-MuiPaper-root-MuiCard-root {
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
   }
 }
