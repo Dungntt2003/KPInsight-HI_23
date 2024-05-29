@@ -74,3 +74,11 @@
   background-color: #074979 !important;
   color: white !important;
 }
+
+@media screen and (max-width: 430px) {
+  .choose-wrap {
+    margin-top: 15%;
+    width: 90% !important;
+    margin: 25px 0;
+  }
+}

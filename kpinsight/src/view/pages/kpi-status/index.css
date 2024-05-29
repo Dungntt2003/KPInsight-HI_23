@@ -8,7 +8,7 @@
 /* Navbar */
 .body .navbar-menu-container {
   position: fixed;
-  top: 80px;
+  top: 79px;
   left: 0;
   height: 100%; /* Chiều cao tương đương với chiều cao của trang */
   z-index: 1000; /* Đảm bảo navbar hiển thị trên các phần khác */

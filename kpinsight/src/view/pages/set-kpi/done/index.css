@@ -1,6 +1,7 @@
 .done-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .done-wrap {
@@ -59,4 +60,12 @@
   align-items: center;
   border-radius: 50%;
   margin-bottom: 16px;
+}
+
+@media screen and (max-width: 430px) {
+  .done-wrap {
+    padding: 10px;
+    width: 90% !important;
+    margin: 25px 0 !important;
+  }
 }

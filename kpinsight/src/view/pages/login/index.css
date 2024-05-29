@@ -69,3 +69,10 @@
   margin-left: 20px;
   font-weight: bold;
 }
+
+@media screen and (max-width: 430px) {
+  .login-wrap {
+    padding: 50px 40px;
+    margin-top: 10%;
+  }
+}

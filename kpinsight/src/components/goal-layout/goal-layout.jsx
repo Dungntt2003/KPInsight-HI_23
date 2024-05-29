@@ -1,6 +1,6 @@
 import Header from "../header";
 import NavbarGoal from "../navbar/navbar-goal";
-
+import "./goal-layout.css";
 function GoalLayout(props) {
   return (
     <div>

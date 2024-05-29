@@ -63,12 +63,17 @@
   margin-left: 20px;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 430px) {
   .register-wrap {
     width: 350px;
+    padding: 10px;
+  }
+  .register-header {
+    margin: 10px 0 0;
   }
   .register-form {
     width: 300px !important;
+    margin-left: 20px !important;
   }
   .register-btn,
   .register-check,
@@ -76,5 +81,17 @@
   .other-option-regis,
   .register-other-option {
     margin-left: 0;
+  }
+  .register-btn-regis {
+    min-width: 300px;
+  }
+  .register-other-option {
+    margin-right: 100px;
+  }
+  .register-form-item-mobile {
+    margin: 0;
+  }
+  .register-icon {
+    display: none;
   }
 }

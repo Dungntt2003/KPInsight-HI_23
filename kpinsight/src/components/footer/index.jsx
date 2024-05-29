@@ -1,27 +1,64 @@
 import "./index.css";
-import { useLocation } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouse,
+  faList,
+  faFile,
+  faChartSimple,
+} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 function Footer() {
-  const location = useLocation();
-  const path = location.pathname;
+  const [active, setActive] = useState(1);
+  const navbar = [
+    {
+      key: 1,
+      icon: <FontAwesomeIcon icon={faHouse} />,
+      name: "Trang chủ",
+      navigate: "/home",
+    },
+    {
+      key: 2,
+      icon: <FontAwesomeIcon icon={faList} />,
+      name: "Hoạt động",
+      navigate: "/activity-list",
+    },
+    {
+      key: 3,
+      icon: <FontAwesomeIcon icon={faFile} />,
+      name: "Mục tiêu",
+      navigate: "/define-goal",
+    },
+    {
+      key: 4,
+      icon: <FontAwesomeIcon icon={faChartSimple} />,
+      name: "Trạng thái",
+      navigate: "/kpi-status",
+    },
+  ];
+  const user = localStorage.getItem("username");
   return (
-    <div
-      className={
-        path === "/forgot-password" ||
-        path === "/reset-password" ||
-        path === "/login"
-          ? "footer-container footer-fixed"
-          : "footer-container"
-      }
-    >
-      <button className="footer-btn">
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/917ea6497735c9678b07e2f4adbb5ac50d54267b7dae508f401a30f71230c0b1?apiKey=ffc2b1564c644340a68e4591e1bff550&"
-          class="img"
-        />
-        <div className="footer-text">HI_23</div>
-      </button>
+    <div className="footer-container">
+      {user && (
+        <div className="footer-content">
+          {navbar.map((item) => (
+            <Link to={item.navigate} className="header-link">
+              <div
+                className={
+                  item.key === active
+                    ? "footer-item footer-active"
+                    : "footer-item"
+                }
+                key={item.key}
+                onClick={() => setActive(item.key)}
+              >
+                <div className="footer-icon">{item.icon}</div>
+                <div className="footer-name">{item.name}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

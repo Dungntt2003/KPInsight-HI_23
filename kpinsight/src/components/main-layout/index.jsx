@@ -1,5 +1,6 @@
 import Header from "../header";
 import Footer from "../footer";
+import "./index.css";
 
 function MainLayout(props) {
   return (
