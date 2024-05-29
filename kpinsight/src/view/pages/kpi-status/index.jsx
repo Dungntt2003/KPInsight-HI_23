@@ -58,21 +58,18 @@ const KpiStatus = () => {
           "Làm BT ITSS",
           "Code màn figma",
           "Học Git",
-          "Làm BT ITSS",
-          "Code màn figma",
-          "Học Git",
         ],
         datasets: [
           {
             label: "Đã thực hiện",
-            data: [66.7, -50, 207.7, 250, -150, 28.6, 250, -150, 28.6],
+            data: [66.7, -50, 207.7, 250, -150, 28.6],
             backgroundColor: "#074979",
             borderWidth: 0,
             borderSkipped: false,
           },
           {
             label: "Mục tiêu",
-            data: [100, 100, 100, 100, 100, 100, 100, 100, 100],
+            data: [100, 100, 100, 100, 100, 100],
             backgroundColor: "#B8D3E7",
             borderWidth: 0,
             borderSkipped: false,
@@ -321,7 +318,12 @@ const KpiStatus = () => {
             <Panel
               header="Học thiết kế giao diện"
               extra={
-                <Tag color="green" style={{ fontSize: "15px" }}>
+                <Tag
+                  color="green"
+                  style={{
+                    fontSize: "15px",
+                  }}
+                >
                   Tốt
                 </Tag>
               }
