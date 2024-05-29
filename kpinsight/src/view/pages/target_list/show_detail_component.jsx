@@ -18,12 +18,12 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 
-const ShowDetailComponent = ({ Area, data, setDatas }) => {
+const ShowDetailComponent = ({ data, setDatas }) => {
   // Filter data by selectedArea
-  const filteredData = data.filter((item) => item.area === Area);
+  // const filteredData = data.filter((item) => item.area === Area);
 
   //Group by area (though in this case we only have one area)
-  const groupedData = filteredData.reduce((acc, item) => {
+  const groupedData = data.reduce((acc, item) => {
     (acc[item.area] = acc[item.area] || []).push(item);
     return acc;
   }, {});
