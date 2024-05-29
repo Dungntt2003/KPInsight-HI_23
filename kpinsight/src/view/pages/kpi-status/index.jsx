@@ -8,9 +8,14 @@ import ConfettiEffect from "../../../components/fileworks";
 import PieChart from "../../../components/piechart";
 import Grid from "@mui/material/Unstable_Grid2";
 import AppCurrentKPI from "../home v2/app-current-kpi";
+import kpiData from "../../../data/kpi-data";
 
 const { Panel } = Collapse;
 const KpiStatus = () => {
+  const [realData, setRealData] = useState(kpiData);
+  const [realLevelData, setRealLevelData] = useState(realData);
+  const [selectedTag, setSelectedTag] = useState("Tất cả");
+  const [selectedTagLevel, setSelectedTagLevel] = useState("Tất cả");
   const [hover, setHover] = useState(false);
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
@@ -22,23 +27,71 @@ const KpiStatus = () => {
   // const handleChange = (value) => {
   //   console.log(`selected ${value}`);
   // };
-  const [selectedTag, setSelectedTag] = useState("Tất cả nhãn");
   const handleTagChange = (value) => {
     setSelectedTag(value);
+    if (value == "Tất cả") {
+      setRealData(kpiData);
+      return;
+    }
+    console.log(kpiData);
+    console.log(
+      kpiData.filter((item) => {
+        console.log(value);
+        return item.tag == value;
+      })
+    );
+    setRealData(
+      kpiData.filter((item) => {
+        console.log(value);
+        return item.tag == value;
+      })
+    );
+    console.log(realData);
+    console.log(value);
   };
-  //Pagigation
-  const [current, setCurrent] = useState(1);
-  const handlePagination = (page) => {
-    console.log(page);
-    setCurrent(page);
+  //Tính phần trăm trung bình theo từng tag
+  const calculateAveragePercent = (data) => {
+    const totalPercent = data.reduce((sum, item) => sum + item.percent, 0);
+    return data.length > 0 ? (totalPercent / data.length).toFixed(1) : 0;
   };
 
-  // Filtered data based on selected tag
-  // const filteredData = datas.filter(
-  //   (item) =>
-  //     selectedTag === "Tất cả nhãn" ||
-  //     (item.tag && item.tag.props && item.tag.props.children === selectedTag)
-  // );
+  const averagePercent = calculateAveragePercent(realData);
+  const filteredActivities = realData.filter((item) => {
+    return item.percent < 0;
+  });
+
+  //select-tag level -- Đang chưa lọc được
+  const handleTagLevelChange = (value) => {
+    setSelectedTagLevel(value);
+    if (value == "Tất cả") {
+      setRealLevelData(realData);
+      return;
+    }
+    console.log(realData);
+    console.log(
+      realData.filter((item) => {
+        console.log(value);
+        return item.tag == value;
+      })
+    );
+    setRealLevelData(
+      realData.filter((item) => {
+        console.log(value);
+        return item.tag == value;
+      })
+    );
+  };
+
+  // const handleTagLevelChange = (value) => {
+  //   setSelectedTagLevel(value);
+  //   if (value === "Tất cả") {
+  //     setRealLevelData(realData); // Gán lại realData khi chọn "Tất cả"
+  //   } else {
+  //     // Lọc dữ liệu từ realData dựa trên selectedTagLevel và gán vào realLevelData
+  //     const filteredData = realData.filter((item) => item.tag === value);
+  //     setRealLevelData(filteredData);
+  //   }
+  // };
 
   const [activeKey, setActiveKey] = useState([]);
 
@@ -46,30 +99,28 @@ const KpiStatus = () => {
     setActiveKey(key);
   };
 
+  // useEffect(() => {
+  //   console.log("Active key changed:", activeKey);
+  //   // Perform any actions based on the change in activeKey
+  // }, [activeKey, realLevelData]);
+
   //Tạo biểu đồ cột:
   useEffect(() => {
     const myChart = new Chart(chartRef.current, {
       type: "bar",
       data: {
-        labels: [
-          "Học thiết kế giao diện",
-          "Làm Project GR1",
-          "Học ReactJS",
-          "Làm BT ITSS",
-          "Code màn figma",
-          "Học Git",
-        ],
+        labels: realData.map((item) => item.label),
         datasets: [
           {
             label: "Đã thực hiện",
-            data: [66.7, -50, 207.7, 250, -150, 28.6],
+            data: realData.map((item) => item.percent),
             backgroundColor: "#074979",
             borderWidth: 0,
             borderSkipped: false,
           },
           {
             label: "Mục tiêu",
-            data: [100, 100, 100, 100, 100, 100],
+            data: Array.from({ length: realData.length }, () => 100),
             backgroundColor: "#B8D3E7",
             borderWidth: 0,
             borderSkipped: false,
@@ -123,7 +174,7 @@ const KpiStatus = () => {
     return () => {
       myChart.destroy();
     };
-  }, []);
+  }, [realData]);
   useEffect(() => {
     const handleResize = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
@@ -152,7 +203,7 @@ const KpiStatus = () => {
             style={{
               width: 150,
             }}
-            // value={selectedTag}
+            value={selectedTag}
             onChange={handleTagChange}
             options={[
               {
@@ -209,7 +260,7 @@ const KpiStatus = () => {
               <div className="sum-rate-text">{percentage}%</div>
             </div> */}
 
-              <PieChart className="piechart" percentage={58} />
+              <PieChart className="piechart" percentage={averagePercent} />
             </div>
 
             <div className="columnchart-container">
@@ -242,8 +293,9 @@ const KpiStatus = () => {
               style={{
                 width: 150,
               }}
-              value={selectedTag}
-              onChange={handleTagChange}
+              value={selectedTagLevel}
+              // activeKey={activeKey}
+              onChange={handleTagLevelChange}
               options={[
                 {
                   label: <span>Tất cả</span>,
@@ -281,22 +333,39 @@ const KpiStatus = () => {
               qua 3/4 giai đoạn)
             </h1>
             <div className="suggest-data">
-              <div className="activity-name">
-                <div className="activity-name-sub">Làm Project GR1</div>
-                <div className="activity-name-tag">
-                  <Tag color="volcano" style={{ fontSize: "15px" }}>
-                    Trung bình
-                  </Tag>
+              {filteredActivities.map((item, index) => (
+                <div key={index} className="activity-name">
+                  <div className="activity-name-sub">{item.label}</div>
+                  <div className="activity-name-tag">
+                    <Tag
+                      color={
+                        item.percent >= 100
+                          ? "geekblue"
+                          : item.percent >= 50
+                          ? "green"
+                          : item.percent >= 0
+                          ? "gold"
+                          : item.percent >= -50
+                          ? "volcano"
+                          : "red"
+                      }
+                      style={{
+                        fontSize: "15px",
+                      }}
+                    >
+                      {item.percent >= 100
+                        ? "Xuất sắc"
+                        : item.percent >= 50
+                        ? "Tốt"
+                        : item.percent >= 0
+                        ? "Khá"
+                        : item.percent >= -50
+                        ? "Trung bình"
+                        : "Yếu"}
+                    </Tag>{" "}
+                  </div>
                 </div>
-              </div>
-              <div className="activity-name">
-                <div className="activity-name-sub">Code màn figma</div>
-                <div className="activity-name-tag">
-                  <Tag color="red" style={{ fontSize: "15px" }}>
-                    Yếu
-                  </Tag>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <Collapse
@@ -304,287 +373,78 @@ const KpiStatus = () => {
             activeKey={activeKey}
             onChange={handlePanelChange}
             className="collapse-activity"
-            // style={{
-            //   backgroundColor: "#517fa1",
-            //   color: "#074979 !important",
-            //   width: "85%",
-            //   fontSize: "20px",
-            //   fontWeight: "bold",
-            //   border: "2px solid #074979",
-            //   borderRadius: "15px",
-            //   margin: "2vw auto ",
-            // }}
           >
-            <Panel
-              header="Học thiết kế giao diện"
-              extra={
-                <Tag
-                  color="green"
-                  style={{
-                    fontSize: "15px",
-                  }}
-                >
-                  Tốt
-                </Tag>
-              }
-              key="1"
-            >
-              {
-                <div className="activityKPI1">
-                  <div className="activity-content">
-                    {/* <div className="activity-name">
-                      <div className="activity-name-sub">
-                        Học thiết kế giao diện
-                      </div>
-                      <div className="activity-name-tag">
-                        <Tag color="green" style={{ fontSize: "15px" }}>
-                          Tốt
-                        </Tag>
-                      </div>
-                    </div> */}
-                    <h1 className="complete-rate">
-                      Đã hoàn thành 4/5 nhiệm vụ
-                    </h1>
-                    <h1 className="each-time">
-                      Trung bình thực hiện mỗi nhiệm vụ hết 2 giờ
-                    </h1>
-                    <h1 className="need-time">
-                      Cần thêm 2 giờ nữa để hoàn thành hoạt động này!
-                    </h1>
-                    <h1 className="request-view-activity">
-                      Xem chi tiết hoạt động
-                    </h1>
-                  </div>
-                  <div className="activity-chart">
-                    <div className="activity-chart-wrap">
-                      <SpeedChart min={2} max={5} score={4} />
-                    </div>
-                  </div>
-                </div>
-              }
-            </Panel>
-            <Panel
-              header="Làm Project GR1"
-              extra={
-                <Tag color="volcano" style={{ fontSize: "15px" }}>
-                  Trung bình
-                </Tag>
-              }
-              key="2"
-            >
-              {
-                <div className="activityKPI2">
-                  <div className="activity-content">
-                    {/* <div className="activity-name">
-                      <div className="activity-name-sub">Làm Project GR1</div>
-                      <div className="activity-name-tag">
-                        <Tag color="volcano" style={{ fontSize: "15px" }}>
-                          Trung bình
-                        </Tag>
-                      </div>
-                    </div> */}
-                    <h1 className="complete-rate">
-                      Đã hoàn thành 2/5 nhiệm vụ
-                    </h1>
-                    <h1 className="each-time">
-                      Trung bình thực hiện mỗi nhiệm vụ hết 3 giờ 12 phút
-                    </h1>
-                    <h1 className="need-time">
-                      Cần thêm 9 giờ 36 phút nữa để hoàn thành hoạt động này!
-                    </h1>
-                    <h1 className="request-view-activity">
-                      Xem chi tiết hoạt động
-                    </h1>
-                  </div>
-                  <div className="activity-chart">
-                    <div className="activity-chart-wrap">
-                      <SpeedChart min={3} max={5} score={2} />
-                    </div>
-                  </div>
-                </div>
-              }
-            </Panel>
-            <Panel
-              header="Học ReactJS"
-              extra={
-                <Tag color="geekblue" style={{ fontSize: "15px" }}>
-                  Xuất sắc
-                </Tag>
-              }
-              key="3"
-            >
-              {
-                <div className="activityKPI3">
-                  <div className="activity-content">
-                    {/* <div className="activity-name">
-                      <div className="activity-name-sub">Học ReactJS</div>
-                      <div className="activity-name-tag">
-                        <Tag color="geekblue" style={{ fontSize: "15px" }}>
-                          Xuất sắc
-                        </Tag>
-                      </div>
-                    </div> */}
-                    <h1 className="complete-rate">
-                      Đã hoàn thành 34/20 bài học
-                    </h1>
-                    <h1 className="each-time">
-                      Trung bình học một bài hết 20 phút
-                    </h1>
-                    <h1 className="need-time">
-                      Bạn đã hoàn thành vượt chỉ tiêu!
-                    </h1>
-                    <h1 className="request-view-activity">
-                      Xem chi tiết hoạt động
-                    </h1>
-                  </div>
-                  <div
-                    className="activity-chart"
-                    onMouseEnter={handleFireWorks}
-                    // onMouseLeave={() => setHover(false)}
+            {realLevelData.map((item, index) => (
+              <Panel
+                header={item.label}
+                extra={
+                  <Tag
+                    color={
+                      item.percent >= 100
+                        ? "geekblue"
+                        : item.percent >= 50
+                        ? "green"
+                        : item.percent >= 0
+                        ? "gold"
+                        : item.percent >= -50
+                        ? "volcano"
+                        : "red"
+                    }
+                    style={{
+                      fontSize: "15px",
+                    }}
                   >
-                    <div className="activity-chart-wrap">
-                      <SpeedChart min={7} max={20} score={34} />
-                    </div>
-                    <ConfettiEffect
-                      width={dimensions.width}
-                      height={dimensions.height}
-                      x={position.x - 1000}
-                      y={position.y - 250}
-                      run={hover}
-                    />
-                  </div>
-                </div>
-              }
-            </Panel>
-            <Panel
-              header="Làm BT ITSS"
-              extra={
-                <Tag color="geekblue" style={{ fontSize: "15px" }}>
-                  Xuất sắc
-                </Tag>
-              }
-              key="4"
-            >
-              {
-                <div className="activityKPI4">
+                    {item.percent >= 100
+                      ? "Xuất sắc"
+                      : item.percent >= 50
+                      ? "Tốt"
+                      : item.percent >= 0
+                      ? "Khá"
+                      : item.percent >= -50
+                      ? "Trung bình"
+                      : "Yếu"}
+                  </Tag>
+                }
+                key={index}
+              >
+                <div className={`activityKPI${index + 1}`}>
                   <div className="activity-content">
-                    {/* <div className="activity-name">
-                      <div className="activity-name-sub">Làm BT ITSS</div>
-                      <div className="activity-name-tag">
-                        <Tag color="geekblue" style={{ fontSize: "15px" }}>
-                          Xuất sắc
-                        </Tag>
-                      </div>
-                    </div> */}
-                    <h1 className="complete-rate">Đã hoàn thành 10/7 bài</h1>
-                    <h1 className="each-time">
-                      Trung bình thực hiện mỗi nhiệm vụ hết 1 giờ 30 phút
-                    </h1>
-                    <h1 className="need-time">
-                      Bạn đã hoàn thành vượt chỉ tiêu!
-                    </h1>
-                    <h1 className="request-view-activity">
-                      Xem chi tiết hoạt động
-                    </h1>
-                  </div>
-                  <div
-                    className="activity-chart"
-                    onMouseEnter={handleFireWorks}
-                  >
-                    <div className="activity-chart-wrap">
-                      <SpeedChart min={5} max={7} score={10} />
-                    </div>
-                    <ConfettiEffect
-                      width={dimensions.width}
-                      height={dimensions.height}
-                      x={position.x - 1000}
-                      y={position.y - 250}
-                      run={hover}
-                    />
-                  </div>
-                </div>
-              }
-            </Panel>
-            <Panel
-              header="Code màn figma"
-              extra={
-                <Tag color="red" style={{ fontSize: "15px" }}>
-                  Yếu
-                </Tag>
-              }
-              key="5"
-            >
-              {
-                <div className="activityKPI5">
-                  <div className="activity-content">
-                    {/* <div className="activity-name">
-                      <div className="activity-name-sub">Code màn figma</div>
-                      <div className="activity-name-tag">
-                        <Tag color="red" style={{ fontSize: "15px" }}>
-                          Yếu
-                        </Tag>
-                      </div>
-                    </div> */}
-                    <h1 className="complete-rate">Đã hoàn thành 1/6 màn</h1>
-                    <h1 className="each-time">
-                      Trung bình thực hiện mỗi nhiệm vụ hết 4 giờ 45 phút
-                    </h1>
-                    <h1 className="need-time">
-                      Cần thêm 23 giờ 45 phút nữa để hoàn thành hoạt động này!
-                    </h1>
-                    <h1 className="request-view-activity">
-                      Xem chi tiết hoạt động
-                    </h1>
-                  </div>
-                  <div className="activity-chart">
-                    <div className="activity-chart-wrap">
-                      <SpeedChart min={4} max={6} score={1} />
-                    </div>
-                  </div>
-                </div>
-              }
-            </Panel>
-            <Panel
-              header="Học Git"
-              extra={
-                <Tag color="gold" style={{ fontSize: "15px" }}>
-                  Khá
-                </Tag>
-              }
-              key="6"
-            >
-              {
-                <div className="activityKPI6">
-                  <div className="activity-content">
-                    {/* <div className="activity-name">
-                      <div className="activity-name-sub">Học Git</div>
-                      <div className="activity-name-tag">
-                        <Tag color="gold" style={{ fontSize: "15px" }}>
-                          Khá
-                        </Tag>
-                      </div>
-                    </div> */}
                     <h1 className="complete-rate">
-                      Đã hoàn thành 6/11 bài học
+                      Đã hoàn thành {item.score}/{item.max}{" "}
+                      {item.unit && item.unit}
                     </h1>
                     <h1 className="each-time">
-                      Trung bình thực hiện mỗi nhiệm vụ hết 40 phút
+                      Trung bình thực hiện mỗi {item.unit} hết{" "}
+                      {item.averageTime} giờ
                     </h1>
-                    <h1 className="need-time">
-                      Cần thêm 3 giờ 20 phút nữa để hoàn thành hoạt động này!
-                    </h1>
+                    {item.percent < 100 ? (
+                      <h1 className="need-time">
+                        Cần thêm {item.remainingTime} giờ nữa để hoàn thành hoạt
+                        động này!
+                      </h1>
+                    ) : (
+                      <h1 className="need-time">
+                        {item.percent === 100
+                          ? "Bạn đã hoàn thành chỉ tiêu!"
+                          : "Bạn đã hoàn thành vượt chỉ tiêu!"}
+                      </h1>
+                    )}
                     <h1 className="request-view-activity">
                       Xem chi tiết hoạt động
                     </h1>
                   </div>
                   <div className="activity-chart">
                     <div className="activity-chart-wrap">
-                      <SpeedChart min={4} max={11} score={6} />
+                      <SpeedChart
+                        min={item.min}
+                        max={item.max}
+                        score={item.score}
+                      />
                     </div>
                   </div>
                 </div>
-              }
-            </Panel>
+              </Panel>
+            ))}
           </Collapse>
         </div>
       </div>

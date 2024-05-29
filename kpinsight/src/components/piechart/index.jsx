@@ -1,9 +1,12 @@
-// PieChart.js
 import React, { useState, useEffect } from "react";
 import "./index.css";
 
 const PieChart = ({ percentage }) => {
   const [displayedPercentage, setDisplayedPercentage] = useState(0);
+
+  useEffect(() => {
+    setDisplayedPercentage(0); // Reset percentage to 0 when the new percentage is received
+  }, [percentage]);
 
   useEffect(() => {
     if (displayedPercentage < percentage) {

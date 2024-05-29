@@ -240,7 +240,19 @@ canvas {
 .activityKPI3,
 .activityKPI4,
 .activityKPI5,
-.activityKPI6 {
+.activityKPI6,
+.activityKPI7,
+.activityKPI8,
+.activityKPI9,
+.activityKPI10,
+.activityKPI11,
+.activityKPI12,
+.activityKPI13,
+.activityKPI14,
+.activityKPI15,
+.activityKPI16,
+.activityKPI17,
+.activityKPI18 {
   /* width: 85%; */
   margin: 2vw auto;
   /* padding: 2vw; */
@@ -256,10 +268,12 @@ canvas {
 .activity-name {
   font-size: 20px;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   font-weight: bold;
   margin-top: -10px;
-  margin-left: 10px;
+  margin-left: 30px;
   color: white;
 }
 .activity-name-sub {
@@ -435,7 +449,19 @@ canvas {
   .activityKPI3,
   .activityKPI4,
   .activityKPI5,
-  .activityKPI6 {
+  .activityKPI6,
+  .activityKPI7,
+  .activityKPI8,
+  .activityKPI9,
+  .activityKPI10,
+  .activityKPI11,
+  .activityKPI12,
+  .activityKPI13,
+  .activityKPI14,
+  .activityKPI15,
+  .activityKPI16,
+  .activityKPI17,
+  .activityKPI18 {
     display: flex;
     flex-direction: column;
   }
