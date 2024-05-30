@@ -106,7 +106,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
           <Select
             value={selectedCategory}
             onChange={handleCategoryChange}
-            style={{ minWidth: "150px" }}
+            style={{ minWidth: "300px" }}
           >
             {Object.keys(categories).map((category) => (
               <Option key={category} value={category}>

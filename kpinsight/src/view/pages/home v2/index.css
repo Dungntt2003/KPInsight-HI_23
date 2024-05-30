@@ -92,6 +92,10 @@
   border: none !important;
 }
 
+.modal-home {
+  max-width: ;
+}
+
 .form-item {
   display: flex;
   align-items: center;
@@ -173,5 +177,9 @@
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
+  }
+
+  .ant-modal-content {
+    width: 100% !important;
   }
 }
