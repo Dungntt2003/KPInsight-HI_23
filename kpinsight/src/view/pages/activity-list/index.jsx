@@ -401,7 +401,7 @@ function ActivityList() {
         </Tag>
       ),
       tag2: (
-        <Tag id="col-tag-2" color="gold">
+        <Tag id="col-tag-2" color="green">
           Sức khỏe
         </Tag>
       ),
