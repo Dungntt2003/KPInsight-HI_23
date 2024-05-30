@@ -108,26 +108,28 @@ const ShowDetailComponent = ({ data, setDatas }) => {
 
           <div className="target-list-item">
             {groupedData[area].map((item) => (
-              <div key={item.id} id="target-goalList-item">
-                <Checkbox
-                  id="target-goalList-item-checkbox"
-                  onChangeCheckBox={() => onChangeCheckBox(item.id)}
-                  checked={checkedItems.includes(item.id)}
-                >
-                  <div
+              <div key={item.id} id="target-goalList-detail-item">
+                <div className="target-list-content-responsive">
+                  <Checkbox
                     className="target-list-content"
-                    style={{
-                      textDecoration: checkedItems.includes(item.id)
-                        ? "line-through"
-                        : "none",
-                    }}
+                    id="target-goalList-item-checkbox"
+                    onChangeCheckBox={() => onChangeCheckBox(item.id)}
+                    checked={checkedItems.includes(item.id)}
                   >
-                    {item.content}
-                  </div>
-                </Checkbox>
+                    <div
+                      style={{
+                        textDecoration: checkedItems.includes(item.id)
+                          ? "line-through"
+                          : "none",
+                      }}
+                    >
+                      {item.content}
+                    </div>
+                  </Checkbox>
+                </div>
                 <div className="target-list-content-detail">
                   <div className="target-list-tag">{item.tag}</div>
-                  <div className="target-list-date">{item.createdDate}</div>
+                  <div className="target-detail-date">{item.createdDate}</div>
                   <div
                     className="target-list-icon"
                     onClick={() => handleStarClick(item.id)}

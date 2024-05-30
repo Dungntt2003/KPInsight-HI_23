@@ -412,7 +412,7 @@ function Target_list() {
         <div className="target-list-wrap">
           {filteredData.map((item) => (
             <div>
-              <div className="target-list-title">
+              {/* <div className="target-list-title">
                 <div id="goal-list-title">{item.area}</div>
                 <Link
                   to="/target_detail"
@@ -422,7 +422,7 @@ function Target_list() {
                   <EditOutlined />
                 </Link>
                 <LocalizedModal className="target-list-icon" Area={item.area} />
-              </div>
+              </div> */}
               <div id="target-goalList-item" key={item.id}>
                 <div className="target-list-content">{item.content}</div>
                 <div className="target-list-content-detail">
