@@ -12,7 +12,11 @@ import kpiData from "../../../data/kpi-data";
 
 const { Panel } = Collapse;
 const KpiStatus = () => {
-  const [realData, setRealData] = useState(kpiData);
+  const [selectedMonth, setSelectedMonth] = useState(4);
+  const [monthData, setMonthData] = useState(
+    kpiData.filter((item) => item.month === selectedMonth)
+  );
+  const [realData, setRealData] = useState(monthData);
   const [realLevelData, setRealLevelData] = useState(realData);
   const [selectedTag, setSelectedTag] = useState("Tất cả");
   const [selectedTagLevel, setSelectedTagLevel] = useState("Tất cả");
@@ -27,28 +31,7 @@ const KpiStatus = () => {
   // const handleChange = (value) => {
   //   console.log(`selected ${value}`);
   // };
-  const handleTagChange = (value) => {
-    setSelectedTag(value);
-    if (value == "Tất cả") {
-      setRealData(kpiData);
-      return;
-    }
-    console.log(kpiData);
-    console.log(
-      kpiData.filter((item) => {
-        console.log(value);
-        return item.tag == value;
-      })
-    );
-    setRealData(
-      kpiData.filter((item) => {
-        console.log(value);
-        return item.tag == value;
-      })
-    );
-    console.log(realData);
-    console.log(value);
-  };
+
   //Tính phần trăm trung bình theo từng tag
   const calculateAveragePercent = (data) => {
     const totalPercent = data.reduce((sum, item) => sum + item.percent, 0);
@@ -60,27 +43,106 @@ const KpiStatus = () => {
     return item.percent < 0;
   });
 
-  //select-tag level -- Đang chưa lọc được
+  //lọc theo month, tag, level
+  // const handleMonthChange = (month) => {
+  //   setSelectedMonth(month);
+  //   const filteredMonthData = kpiData.filter((item) => item.month === month);
+  //   setMonthData(filteredMonthData);
+  //   setRealData(filteredMonthData);
+  //   setRealLevelData(filteredMonthData);
+  // };
+
+  // const handleTagChange = (value) => {
+  //   setSelectedTag(value);
+  //   if (value === "Tất cả") {
+  //     setRealData(monthData);
+  //     setRealLevelData(monthData);
+  //     return;
+  //   }
+  //   const filteredTagData = monthData.filter((item) => item.tag === value);
+  //   setRealData(filteredTagData);
+  //   setRealLevelData(filteredTagData);
+  // };
+
+  // const handleTagLevelChange = (value) => {
+  //   setSelectedTagLevel(value);
+  //   if (value === "Tất cả") {
+  //     setRealLevelData(realData);
+  //     return;
+  //   }
+  //   setRealLevelData(
+  //     realData.filter(
+  //       (item) =>
+  //         item.percent >= valueRanges[value].min &&
+  //         item.percent < valueRanges[value].max
+  //     )
+  //   );
+  // };
+
+  const handleMonthChange = (month) => {
+    setSelectedMonth(month);
+    setSelectedTag("Tất cả");
+    setSelectedTagLevel("Tất cả");
+  };
+
+  const handleTagChange = (value) => {
+    setSelectedTag(value);
+    setSelectedTagLevel("Tất cả");
+  };
+
   const handleTagLevelChange = (value) => {
     setSelectedTagLevel(value);
-    if (value == "Tất cả") {
-      setRealLevelData(realData);
-      return;
-    }
-    console.log(realData);
-    console.log(
-      realData.filter((item) => {
-        console.log(value);
-        return item.tag == value;
-      })
-    );
-    setRealLevelData(
-      realData.filter((item) => {
-        console.log(value);
-        return item.tag == value;
-      })
-    );
   };
+
+  const valueRanges = {
+    "Xuất sắc": { min: 100, max: Infinity },
+    Tốt: { min: 50, max: 100 },
+    Khá: { min: 0, max: 50 },
+    "Trung bình": { min: -50, max: 0 },
+    Yếu: { min: -Infinity, max: -50 },
+  };
+
+  useEffect(() => {
+    const filteredMonthData = kpiData.filter(
+      (item) => item.month === selectedMonth
+    );
+    const filteredTagData =
+      selectedTag === "Tất cả"
+        ? filteredMonthData
+        : filteredMonthData.filter((item) => item.tag === selectedTag);
+    const filteredLevelData =
+      selectedTagLevel === "Tất cả"
+        ? filteredTagData
+        : filteredTagData.filter(
+            (item) =>
+              item.percent >= valueRanges[selectedTagLevel].min &&
+              item.percent < valueRanges[selectedTagLevel].max
+          );
+
+    setMonthData(filteredMonthData);
+    setRealData(filteredTagData);
+    setRealLevelData(filteredLevelData);
+  }, [selectedMonth, selectedTag]);
+
+  useEffect(() => {
+    const filteredMonthData = kpiData.filter(
+      (item) => item.month === selectedMonth
+    );
+    const filteredTagData =
+      selectedTag === "Tất cả"
+        ? filteredMonthData
+        : filteredMonthData.filter((item) => item.tag === selectedTag);
+    const filteredLevelData =
+      selectedTagLevel === "Tất cả"
+        ? filteredTagData
+        : filteredTagData.filter(
+            (item) =>
+              item.percent >= valueRanges[selectedTagLevel].min &&
+              item.percent < valueRanges[selectedTagLevel].max
+          );
+
+    setRealLevelData(filteredLevelData);
+  }, [selectedTagLevel]);
 
   // const handleTagLevelChange = (value) => {
   //   setSelectedTagLevel(value);
@@ -195,7 +257,7 @@ const KpiStatus = () => {
   return (
     <div>
       <div>
-        <NavbarStatus />
+        <NavbarStatus onMonthChange={handleMonthChange} />
         <h1 className="namepage">Trạng thái KPI</h1>
         <div className="select-tag">
           <Select
