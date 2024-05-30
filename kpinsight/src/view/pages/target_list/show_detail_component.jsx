@@ -18,12 +18,12 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 
-const ShowDetailComponent = ({ Area, data, setDatas }) => {
+const ShowDetailComponent = ({ data, setDatas }) => {
   // Filter data by selectedArea
-  const filteredData = data.filter((item) => item.area === Area);
+  // const filteredData = data.filter((item) => item.area === Area);
 
   //Group by area (though in this case we only have one area)
-  const groupedData = filteredData.reduce((acc, item) => {
+  const groupedData = data.reduce((acc, item) => {
     (acc[item.area] = acc[item.area] || []).push(item);
     return acc;
   }, {});
@@ -108,15 +108,17 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
 
           <div className="target-list-item">
             {groupedData[area].map((item) => (
-              <div key={item.id} id="target-goalList-item">
+              <div key={item.id} id="target-goalList-detail-item">
                 <Checkbox
+                  className="target-list-content"
                   id="target-goalList-item-checkbox"
-                  onChangeCheckBox={() => onChangeCheckBox(item.id)}
+                  onChange={(e) => onChangeCheckBox(e, item.id)}
                   checked={checkedItems.includes(item.id)}
                 >
                   <div
-                    className="target-list-content"
                     style={{
+                      fontFamily: "Arial, Helvetica, sans-serif",
+                      fontSize: "16px",
                       textDecoration: checkedItems.includes(item.id)
                         ? "line-through"
                         : "none",
@@ -127,7 +129,7 @@ const ShowDetailComponent = ({ Area, data, setDatas }) => {
                 </Checkbox>
                 <div className="target-list-content-detail">
                   <div className="target-list-tag">{item.tag}</div>
-                  <div className="target-list-date">{item.createdDate}</div>
+                  <div className="target-detail-date">{item.createdDate}</div>
                   <div
                     className="target-list-icon"
                     onClick={() => handleStarClick(item.id)}

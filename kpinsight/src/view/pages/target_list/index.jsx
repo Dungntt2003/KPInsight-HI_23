@@ -1,7 +1,13 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
-import { Select, Tag, Pagination } from "antd";
-import { StarOutlined, StarFilled } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { Select, Tag, Pagination, message, Modal } from "antd";
+import {
+  StarOutlined,
+  StarFilled,
+  EditOutlined,
+  CloseCircleOutlined,
+} from "@ant-design/icons";
 import ShowDataComponent from "./show_data_component";
 const { Option } = Select;
 
@@ -58,17 +64,17 @@ function Target_list() {
       createdDate: "2023/08/01",
       star: false,
     },
-    {
-      id: 4,
-      area: "Xã hội",
-      checked: false,
-      content: "Tham gia tình nguyện 'Mùa hè xanh'",
-      // tag: (
-      //     <Tag color="#074979">Ngoại ngữ</Tag>
-      // ),
-      createdDate: "2023/07/30",
-      star: true,
-    },
+    // {
+    //   id: 4,
+    //   area: "Xã hội",
+    //   checked: false,
+    //   content: "Tham gia tình nguyện 'Mùa hè xanh'",
+    //   // tag: (
+    //   //     <Tag color="#074979">Ngoại ngữ</Tag>
+    //   // ),
+    //   createdDate: "2023/07/30",
+    //   star: true,
+    // },
     {
       id: 5,
       area: "Xã hội",
@@ -119,45 +125,215 @@ function Target_list() {
       createdDate: "2023/07/30",
       star: false,
     },
+    // {
+    //   id: 9,
+    //   area: "Học tập",
+    //   checked: true,
+    //   content: "Đạt KPA 3.0/4.0 kì 2022.2",
+    //   // tag: (
+    //   //   <Tag id="tag-it" color="red">
+    //   //     IT
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/02/15",
+    //   star: true,
+    // },
+    // {
+    //   id: 10,
+    //   area: "Học tập",
+    //   checked: true,
+    //   content: "Đạt chứng chỉ JLPT N3",
+    //   tag: (
+    //     <Tag id="tag-nn" color="magenta">
+    //       Ngoại ngữ
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/02/15",
+    //   star: false,
+    // },
+    // {
+    //   id: 11,
+    //   area: "Học tập",
+    //   checked: true,
+    //   content: "Hoàn thành khóa học ReactJS",
+    //   tag: (
+    //     <Tag id="tag-it" color="red">
+    //       IT
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/02/15",
+    //   star: false,
+    // },
+
     {
-      id: 9,
-      area: "Học tập",
-      checked: true,
-      content: "Đạt KPA 3.0/4.0 kì 2022.2",
-      // tag: (
-      //   <Tag id="tag-it" color="red">
-      //     IT
-      //   </Tag>
-      // ),
-      createdDate: "2023/02/15",
+      id: 12,
+      area: "Cá nhân",
+      checked: false,
+      content: "Thiền định",
+      tag: (
+        <Tag id="tag-sk" color="magenta">
+          Sức khỏe
+        </Tag>
+      ),
+      createdDate: "2023/05/10",
       star: true,
     },
     {
-      id: 10,
-      area: "Học tập",
-      checked: true,
-      content: "Đạt chứng chỉ JLPT N3",
-      tag: (
-        <Tag id="tag-nn" color="magenta">
-          Ngoại ngữ
-        </Tag>
-      ),
-      createdDate: "2023/02/15",
-      star: false,
+      id: 13,
+      area: "Cá nhân",
+      checked: false,
+      content: "Đọc sách mỗi ngày",
+      // tag: (
+      //   <Tag id="tag-ss" color="blue">
+      //     Sách
+      //   </Tag>
+      // ),
+      createdDate: "2023/05/11",
+      star: true,
     },
     {
-      id: 11,
+      id: 14,
       area: "Học tập",
-      checked: true,
-      content: "Hoàn thành khóa học ReactJS",
+      checked: false,
+      content: "Tham gia khóa học Machine Learning",
       tag: (
         <Tag id="tag-it" color="red">
           IT
         </Tag>
       ),
-      createdDate: "2023/02/15",
+      createdDate: "2023/04/20",
       star: false,
     },
+    {
+      id: 15,
+      area: "Học tập",
+      checked: false,
+      content: "Viết bài nghiên cứu khoa học",
+      // tag: (
+      //   <Tag id="tag-nckh" color="brown">
+      //     NCKH
+      //   </Tag>
+      // ),
+      createdDate: "2023/03/15",
+      star: true,
+    },
+    // {
+    //   id: 16,
+    //   area: "Kỹ năng",
+    //   checked: true,
+    //   content: "Tham gia khóa học nấu ăn",
+    //   // tag: (
+    //   //   <Tag id="tag-cc" color="yellow">
+    //   //     Ẩm thực
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/06/01",
+    //   star: false,
+    // },
+    {
+      id: 17,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Tham gia khóa học giao tiếp",
+      // tag: (
+      //   <Tag id="tag-gt" color="orange">
+      //     Giao tiếp
+      //   </Tag>
+      // ),
+      createdDate: "2023/06/10",
+      star: false,
+    },
+    {
+      id: 18,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Học kỹ năng quản lý thời gian",
+      tag: (
+        <Tag id="tag-qt" color="blue">
+          Quản lý thời gian
+        </Tag>
+      ),
+      createdDate: "2023/07/01",
+      star: true,
+    },
+    {
+      id: 19,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Học kỹ năng làm việc nhóm",
+      // tag: (
+      //   <Tag id="tag-lamviecnhom" color="lime">
+      //     Làm việc nhóm
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/20",
+      star: false,
+    },
+    // {
+    //   id: 20,
+    //   area: "Kỹ năng",
+    //   checked: true,
+    //   content: "Tham gia buổi hòa nhạc",
+    //   // tag: (
+    //   //   <Tag id="tag-hn" color="purple">
+    //   //     Âm nhạc
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/07/20",
+    //   star: false,
+    // },
+    // {
+    //   id: 21,
+    //   area: "Kỹ năng",
+    //   checked: true,
+    //   content: "Chơi cờ vua với bạn bè",
+    //   // tag: (
+    //   //   <Tag id="tag-cv" color="black">
+    //   //     Cờ vua
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/07/25",
+    //   star: false,
+    // },
+    {
+      id: 22,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Học kỹ năng thuyết trình",
+      // tag: (
+      //   <Tag id="tag-thuyettrinh" color="cyan">
+      //     Thuyết trình
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/10",
+      star: true,
+    },
+    {
+      id: 23,
+      area: "Xã hội",
+      checked: false,
+      content: "Tham gia chiến dịch bảo vệ môi trường",
+      // tag: (
+      //   <Tag id="tag-mt" color="brown">
+      //     Môi trường
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/15",
+      star: false,
+    },
+    // {
+    //   id: 24,
+    //   area: "Xã hội",
+    //   checked: true,
+    //   content: "Tham gia hội thảo phát triển bền vững",
+    //   // tag: (
+    //   //   <Tag id="tag-ptbv" color="purple">
+    //   //     Phát triển bền vững
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/08/20",
+    //   star: true,
+    // },
   ]);
 
   //Star
@@ -166,6 +342,44 @@ function Target_list() {
       datas.map((item) =>
         item.id === id ? { ...item, star: !item.star } : item
       )
+    );
+  };
+
+  //Delete confirm - modal
+  const LocalizedModal = ({ Area }) => {
+    const [openModal, setOpenModal] = useState(false);
+    const showModal = () => {
+      setOpenModal(true);
+    };
+    const handleModalCancel = () => {
+      setOpenModal(false);
+      message.error("Hủy xóa mục tiêu!");
+    };
+    const handleModalOk = () => {
+      setOpenModal(false);
+      setDatas(datas.filter((item) => item.area !== Area));
+      message.success("Đã xóa mục tiêu!");
+    };
+    return (
+      <>
+        <span
+          onClick={showModal}
+          className="target-list-icon"
+          id="goal-list-title-icon"
+        >
+          <CloseCircleOutlined />
+        </span>
+        <Modal
+          title="Xóa mục tiêu"
+          open={openModal}
+          onOk={handleModalOk}
+          onCancel={handleModalCancel}
+          okText="Xác nhận"
+          cancelText="Hủy"
+        >
+          <p>Xác nhận xóa mục tiêu</p>
+        </Modal>
+      </>
     );
   };
 
@@ -197,8 +411,19 @@ function Target_list() {
       return (
         <div className="target-list-wrap">
           {filteredData.map((item) => (
-            <div key={item.id}>
-              <div id="target-goalList-item">
+            <div>
+              {/* <div className="target-list-title">
+                <div id="goal-list-title">{item.area}</div>
+                <Link
+                  to="/target_detail"
+                  className="target-list-icon"
+                  id="goal-list-title-icon"
+                >
+                  <EditOutlined />
+                </Link>
+                <LocalizedModal className="target-list-icon" Area={item.area} />
+              </div> */}
+              <div id="target-goalList-item" key={item.id}>
                 <div className="target-list-content">{item.content}</div>
                 <div className="target-list-content-detail">
                   <div className="target-list-tag">{item.tag}</div>
@@ -283,6 +508,16 @@ function Target_list() {
                   {
                     label: <span>Tài chính</span>,
                     value: "Tài chính",
+                  },
+                ],
+              },
+              {
+                label: <span>Kỹ năng</span>,
+                title: "Kỹ năng",
+                options: [
+                  {
+                    label: <span>Quản lý thời gian</span>,
+                    value: "Quản lý thời gian",
                   },
                 ],
               },

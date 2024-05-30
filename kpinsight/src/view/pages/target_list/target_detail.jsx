@@ -75,7 +75,7 @@ function Target_detail() {
     {
       id: 4,
       area: "Xã hội",
-      checked: false,
+      checked: true,
       content: "Tham gia tình nguyện 'Mùa hè xanh'",
       // tag: (
       //     <Tag color="#074979">Ngoại ngữ</Tag>
@@ -171,6 +171,175 @@ function Target_detail() {
       ),
       createdDate: "2023/02/15",
       star: false,
+    },
+    {
+      id: 12,
+      area: "Cá nhân",
+      checked: false,
+      content: "Thiền định",
+      tag: (
+        <Tag id="tag-sk" color="magenta">
+          Sức khỏe
+        </Tag>
+      ),
+      createdDate: "2023/05/10",
+      star: true,
+    },
+    {
+      id: 13,
+      area: "Cá nhân",
+      checked: false,
+      content: "Đọc sách mỗi ngày",
+      // tag: (
+      //   <Tag id="tag-ss" color="blue">
+      //     Sách
+      //   </Tag>
+      // ),
+      createdDate: "2023/05/11",
+      star: true,
+    },
+    {
+      id: 14,
+      area: "Học tập",
+      checked: false,
+      content: "Tham gia khóa học Machine Learning",
+      tag: (
+        <Tag id="tag-it" color="red">
+          IT
+        </Tag>
+      ),
+      createdDate: "2023/04/20",
+      star: false,
+    },
+    {
+      id: 15,
+      area: "Học tập",
+      checked: false,
+      content: "Viết bài nghiên cứu khoa học",
+      // tag: (
+      //   <Tag id="tag-nckh" color="brown">
+      //     NCKH
+      //   </Tag>
+      // ),
+      createdDate: "2023/03/15",
+      star: true,
+    },
+    {
+      id: 16,
+      area: "Kỹ năng",
+      checked: true,
+      content: "Tham gia khóa học nấu ăn",
+      // tag: (
+      //   <Tag id="tag-cc" color="yellow">
+      //     Ẩm thực
+      //   </Tag>
+      // ),
+      createdDate: "2023/06/01",
+      star: false,
+    },
+    {
+      id: 17,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Tham gia khóa học giao tiếp",
+      // tag: (
+      //   <Tag id="tag-gt" color="orange">
+      //     Giao tiếp
+      //   </Tag>
+      // ),
+      createdDate: "2023/06/10",
+      star: false,
+    },
+    {
+      id: 18,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Học kỹ năng quản lý thời gian",
+      tag: (
+        <Tag id="tag-qt" color="blue">
+          Quản lý thời gian
+        </Tag>
+      ),
+      createdDate: "2023/07/01",
+      star: true,
+    },
+    {
+      id: 19,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Học kỹ năng làm việc nhóm",
+      // tag: (
+      //   <Tag id="tag-lamviecnhom" color="lime">
+      //     Làm việc nhóm
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/20",
+      star: false,
+    },
+    {
+      id: 20,
+      area: "Kỹ năng",
+      checked: true,
+      content: "Tham gia buổi hòa nhạc",
+      // tag: (
+      //   <Tag id="tag-hn" color="purple">
+      //     Âm nhạc
+      //   </Tag>
+      // ),
+      createdDate: "2023/07/20",
+      star: false,
+    },
+    {
+      id: 21,
+      area: "Kỹ năng",
+      checked: true,
+      content: "Chơi cờ vua với bạn bè",
+      // tag: (
+      //   <Tag id="tag-cv" color="black">
+      //     Cờ vua
+      //   </Tag>
+      // ),
+      createdDate: "2023/07/25",
+      star: false,
+    },
+    {
+      id: 22,
+      area: "Kỹ năng",
+      checked: false,
+      content: "Học kỹ năng thuyết trình",
+      // tag: (
+      //   <Tag id="tag-thuyettrinh" color="cyan">
+      //     Thuyết trình
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/10",
+      star: true,
+    },
+    {
+      id: 23,
+      area: "Xã hội",
+      checked: false,
+      content: "Tham gia chiến dịch bảo vệ môi trường",
+      // tag: (
+      //   <Tag id="tag-mt" color="brown">
+      //     Môi trường
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/15",
+      star: false,
+    },
+    {
+      id: 24,
+      area: "Xã hội",
+      checked: true,
+      content: "Tham gia hội thảo phát triển bền vững",
+      // tag: (
+      //   <Tag id="tag-ptbv" color="purple">
+      //     Phát triển bền vững
+      //   </Tag>
+      // ),
+      createdDate: "2023/08/20",
+      star: true,
     },
   ]);
 
@@ -334,7 +503,7 @@ function Target_detail() {
   return (
     <div className="target-list-frame">
       <div className="target-list-title">
-        <div id="kpi-target-title">{areaFromState}</div>
+        <div id="kpi-target-title">Mục tiêu KPI</div>
         <div id="kpi-target-select-container">
           <Select
             defaultValue="Tất cả nhãn"
@@ -390,16 +559,19 @@ function Target_detail() {
                   },
                 ],
               },
+              {
+                label: <span>Kỹ năng</span>,
+                title: "Kỹ năng",
+                options: [
+                  {
+                    label: <span>Quản lý thời gian</span>,
+                    value: "Quản lý thời gian",
+                  },
+                ],
+              },
             ]}
           />
         </div>
-      </div>
-      <div>
-        <ShowDetailComponent
-          // area={areaFromState}
-          data={datas}
-          setDatas={setDatas}
-        />
       </div>
       {getFilteredData(areaFromState)}
     </div>

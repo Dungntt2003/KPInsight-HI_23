@@ -185,6 +185,7 @@ function TurnStandard() {
                       className="turn-standard-card-big"
                       title={
                         <Form.Item
+                          className="turn-standard-form-mobile"
                           style={{
                             display: "flex",
                             justifyContent: "center",
@@ -284,6 +285,7 @@ function TurnStandard() {
                                   }
                                   key={field1.key}
                                   style={{ width: "47%" }}
+                                  className="card-big-mobile"
                                   // extra={
                                   //   <CloseOutlined
                                   //     onClick={() => {
@@ -313,6 +315,7 @@ function TurnStandard() {
                                                   style={{ width: "220%" }}
                                                   value={subField1.first}
                                                   onClick={showModal}
+                                                  className="turn-standard-mobile-inp"
                                                 />
                                               </Form.Item>
                                               {/* <CloseOutlined
@@ -396,7 +399,7 @@ function TurnStandard() {
         >
           Hướng dẫn cách quy chuẩn
         </Button>
-        <div className="turn-standard-tags">
+        <div className="turn-standard-tags for-web">
           <div className="turn-standard-act-name" ref={ref1}>
             Tên hoạt động
           </div>
@@ -412,6 +415,7 @@ function TurnStandard() {
         </div>
         {/* Add task to goal */}
         <Form
+          className="for-web"
           name="dynamic_form_nest_item"
           // onFinish={onFinish}
           style={{
@@ -426,6 +430,354 @@ function TurnStandard() {
                 {fields.map(({ key, name, ...restField }) => (
                   <Space
                     key={key}
+                    className="intro-turn-standard-mobile"
+                    style={{
+                      display: "flex",
+                      marginBottom: 8,
+                    }}
+                    align="baseline"
+                  >
+                    {/* Add task name */}
+                    <Form.Item
+                      {...restField}
+                      name={[name, "name"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Thiếu tên hoạt động",
+                        },
+                      ]}
+                    >
+                      <Input
+                        className="turn-standard-inp turn-standard-inp-mobile"
+                        placeholder="Tên hoạt động"
+                        style={{ marginLeft: "12px", width: "190px" }}
+                      />
+                    </Form.Item>
+                    {/* Add sub task, min, max */}
+                    <Form.Item
+                      {...restField}
+                      name={[name, "detail"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Thiếu chi tiết",
+                        },
+                      ]}
+                    >
+                      {/* choose unit or task */}
+                      <Select
+                        className="turn-standard-select"
+                        placeholder="Chọn cách thiết lập"
+                        style={{
+                          width: 350,
+                          marginLeft: "16px",
+                        }}
+                        onChange={handleChange}
+                        options={[
+                          {
+                            value: "unit",
+                            label: "Theo đơn vị cụ thể",
+                          },
+                          {
+                            value: "task",
+                            label: "Theo nhiệm vụ cụ thể",
+                          },
+                        ]}
+                      />
+                      {/* if choose unit */}
+                      {select === "unit" && (
+                        <div className="turn-standard-choose-unit">
+                          {/* add begin, max, min */}
+                          <Input
+                            placeholder="Bắt đầu"
+                            className="turn-standard-choose-unit-item turn-standard-inp"
+                          />
+                          <Input
+                            placeholder="Tối thiểu"
+                            className="turn-standard-choose-unit-item turn-standard-inp"
+                          />
+                          <Input
+                            placeholder="Lớn nhất"
+                            className="turn-standard-choose-unit-item turn-standard-inp"
+                          />
+                        </div>
+                      )}
+                      {/* if choose task */}
+                      {select === "task" && (
+                        <div className="turn-standard-choose-task">
+                          {/* add sub task */}
+                          <Form
+                            name="dynamic_form_nest_item-2"
+                            // onFinish={onFinish}
+                            style={{
+                              maxWidth: 350,
+                              marginLeft: "16px",
+                            }}
+                            autoComplete="off"
+                          >
+                            <Form.List name="sub-task">
+                              {(fields1, { add, remove }) => (
+                                <>
+                                  {fields1.map(
+                                    ({ key, name, ...restField }) => (
+                                      <Space
+                                        key={key}
+                                        style={{
+                                          display: "flex",
+                                          marginBottom: 8,
+                                        }}
+                                        align="baseline"
+                                      >
+                                        <Form.Item
+                                          {...restField}
+                                          name={[name, "sub-task"]}
+                                          rules={[
+                                            {
+                                              required: true,
+                                              message: "Nhập nhiệm vụ",
+                                            },
+                                          ]}
+                                        >
+                                          <Input
+                                            className="turn-standard-inp"
+                                            placeholder="Thêm nhiệm vụ"
+                                            style={{
+                                              margin: "2px 0",
+                                              width: "350px",
+                                            }}
+                                          />
+                                        </Form.Item>
+
+                                        <MinusCircleOutlined
+                                          onClick={() => remove(name)}
+                                        />
+                                      </Space>
+                                    )
+                                  )}
+                                  <Form.Item>
+                                    <Button
+                                      type="dashed"
+                                      onClick={() => add()}
+                                      block
+                                      className="turn-standard-btn-add"
+                                      icon={<PlusOutlined />}
+                                      style={{ margin: "2px 0" }}
+                                    >
+                                      Thêm nhiệm vụ
+                                    </Button>
+                                  </Form.Item>
+                                </>
+                              )}
+                            </Form.List>
+                          </Form>
+                          <div className="turn-standard-choose-minmax">
+                            {/* choose task min */}
+                            <Select
+                              className="turn-standard-select"
+                              placeholder="Chọn mục tiêu tối thiểu"
+                              style={{
+                                width: 350,
+                                marginLeft: "16px",
+                              }}
+                              // onChange={handleChange}
+                              options={[
+                                {
+                                  value: "1",
+                                  label: "Vẽ usecase cho dự án",
+                                },
+                                {
+                                  value: "2",
+                                  label: "Đặc tả các usecase",
+                                },
+                              ]}
+                            />
+                            {/* choose task max */}
+                            <Select
+                              className="turn-standard-select"
+                              placeholder="Chọn mục tiêu tối đa"
+                              style={{
+                                width: 350,
+                                marginLeft: "16px",
+                                marginTop: "6px",
+                              }}
+                              // onChange={handleChange}
+                              options={[
+                                {
+                                  value: "1",
+                                  label: "Vẽ usecase cho dự án",
+                                },
+                                {
+                                  value: "2",
+                                  label: "Đặc tả các usecase",
+                                },
+                              ]}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </Form.Item>
+                    {/* choose unit of task */}
+                    {select === "unit" ? (
+                      <Form.Item>
+                        <Select
+                          className="turn-standard-select"
+                          style={{
+                            width: 100,
+                            marginLeft: "16px",
+                          }}
+                          placeholder="Bài"
+                          dropdownRender={(menu) => (
+                            <>
+                              {menu}
+                              <Divider
+                                style={{
+                                  margin: "8px 0",
+                                }}
+                              />
+                              <Space
+                                style={{
+                                  padding: "0 8px 4px",
+                                }}
+                              >
+                                <Input
+                                  className="turn-standard-inp"
+                                  placeholder="Nhập đơn vị khác"
+                                  ref={inputRef}
+                                  value={name}
+                                  onChange={onNameChange}
+                                  onKeyDown={(e) => e.stopPropagation()}
+                                />
+                                <Button
+                                  // type="text"
+                                  icon={<PlusOutlined />}
+                                  onClick={addItem}
+                                >
+                                  {/* Add item */}
+                                </Button>
+                              </Space>
+                            </>
+                          )}
+                          options={items.map((item) => ({
+                            label: item,
+                            value: item,
+                          }))}
+                        />
+                      </Form.Item>
+                    ) : (
+                      <div style={{ minWidth: "80px", marginLeft: "16px" }}>
+                        {/* Nhiệm vụ */}
+                      </div>
+                    )}
+                    {/* choose time for task */}
+                    <Form.Item style={{ marginLeft: "16px" }}>
+                      <Input
+                        style={{ minWidth: "40px" }}
+                        className="turn-standard-inp"
+                      />
+                    </Form.Item>
+                    <Form.Item>
+                      <Select
+                        className="turn-standard-select"
+                        style={{
+                          width: 80,
+                        }}
+                        placeholder="Giờ"
+                        dropdownRender={(menu) => (
+                          <>
+                            {menu}
+                            <Divider
+                              style={{
+                                margin: "8px 0",
+                              }}
+                            />
+                            <Space
+                              style={{
+                                padding: "0 8px 4px",
+                              }}
+                            >
+                              <Input
+                                // placeholder="Please enteritem "
+                                ref={inputRef}
+                                value={name}
+                                className="turn-standard-inp"
+                                onChange={onNameChange}
+                                onKeyDown={(e) => e.stopPropagation()}
+                              />
+                              <Button
+                                type="text"
+                                icon={<PlusOutlined />}
+                                onClick={addItemTime}
+                              >
+                                {/* Add item */}
+                              </Button>
+                            </Space>
+                          </>
+                        )}
+                        options={itemTime.map((itemTime) => ({
+                          label: itemTime,
+                          value: itemTime,
+                        }))}
+                      />
+                    </Form.Item>
+                    <MinusCircleOutlined onClick={() => remove(name)} />
+                  </Space>
+                ))}
+                {/* add new task */}
+                <Form.Item>
+                  <div
+                    className="turn-standard-add-item"
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <Button
+                      type="dashed"
+                      onClick={() => add()}
+                      block
+                      className="turn-standard-btn-add"
+                      style={{ width: "50%" }}
+                      icon={<PlusOutlined />}
+                      ref={ref5}
+                    >
+                      Thêm hoạt động
+                    </Button>
+                  </div>
+                </Form.Item>
+              </>
+            )}
+          </Form.List>
+        </Form>
+        <div className="turn-standard-tags for-mobile">
+          <div className="turn-standard-act-name" ref={ref1}>
+            Tên hoạt động
+          </div>
+          <div className="turn-standard-act-detail" ref={ref2}>
+            Chi tiết
+          </div>
+          <div className="turn-standard-act-unit" ref={ref3}>
+            Đơn vị
+          </div>
+          <div className="turn-standard-act-time" ref={ref4}>
+            Thời lượng
+          </div>
+        </div>
+        {/* Add task to goal */}
+        <Form
+          className="for-mobile"
+          name="dynamic_form_nest_item"
+          // onFinish={onFinish}
+          style={{
+            width: 850,
+          }}
+          autoComplete="off"
+        >
+          {/* fields : task list */}
+          <Form.List name="tasks">
+            {(fields, { add, remove }) => (
+              <>
+                {fields.map(({ key, name, ...restField }) => (
+                  <Space
+                    key={key}
+                    className="intro-turn-standard-mobile"
                     style={{
                       display: "flex",
                       marginBottom: 8,
@@ -660,9 +1012,10 @@ function TurnStandard() {
                         />
                       </Form.Item>
                     ) : (
-                      <div style={{ minWidth: "80px", marginLeft: "16px" }}>
-                        Nhiệm vụ
-                      </div>
+                      //   // <div style={{ minWidth: "80px", marginLeft: "16px" }}>
+                      //   //   Nhiệm vụ
+                      //   // </div>
+                      <div></div>
                     )}
                     {/* choose time for task */}
                     <Form.Item style={{ marginLeft: "16px" }}>

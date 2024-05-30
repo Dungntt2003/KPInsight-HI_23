@@ -9,6 +9,7 @@ import {
   StarOutlined,
   StarFilled,
 } from "@ant-design/icons";
+import ShowDetailComponent from "./show_detail_component";
 
 const ShowDataComponent = ({ data, setDatas }) => {
   //Group by area
@@ -64,6 +65,12 @@ const ShowDataComponent = ({ data, setDatas }) => {
     );
   };
 
+  //Show detail
+  const [selectedArea, setSelectedArea] = useState(null);
+  const showDetail = (area) => {
+    setSelectedArea(area);
+  };
+
   return (
     <div>
       {Object.keys(groupedData).map((area) => (
@@ -77,6 +84,11 @@ const ShowDataComponent = ({ data, setDatas }) => {
             >
               <EditOutlined />
             </Link>
+            {/* <EditOutlined
+              className="target-list-icon"
+              id="goal-list-title-icon"
+              onClick={() => showDetail(area)}
+            /> */}
             <LocalizedModal className="target-list-icon" Area={area} />
           </div>
 
@@ -101,13 +113,18 @@ const ShowDataComponent = ({ data, setDatas }) => {
               </div>
             ))}
 
-            <Link
+            {/* <Link
               to={{ pathname: "/target_detail", state: { area } }}
               className="target-list-icon"
               id="target-list-see-more"
             >
               <EllipsisOutlined />
-            </Link>
+            </Link> */}
+            {/* <EllipsisOutlined
+              className="target-list-icon"
+              id="goal-list-see-more"
+              onClick={() => showDetail(area)}
+            /> */}
           </div>
         </div>
       ))}

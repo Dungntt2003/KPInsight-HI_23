@@ -77,7 +77,8 @@ Tag:hover {
   margin: 0;
 }
 
-#target-goalList-item {
+#target-goalList-item,
+#target-goalList-detail-item {
   padding: 10px;
   text-align: right;
   margin-bottom: 5px;
@@ -97,7 +98,8 @@ Tag:hover {
 }
 
 .target-list-tag,
-.target-list-date {
+.target-list-date,
+.target-detail-date {
   text-align: right;
   background-color: #ffff;
   padding: 2px 5px;
@@ -143,4 +145,39 @@ Tag:hover {
 .target-list-pagination-container {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 430px) {
+  .target-list-frame {
+    margin: 0 10px;
+    width: 90% !important;
+    padding: 10px;
+    border: none;
+  }
+  #kpi-target-title {
+    display: none;
+  }
+  #kpi-target-select-container {
+    margin-top: 5%;
+    margin-left: 63%;
+    margin-bottom: -5%;
+    width: fit-content;
+  }
+  #target-goalList-detail-item {
+    display: block !important;
+    width: 100% !important;
+    text-align: left;
+  }
+  .target-list-content-detail {
+    place-content: end;
+  }
+  .target-list-date {
+    display: none;
+  }
+  #target-detail-btn {
+    margin-left: 65%;
+  }
+  .target-list-pagination-container {
+    margin-bottom: 8%;
+  }
 }

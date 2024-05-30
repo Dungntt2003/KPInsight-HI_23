@@ -6,10 +6,20 @@ import {
   faFile,
   faChartSimple,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 function Footer() {
   const [active, setActive] = useState(1);
+  const location = useLocation();
+  useEffect(() => {
+    if (
+      location.pathname == "/setting/account" ||
+      location.pathname == "/setting/general-setting" ||
+      location.pathname == "/setting/help"
+    ) {
+      setActive(0);
+    }
+  }, [location.pathname]);
   const navbar = [
     {
       key: 1,
