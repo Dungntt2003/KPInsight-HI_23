@@ -119,3 +119,59 @@
   background-color: #074979;
   color: white;
 }
+
+.for-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 430px) {
+  .turn-standard-head {
+    display: block !important;
+  }
+  .turn-standard-tooltip {
+    margin-top: 12px;
+  }
+  .card-big-mobile {
+    width: 100% !important;
+  }
+  .turn-standard-card-big {
+    padding: 24px 0;
+  }
+  .turn-standard-form-mobile {
+    margin: 0 !important;
+    margin-right: 20% !important;
+    margin-bottom: 12px !important;
+  }
+  .turn-standard-mobile-inp {
+    width: 250px !important;
+  }
+  .ant-modal-content {
+    width: 100vw !important;
+  }
+  .turn-standard-tags {
+    flex-direction: column;
+    display: none;
+  }
+  .intro-turn-standard-mobile {
+    flex-direction: column !important;
+    justify-content: center !important;
+    /* align-items: center !important; */
+  }
+  .for-mobile {
+    display: block;
+    width: 100vw;
+  }
+  .turn-standard-select {
+    margin-left: 16px !important;
+  }
+  .for-web {
+    display: none;
+  }
+  .turn-standard-tags {
+    display: none;
+  }
+  .turn-standard-inp-mobile {
+    margin-top: 12px !important;
+    margin-left: 16px !important;
+  }
+}

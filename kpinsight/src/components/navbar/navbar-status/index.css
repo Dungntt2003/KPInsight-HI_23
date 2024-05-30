@@ -83,3 +83,7 @@
 .navbar-menu-item.has-children.open .downicon {
   transform: rotate(180deg);
 }
+.navbar-status-more {
+  display: flex;
+  flex-direction: column-reverse;
+}

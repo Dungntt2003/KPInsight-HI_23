@@ -63,7 +63,10 @@ function NavbarStatus() {
     <div className="navbar-menu-container">
       <h1 className="navbar-name">Giai đoạn</h1>
       {items.map((item) => (
-        <div key={item.key}>
+        <div
+          key={item.key}
+          className={item.children ? "navbar-status-more" : "none"}
+        >
           <div
             className={`navbar-item ${
               selectedKey === item.key ? "selected" : ""

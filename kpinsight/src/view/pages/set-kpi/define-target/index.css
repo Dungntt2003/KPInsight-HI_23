@@ -83,7 +83,7 @@
     width: 100% !important;
   }
   .ant-tour {
-    width: 400px !important;
+    width: 100vw !important;
   }
   .define-target-form-mobile {
     margin-bottom: 6px;

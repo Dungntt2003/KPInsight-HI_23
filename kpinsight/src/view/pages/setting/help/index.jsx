@@ -34,23 +34,25 @@ function Help() {
         </div>
         <div className="help-popular-tag">
           <div className="help-popular-text">Tìm kiếm phổ biến</div>
-          <div className="help-popular-item">
-            <div className="help-popular-item-wrap">
-              <CheckOutlined className="help-popular-item-icon" />
+          <div className="help-popular-mobile">
+            <div className="help-popular-item">
+              <div className="help-popular-item-wrap">
+                <CheckOutlined className="help-popular-item-icon" />
+              </div>
+              <div className="help-popular-item-text">KPI</div>
             </div>
-            <div className="help-popular-item-text">KPI</div>
-          </div>
-          <div className="help-popular-item">
-            <div className="help-popular-item-wrap">
-              <CheckOutlined className="help-popular-item-icon" />
+            <div className="help-popular-item">
+              <div className="help-popular-item-wrap">
+                <CheckOutlined className="help-popular-item-icon" />
+              </div>
+              <div className="help-popular-item-text">Liên kết tài khoản</div>
             </div>
-            <div className="help-popular-item-text">Liên kết tài khoản</div>
-          </div>
-          <div className="help-popular-item">
-            <div className="help-popular-item-wrap">
-              <CheckOutlined className="help-popular-item-icon" />
+            <div className="help-popular-item">
+              <div className="help-popular-item-wrap">
+                <CheckOutlined className="help-popular-item-icon" />
+              </div>
+              <div className="help-popular-item-text">Thông báo</div>
             </div>
-            <div className="help-popular-item-text">Thông báo</div>
           </div>
         </div>
         <div className="help-list">
