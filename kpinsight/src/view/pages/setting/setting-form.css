@@ -1,5 +1,16 @@
+.bar-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 430px) {
   .setting-form-mobile {
     display: none;
+  }
+  .bar-mobile {
+    display: block;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 40px;
+    background-color: ;
   }
 }
