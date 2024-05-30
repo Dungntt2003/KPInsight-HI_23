@@ -495,13 +495,23 @@ const KpiStatus = () => {
                       Xem chi tiết hoạt động
                     </h1>
                   </div>
-                  <div className="activity-chart">
+                  <div
+                    className="activity-chart"
+                    // onMouseEnter={handleFireWorks}
+                  >
                     <div className="activity-chart-wrap">
                       <SpeedChart
                         min={item.min}
                         max={item.max}
                         score={item.score}
                       />
+                      {/* <ConfettiEffect
+                        width={dimensions.width}
+                        height={dimensions.height}
+                        x={position.x}
+                        y={position.y}
+                        run={hover}
+                      /> */}
                     </div>
                   </div>
                 </div>
