@@ -27,6 +27,7 @@ const KpiStatus = () => {
   });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const chartRef = useRef(null);
+
   //Select chọn nhãn:
   // const handleChange = (value) => {
   //   console.log(`selected ${value}`);
@@ -237,6 +238,7 @@ const KpiStatus = () => {
       myChart.destroy();
     };
   }, [realData]);
+  //Firework
   useEffect(() => {
     const handleResize = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
@@ -497,7 +499,7 @@ const KpiStatus = () => {
                   </div>
                   <div
                     className="activity-chart"
-                    // onMouseEnter={handleFireWorks}
+                    onMouseEnter={handleFireWorks}
                   >
                     <div className="activity-chart-wrap">
                       <SpeedChart
@@ -513,6 +515,13 @@ const KpiStatus = () => {
                         run={hover}
                       /> */}
                     </div>
+                    {/* <ConfettiEffect
+                      width={dimensions.width}
+                      height={dimensions.height}
+                      x={position.x}
+                      y={position.y - 250}
+                      run={hover}
+                    /> */}
                   </div>
                 </div>
               </Panel>

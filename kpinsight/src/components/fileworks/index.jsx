@@ -5,7 +5,18 @@ const ConfettiEffect = ({ width, height, x, y, run }) => {
   if (!run) return null;
 
   return (
-    <div style={{ position: "fixed", top: y, left: x }}>
+    <div
+      style={{
+        position: "fixed",
+        top: y,
+        left: x,
+        width: "100%",
+        height: "100%",
+
+        zIndex: -1,
+        color: "transparent",
+      }}
+    >
       <Confetti
         width={width}
         height={height}
