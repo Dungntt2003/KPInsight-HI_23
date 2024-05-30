@@ -67,7 +67,7 @@ function Home() {
       <Grid container spacing={5}>
         <Grid xs={6} sm={6} md={3} className="summary-home">
           <AppWidgetSummary
-            title="Đã 2 tuần không cập nhật"
+            title="2 tuần không cập nhật"
             total="2"
             color="info"
             icon={<img alt="icon" src={ImageIcon} style={{ width: "50px" }} />}
