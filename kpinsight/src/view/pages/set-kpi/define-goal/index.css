@@ -9,7 +9,7 @@
 }
 
 .define-list {
-  padding-left: 40px;
+  /* padding-left: 40px; */
 }
 .define-item-list {
   font-size: 16px;
@@ -21,7 +21,9 @@
   color: white;
   width: fit-content;
 }
-
+.define-button-mobile {
+  display: none;
+}
 .define-header {
   font-size: 18px;
   font-weight: 500;
@@ -80,5 +82,11 @@
   .define-mobile-item {
     width: 100% !important;
     margin: 12px 0;
+  }
+  .define-button-mobile {
+    display: block;
+  }
+  .define-btn {
+    justify-content: center;
   }
 }

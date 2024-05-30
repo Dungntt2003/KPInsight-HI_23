@@ -48,6 +48,9 @@
 }
 
 @media screen and (max-width: 430px) {
+  .general-container {
+    margin-top: 0;
+  }
   .general-content {
     margin-left: 0;
     padding: 10px 20px;

@@ -6,7 +6,7 @@ function MainLayout(props) {
   return (
     <div className="container">
       <div className="header">
-        <Header />
+        <Header name={props.name} />
       </div>
       <div className="body" style={{ marginTop: "110px" }}>
         {props.component}

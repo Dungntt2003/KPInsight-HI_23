@@ -121,4 +121,7 @@
   .help-popular-mobile {
     flex-direction: column;
   }
+  .help-container {
+    margin-top: 0;
+  }
 }

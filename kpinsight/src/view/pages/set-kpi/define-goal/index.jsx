@@ -103,27 +103,52 @@ function DefineGoal() {
         <div className="define-heading">
           <h3 className="define-header">Lịch sử thiết lập</h3>
         </div>
-        {/* <div className="define-list">
-          <div className="define-list-box">
-            {dataList.map((item, index) => {
-              return (
-                <div className="define-list-wrap">
-                  <div className="define-list-date">{item.date}</div>
-                  <div className="define-list-time">{item.time}</div>
-                  <div className="define-list-description">
-                    {item.description}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="define-collapse">
-            <FontAwesomeIcon icon={faAnglesDown} onClick={handleClick} />
+        <div className="define-list">
+          <div>
+            <List>
+              <VirtualList
+                data={dataList}
+                height={ContainerHeight}
+                itemHeight={30}
+                // itemKey="email"
+                onScroll={onScroll}
+                style={{ padding: "20px" }}
+              >
+                {(item) => (
+                  <List.Item className="define-item-list">
+                    <List.Item.Meta
+                      // avatar={<Avatar src={item.picture.large} />}
+                      title={
+                        <div
+                          style={{
+                            fontSize: "16px",
+                            fontWeight: "500",
+                            color: "#074979",
+                          }}
+                        >
+                          {item.date} <span> - </span> {item.time}
+                        </div>
+                      }
+                      // description={item.time}
+                    />
+                    <div>{item.description}</div>
+                  </List.Item>
+                )}
+              </VirtualList>
+            </List>
           </div>
           <div className="define-btn">
             <Button type="primary" className="define-button">
               <Link to="/choose-option" className="header-link">
                 Thiết lập lại
+              </Link>
+            </Button>
+            <Button
+              type="primary"
+              className="define-button define-button-mobile"
+            >
+              <Link to="/target_list" className="header-link">
+                Mục tiêu
               </Link>
             </Button>
             <Button type="primary" className="define-button">
@@ -132,39 +157,6 @@ function DefineGoal() {
               </Link>
             </Button>
           </div>
-        </div> */}
-        <div>
-          <List>
-            <VirtualList
-              data={dataList}
-              height={ContainerHeight}
-              itemHeight={47}
-              // itemKey="email"
-              onScroll={onScroll}
-              style={{ padding: "20px" }}
-            >
-              {(item) => (
-                <List.Item className="define-item-list">
-                  <List.Item.Meta
-                    // avatar={<Avatar src={item.picture.large} />}
-                    title={
-                      <div
-                        style={{
-                          fontSize: "16px",
-                          fontWeight: "500",
-                          color: "#074979",
-                        }}
-                      >
-                        {item.date} <span> - </span> {item.time}
-                      </div>
-                    }
-                    // description={item.time}
-                  />
-                  <div>{item.description}</div>
-                </List.Item>
-              )}
-            </VirtualList>
-          </List>
         </div>
       </div>
       <div className="define-form">

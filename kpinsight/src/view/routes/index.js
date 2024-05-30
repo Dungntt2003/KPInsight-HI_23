@@ -55,13 +55,14 @@ function AllRoutes() {
       />
       <Route
         path="/kpi-status"
-        element={<MainLayout component={<KpiStatus />} />}
+        element={<MainLayout component={<KpiStatus />} name="Trạng thái KPI" />}
       />
       <Route
         path="/setting/account"
         element={
           <MainLayout
             component={<SettingForm component={<SettingAccount />} />}
+            name="Cài đặt"
           />
         }
       />
@@ -78,6 +79,7 @@ function AllRoutes() {
         element={
           <MainLayout
             component={<SettingForm component={<GeneralSetting />} />}
+            name="Cài đặt"
           />
         }
       />
@@ -102,6 +104,7 @@ function AllRoutes() {
                 component={<SetKpiForm component={<DefineGoal />} />}
               />
             }
+            name="Thiết lập KPI"
           />
         }
       />
@@ -114,6 +117,7 @@ function AllRoutes() {
                 component={<SetKpiForm component={<ChooseOption />} />}
               />
             }
+            name="Thiết lập KPI"
           />
         }
       />
@@ -126,6 +130,7 @@ function AllRoutes() {
                 component={<SetKpiForm component={<ChooseMonth />} />}
               />
             }
+            name="Thiết lập KPI"
           />
         }
       />
@@ -137,6 +142,7 @@ function AllRoutes() {
             component={
               <GoalLayout component={<SetKpiForm component={<Done />} />} />
             }
+            name="Thiết lập KPI"
           />
         }
       />
@@ -149,6 +155,7 @@ function AllRoutes() {
                 component={<SetKpiForm component={<DefineTarget />} />}
               />
             }
+            name="Thiết lập KPI"
           />
         }
       />
@@ -161,13 +168,17 @@ function AllRoutes() {
                 component={<SetKpiForm component={<TurnStandard />} />}
               />
             }
+            name="Thiết lập KPI"
           />
         }
       />
       <Route
         path="/target_list"
         element={
-          <MainLayout component={<GoalLayout component={<Target_list />} />} />
+          <MainLayout
+            component={<GoalLayout component={<Target_list />} />}
+            name="Mục tiêu KPI"
+          />
         }
       />
       <Route
@@ -175,21 +186,30 @@ function AllRoutes() {
         element={
           <MainLayout
             component={<GoalLayout component={<Target_detail />} />}
+            name="Mục tiêu KPI"
           />
         }
       />
       <Route
         path="/activity-list"
-        element={<MainLayout component={<ActivityList />} />}
+        element={<MainLayout component={<ActivityList />} name="Hoạt động" />}
       />
       <Route
         path="/activity-detail"
-        element={<MainLayout component={<ActivityDetail />} />}
+        element={
+          <MainLayout
+            component={<ActivityDetail />}
+            name="Chi tiết hoạt động"
+          />
+        }
       />
       <Route
         path="/setting/help"
         element={
-          <MainLayout component={<SettingForm component={<Help />} />} />
+          <MainLayout
+            component={<SettingForm component={<Help />} />}
+            name="Cài đặt"
+          />
         }
       />
       <Route path="/home" element={<MainLayout component={<Home />} />} />
