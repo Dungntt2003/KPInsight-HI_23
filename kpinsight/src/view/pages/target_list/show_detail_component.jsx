@@ -112,11 +112,13 @@ const ShowDetailComponent = ({ data, setDatas }) => {
                 <Checkbox
                   className="target-list-content"
                   id="target-goalList-item-checkbox"
-                  onChangeCheckBox={() => onChangeCheckBox(item.id)}
+                  onChange={(e) => onChangeCheckBox(e, item.id)}
                   checked={checkedItems.includes(item.id)}
                 >
                   <div
                     style={{
+                      fontFamily: "Arial, Helvetica, sans-serif",
+                      fontSize: "16px",
                       textDecoration: checkedItems.includes(item.id)
                         ? "line-through"
                         : "none",
