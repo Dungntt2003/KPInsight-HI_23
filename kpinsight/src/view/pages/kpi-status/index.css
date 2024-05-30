@@ -352,7 +352,7 @@ canvas {
     display: none;
   }
   .navbar-menu-container {
-    display: none;
+    position: relative;
   }
 
   .select-tag {
@@ -420,7 +420,7 @@ canvas {
     margin: 2vw auto;
   }
   .suggest-name {
-    font-size: 14px;
+    font-size: 15px;
   }
   .suggest-notice {
     font-size: 14px;
@@ -492,7 +492,7 @@ canvas {
     margin-left: 0px;
   }
   .request-view-activity {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 0px;
   }
   .activity-chart {
