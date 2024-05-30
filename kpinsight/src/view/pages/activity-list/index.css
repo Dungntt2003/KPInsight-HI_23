@@ -62,7 +62,7 @@
 #col-tag-done,
 #col-tag-2 {
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 #col-tag-done {
@@ -121,5 +121,10 @@
     margin-left: 65px;
     font-size: 16px;
     /* margin-top: auto; */
+  }
+  #col-tag-1,
+  #col-tag-done,
+  #col-tag-2 {
+    font-size: 13px;
   }
 }
