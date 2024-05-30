@@ -1,7 +1,7 @@
 import "./index.css";
 import NavbarStatus from "../../../components/navbar/navbar-status";
 import React, { useState } from "react";
-import { Flex, Select, Tag } from "antd";
+import { Flex, Select, Tag, Input, Button } from "antd";
 import {
   EllipsisOutlined,
   CloseCircleOutlined,
@@ -11,13 +11,42 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Checkbox from "@mui/material/Checkbox";
+
 function ActivityDetail() {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const handleChange = (value) => {
-    console.log(value);
+
+  // States for editing
+  const [isEditing, setIsEditing] = useState(null);
+  const [editValues, setEditValues] = useState({});
+
+  const handleEditClick = (index, study) => {
+    setIsEditing(index);
+    setEditValues(study);
   };
 
-  const [studies_html] = useState([
+  const handleSaveClick = (index) => {
+    const updateStudies = (studies) =>
+      studies.map((study, idx) =>
+        idx === index ? { ...study, ...editValues } : study
+      );
+
+    if (index < studies_html.length) {
+      setStudiesHtml(updateStudies);
+    } else if (index < studies_html.length + studies_js.length) {
+      setStudiesJs(updateStudies);
+    } else {
+      setStudiesFigma(updateStudies);
+    }
+
+    setIsEditing(null);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditValues((prevValues) => ({ ...prevValues, [name]: value }));
+  };
+
+  const [studies_html, setStudiesHtml] = useState([
     {
       content: "F8 HTML, CSS cơ bản",
       createdDate: "2024/03/01",
@@ -25,13 +54,14 @@ function ActivityDetail() {
       star: true,
     },
     {
-      content: "F8 HTML, CSS nâng cao",
+      content: "HTML, CSS nâng cao",
       createdDate: "2024/03/30",
       createdTime: "20:00-24:00",
       star: false,
     },
   ]);
-  const [studies_js] = useState([
+
+  const [studies_js, setStudiesJs] = useState([
     {
       content: "F8 ReactJS cơ bản",
       createdDate: "2024/04/01",
@@ -49,7 +79,8 @@ function ActivityDetail() {
       createdTime: "09:00-10:00",
     },
   ]);
-  const [studies_figma] = useState([
+
+  const [studies_figma, setStudiesFigma] = useState([
     {
       content: "Làm quen với Figma",
       createdDate: "2024/04/01",
@@ -61,6 +92,51 @@ function ActivityDetail() {
       createdTime: "19:00-21:00",
     },
   ]);
+
+  const renderStudies = (studies, baseIndex) => {
+    return (
+      <ul id="task-list">
+        {studies.map((study, index) => (
+          <li key={index}>
+            <span className="activity-detail-content">{study.content}</span>
+            {isEditing === baseIndex + index ? (
+              <div className="activity-detail-content-detail">
+                <Input
+                  name="createdTime"
+                  value={editValues.createdTime}
+                  onChange={handleInputChange}
+                  style={{ width: 100 }}
+                />
+                <Input
+                  name="createdDate"
+                  value={editValues.createdDate}
+                  onChange={handleInputChange}
+                  style={{ width: 100 }}
+                />
+                <Button onClick={() => handleSaveClick(baseIndex + index)}>
+                  Lưu
+                </Button>
+              </div>
+            ) : (
+              <span className="activity-detail-content-detail">
+                <span className="activity-detail-date">
+                  {study.createdTime}
+                </span>
+                <span className="activity-detail-date">
+                  {study.createdDate}
+                </span>
+                <EditOutlined
+                  onClick={() => handleEditClick(baseIndex + index, study)}
+                  style={{ marginLeft: 8, cursor: "pointer" }}
+                />
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div>
       <div className="activity-detail-container">
@@ -99,77 +175,34 @@ function ActivityDetail() {
                 </span>
               </div>
               <div className="activity-detail-tasks">
-                <ul id="task-list">
-                  {studies_html.map((study, index) => (
-                    <li key={index}>
-                      <span className="activity-detail-content">
-                        {study.content}
-                      </span>
-                      <span className="activity-detail-content-detail">
-                        <span className="activity-detail-date">
-                          {study.createdTime}
-                        </span>
-                        <span className="activity-detail-date">
-                          {study.createdDate}
-                        </span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {renderStudies(studies_html, 0)}
               </div>
-              <div className="activity-detail-item">
-                <div className="activity-detail-item-header">
-                  <h4>Học ReactJS</h4>
-                  <span id="checkbox-act">
-                    <Checkbox {...label} defaultChecked />
-                  </span>
-                </div>
-                <div className="activity-detail-tasks">
-                  <ul id="task-list">
-                    {studies_js.map((study, index) => (
-                      <li key={index}>
-                        <span className="activity-detail-content">
-                          {study.content}
-                        </span>
-                        <span className="activity-detail-content-detail">
-                          <span className="activity-detail-date">
-                            {study.createdTime}
-                          </span>
-                          <span className="activity-detail-date">
-                            {study.createdDate}
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            </div>
+
+            <div className="activity-detail-item">
+              <div className="activity-detail-item-header">
+                <h4>Học ReactJS</h4>
+                <span id="checkbox-act">
+                  <Checkbox {...label} defaultChecked />
+                </span>
               </div>
-              <div className="activity-detail-item">
-                <div className="activity-detail-item-header">
-                  <h4>Học thiết kế Figma</h4>
-                  <span id="checkbox-act">
-                    <Checkbox {...label} />
-                  </span>
-                </div>
-                <div className="activity-detail-tasks">
-                  <ul id="task-list">
-                    {studies_figma.map((study, index) => (
-                      <li key={index}>
-                        <span className="activity-detail-content">
-                          {study.content}
-                        </span>
-                        <span className="activity-detail-content-detail">
-                          <span className="activity-detail-date">
-                            {study.createdTime}
-                          </span>
-                          <span className="activity-detail-date">
-                            {study.createdDate}
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="activity-detail-tasks">
+                {renderStudies(studies_js, studies_html.length)}
+              </div>
+            </div>
+
+            <div className="activity-detail-item">
+              <div className="activity-detail-item-header">
+                <h4>Học thiết kế Figma</h4>
+                <span id="checkbox-act">
+                  <Checkbox {...label} />
+                </span>
+              </div>
+              <div className="activity-detail-tasks">
+                {renderStudies(
+                  studies_figma,
+                  studies_html.length + studies_js.length
+                )}
               </div>
             </div>
           </div>
@@ -178,4 +211,5 @@ function ActivityDetail() {
     </div>
   );
 }
+
 export default ActivityDetail;
