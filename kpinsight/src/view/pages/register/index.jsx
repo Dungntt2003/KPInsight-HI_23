@@ -170,7 +170,7 @@ function Register() {
             <Form.Item
               className="register-form-item-mobile"
               style={{ textAlign: "center", marginLeft: "100px" }}
-              className="other-option-regis"
+              id="other-option-regis"
             >
               <div className="register-other-option">Hoặc</div>
             </Form.Item>

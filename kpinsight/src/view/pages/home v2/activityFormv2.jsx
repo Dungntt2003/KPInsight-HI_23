@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Button, Checkbox, Form, Modal, Select, Input, TimePicker } from "antd";
+import {
+  Button,
+  Checkbox,
+  Form,
+  Modal,
+  Select,
+  Input,
+  TimePicker,
+  message,
+} from "antd";
 import "./index.css";
 
 const { Option } = Select;
@@ -53,7 +62,7 @@ const ActivityForm = ({ visible, onCancel, activities }) => {
 
   const handleSubmit = () => {
     if (selectedActivities.length === 0) {
-      alert("Vui lòng chọn ít nhất một hoạt động.");
+      message.error("Vui lòng chọn ít nhất một hoạt động.");
     } else {
       console.log(selectedTag);
       console.log("Selected activities:", selectedActivities[0]);

@@ -1,11 +1,10 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Select, Tag, Pagination, message, Modal } from "antd";
 import {
   StarOutlined,
   StarFilled,
-  EditOutlined,
   CloseCircleOutlined,
 } from "@ant-design/icons";
 import ShowDataComponent from "./show_data_component";

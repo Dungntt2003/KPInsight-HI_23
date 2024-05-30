@@ -78,7 +78,7 @@
   .register-btn,
   .register-check,
   .register-btn-regis,
-  .other-option-regis,
+  #other-option-regis,
   .register-other-option {
     margin-left: 0;
   }
