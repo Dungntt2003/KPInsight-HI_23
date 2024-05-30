@@ -109,24 +109,22 @@ const ShowDetailComponent = ({ data, setDatas }) => {
           <div className="target-list-item">
             {groupedData[area].map((item) => (
               <div key={item.id} id="target-goalList-detail-item">
-                <div className="target-list-content-responsive">
-                  <Checkbox
-                    className="target-list-content"
-                    id="target-goalList-item-checkbox"
-                    onChangeCheckBox={() => onChangeCheckBox(item.id)}
-                    checked={checkedItems.includes(item.id)}
+                <Checkbox
+                  className="target-list-content"
+                  id="target-goalList-item-checkbox"
+                  onChangeCheckBox={() => onChangeCheckBox(item.id)}
+                  checked={checkedItems.includes(item.id)}
+                >
+                  <div
+                    style={{
+                      textDecoration: checkedItems.includes(item.id)
+                        ? "line-through"
+                        : "none",
+                    }}
                   >
-                    <div
-                      style={{
-                        textDecoration: checkedItems.includes(item.id)
-                          ? "line-through"
-                          : "none",
-                      }}
-                    >
-                      {item.content}
-                    </div>
-                  </Checkbox>
-                </div>
+                    {item.content}
+                  </div>
+                </Checkbox>
                 <div className="target-list-content-detail">
                   <div className="target-list-tag">{item.tag}</div>
                   <div className="target-detail-date">{item.createdDate}</div>
