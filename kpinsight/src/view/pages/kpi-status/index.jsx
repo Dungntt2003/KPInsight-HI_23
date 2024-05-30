@@ -258,6 +258,7 @@ const KpiStatus = () => {
     <div>
       <div>
         <NavbarStatus onMonthChange={handleMonthChange} />
+
         <h1 className="namepage">Trạng thái KPI</h1>
         <div className="select-tag">
           <Select

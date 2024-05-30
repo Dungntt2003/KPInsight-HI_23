@@ -9,11 +9,16 @@ const PieChart = ({ percentage }) => {
   }, [percentage]);
 
   useEffect(() => {
-    if (displayedPercentage < percentage) {
+    if (displayedPercentage !== percentage) {
       const interval = setInterval(() => {
         setDisplayedPercentage((prevPercentage) => {
-          const nextPercentage = prevPercentage + 1;
-          return nextPercentage > percentage ? percentage : nextPercentage;
+          if (prevPercentage < percentage) {
+            const nextPercentage = prevPercentage + 1;
+            return nextPercentage > percentage ? percentage : nextPercentage;
+          } else {
+            const nextPercentage = prevPercentage - 1;
+            return nextPercentage < percentage ? percentage : nextPercentage;
+          }
         });
       }, 10); // Tùy chỉnh tốc độ hiển thị
       return () => clearInterval(interval);
@@ -25,7 +30,7 @@ const PieChart = ({ percentage }) => {
   return (
     <div className="sum-rate-wrap">
       <div
-        className="sum-rate"
+        className={`sum-rate ${displayedPercentage < 0 ? "negative" : ""}`}
         style={{
           "--percentage": `${degree}deg`,
         }}

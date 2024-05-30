@@ -37,7 +37,7 @@
 .general-kpi {
   margin-top: 2vw;
   margin-left: 18vw;
-  width: 78vw;
+  width: 77vw;
   border: 3px solid #074979;
   border-radius: 15px;
   box-sizing: content-box;
@@ -165,7 +165,7 @@ canvas {
   border-radius: 15px;
   box-sizing: content-box;
   margin-bottom: 4vw;
-  width: 78vw !important;
+  width: 77vw !important;
   height: fit-content;
   border-radius: 15px;
 }

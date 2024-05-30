@@ -44,7 +44,7 @@ function NavbarStatus({ onMonthChange }) {
       {items.map((item) => (
         <div
           key={item.key}
-          className={item.children ? "navbar-status-more" : "none"}
+          className={item.children ? "navbar-status-more" : ""}
         >
           <div
             className={`navbar-item ${
@@ -54,8 +54,16 @@ function NavbarStatus({ onMonthChange }) {
             }`}
             onClick={() => handleItemClick(item.key, item.month)}
           >
-            {item.label}
-            {item.key === "sub1" && <DownOutlined className="downicon" />}
+            {item.key === "sub1" && openKeys.includes(item.key)
+              ? "Thu gọn"
+              : item.label}
+            {item.key === "sub1" && (
+              <DownOutlined
+                className={`downicon ${
+                  openKeys.includes(item.key) ? "rotate" : ""
+                }`}
+              />
+            )}
           </div>
           {item.children && openKeys.includes(item.key) && (
             <div className="navbar-submenu">
