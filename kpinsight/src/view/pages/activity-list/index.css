@@ -30,6 +30,8 @@
   padding: 20px;
   margin: 20px;
   text-align: center;
+  border: 2px solid #074979;
+  border-radius: 10px;
 }
 
 .act-pagi {
@@ -114,8 +116,6 @@
   #act-list-col {
     width: 80%;
     margin: 10px 0;
-    border: 2px solid #074979;
-    border-radius: 10px;
   }
   .act-list-col-main-contain {
     margin-left: 65px;
