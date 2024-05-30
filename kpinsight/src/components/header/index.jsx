@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-function Header() {
+function Header(props) {
   const [active, setActive] = useState("");
   const user = localStorage.getItem("username");
   const location = useLocation();
@@ -118,7 +118,7 @@ function Header() {
                   onClick={() => navigate(-1)}
                 />
               </div>
-              <div className="header-mobile-name-page">Tên Trang</div>
+              <div className="header-mobile-name-page">{props.name}</div>
             </>
           )}
           <div className="header-mobile-avatar">

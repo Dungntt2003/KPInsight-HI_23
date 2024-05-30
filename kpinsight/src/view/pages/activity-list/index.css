@@ -30,6 +30,8 @@
   padding: 20px;
   margin: 20px;
   text-align: center;
+  border: 2px solid #074979;
+  border-radius: 10px;
 }
 
 .act-pagi {
@@ -60,7 +62,7 @@
 #col-tag-done,
 #col-tag-2 {
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 #col-tag-done {
@@ -108,18 +110,21 @@
     width: 100%;
     padding: 0px;
   }
-  .act-pagi {
+  /* .act-pagi {
     display: none;
-  }
+  } */
   #act-list-col {
     width: 80%;
     margin: 10px 0;
-    border: 2px solid #074979;
-    border-radius: 10px;
   }
   .act-list-col-main-contain {
     margin-left: 65px;
     font-size: 16px;
     /* margin-top: auto; */
+  }
+  #col-tag-1,
+  #col-tag-done,
+  #col-tag-2 {
+    font-size: 13px;
   }
 }

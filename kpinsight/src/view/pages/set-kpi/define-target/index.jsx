@@ -12,6 +12,8 @@ import {
   Radio,
   Modal,
   Tour,
+  Popconfirm,
+  message,
 } from "antd";
 import { Link } from "react-router-dom";
 const { Paragraph } = Typography;
@@ -24,6 +26,11 @@ function DefineTarget() {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+    message.error("Hủy!");
+  };
+  const cancelPop = (e) => {
+    console.log(e);
+    message.error("Hủy xóa mục tiêu!");
   };
   const ref1 = useRef(null);
   const ref2 = useRef(null);
@@ -155,9 +162,12 @@ function DefineTarget() {
                         open={isModalOpen}
                         onOk={() => {
                           setIsModalOpen(false);
+                          message.success("Đã xóa lĩnh vực!");
                           remove(field.name);
                         }}
                         onCancel={handleCancel}
+                        okText="Xác nhận"
+                        cancelText="Hủy"
                       >
                         <p>Bạn có muốn xóa lĩnh vực không</p>
                       </Modal>
@@ -256,9 +266,12 @@ function DefineTarget() {
                                     open={isModalOpen}
                                     onOk={() => {
                                       setIsModalOpen(false);
+                                      message.success("Đã xóa nhãn!");
                                       remove(field1.name);
                                     }}
                                     onCancel={handleCancel}
+                                    okText="Xác nhận"
+                                    cancelText="Hủy"
                                   >
                                     <p>Bạn có muốn xóa nhãn không</p>
                                   </Modal>
@@ -293,14 +306,24 @@ function DefineTarget() {
                                                   value={subField1.first}
                                                 />
                                               </Form.Item>
-                                              <CloseOutlined
-                                                ref={ref3}
-                                                onClick={() => {
+                                              <Popconfirm
+                                                placement="bottomLeft"
+                                                title="Xóa hoạt động"
+                                                description="Xác nhận xóa hoạt động"
+                                                onConfirm={() => {
                                                   subOpt1.remove(
                                                     subField1.name
                                                   );
+                                                  message.success(
+                                                    "Đã xóa hoạt động!"
+                                                  );
                                                 }}
-                                              />
+                                                onCancel={cancelPop}
+                                                okText="Xác nhận"
+                                                cancelText="Hủy"
+                                              >
+                                                <CloseOutlined ref={ref3} />
+                                              </Popconfirm>
                                             </Space>
                                           ))}
 

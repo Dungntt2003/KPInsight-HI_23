@@ -91,7 +91,7 @@ function Target_list() {
       checked: false,
       content: "Chăm sóc sức khỏe",
       tag: (
-        <Tag id="tag-sk" color="magenta">
+        <Tag id="tag-sk" color="green">
           Sức khỏe
         </Tag>
       ),
@@ -170,7 +170,7 @@ function Target_list() {
       checked: false,
       content: "Thiền định",
       tag: (
-        <Tag id="tag-sk" color="magenta">
+        <Tag id="tag-sk" color="green">
           Sức khỏe
         </Tag>
       ),

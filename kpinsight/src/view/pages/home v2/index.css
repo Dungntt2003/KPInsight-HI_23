@@ -62,7 +62,8 @@
   width: 100%;
   max-width: 700px;
   font-size: 14px;
-  /* color: #fff; */
+  font-weight: bold;
+  /* color: #666; */
 }
 .tag {
   border-radius: 5px;
@@ -90,6 +91,10 @@
   background-color: #074979 !important;
   color: white !important;
   border: none !important;
+}
+
+.modal-home {
+  max-width: ;
 }
 
 .form-item {
@@ -125,7 +130,7 @@
   }
 
   .activity-detail {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .time {
@@ -173,5 +178,9 @@
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
+  }
+
+  .ant-modal-content {
+    width: 100% !important;
   }
 }
