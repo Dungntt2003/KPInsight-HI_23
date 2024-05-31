@@ -107,6 +107,9 @@
     justify-content: space-around;
     align-items: start;
   }
+  .help-popular-text {
+    font-size: 14px;
+  }
   .help-popular-item {
     margin: 8px 0;
     width: fit-content;
