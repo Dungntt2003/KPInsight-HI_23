@@ -21,7 +21,7 @@ const items = [
   {
     key: "3",
     icon: <SettingOutlined />,
-    label: "Cài đặt chung",
+    label: "Cài đặt",
   },
   {
     key: "4",

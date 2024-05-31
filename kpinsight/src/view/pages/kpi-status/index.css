@@ -234,7 +234,12 @@ canvas {
 .ant-collapse > .ant-collapse-item {
   border-bottom: 1px solid #074979;
 }
-
+.ant-collapse
+  > .ant-collapse-item
+  > .ant-collapse-header
+  .ant-collapse-expand-icon {
+  padding-top: 12px;
+}
 .detailKPI .activityKPI1,
 .activityKPI2,
 .activityKPI3,
@@ -352,7 +357,7 @@ canvas {
     display: none;
   }
   .navbar-menu-container {
-    display: none;
+    position: relative;
   }
 
   .select-tag {
@@ -420,7 +425,7 @@ canvas {
     margin: 2vw auto;
   }
   .suggest-name {
-    font-size: 14px;
+    font-size: 15px;
   }
   .suggest-notice {
     font-size: 14px;
@@ -443,7 +448,12 @@ canvas {
     font-weight: bold;
     z-index: 100;
   }
-
+  .ant-collapse
+    > .ant-collapse-item
+    > .ant-collapse-header
+    .ant-collapse-expand-icon {
+    padding-top: 0px;
+  }
   .detailKPI .activityKPI1,
   .activityKPI2,
   .activityKPI3,
@@ -492,7 +502,7 @@ canvas {
     margin-left: 0px;
   }
   .request-view-activity {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 0px;
   }
   .activity-chart {

@@ -58,9 +58,9 @@ function Home() {
   };
 
   const formatDate = (stringDate) => {
-    // const [hour, minute] = stringDate.split("T")[1].split(":").slice(0, 2);
-    // return hour + ":" + minute;
-    return stringDate;
+    const [hour, minute] = stringDate.split("T")[1].split(":").slice(0, 2);
+    return hour + ":" + minute;
+    // return stringDate;
   };
   return (
     <div className="home-main-container">

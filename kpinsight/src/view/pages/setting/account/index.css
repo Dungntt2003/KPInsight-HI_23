@@ -9,7 +9,7 @@
   padding-left: 200px;
   width: 60%;
   font-size: 30px;
-  font-weight: 900;
+  font-weight: 600;
   text-align: center;
   color: #074979;
 }
@@ -64,7 +64,7 @@
 .change-img {
   margin-top: 10px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
   color: white;
   background-color: #074979;
   padding: 3px 10px;
