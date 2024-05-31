@@ -30,6 +30,7 @@ import Welcome from "../pages/welcome";
 import GoalLayout from "../../components/goal-layout/goal-layout";
 import SettingForm from "../pages/setting/setting-form";
 import PieChart from "../../components/piechart";
+
 function AllRoutes() {
   return (
     <Routes>
@@ -37,6 +38,7 @@ function AllRoutes() {
         path="/register"
         element={<MainLayout component={<Register />} />}
       />
+
       <Route
         path="/navbar-status"
         element={<MainLayout component={<NavbarStatus />} />}

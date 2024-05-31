@@ -6,7 +6,7 @@
   .footer-container {
     display: block;
     margin-top: 50px;
-    z-index: 1000000;
+    z-index: 1000000 !important;
   }
   .footer-content {
     display: flex;
