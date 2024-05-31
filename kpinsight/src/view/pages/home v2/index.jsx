@@ -82,7 +82,7 @@ function Home() {
           />
         </Grid>
         <Grid xs={6} md={6} lg={4} className="current-kpi">
-          <PieChart percentage={83}></PieChart>
+          <PieChart percentage={31.2}></PieChart>
         </Grid>
 
         {/* <Grid xs={12} sm={6} md={3}>
