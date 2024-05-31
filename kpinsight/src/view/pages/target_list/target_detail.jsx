@@ -59,80 +59,80 @@ function Target_detail() {
       createdDate: "2023/07/30",
       star: false,
     },
-    {
-      id: 3,
-      area: "Xã hội",
-      checked: false,
-      content: "Tích cực hoạt động CLB Sách",
-      tag: (
-        <Tag id="tag-clb" color="magenta">
-          CLB
-        </Tag>
-      ),
-      createdDate: "2023/08/01",
-      star: false,
-    },
-    {
-      id: 4,
-      area: "Xã hội",
-      checked: true,
-      content: "Tham gia tình nguyện 'Mùa hè xanh'",
-      // tag: (
-      //     <Tag color="#074979">Ngoại ngữ</Tag>
-      // ),
-      createdDate: "2023/07/30",
-      star: true,
-    },
-    {
-      id: 5,
-      area: "Xã hội",
-      checked: false,
-      content: "Tham gia trải nghiệm làm gốm",
-      // tag: (
-      //     <Tag color="#074979">IT</Tag>
-      // ),
-      createdDate: "2023/07/30",
-      star: false,
-    },
-    {
-      id: 6,
-      area: "Cá nhân",
-      checked: false,
-      content: "Chăm sóc sức khỏe",
-      tag: (
-        <Tag id="tag-sk" color="magenta">
-          Sức khỏe
-        </Tag>
-      ),
-      createdDate: "2023/08/01",
-      star: false,
-    },
-    {
-      id: 7,
-      area: "Cá nhân",
-      checked: false,
-      content: "Dành thời gian cho gia đình",
-      tag: (
-        <Tag id="tag-gd" color="red">
-          Gia đình
-        </Tag>
-      ),
-      createdDate: "2023/07/30",
-      star: true,
-    },
-    {
-      id: 8,
-      area: "Cá nhân",
-      checked: false,
-      content: "Quản lý chi tiêu hiệu quả",
-      tag: (
-        <Tag id="tag-tc" color="orange">
-          Tài chính
-        </Tag>
-      ),
-      createdDate: "2023/07/30",
-      star: false,
-    },
+    // {
+    //   id: 3,
+    //   area: "Xã hội",
+    //   checked: false,
+    //   content: "Tích cực hoạt động CLB Sách",
+    //   tag: (
+    //     <Tag id="tag-clb" color="magenta">
+    //       CLB
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/08/01",
+    //   star: false,
+    // },
+    // {
+    //   id: 4,
+    //   area: "Xã hội",
+    //   checked: true,
+    //   content: "Tham gia tình nguyện 'Mùa hè xanh'",
+    //   // tag: (
+    //   //     <Tag color="#074979">Ngoại ngữ</Tag>
+    //   // ),
+    //   createdDate: "2023/07/30",
+    //   star: true,
+    // },
+    // {
+    //   id: 5,
+    //   area: "Xã hội",
+    //   checked: false,
+    //   content: "Tham gia trải nghiệm làm gốm",
+    //   // tag: (
+    //   //     <Tag color="#074979">IT</Tag>
+    //   // ),
+    //   createdDate: "2023/07/30",
+    //   star: false,
+    // },
+    // {
+    //   id: 6,
+    //   area: "Cá nhân",
+    //   checked: false,
+    //   content: "Chăm sóc sức khỏe",
+    //   tag: (
+    //     <Tag id="tag-sk" color="magenta">
+    //       Sức khỏe
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/08/01",
+    //   star: false,
+    // },
+    // {
+    //   id: 7,
+    //   area: "Cá nhân",
+    //   checked: false,
+    //   content: "Dành thời gian cho gia đình",
+    //   tag: (
+    //     <Tag id="tag-gd" color="red">
+    //       Gia đình
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/07/30",
+    //   star: true,
+    // },
+    // {
+    //   id: 8,
+    //   area: "Cá nhân",
+    //   checked: false,
+    //   content: "Quản lý chi tiêu hiệu quả",
+    //   tag: (
+    //     <Tag id="tag-tc" color="orange">
+    //       Tài chính
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/07/30",
+    //   star: false,
+    // },
     {
       id: 9,
       area: "Học tập",
@@ -172,32 +172,32 @@ function Target_detail() {
       createdDate: "2023/02/15",
       star: false,
     },
-    {
-      id: 12,
-      area: "Cá nhân",
-      checked: false,
-      content: "Thiền định",
-      tag: (
-        <Tag id="tag-sk" color="magenta">
-          Sức khỏe
-        </Tag>
-      ),
-      createdDate: "2023/05/10",
-      star: true,
-    },
-    {
-      id: 13,
-      area: "Cá nhân",
-      checked: false,
-      content: "Đọc sách mỗi ngày",
-      // tag: (
-      //   <Tag id="tag-ss" color="blue">
-      //     Sách
-      //   </Tag>
-      // ),
-      createdDate: "2023/05/11",
-      star: true,
-    },
+    // {
+    //   id: 12,
+    //   area: "Cá nhân",
+    //   checked: false,
+    //   content: "Thiền định",
+    //   tag: (
+    //     <Tag id="tag-sk" color="magenta">
+    //       Sức khỏe
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/05/10",
+    //   star: true,
+    // },
+    // {
+    //   id: 13,
+    //   area: "Cá nhân",
+    //   checked: false,
+    //   content: "Đọc sách mỗi ngày",
+    //   // tag: (
+    //   //   <Tag id="tag-ss" color="blue">
+    //   //     Sách
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/05/11",
+    //   star: true,
+    // },
     {
       id: 14,
       area: "Học tập",
@@ -224,123 +224,123 @@ function Target_detail() {
       createdDate: "2023/03/15",
       star: true,
     },
-    {
-      id: 16,
-      area: "Kỹ năng",
-      checked: true,
-      content: "Tham gia khóa học nấu ăn",
-      // tag: (
-      //   <Tag id="tag-cc" color="yellow">
-      //     Ẩm thực
-      //   </Tag>
-      // ),
-      createdDate: "2023/06/01",
-      star: false,
-    },
-    {
-      id: 17,
-      area: "Kỹ năng",
-      checked: false,
-      content: "Tham gia khóa học giao tiếp",
-      // tag: (
-      //   <Tag id="tag-gt" color="orange">
-      //     Giao tiếp
-      //   </Tag>
-      // ),
-      createdDate: "2023/06/10",
-      star: false,
-    },
-    {
-      id: 18,
-      area: "Kỹ năng",
-      checked: false,
-      content: "Học kỹ năng quản lý thời gian",
-      tag: (
-        <Tag id="tag-qt" color="blue">
-          Quản lý thời gian
-        </Tag>
-      ),
-      createdDate: "2023/07/01",
-      star: true,
-    },
-    {
-      id: 19,
-      area: "Kỹ năng",
-      checked: false,
-      content: "Học kỹ năng làm việc nhóm",
-      // tag: (
-      //   <Tag id="tag-lamviecnhom" color="lime">
-      //     Làm việc nhóm
-      //   </Tag>
-      // ),
-      createdDate: "2023/08/20",
-      star: false,
-    },
-    {
-      id: 20,
-      area: "Kỹ năng",
-      checked: true,
-      content: "Tham gia buổi hòa nhạc",
-      // tag: (
-      //   <Tag id="tag-hn" color="purple">
-      //     Âm nhạc
-      //   </Tag>
-      // ),
-      createdDate: "2023/07/20",
-      star: false,
-    },
-    {
-      id: 21,
-      area: "Kỹ năng",
-      checked: true,
-      content: "Chơi cờ vua với bạn bè",
-      // tag: (
-      //   <Tag id="tag-cv" color="black">
-      //     Cờ vua
-      //   </Tag>
-      // ),
-      createdDate: "2023/07/25",
-      star: false,
-    },
-    {
-      id: 22,
-      area: "Kỹ năng",
-      checked: false,
-      content: "Học kỹ năng thuyết trình",
-      // tag: (
-      //   <Tag id="tag-thuyettrinh" color="cyan">
-      //     Thuyết trình
-      //   </Tag>
-      // ),
-      createdDate: "2023/08/10",
-      star: true,
-    },
-    {
-      id: 23,
-      area: "Xã hội",
-      checked: false,
-      content: "Tham gia chiến dịch bảo vệ môi trường",
-      // tag: (
-      //   <Tag id="tag-mt" color="brown">
-      //     Môi trường
-      //   </Tag>
-      // ),
-      createdDate: "2023/08/15",
-      star: false,
-    },
-    {
-      id: 24,
-      area: "Xã hội",
-      checked: true,
-      content: "Tham gia hội thảo phát triển bền vững",
-      // tag: (
-      //   <Tag id="tag-ptbv" color="purple">
-      //     Phát triển bền vững
-      //   </Tag>
-      // ),
-      createdDate: "2023/08/20",
-      star: true,
-    },
+    // {
+    //   id: 16,
+    //   area: "Kỹ năng",
+    //   checked: true,
+    //   content: "Tham gia khóa học nấu ăn",
+    //   // tag: (
+    //   //   <Tag id="tag-cc" color="yellow">
+    //   //     Ẩm thực
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/06/01",
+    //   star: false,
+    // },
+    // {
+    //   id: 17,
+    //   area: "Kỹ năng",
+    //   checked: false,
+    //   content: "Tham gia khóa học giao tiếp",
+    //   // tag: (
+    //   //   <Tag id="tag-gt" color="orange">
+    //   //     Giao tiếp
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/06/10",
+    //   star: false,
+    // },
+    // {
+    //   id: 18,
+    //   area: "Kỹ năng",
+    //   checked: false,
+    //   content: "Học kỹ năng quản lý thời gian",
+    //   tag: (
+    //     <Tag id="tag-qt" color="blue">
+    //       Quản lý thời gian
+    //     </Tag>
+    //   ),
+    //   createdDate: "2023/07/01",
+    //   star: true,
+    // },
+    // {
+    //   id: 19,
+    //   area: "Kỹ năng",
+    //   checked: false,
+    //   content: "Học kỹ năng làm việc nhóm",
+    //   // tag: (
+    //   //   <Tag id="tag-lamviecnhom" color="lime">
+    //   //     Làm việc nhóm
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/08/20",
+    //   star: false,
+    // },
+    // {
+    //   id: 20,
+    //   area: "Kỹ năng",
+    //   checked: true,
+    //   content: "Tham gia buổi hòa nhạc",
+    //   // tag: (
+    //   //   <Tag id="tag-hn" color="purple">
+    //   //     Âm nhạc
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/07/20",
+    //   star: false,
+    // },
+    // {
+    //   id: 21,
+    //   area: "Kỹ năng",
+    //   checked: true,
+    //   content: "Chơi cờ vua với bạn bè",
+    //   // tag: (
+    //   //   <Tag id="tag-cv" color="black">
+    //   //     Cờ vua
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/07/25",
+    //   star: false,
+    // },
+    // {
+    //   id: 22,
+    //   area: "Kỹ năng",
+    //   checked: false,
+    //   content: "Học kỹ năng thuyết trình",
+    //   // tag: (
+    //   //   <Tag id="tag-thuyettrinh" color="cyan">
+    //   //     Thuyết trình
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/08/10",
+    //   star: true,
+    // },
+    // {
+    //   id: 23,
+    //   area: "Xã hội",
+    //   checked: false,
+    //   content: "Tham gia chiến dịch bảo vệ môi trường",
+    //   // tag: (
+    //   //   <Tag id="tag-mt" color="brown">
+    //   //     Môi trường
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/08/15",
+    //   star: false,
+    // },
+    // {
+    //   id: 24,
+    //   area: "Xã hội",
+    //   checked: true,
+    //   content: "Tham gia hội thảo phát triển bền vững",
+    //   // tag: (
+    //   //   <Tag id="tag-ptbv" color="purple">
+    //   //     Phát triển bền vững
+    //   //   </Tag>
+    //   // ),
+    //   createdDate: "2023/08/20",
+    //   star: true,
+    // },
   ]);
 
   //Area location

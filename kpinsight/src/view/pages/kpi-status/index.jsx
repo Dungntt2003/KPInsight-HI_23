@@ -507,6 +507,13 @@ const KpiStatus = () => {
                         max={item.max}
                         score={item.score}
                       />
+                      {/* <ConfettiEffect
+                        width={dimensions.width}
+                        height={dimensions.height}
+                        x={position.x}
+                        y={position.y}
+                        run={hover}
+                      /> */}
                     </div>
                     {/* <ConfettiEffect
                       width={dimensions.width}

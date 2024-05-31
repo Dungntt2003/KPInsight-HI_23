@@ -46,6 +46,11 @@ function TurnStandard() {
   const ref3 = useRef(null);
   const ref4 = useRef(null);
   const ref5 = useRef(null);
+  // const ref6 = useRef(null);
+  // const ref7 = useRef(null);
+  // const ref8 = useRef(null);
+  // const ref9 = useRef(null);
+  // const ref10 = useRef(null);
   const steps = [
     {
       title: "Thêm hoạt động",
@@ -82,6 +87,41 @@ function TurnStandard() {
       description: "Ấn đê thêm các hoạt động cho mục tiêu",
       target: () => ref5.current,
     },
+    // {
+    //   title: "Thêm hoạt động",
+    //   description: "Thêm hoạt động cho mục tiêu",
+    //   // cover: (
+    //   //   <img
+    //   //     alt="tour.png"
+    //   //     src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+    //   //   />
+    //   // ),
+    //   target: () => ref6.current,
+    // },
+    // {
+    //   title: "Chi tiết",
+    //   description:
+    //     "Có 2 cách thiết lập cho từng hoạt động: Theo đơn vị hoặc theo nhiệm vụ. Theo đơn vị ví dụ như học từ bài 1 tới bài 10, theo nhiệm vụ(chia hoạt động thành từng hoạt động con) ví dụ làm project gồm các nhiệm vụ như phân tích yêu cầu, thiết kế, lập trình, ....  mỗi cách thiết lập đều cần nhập phần giá trị tối thiểu và tối đa bạn muốn đạt được để hệ thống thực hiện đánh giá KPI",
+    //   cover: <img alt="way1" src={Way1} />,
+    //   target: () => ref7.current,
+    // },
+    // {
+    //   title: "Đơn vị",
+    //   description:
+    //     "Đơn vị ví dụ như bài (bài 1), từ (từ 100), phần (phần 1). Đơn vị dành cho cácch thiết lập 'Theo đơn vị'",
+    //   target: () => ref8.current,
+    // },
+    // {
+    //   title: "Thời lượng",
+    //   description:
+    //     "Định lượng cho việc thực hiện 1 đơn vị hoặc 1 nhiệm vụ. Thời lượng ước tính dùng để đánh giá hiệu suất hoàn thành mục tiêu",
+    //   target: () => ref9.current,
+    // },
+    // {
+    //   title: "Thêm hoạt động",
+    //   description: "Ấn đê thêm các hoạt động cho mục tiêu",
+    //   target: () => ref10.current,
+    // },
   ];
   const onNameChange = (event) => {
     setName(event.target.value);
@@ -386,11 +426,12 @@ function TurnStandard() {
         </div>
       </div>
       <Modal
+        className="modal-for-mobile"
         title="Quy chuẩn KPI"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
-        style={{ minWidth: "900px" }}
+        // style={{ width: "900px" }}
       >
         <Button
           type="primary"
@@ -747,18 +788,10 @@ function TurnStandard() {
           </Form.List>
         </Form>
         <div className="turn-standard-tags for-mobile">
-          <div className="turn-standard-act-name" ref={ref1}>
-            Tên hoạt động
-          </div>
-          <div className="turn-standard-act-detail" ref={ref2}>
-            Chi tiết
-          </div>
-          <div className="turn-standard-act-unit" ref={ref3}>
-            Đơn vị
-          </div>
-          <div className="turn-standard-act-time" ref={ref4}>
-            Thời lượng
-          </div>
+          <div className="turn-standard-act-name">Tên hoạt động</div>
+          <div className="turn-standard-act-detail">Chi tiết</div>
+          <div className="turn-standard-act-unit">Đơn vị</div>
+          <div className="turn-standard-act-time">Thời lượng</div>
         </div>
         {/* Add task to goal */}
         <Form
@@ -1084,7 +1117,7 @@ function TurnStandard() {
                       className="turn-standard-btn-add"
                       style={{ width: "50%" }}
                       icon={<PlusOutlined />}
-                      ref={ref5}
+                      // ref={ref10}
                     >
                       Thêm hoạt động
                     </Button>
