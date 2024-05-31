@@ -29,10 +29,18 @@ const ChangePassword = () => {
       <div className="namepage-changepassword">Thay đổi mật khẩu</div>
       <div className="change-password-wrap">
         <Form className="reset-form" autoComplete="off" onFinish={handleFinish}>
-          <Form.Item label={<KeyOutlined />} name="old-password" rules={[]}>
+          <Form.Item
+            label={<KeyOutlined />}
+            name="old-password"
+            rules={[{ required: true, message: "Hãy nhập mật khẩu cũ" }]}
+          >
             <Input.Password placeholder="Nhập mật khẩu cũ" />
           </Form.Item>
-          <Form.Item label={<KeyOutlined />} name="new-password" rules={[]}>
+          <Form.Item
+            label={<KeyOutlined />}
+            name="new-password"
+            rules={[{ required: true, message: "Hãy nhập mật khẩu mới" }]}
+          >
             <Input.Password placeholder="Nhập mật khẩu mới" />
           </Form.Item>
           <Form.Item
@@ -40,7 +48,7 @@ const ChangePassword = () => {
             name="again-password"
             dependencies={["new-password"]}
             rules={[
-              {},
+              { required: true, message: "Hãy nhập lại mật khẩu mới" },
               ({ getFieldValue }) => ({
                 validator(_, value) {
                   if (!value || getFieldValue("new-password") === value) {

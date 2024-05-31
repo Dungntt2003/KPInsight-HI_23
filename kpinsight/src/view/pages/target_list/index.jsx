@@ -390,22 +390,38 @@ function Target_list() {
 
   //Pagigation
   const [current, setCurrent] = useState(1);
+  const indexPerPage = 10;
   const handlePagination = (page) => {
-    console.log(page);
     setCurrent(page);
   };
 
   // Filtered data based on selected tag
   const filteredData = datas.filter(
-    (item) =>
+    (data) =>
       selectedTag === "Tất cả nhãn" ||
-      (item.tag && item.tag.props && item.tag.props.children === selectedTag)
+      (data.tag && data.tag.props.children === selectedTag)
   );
+
+  // Paginate data
+  const indexOfLastData = current * indexPerPage;
+  const indexOfFirstData = indexOfLastData - indexPerPage;
+  const currentData = datas.slice(indexOfFirstData, indexOfLastData);
 
   // Render filtered data
   const getFilteredData = () => {
     if (selectedTag === "Tất cả nhãn") {
-      return <ShowDataComponent data={datas} setDatas={setDatas} />;
+      return (
+        <div>
+          <ShowDataComponent data={datas} setDatas={setDatas} />
+          <Pagination
+            className="target-list-pagination-container"
+            current={current}
+            total={datas.length}
+            pageSize={indexPerPage}
+            onChange={handlePagination}
+          />
+        </div>
+      );
     } else {
       return (
         <div className="target-list-wrap">
@@ -441,6 +457,13 @@ function Target_list() {
               </div>
             </div>
           ))}
+          <Pagination
+            className="target-list-pagination-container"
+            current={current}
+            total={filteredData.length}
+            pageSize={indexPerPage}
+            onChange={handlePagination}
+          />
         </div>
       );
     }
@@ -526,15 +549,6 @@ function Target_list() {
       </div>
 
       {getFilteredData()}
-
-      <div className="target-list-pagination-container">
-        <Pagination
-          // showQuickJumper
-          defaultCurrent={1}
-          total={50}
-          onChange={handlePagination}
-        />
-      </div>
     </div>
   );
 }
